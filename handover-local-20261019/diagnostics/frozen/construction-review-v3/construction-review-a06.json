@@ -1,0 +1,29 @@
+{
+  "name": "construction-review-a06",
+  "timeout": 840,
+  "memory_gib": 14,
+  "args": [
+    "--graphics-api",
+    "vulkan",
+    "--defer-stage",
+    "--cpu-threads",
+    "16",
+    "--shader-concurrency",
+    "1",
+    "--gui",
+    "--disable-motion-bvh",
+    "--async-loads",
+    "--first-frame-timeout",
+    "480",
+    "--camera-size",
+    "960",
+    "600",
+    "--scene",
+    "D:/RAVEN-4060/assets/handover-scenes-20261019/ConstructionSite/ConstructionSite_Export.usd",
+    "--review-manifest",
+    "D:/RAVEN-4060/setup/construction-review-v3/review-input-a06.json"
+  ],
+  "ros2": false,
+  "env": {},
+  "retry_basis": "Continue independent remaining targets in <=8-target batches. Keep 14GiB/840s outer, 960x600, 90 warmup and 60 consecutive useful frames. 60s per-view limit records rejected buffers/failure and skips; partial batch remains non-success."
+}

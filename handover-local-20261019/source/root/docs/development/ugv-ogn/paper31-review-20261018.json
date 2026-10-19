@@ -1,0 +1,2707 @@
+{
+  "task": "Local-Scene1-Reproduction / Scene1-Paper31-ReviewPacket",
+  "job": "paper31-review-a01",
+  "passed": true,
+  "scope": "static review material generated; not human target approval",
+  "scene_sha256": "2a7141ce928c432f031f78a6b1c3798eaa932431d5a1735f8bad513694afce32",
+  "runtime": {
+    "isaac_sim": "4.5",
+    "platform": "native Windows",
+    "container_tag": null,
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "driver": "577.02",
+    "graphics_api": "Vulkan",
+    "command": [
+      "cmd.exe",
+      "/d",
+      "/c",
+      "D:\\RAVEN-4060\\isaac45\\python.bat",
+      "D:\\RAVEN-4060\\setup\\probe-paper31-review-a01.py",
+      "--output",
+      "D:\\RAVEN-4060\\logs\\paper31-review-a01-frames",
+      "--graphics-api",
+      "vulkan",
+      "--defer-stage",
+      "--cpu-threads",
+      "16",
+      "--shader-concurrency",
+      "1",
+      "--gui",
+      "--disable-motion-bvh",
+      "--async-loads",
+      "--first-frame-timeout",
+      "480",
+      "--camera-size",
+      "960",
+      "600",
+      "--scene",
+      "D:\\RAVEN-4060\\source\\AirStack\\scenes\\RetroNeighborhood\\RetroNeighborhood_Export.usd",
+      "--review-manifest",
+      "D:\\RAVEN-4060\\setup\\paper31-review-input.json"
+    ],
+    "ros_topics_tf": "not applicable: static review, no ROS launched",
+    "log": "paper31-review-a01/stdout.log"
+  },
+  "target_count": 31,
+  "image_count": 62,
+  "ambiguous_target_count": 24,
+  "class_counts": {
+    "billboard": 4,
+    "bus stop": 3,
+    "house": 18,
+    "tunnel": 1,
+    "blue container": 2,
+    "red container": 1,
+    "red car": 1,
+    "yellow car": 1
+  },
+  "reviewed_target_count": 0,
+  "formal_map_created": false,
+  "formal_episode_count": 0,
+  "human_review_status": "pending",
+  "target_geometry": [
+    {
+      "instance_id": "RetroNeighborhood.billboard.0000",
+      "semantic_class": "billboard",
+      "center_delta_m": 0.26078502685492566,
+      "volume_ratio": 0.9962364617302365,
+      "binding_issues": [
+        "ambiguous_match"
+      ],
+      "review_notes": [
+        "自动绑定存在歧义"
+      ],
+      "review_status": "pending"
+    },
+    {
+      "instance_id": "RetroNeighborhood.billboard.0001",
+      "semantic_class": "billboard",
+      "center_delta_m": 0.2382913835693261,
+      "volume_ratio": 0.996236461730233,
+      "binding_issues": [
+        "ambiguous_match"
+      ],
+      "review_notes": [
+        "自动绑定存在歧义"
+      ],
+      "review_status": "pending"
+    },
+    {
+      "instance_id": "RetroNeighborhood.billboard.0002",
+      "semantic_class": "billboard",
+      "center_delta_m": 0.24716236220773782,
+      "volume_ratio": 1.0153588697702218,
+      "binding_issues": [
+        "ambiguous_match"
+      ],
+      "review_notes": [
+        "自动绑定存在歧义"
+      ],
+      "review_status": "pending"
+    },
+    {
+      "instance_id": "RetroNeighborhood.billboard.0003",
+      "semantic_class": "billboard",
+      "center_delta_m": 0.20962626600097528,
+      "volume_ratio": 1.015358869770222,
+      "binding_issues": [
+        "ambiguous_match"
+      ],
+      "review_notes": [
+        "自动绑定存在歧义"
+      ],
+      "review_status": "pending"
+    },
+    {
+      "instance_id": "RetroNeighborhood.bus_stop.0000",
+      "semantic_class": "bus stop",
+      "center_delta_m": 0.07852077011307367,
+      "volume_ratio": 1.5182854486542425,
+      "binding_issues": [
+        "ambiguous_match"
+      ],
+      "review_notes": [
+        "自动绑定存在歧义"
+      ],
+      "review_status": "pending"
+    },
+    {
+      "instance_id": "RetroNeighborhood.bus_stop.0001",
+      "semantic_class": "bus stop",
+      "center_delta_m": 0.1699919096971421,
+      "volume_ratio": 1.013548647668705,
+      "binding_issues": [
+        "ambiguous_match"
+      ],
+      "review_notes": [
+        "自动绑定存在歧义"
+      ],
+      "review_status": "pending"
+    },
+    {
+      "instance_id": "RetroNeighborhood.bus_stop.0002",
+      "semantic_class": "bus stop",
+      "center_delta_m": 0.18819784723421354,
+      "volume_ratio": 1.0135417826390685,
+      "binding_issues": [
+        "ambiguous_match"
+      ],
+      "review_notes": [
+        "自动绑定存在歧义"
+      ],
+      "review_status": "pending"
+    },
+    {
+      "instance_id": "RetroNeighborhood.house.0000",
+      "semantic_class": "house",
+      "center_delta_m": 0.1761663608640825,
+      "volume_ratio": 1.0012205255192839,
+      "binding_issues": [
+        "ambiguous_match"
+      ],
+      "review_notes": [
+        "自动绑定存在歧义"
+      ],
+      "review_status": "pending"
+    },
+    {
+      "instance_id": "RetroNeighborhood.house.0001",
+      "semantic_class": "house",
+      "center_delta_m": 0.15913975536950117,
+      "volume_ratio": 0.9988249337783082,
+      "binding_issues": [
+        "ambiguous_match"
+      ],
+      "review_notes": [
+        "自动绑定存在歧义"
+      ],
+      "review_status": "pending"
+    },
+    {
+      "instance_id": "RetroNeighborhood.house.0002",
+      "semantic_class": "house",
+      "center_delta_m": 0.2223493929574349,
+      "volume_ratio": 1.001301423986264,
+      "binding_issues": [],
+      "review_notes": [
+        "仍需人工核对类别、范围和实例层级"
+      ],
+      "review_status": "pending"
+    },
+    {
+      "instance_id": "RetroNeighborhood.house.0003",
+      "semantic_class": "house",
+      "center_delta_m": 0.181073026296611,
+      "volume_ratio": 0.99882711082785,
+      "binding_issues": [
+        "ambiguous_match"
+      ],
+      "review_notes": [
+        "自动绑定存在歧义"
+      ],
+      "review_status": "pending"
+    },
+    {
+      "instance_id": "RetroNeighborhood.house.0004",
+      "semantic_class": "house",
+      "center_delta_m": 0.22820846064275818,
+      "volume_ratio": 1.0079026109333697,
+      "binding_issues": [
+        "ambiguous_match"
+      ],
+      "review_notes": [
+        "自动绑定存在歧义"
+      ],
+      "review_status": "pending"
+    },
+    {
+      "instance_id": "RetroNeighborhood.house.0005",
+      "semantic_class": "house",
+      "center_delta_m": 0.20487952312879731,
+      "volume_ratio": 0.9983913071408027,
+      "binding_issues": [
+        "ambiguous_match"
+      ],
+      "review_notes": [
+        "自动绑定存在歧义"
+      ],
+      "review_status": "pending"
+    },
+    {
+      "instance_id": "RetroNeighborhood.house.0006",
+      "semantic_class": "house",
+      "center_delta_m": 0.17726655123013832,
+      "volume_ratio": 1.0051523795317248,
+      "binding_issues": [
+        "ambiguous_match"
+      ],
+      "review_notes": [
+        "自动绑定存在歧义"
+      ],
+      "review_status": "pending"
+    },
+    {
+      "instance_id": "RetroNeighborhood.house.0007",
+      "semantic_class": "house",
+      "center_delta_m": 0.18296706971644497,
+      "volume_ratio": 1.001304628785099,
+      "binding_issues": [],
+      "review_notes": [
+        "仍需人工核对类别、范围和实例层级"
+      ],
+      "review_status": "pending"
+    },
+    {
+      "instance_id": "RetroNeighborhood.house.0008",
+      "semantic_class": "house",
+      "center_delta_m": 0.19762783934270747,
+      "volume_ratio": 1.001301423986264,
+      "binding_issues": [],
+      "review_notes": [
+        "仍需人工核对类别、范围和实例层级"
+      ],
+      "review_status": "pending"
+    },
+    {
+      "instance_id": "RetroNeighborhood.house.0009",
+      "semantic_class": "house",
+      "center_delta_m": 0.24445387636052446,
+      "volume_ratio": 1.0024252754248604,
+      "binding_issues": [
+        "ambiguous_match"
+      ],
+      "review_notes": [
+        "自动绑定存在歧义"
+      ],
+      "review_status": "pending"
+    },
+    {
+      "instance_id": "RetroNeighborhood.house.0010",
+      "semantic_class": "house",
+      "center_delta_m": 0.18699007533122383,
+      "volume_ratio": 1.0012746934510504,
+      "binding_issues": [
+        "ambiguous_match"
+      ],
+      "review_notes": [
+        "自动绑定存在歧义"
+      ],
+      "review_status": "pending"
+    },
+    {
+      "instance_id": "RetroNeighborhood.house.0011",
+      "semantic_class": "house",
+      "center_delta_m": 0.1869900714965012,
+      "volume_ratio": 1.0012752372384213,
+      "binding_issues": [
+        "ambiguous_match"
+      ],
+      "review_notes": [
+        "自动绑定存在歧义"
+      ],
+      "review_status": "pending"
+    },
+    {
+      "instance_id": "RetroNeighborhood.house.0012",
+      "semantic_class": "house",
+      "center_delta_m": 0.1987185057991333,
+      "volume_ratio": 1.0012249735855923,
+      "binding_issues": [],
+      "review_notes": [
+        "仍需人工核对类别、范围和实例层级"
+      ],
+      "review_status": "pending"
+    },
+    {
+      "instance_id": "RetroNeighborhood.house.0013",
+      "semantic_class": "house",
+      "center_delta_m": 0.2326591296651129,
+      "volume_ratio": 1.0013173021974584,
+      "binding_issues": [
+        "ambiguous_match"
+      ],
+      "review_notes": [
+        "自动绑定存在歧义"
+      ],
+      "review_status": "pending"
+    },
+    {
+      "instance_id": "RetroNeighborhood.house.0014",
+      "semantic_class": "house",
+      "center_delta_m": 0.20033664600722967,
+      "volume_ratio": 1.0013202094273652,
+      "binding_issues": [
+        "ambiguous_match"
+      ],
+      "review_notes": [
+        "自动绑定存在歧义"
+      ],
+      "review_status": "pending"
+    },
+    {
+      "instance_id": "RetroNeighborhood.house.0015",
+      "semantic_class": "house",
+      "center_delta_m": 0.18111508020059802,
+      "volume_ratio": 1.0013143949675523,
+      "binding_issues": [
+        "ambiguous_match"
+      ],
+      "review_notes": [
+        "自动绑定存在歧义"
+      ],
+      "review_status": "pending"
+    },
+    {
+      "instance_id": "RetroNeighborhood.house.0016",
+      "semantic_class": "house",
+      "center_delta_m": 0.18254978093529176,
+      "volume_ratio": 0.9999856891697018,
+      "binding_issues": [
+        "ambiguous_match"
+      ],
+      "review_notes": [
+        "自动绑定存在歧义"
+      ],
+      "review_status": "pending"
+    },
+    {
+      "instance_id": "RetroNeighborhood.house.0017",
+      "semantic_class": "house",
+      "center_delta_m": 0.18254978093531873,
+      "volume_ratio": 0.9999862217931611,
+      "binding_issues": [
+        "ambiguous_match"
+      ],
+      "review_notes": [
+        "自动绑定存在歧义"
+      ],
+      "review_status": "pending"
+    },
+    {
+      "instance_id": "RetroNeighborhood.tunnel.0000",
+      "semantic_class": "tunnel",
+      "center_delta_m": 0.2005466691503289,
+      "volume_ratio": 1.0000011138230651,
+      "binding_issues": [
+        "ambiguous_match"
+      ],
+      "review_notes": [
+        "自动绑定存在歧义"
+      ],
+      "review_status": "pending"
+    },
+    {
+      "instance_id": "RetroNeighborhood.blue_container.0000",
+      "semantic_class": "blue container",
+      "center_delta_m": 0.17719569720888215,
+      "volume_ratio": 0.9968424465343739,
+      "binding_issues": [],
+      "review_notes": [
+        "仍需人工核对类别、范围和实例层级"
+      ],
+      "review_status": "pending"
+    },
+    {
+      "instance_id": "RetroNeighborhood.blue_container.0001",
+      "semantic_class": "blue container",
+      "center_delta_m": 0.23956875511579162,
+      "volume_ratio": 0.9968362700817854,
+      "binding_issues": [],
+      "review_notes": [
+        "仍需人工核对类别、范围和实例层级"
+      ],
+      "review_status": "pending"
+    },
+    {
+      "instance_id": "RetroNeighborhood.red_container.0000",
+      "semantic_class": "red container",
+      "center_delta_m": 0.17725770757664872,
+      "volume_ratio": 0.9968424465343727,
+      "binding_issues": [],
+      "review_notes": [
+        "仍需人工核对类别、范围和实例层级"
+      ],
+      "review_status": "pending"
+    },
+    {
+      "instance_id": "RetroNeighborhood.red_car.0000",
+      "semantic_class": "red car",
+      "center_delta_m": 0.3983543882010066,
+      "volume_ratio": 0.20446240439549504,
+      "binding_issues": [
+        "ambiguous_match"
+      ],
+      "review_notes": [
+        "自动绑定存在歧义",
+        "候选/标注体积差异较大，需核对模型层级",
+        "建议由 Object_9 改绑整车根节点；方案未应用"
+      ],
+      "review_status": "pending"
+    },
+    {
+      "instance_id": "RetroNeighborhood.yellow_car.0000",
+      "semantic_class": "yellow car",
+      "center_delta_m": 0.8447445234900876,
+      "volume_ratio": 3.2928745762052145,
+      "binding_issues": [
+        "ambiguous_match"
+      ],
+      "review_notes": [
+        "自动绑定存在歧义",
+        "候选/标注体积差异较大，需核对模型层级"
+      ],
+      "review_status": "pending"
+    }
+  ],
+  "images": [
+    {
+      "file": "view-0.png",
+      "eye": [
+        3.6804090080430907,
+        -64.1195909919569,
+        15.475973943847045
+      ],
+      "target": [
+        -8.3,
+        -76.1,
+        9.7
+      ],
+      "mean": 137.8076087962963,
+      "std": 77.98365469748508,
+      "nonblack_fraction": 0.9860746527777777,
+      "rendering_frame": 221,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 3.4666668474674225,
+      "instance_id": "RetroNeighborhood.billboard.0000",
+      "view_index": 0,
+      "target_index": 0,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "cb18f1f95e9551cba46c040abb252c8048ab477bfec18e6b934d379d4c8866a5",
+      "original_rgb": true
+    },
+    {
+      "file": "view-1.png",
+      "eye": [
+        -20.280409008043094,
+        -88.08040900804309,
+        15.475973943847045
+      ],
+      "target": [
+        -8.3,
+        -76.1,
+        9.7
+      ],
+      "mean": 145.50635416666665,
+      "std": 73.94556974461722,
+      "nonblack_fraction": 0.9868246527777778,
+      "rendering_frame": 391,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 6.300000328570604,
+      "instance_id": "RetroNeighborhood.billboard.0000",
+      "view_index": 1,
+      "target_index": 0,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "f422bf6d4cfcaae92632d145693dc1b2813c71f42280982413607f512c8da24e",
+      "original_rgb": true
+    },
+    {
+      "file": "view-2.png",
+      "eye": [
+        2.9804090080430914,
+        -62.919590991956916,
+        15.475973943847045
+      ],
+      "target": [
+        -9.0,
+        -74.9,
+        9.7
+      ],
+      "mean": 137.8337633101852,
+      "std": 77.85499813112334,
+      "nonblack_fraction": 0.9885381944444445,
+      "rendering_frame": 541,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 8.800000458955765,
+      "instance_id": "RetroNeighborhood.billboard.0001",
+      "view_index": 0,
+      "target_index": 1,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "a261bd28ff073b248a556292e2dfbf728f6211f3ffde1ba6e86edce7d7b627eb",
+      "original_rgb": true
+    },
+    {
+      "file": "view-3.png",
+      "eye": [
+        -20.980409008043093,
+        -86.8804090080431,
+        15.475973943847045
+      ],
+      "target": [
+        -9.0,
+        -74.9,
+        9.7
+      ],
+      "mean": 144.7414837962963,
+      "std": 74.68895916239099,
+      "nonblack_fraction": 0.9874444444444445,
+      "rendering_frame": 691,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 11.300000589340925,
+      "instance_id": "RetroNeighborhood.billboard.0001",
+      "view_index": 1,
+      "target_index": 1,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "6374e545bff8f1541043639066791d20c29a7435972d13c1f3e169628486acf8",
+      "original_rgb": true
+    },
+    {
+      "file": "view-4.png",
+      "eye": [
+        -4.486436301425165,
+        19.513563698574835,
+        15.443746599563738
+      ],
+      "target": [
+        -16.4,
+        7.6,
+        9.7
+      ],
+      "mean": 122.88873784722222,
+      "std": 68.38523805988036,
+      "nonblack_fraction": 0.9883246527777778,
+      "rendering_frame": 841,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 13.800000719726086,
+      "instance_id": "RetroNeighborhood.billboard.0002",
+      "view_index": 0,
+      "target_index": 2,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "657e1df5e7f45332bed027424c34f314852a53973e474e2a7fd3e49570ddbfb5",
+      "original_rgb": true
+    },
+    {
+      "file": "view-5.png",
+      "eye": [
+        -28.313563698574832,
+        -4.313563698574832,
+        15.443746599563738
+      ],
+      "target": [
+        -16.4,
+        7.6,
+        9.7
+      ],
+      "mean": 183.75749016203704,
+      "std": 60.28606376847043,
+      "nonblack_fraction": 0.9965034722222222,
+      "rendering_frame": 991,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 16.300000850111246,
+      "instance_id": "RetroNeighborhood.billboard.0002",
+      "view_index": 1,
+      "target_index": 2,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "58c104989fcc48ade80cd8749a79d102f53ab6f3ba61a9dbb37d9de19990e266",
+      "original_rgb": true
+    },
+    {
+      "file": "view-6.png",
+      "eye": [
+        -5.386436301425167,
+        20.613563698574833,
+        15.443746599563738
+      ],
+      "target": [
+        -17.3,
+        8.7,
+        9.7
+      ],
+      "mean": 121.80559722222222,
+      "std": 67.78484333048038,
+      "nonblack_fraction": 0.9888385416666666,
+      "rendering_frame": 1141,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 18.800000980496407,
+      "instance_id": "RetroNeighborhood.billboard.0003",
+      "view_index": 0,
+      "target_index": 3,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "318e30531a02b0d451cf73522627923eaa1d51913350e445c225c6d02d962a53",
+      "original_rgb": true
+    },
+    {
+      "file": "view-7.png",
+      "eye": [
+        -29.213563698574838,
+        -3.2135636985748324,
+        15.443746599563738
+      ],
+      "target": [
+        -17.3,
+        8.7,
+        9.7
+      ],
+      "mean": 184.003984375,
+      "std": 59.69789698843964,
+      "nonblack_fraction": 0.9967256944444445,
+      "rendering_frame": 1291,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 21.300001110881567,
+      "instance_id": "RetroNeighborhood.billboard.0003",
+      "view_index": 1,
+      "target_index": 3,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "118c184db2a52667116a576d6e684c9e2291be15e9789daf4eaa79d25c1edbac",
+      "original_rgb": true
+    },
+    {
+      "file": "view-8.png",
+      "eye": [
+        125.41143722593692,
+        7.01143722593693,
+        6.515967650405933
+      ],
+      "target": [
+        114.8,
+        -3.6,
+        1.4
+      ],
+      "mean": 108.10155555555555,
+      "std": 66.17233986059841,
+      "nonblack_fraction": 0.9745607638888889,
+      "rendering_frame": 1441,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 23.800001241266727,
+      "instance_id": "RetroNeighborhood.bus_stop.0000",
+      "view_index": 0,
+      "target_index": 4,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "3584b74c4f2e57dd6454a52db650f29ac5affe1a0c8417673276319495e1e9e0",
+      "original_rgb": true
+    },
+    {
+      "file": "view-9.png",
+      "eye": [
+        104.18856277406306,
+        -14.211437225936928,
+        6.515967650405933
+      ],
+      "target": [
+        114.8,
+        -3.6,
+        1.4
+      ],
+      "mean": 128.95455671296295,
+      "std": 84.47814471063067,
+      "nonblack_fraction": 0.9436284722222222,
+      "rendering_frame": 1591,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 26.300001371651888,
+      "instance_id": "RetroNeighborhood.bus_stop.0000",
+      "view_index": 1,
+      "target_index": 4,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "5b665a1392ac66005db48cfe680d26f1f1532e90da659757b56898925e888313",
+      "original_rgb": true
+    },
+    {
+      "file": "view-10.png",
+      "eye": [
+        5.21143722593693,
+        -17.48856277406307,
+        6.515967650405933
+      ],
+      "target": [
+        -5.4,
+        -28.1,
+        1.4
+      ],
+      "mean": 109.62597511574074,
+      "std": 85.37451334220513,
+      "nonblack_fraction": 0.8497743055555556,
+      "rendering_frame": 1741,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 28.80000150203705,
+      "instance_id": "RetroNeighborhood.bus_stop.0001",
+      "view_index": 0,
+      "target_index": 5,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "f6f91fd2517497c088e3e66144d82440146b23c51329128f02c47912d10ede65",
+      "original_rgb": true
+    },
+    {
+      "file": "view-11.png",
+      "eye": [
+        -16.01143722593693,
+        -38.71143722593693,
+        6.515967650405933
+      ],
+      "target": [
+        -5.4,
+        -28.1,
+        1.4
+      ],
+      "mean": 150.34044733796296,
+      "std": 77.84226009886845,
+      "nonblack_fraction": 0.9611024305555556,
+      "rendering_frame": 1891,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 31.30000163242221,
+      "instance_id": "RetroNeighborhood.bus_stop.0001",
+      "view_index": 1,
+      "target_index": 5,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "402f699a70d1eb978443e95bbbc9902987fbd69ba873ecb66cf822d560f9fedd",
+      "original_rgb": true
+    },
+    {
+      "file": "view-12.png",
+      "eye": [
+        -16.888562774063068,
+        -2.9885627740630696,
+        6.515967650405933
+      ],
+      "target": [
+        -27.5,
+        -13.6,
+        1.4
+      ],
+      "mean": 151.61021180555556,
+      "std": 75.3469503756072,
+      "nonblack_fraction": 0.9839496527777778,
+      "rendering_frame": 2041,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 33.80000176280737,
+      "instance_id": "RetroNeighborhood.bus_stop.0002",
+      "view_index": 0,
+      "target_index": 6,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "b18efdc832cf6c807754f9b8ff9882aa2f4aaa17adb901d717e6e312f95612ba",
+      "original_rgb": true
+    },
+    {
+      "file": "view-13.png",
+      "eye": [
+        -38.11143722593693,
+        -24.211437225936926,
+        6.515967650405933
+      ],
+      "target": [
+        -27.5,
+        -13.6,
+        1.4
+      ],
+      "mean": 185.10665798611112,
+      "std": 49.474273462137944,
+      "nonblack_fraction": 0.9983142361111111,
+      "rendering_frame": 2191,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 36.30000189319253,
+      "instance_id": "RetroNeighborhood.bus_stop.0002",
+      "view_index": 1,
+      "target_index": 6,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "4a9cc51bb1f8e0e2d11f1d0f746953dc4549716f41c2b1414c438eda82c7a8cc",
+      "original_rgb": true
+    },
+    {
+      "file": "view-14.png",
+      "eye": [
+        3.7330641552969155,
+        41.03306415529692,
+        23.504247577033578
+      ],
+      "target": [
+        -36.1,
+        1.2,
+        4.3
+      ],
+      "mean": 151.3913894675926,
+      "std": 71.32854561946034,
+      "nonblack_fraction": 0.9926059027777778,
+      "rendering_frame": 2341,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 38.80000202357769,
+      "instance_id": "RetroNeighborhood.house.0000",
+      "view_index": 0,
+      "target_index": 7,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "9d317419dfd65d7977a79d84a0183f3369eda98438fdc3519f0b580407cce3d6",
+      "original_rgb": true
+    },
+    {
+      "file": "view-15.png",
+      "eye": [
+        -75.93306415529693,
+        -38.63306415529691,
+        23.504247577033578
+      ],
+      "target": [
+        -36.1,
+        1.2,
+        4.3
+      ],
+      "mean": 185.72986921296297,
+      "std": 54.035992370710886,
+      "nonblack_fraction": 0.9994496527777778,
+      "rendering_frame": 2491,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 41.30000215396285,
+      "instance_id": "RetroNeighborhood.house.0000",
+      "view_index": 1,
+      "target_index": 7,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "1972786a0abc3d8031c228735405b5fb2b7e84600a86dc7bd4821a5fce35f6c3",
+      "original_rgb": true
+    },
+    {
+      "file": "view-16.png",
+      "eye": [
+        190.4151044268606,
+        45.1151044268606,
+        23.1562490357914
+      ],
+      "target": [
+        148.4,
+        3.1,
+        2.9
+      ],
+      "mean": 114.06386631944444,
+      "std": 77.55973957487187,
+      "nonblack_fraction": 0.981078125,
+      "rendering_frame": 2641,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 43.80000228434801,
+      "instance_id": "RetroNeighborhood.house.0001",
+      "view_index": 0,
+      "target_index": 8,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "c608e0902766ca30b6de1ef7a90fc44f53cbe1421bda95bd995470e111aacf8f",
+      "original_rgb": true
+    },
+    {
+      "file": "view-17.png",
+      "eye": [
+        106.3848955731394,
+        -38.91510442686059,
+        23.1562490357914
+      ],
+      "target": [
+        148.4,
+        3.1,
+        2.9
+      ],
+      "mean": 174.4971226851852,
+      "std": 63.89962335105149,
+      "nonblack_fraction": 0.9947708333333334,
+      "rendering_frame": 2791,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 46.30000241473317,
+      "instance_id": "RetroNeighborhood.house.0001",
+      "view_index": 1,
+      "target_index": 8,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "d3ac00c16f4eb793fa005b75d8dab4ad9b3a0c1b56772021fc95f022b54faed8",
+      "original_rgb": true
+    },
+    {
+      "file": "view-18.png",
+      "eye": [
+        -22.731161771026663,
+        35.26883822897334,
+        23.523351957474215
+      ],
+      "target": [
+        -59.7,
+        -1.7,
+        5.7
+      ],
+      "mean": 138.38133912037037,
+      "std": 73.24067073009226,
+      "nonblack_fraction": 0.9888263888888889,
+      "rendering_frame": 2941,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 48.80000254511833,
+      "instance_id": "RetroNeighborhood.house.0002",
+      "view_index": 0,
+      "target_index": 9,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "5408f5efa8c0619047aa878159c43eed0455d0e66252caf448e4748872fa9e8c",
+      "original_rgb": true
+    },
+    {
+      "file": "view-19.png",
+      "eye": [
+        -96.66883822897336,
+        -38.668838228973335,
+        23.523351957474215
+      ],
+      "target": [
+        -59.7,
+        -1.7,
+        5.7
+      ],
+      "mean": 180.93338888888889,
+      "std": 59.63656125196923,
+      "nonblack_fraction": 0.9966128472222222,
+      "rendering_frame": 3091,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 51.30000267550349,
+      "instance_id": "RetroNeighborhood.house.0002",
+      "view_index": 1,
+      "target_index": 9,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "63c3c58265ae3826d2380550f9d38be9b58e178c5c7e318896d1e1155faf9718",
+      "original_rgb": true
+    },
+    {
+      "file": "view-20.png",
+      "eye": [
+        76.1151044268606,
+        1.1151044268605972,
+        23.1562490357914
+      ],
+      "target": [
+        34.1,
+        -40.9,
+        2.9
+      ],
+      "mean": 135.40954398148148,
+      "std": 82.54308120037257,
+      "nonblack_fraction": 0.9487760416666666,
+      "rendering_frame": 3241,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 53.80000280588865,
+      "instance_id": "RetroNeighborhood.house.0003",
+      "view_index": 0,
+      "target_index": 10,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "7a4a94adf336b84069b7908666971136426434abc5aace466926aa5182a1cdfd",
+      "original_rgb": true
+    },
+    {
+      "file": "view-21.png",
+      "eye": [
+        -7.9151044268606014,
+        -82.91510442686058,
+        23.1562490357914
+      ],
+      "target": [
+        34.1,
+        -40.9,
+        2.9
+      ],
+      "mean": 151.75839814814816,
+      "std": 76.72619318810085,
+      "nonblack_fraction": 0.9825243055555556,
+      "rendering_frame": 3391,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 56.30000293627381,
+      "instance_id": "RetroNeighborhood.house.0003",
+      "view_index": 1,
+      "target_index": 10,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "a0df45fcf517cc129d7113975297fc3db65206db68a4f2094e45a8c367cc624d",
+      "original_rgb": true
+    },
+    {
+      "file": "view-22.png",
+      "eye": [
+        -2.9931538564982745,
+        -6.393153856498273,
+        20.584592443329264
+      ],
+      "target": [
+        -37.6,
+        -41.0,
+        3.9
+      ],
+      "mean": 149.24406770833335,
+      "std": 73.35565581848635,
+      "nonblack_fraction": 0.9890746527777777,
+      "rendering_frame": 3541,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 58.800003066658974,
+      "instance_id": "RetroNeighborhood.house.0004",
+      "view_index": 0,
+      "target_index": 11,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "0a096f88fbe7fcad2661f74a28589c4accf69121ce706b3d5fb4f16fb749ca59",
+      "original_rgb": true
+    },
+    {
+      "file": "view-23.png",
+      "eye": [
+        -72.20684614350174,
+        -75.60684614350171,
+        20.584592443329264
+      ],
+      "target": [
+        -37.6,
+        -41.0,
+        3.9
+      ],
+      "mean": 175.55475752314814,
+      "std": 59.8367359311271,
+      "nonblack_fraction": 0.9967083333333333,
+      "rendering_frame": 3691,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 61.300003197044134,
+      "instance_id": "RetroNeighborhood.house.0004",
+      "view_index": 1,
+      "target_index": 11,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "8fac2bbbf9795672a63a816c62537aa27501fc7858dc0131e1a374431f2f6d26",
+      "original_rgb": true
+    },
+    {
+      "file": "view-24.png",
+      "eye": [
+        -51.197427105158255,
+        11.402572894841754,
+        33.69628664595945
+      ],
+      "target": [
+        -107.4,
+        -44.8,
+        6.6
+      ],
+      "mean": 158.53074016203703,
+      "std": 72.01332647018671,
+      "nonblack_fraction": 0.9917916666666666,
+      "rendering_frame": 3841,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 63.800003327429295,
+      "instance_id": "RetroNeighborhood.house.0005",
+      "view_index": 0,
+      "target_index": 12,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "c97ce92f34bdda1795c9279141a264b80bfdb10530d2c8fbb7caf57b29c1ffc1",
+      "original_rgb": true
+    },
+    {
+      "file": "view-25.png",
+      "eye": [
+        -163.60257289484176,
+        -101.00257289484173,
+        33.69628664595945
+      ],
+      "target": [
+        -107.4,
+        -44.8,
+        6.6
+      ],
+      "mean": 178.72321006944443,
+      "std": 61.08158546988528,
+      "nonblack_fraction": 0.9984149305555555,
+      "rendering_frame": 3991,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 66.30000345781446,
+      "instance_id": "RetroNeighborhood.house.0005",
+      "view_index": 1,
+      "target_index": 12,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "d0a41dbac94c44b64aeffa58bd4ac5f63cd27fe6b6cd716a0f15c59373a28b7b",
+      "original_rgb": true
+    },
+    {
+      "file": "view-26.png",
+      "eye": [
+        77.93805137802067,
+        47.838051378020666,
+        25.576184177724514
+      ],
+      "target": [
+        33.6,
+        3.5,
+        4.2
+      ],
+      "mean": 118.7488443287037,
+      "std": 77.07728224069126,
+      "nonblack_fraction": 0.970828125,
+      "rendering_frame": 4141,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 68.80000358819962,
+      "instance_id": "RetroNeighborhood.house.0006",
+      "view_index": 0,
+      "target_index": 13,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "7c031a7af347c4d1a20940250788b091397bf430a137c8062a807617d192cc2e",
+      "original_rgb": true
+    },
+    {
+      "file": "view-27.png",
+      "eye": [
+        -10.738051378020671,
+        -40.83805137802066,
+        25.576184177724514
+      ],
+      "target": [
+        33.6,
+        3.5,
+        4.2
+      ],
+      "mean": 184.77257581018517,
+      "std": 59.95313123036902,
+      "nonblack_fraction": 0.9956944444444444,
+      "rendering_frame": 4291,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 71.30000371858478,
+      "instance_id": "RetroNeighborhood.house.0006",
+      "view_index": 1,
+      "target_index": 13,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "4e5cb083f68b7e3305b20e1402c0e7fc8939a8af1c4df12eed9a97c003fe20dc",
+      "original_rgb": true
+    },
+    {
+      "file": "view-28.png",
+      "eye": [
+        174.56883822897333,
+        -1.2311617710266631,
+        23.523351957474215
+      ],
+      "target": [
+        137.6,
+        -38.2,
+        5.7
+      ],
+      "mean": 122.21408333333333,
+      "std": 83.09108019601868,
+      "nonblack_fraction": 0.9693489583333333,
+      "rendering_frame": 4441,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 73.80000384896994,
+      "instance_id": "RetroNeighborhood.house.0007",
+      "view_index": 0,
+      "target_index": 14,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "8c0f1468f224fe7c669eb96d25cee4ffe1eea1abcd35bb1dea08bc495f5ee244",
+      "original_rgb": true
+    },
+    {
+      "file": "view-29.png",
+      "eye": [
+        100.63116177102665,
+        -75.16883822897333,
+        23.523351957474215
+      ],
+      "target": [
+        137.6,
+        -38.2,
+        5.7
+      ],
+      "mean": 170.95381307870372,
+      "std": 69.29301453045159,
+      "nonblack_fraction": 0.9905642361111111,
+      "rendering_frame": 4591,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 76.3000039793551,
+      "instance_id": "RetroNeighborhood.house.0007",
+      "view_index": 1,
+      "target_index": 14,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "600e5b1fba79e6bdcd2c1de5d81fc1b6d82c5e9aac3c849cd611fadb07de9037",
+      "original_rgb": true
+    },
+    {
+      "file": "view-30.png",
+      "eye": [
+        102.26883822897334,
+        41.16883822897334,
+        23.523351957474215
+      ],
+      "target": [
+        65.3,
+        4.2,
+        5.7
+      ],
+      "mean": 109.04377025462964,
+      "std": 77.52005297778571,
+      "nonblack_fraction": 0.9613350694444445,
+      "rendering_frame": 4741,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 78.80000410974026,
+      "instance_id": "RetroNeighborhood.house.0008",
+      "view_index": 0,
+      "target_index": 15,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "858b24108151cc2a0767cfc9d473e65962c55e7ba2bac19a6ff1f4724d5ffbaa",
+      "original_rgb": true
+    },
+    {
+      "file": "view-31.png",
+      "eye": [
+        28.33116177102665,
+        -32.76883822897333,
+        23.523351957474215
+      ],
+      "target": [
+        65.3,
+        4.2,
+        5.7
+      ],
+      "mean": 179.76545023148148,
+      "std": 61.099044025668164,
+      "nonblack_fraction": 0.9970486111111111,
+      "rendering_frame": 4891,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 81.30000424012542,
+      "instance_id": "RetroNeighborhood.house.0008",
+      "view_index": 1,
+      "target_index": 15,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "4f8570cd07aa7b44f0db50d4c7d8412059ff2e1fd93af858b48cfc7ac7bd7303",
+      "original_rgb": true
+    },
+    {
+      "file": "view-32.png",
+      "eye": [
+        128.5610442881108,
+        36.7610442881108,
+        22.258934184487984
+      ],
+      "target": [
+        93.8,
+        2.0,
+        5.5
+      ],
+      "mean": 102.27661284722222,
+      "std": 79.63688388719953,
+      "nonblack_fraction": 0.9604166666666667,
+      "rendering_frame": 5041,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 83.80000437051058,
+      "instance_id": "RetroNeighborhood.house.0009",
+      "view_index": 0,
+      "target_index": 16,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "9154357f291085ada4346825df95987ca76bc344a064e3578f6dcb32e645ba32",
+      "original_rgb": true
+    },
+    {
+      "file": "view-33.png",
+      "eye": [
+        59.038955711889194,
+        -32.761044288110796,
+        22.258934184487984
+      ],
+      "target": [
+        93.8,
+        2.0,
+        5.5
+      ],
+      "mean": 171.72309664351852,
+      "std": 65.64745002148092,
+      "nonblack_fraction": 0.9943402777777778,
+      "rendering_frame": 5191,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 86.30000450089574,
+      "instance_id": "RetroNeighborhood.house.0009",
+      "view_index": 1,
+      "target_index": 16,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "9a65ff0d50074da02935666e386a282397d2aeb0caf769dc0a5d25f6a35615fc",
+      "original_rgb": true
+    },
+    {
+      "file": "view-34.png",
+      "eye": [
+        105.05879779625815,
+        -4.54120220374184,
+        22.909501539194665
+      ],
+      "target": [
+        64.8,
+        -44.8,
+        3.5
+      ],
+      "mean": 140.81262847222223,
+      "std": 79.56344724357382,
+      "nonblack_fraction": 0.9635225694444445,
+      "rendering_frame": 5341,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 88.8000046312809,
+      "instance_id": "RetroNeighborhood.house.0010",
+      "view_index": 0,
+      "target_index": 17,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "dcb0997f8122392772034d14cb35a950aef47f6ff0c344e88d8cf0d15803f612",
+      "original_rgb": true
+    },
+    {
+      "file": "view-35.png",
+      "eye": [
+        24.541202203741832,
+        -85.05879779625815,
+        22.909501539194665
+      ],
+      "target": [
+        64.8,
+        -44.8,
+        3.5
+      ],
+      "mean": 169.1632650462963,
+      "std": 65.78016215709373,
+      "nonblack_fraction": 0.9966649305555556,
+      "rendering_frame": 5491,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 91.30000476166606,
+      "instance_id": "RetroNeighborhood.house.0010",
+      "view_index": 1,
+      "target_index": 17,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "32436c1fd8e86ba0cf0f14fd22aaef2d832113a2152a2a765eba428429b475db",
+      "original_rgb": true
+    },
+    {
+      "file": "view-36.png",
+      "eye": [
+        -18.841202203741844,
+        -0.8412022037418438,
+        22.909501539194665
+      ],
+      "target": [
+        -59.1,
+        -41.1,
+        3.5
+      ],
+      "mean": 147.7300023148148,
+      "std": 74.46273178794925,
+      "nonblack_fraction": 0.990125,
+      "rendering_frame": 5641,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 93.80000489205122,
+      "instance_id": "RetroNeighborhood.house.0011",
+      "view_index": 0,
+      "target_index": 18,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "ebd14b9314d0fa6da5ee0d770ac2b2443de59f1146ff4f5bc9e3c0cda4a6be1c",
+      "original_rgb": true
+    },
+    {
+      "file": "view-37.png",
+      "eye": [
+        -99.35879779625816,
+        -81.35879779625816,
+        22.909501539194665
+      ],
+      "target": [
+        -59.1,
+        -41.1,
+        3.5
+      ],
+      "mean": 174.73991145833332,
+      "std": 63.23332973036022,
+      "nonblack_fraction": 0.9964288194444444,
+      "rendering_frame": 5791,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 96.30000502243638,
+      "instance_id": "RetroNeighborhood.house.0011",
+      "view_index": 1,
+      "target_index": 18,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "6ae3cdfcf72496a68406efb7820073062c34adfb1421b815aa82d58478744cab",
+      "original_rgb": true
+    },
+    {
+      "file": "view-38.png",
+      "eye": [
+        136.03306415529693,
+        -1.9669358447030802,
+        23.504247577033578
+      ],
+      "target": [
+        96.2,
+        -41.8,
+        4.3
+      ],
+      "mean": 137.89472800925927,
+      "std": 79.97858561036132,
+      "nonblack_fraction": 0.9774479166666666,
+      "rendering_frame": 5941,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 98.80000515282154,
+      "instance_id": "RetroNeighborhood.house.0012",
+      "view_index": 0,
+      "target_index": 19,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "c18fa08af2fe280b60c565a3e9506867b81902d1b361c9a706e97a2d4d605dbf",
+      "original_rgb": true
+    },
+    {
+      "file": "view-39.png",
+      "eye": [
+        56.36693584470308,
+        -81.6330641552969,
+        23.504247577033578
+      ],
+      "target": [
+        96.2,
+        -41.8,
+        4.3
+      ],
+      "mean": 177.56647048611111,
+      "std": 62.31233530724874,
+      "nonblack_fraction": 0.9967621527777778,
+      "rendering_frame": 6091,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 101.3000052832067,
+      "instance_id": "RetroNeighborhood.house.0012",
+      "view_index": 1,
+      "target_index": 19,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "70bd4d6943d7da390784b25eeab33191ec31fc0a2ea5a4dee5033d201ed0249d",
+      "original_rgb": true
+    },
+    {
+      "file": "view-40.png",
+      "eye": [
+        -53.23550180199938,
+        52.86449819800062,
+        26.23714649854313
+      ],
+      "target": [
+        -97.7,
+        8.4,
+        4.8
+      ],
+      "mean": 135.5064832175926,
+      "std": 81.60814564721558,
+      "nonblack_fraction": 0.9853020833333334,
+      "rendering_frame": 6241,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 103.80000541359186,
+      "instance_id": "RetroNeighborhood.house.0013",
+      "view_index": 0,
+      "target_index": 20,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "1b803ada70d439c3c5f8900adcd405f67083f5526df387da224f6877dc4c917e",
+      "original_rgb": true
+    },
+    {
+      "file": "view-41.png",
+      "eye": [
+        -142.16449819800062,
+        -36.064498198000614,
+        26.23714649854313
+      ],
+      "target": [
+        -97.7,
+        8.4,
+        4.8
+      ],
+      "mean": 183.25637962962963,
+      "std": 59.45607598918556,
+      "nonblack_fraction": 0.998046875,
+      "rendering_frame": 6391,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 106.30000554397702,
+      "instance_id": "RetroNeighborhood.house.0013",
+      "view_index": 1,
+      "target_index": 20,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "10a291a8141f3affb1089fd0fac8e37ef60dc7cce0d5123bed65cd20c5ecacab",
+      "original_rgb": true
+    },
+    {
+      "file": "view-42.png",
+      "eye": [
+        182.66449819800062,
+        -22.935501801999386,
+        26.23714649854313
+      ],
+      "target": [
+        138.2,
+        -67.4,
+        4.8
+      ],
+      "mean": 125.35123958333334,
+      "std": 81.93275775872277,
+      "nonblack_fraction": 0.983828125,
+      "rendering_frame": 6541,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 108.80000567436218,
+      "instance_id": "RetroNeighborhood.house.0014",
+      "view_index": 0,
+      "target_index": 21,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "8a06e62d15289fb8a49a46d0766782a8039a0b72890723344a106703ad47e1f0",
+      "original_rgb": true
+    },
+    {
+      "file": "view-43.png",
+      "eye": [
+        93.73550180199936,
+        -111.86449819800062,
+        26.23714649854313
+      ],
+      "target": [
+        138.2,
+        -67.4,
+        4.8
+      ],
+      "mean": 174.34489525462962,
+      "std": 64.1412455265966,
+      "nonblack_fraction": 0.9958715277777778,
+      "rendering_frame": 6691,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 111.30000580474734,
+      "instance_id": "RetroNeighborhood.house.0014",
+      "view_index": 1,
+      "target_index": 21,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "2dd93c26fcabe94aa93955782201ede9136b21137af7e6cec80a9d0714835481",
+      "original_rgb": true
+    },
+    {
+      "file": "view-44.png",
+      "eye": [
+        145.36449819800063,
+        -29.935501801999386,
+        26.23714649854313
+      ],
+      "target": [
+        100.9,
+        -74.4,
+        4.8
+      ],
+      "mean": 144.49994270833332,
+      "std": 79.14902787414789,
+      "nonblack_fraction": 0.9797118055555556,
+      "rendering_frame": 6841,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 113.8000059351325,
+      "instance_id": "RetroNeighborhood.house.0015",
+      "view_index": 0,
+      "target_index": 22,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "c266ed6e75fa671087387088431d35ebae0fdb6e08318f17516d9339593ec513",
+      "original_rgb": true
+    },
+    {
+      "file": "view-45.png",
+      "eye": [
+        56.43550180199938,
+        -118.86449819800062,
+        26.23714649854313
+      ],
+      "target": [
+        100.9,
+        -74.4,
+        4.8
+      ],
+      "mean": 180.48819502314814,
+      "std": 60.57401096121635,
+      "nonblack_fraction": 0.9978628472222222,
+      "rendering_frame": 6991,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 116.30000606551766,
+      "instance_id": "RetroNeighborhood.house.0015",
+      "view_index": 1,
+      "target_index": 22,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "157db27e56d352e6cb8dbc96e74e84d53b1e0f2cec32e45a7214c4f2ed8df210",
+      "original_rgb": true
+    },
+    {
+      "file": "view-46.png",
+      "eye": [
+        131.5430425975718,
+        66.44304259757182,
+        17.236087593250463
+      ],
+      "target": [
+        101.6,
+        36.5,
+        2.8
+      ],
+      "mean": 95.63673958333334,
+      "std": 77.30998606780929,
+      "nonblack_fraction": 0.9449097222222222,
+      "rendering_frame": 7141,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 118.80000619590282,
+      "instance_id": "RetroNeighborhood.house.0016",
+      "view_index": 0,
+      "target_index": 23,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "0b5622e8e325cb2c2d6ce5b2bfdd2b98c8104f1ccb1cfa9aa08ba3da002ba786",
+      "original_rgb": true
+    },
+    {
+      "file": "view-47.png",
+      "eye": [
+        71.65695740242818,
+        6.556957402428193,
+        17.236087593250463
+      ],
+      "target": [
+        101.6,
+        36.5,
+        2.8
+      ],
+      "mean": 145.55566319444443,
+      "std": 80.76576618380423,
+      "nonblack_fraction": 0.9822447916666667,
+      "rendering_frame": 7291,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 121.30000632628798,
+      "instance_id": "RetroNeighborhood.house.0016",
+      "view_index": 1,
+      "target_index": 23,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "81a90c9a3d44e267a198eb89952c7718eb8369a126475491031a4809e78c9764",
+      "original_rgb": true
+    },
+    {
+      "file": "view-48.png",
+      "eye": [
+        191.8430425975718,
+        -7.456957402428184,
+        17.236087593250463
+      ],
+      "target": [
+        161.9,
+        -37.4,
+        2.8
+      ],
+      "mean": 111.16425925925925,
+      "std": 76.3694270207593,
+      "nonblack_fraction": 0.9684270833333334,
+      "rendering_frame": 7441,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 123.80000645667315,
+      "instance_id": "RetroNeighborhood.house.0017",
+      "view_index": 0,
+      "target_index": 24,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "9339d72277477ad3bfb34c220ad98b45aee38fb6b3532091945881719f568604",
+      "original_rgb": true
+    },
+    {
+      "file": "view-49.png",
+      "eye": [
+        131.9569574024282,
+        -67.34304259757181,
+        17.236087593250463
+      ],
+      "target": [
+        161.9,
+        -37.4,
+        2.8
+      ],
+      "mean": 154.65342361111112,
+      "std": 72.52327761268305,
+      "nonblack_fraction": 0.9923732638888889,
+      "rendering_frame": 7591,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 126.3000065870583,
+      "instance_id": "RetroNeighborhood.house.0017",
+      "view_index": 1,
+      "target_index": 24,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "cb6aa452f574a7c19ffdaa94235e06fd509b611336e24f49ab1902e71c4a00b7",
+      "original_rgb": true
+    },
+    {
+      "file": "view-50.png",
+      "eye": [
+        30.104618259755792,
+        -69.09538174024422,
+        31.311715890373183
+      ],
+      "target": [
+        -19.7,
+        -118.9,
+        7.3
+      ],
+      "mean": 170.81613483796298,
+      "std": 65.86266865548066,
+      "nonblack_fraction": 0.9944479166666667,
+      "rendering_frame": 7741,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 128.80000671744347,
+      "instance_id": "RetroNeighborhood.tunnel.0000",
+      "view_index": 0,
+      "target_index": 25,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "8e8c6653432839907323a3033cb38a7ca5c95959b031d44f2bdcd21c8814e614",
+      "original_rgb": true
+    },
+    {
+      "file": "view-51.png",
+      "eye": [
+        -69.5046182597558,
+        -168.7046182597558,
+        31.311715890373183
+      ],
+      "target": [
+        -19.7,
+        -118.9,
+        7.3
+      ],
+      "mean": 185.04052083333335,
+      "std": 52.26608973167825,
+      "nonblack_fraction": 0.9990347222222222,
+      "rendering_frame": 7891,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 131.30000684782863,
+      "instance_id": "RetroNeighborhood.tunnel.0000",
+      "view_index": 1,
+      "target_index": 25,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "9631c6f57501d57da7620c203d8aad2e62f4b4998a7716d873517bf4757336e1",
+      "original_rgb": true
+    },
+    {
+      "file": "view-52.png",
+      "eye": [
+        21.19066035947192,
+        24.090660359471922,
+        9.77733995953952
+      ],
+      "target": [
+        9.0,
+        11.9,
+        3.9
+      ],
+      "mean": 127.74333564814815,
+      "std": 69.28260086035529,
+      "nonblack_fraction": 0.9805034722222222,
+      "rendering_frame": 8041,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 133.8000069782138,
+      "instance_id": "RetroNeighborhood.blue_container.0000",
+      "view_index": 0,
+      "target_index": 26,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "9b5bff57a761ec84914c3ba5abc37447a7042811d3888ac0530709696978a693",
+      "original_rgb": true
+    },
+    {
+      "file": "view-53.png",
+      "eye": [
+        -3.1906603594719236,
+        -0.2906603594719197,
+        9.77733995953952
+      ],
+      "target": [
+        9.0,
+        11.9,
+        3.9
+      ],
+      "mean": 190.39544386574073,
+      "std": 57.07789859332249,
+      "nonblack_fraction": 0.993484375,
+      "rendering_frame": 8191,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 136.30000710859895,
+      "instance_id": "RetroNeighborhood.blue_container.0000",
+      "view_index": 1,
+      "target_index": 26,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "bee360b88a334d7208989c63067c75d98481e91921ec72885dcb6e0f2af5a2e8",
+      "original_rgb": true
+    },
+    {
+      "file": "view-54.png",
+      "eye": [
+        3.2906603594719215,
+        23.490660359471924,
+        9.77733995953952
+      ],
+      "target": [
+        -8.9,
+        11.3,
+        3.9
+      ],
+      "mean": 144.60154398148148,
+      "std": 66.64499972682378,
+      "nonblack_fraction": 0.9959149305555556,
+      "rendering_frame": 8341,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 138.8000072389841,
+      "instance_id": "RetroNeighborhood.blue_container.0001",
+      "view_index": 0,
+      "target_index": 27,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "dac8fc22e6fe10c70226a432d0421d4b82bd3252c1ce286853e790a734585b29",
+      "original_rgb": true
+    },
+    {
+      "file": "view-55.png",
+      "eye": [
+        -21.090660359471926,
+        -0.8906603594719193,
+        9.77733995953952
+      ],
+      "target": [
+        -8.9,
+        11.3,
+        3.9
+      ],
+      "mean": 189.76619618055557,
+      "std": 53.7704597968939,
+      "nonblack_fraction": 0.9928854166666666,
+      "rendering_frame": 8491,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 141.30000736936927,
+      "instance_id": "RetroNeighborhood.blue_container.0001",
+      "view_index": 1,
+      "target_index": 27,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "fbdff5a61deb30ab16d696a6a30752f686c0bb3d7b0e21b770abcac12baa28f7",
+      "original_rgb": true
+    },
+    {
+      "file": "view-56.png",
+      "eye": [
+        -22.009339640528083,
+        40.89066035947192,
+        7.17733995953952
+      ],
+      "target": [
+        -34.2,
+        28.7,
+        1.3
+      ],
+      "mean": 126.64131134259259,
+      "std": 58.02018166275014,
+      "nonblack_fraction": 0.9971753472222222,
+      "rendering_frame": 8641,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 143.80000749975443,
+      "instance_id": "RetroNeighborhood.red_container.0000",
+      "view_index": 0,
+      "target_index": 28,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "7c202665d4ef10b1a4e67e084414e3dd998df5dc254e748e7e37556516797c68",
+      "original_rgb": true
+    },
+    {
+      "file": "view-57.png",
+      "eye": [
+        -46.39066035947192,
+        16.50933964052808,
+        7.17733995953952
+      ],
+      "target": [
+        -34.2,
+        28.7,
+        1.3
+      ],
+      "mean": 195.39049189814816,
+      "std": 44.12678347160263,
+      "nonblack_fraction": 0.9992118055555556,
+      "rendering_frame": 8791,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 146.3000076301396,
+      "instance_id": "RetroNeighborhood.red_container.0000",
+      "view_index": 1,
+      "target_index": 28,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "78d21261ea9be09498af49cdffa20653ef6b6b9ebeeb28600ec614b68cfac2bb",
+      "original_rgb": true
+    },
+    {
+      "file": "view-58.png",
+      "eye": [
+        98.8773504164503,
+        -21.122649583549702,
+        4.538873605350878
+      ],
+      "target": [
+        90.5,
+        -29.5,
+        0.5
+      ],
+      "mean": 135.3881556712963,
+      "std": 75.81182563660761,
+      "nonblack_fraction": 0.9675989583333333,
+      "rendering_frame": 8941,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 148.80000776052475,
+      "instance_id": "RetroNeighborhood.red_car.0000",
+      "view_index": 0,
+      "target_index": 29,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "8ad27f9f7e302546fb0d540a90a7c2f4f0360bf3e7fb9eb3f2c59d09afba37cc",
+      "original_rgb": true
+    },
+    {
+      "file": "view-59.png",
+      "eye": [
+        82.1226495835497,
+        -37.8773504164503,
+        4.538873605350878
+      ],
+      "target": [
+        90.5,
+        -29.5,
+        0.5
+      ],
+      "mean": 170.8122662037037,
+      "std": 69.936446299966,
+      "nonblack_fraction": 0.9967725694444445,
+      "rendering_frame": 9091,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 151.3000078909099,
+      "instance_id": "RetroNeighborhood.red_car.0000",
+      "view_index": 1,
+      "target_index": 29,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "d2b9b860291b2b5e27fe925a97e93fa4dc8946686a4c5d014572e5c78002e0e7",
+      "original_rgb": true
+    },
+    {
+      "file": "view-60.png",
+      "eye": [
+        9.435516278555653,
+        40.43551627855565,
+        5.531152949374527
+      ],
+      "target": [
+        -1.0,
+        30.0,
+        0.5
+      ],
+      "mean": 132.140515625,
+      "std": 73.04352181305676,
+      "nonblack_fraction": 0.9466371527777778,
+      "rendering_frame": 9241,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 153.80000802129507,
+      "instance_id": "RetroNeighborhood.yellow_car.0000",
+      "view_index": 0,
+      "target_index": 30,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "03638028604873145ba43f4e9f06c8d0801356715206478bca9c255b40b45ce3",
+      "original_rgb": true
+    },
+    {
+      "file": "view-61.png",
+      "eye": [
+        -11.435516278555655,
+        19.564483721444347,
+        5.531152949374527
+      ],
+      "target": [
+        -1.0,
+        30.0,
+        0.5
+      ],
+      "mean": 181.6225462962963,
+      "std": 54.76468596157637,
+      "nonblack_fraction": 0.9982274305555555,
+      "rendering_frame": 9391,
+      "consecutive_valid_frames": 60,
+      "invalid_frames_after_first": 0,
+      "sim_time_s": 156.30000815168023,
+      "instance_id": "RetroNeighborhood.yellow_car.0000",
+      "view_index": 1,
+      "target_index": 30,
+      "camera_intrinsics": {
+        "focal_length": 18.0,
+        "horizontal_aperture": 20.954999923706055,
+        "vertical_aperture": 15.290800094604492,
+        "resolution": [
+          960,
+          600
+        ]
+      },
+      "sha256": "a6d1a125bb2b458c02f6fb7cb641de98f42299c798de791eb9c1ba85ca6964b9",
+      "original_rgb": true
+    }
+  ],
+  "mapping_readiness": {
+    "roi": {
+      "origin_xy_m": [
+        -168.55,
+        -130.9
+      ],
+      "upper_xy_m": [
+        221.05,
+        75.95
+      ],
+      "shape": [
+        4137,
+        7792
+      ],
+      "resolution_m": 0.05,
+      "margin_m": 2.0,
+      "annotation_aabb_xyz_m": [
+        [
+          -166.54999999999998,
+          -128.9,
+          -0.5
+        ],
+        [
+          219.04999999999998,
+          73.94999999999999,
+          17.5
+        ]
+      ],
+      "annotation_count": 165,
+      "basis": "all_annotation_OBBs_world_AABB"
+    },
+    "cell_count": 32235504,
+    "targets_reviewed": false,
+    "formal_map_created": false,
+    "existing_runner": "scripts/run_roi_analysis.py:host_sample",
+    "existing_available_ram_requirement_gib": 64,
+    "remote_installed_ram_gib": 32,
+    "entry_compatible": false,
+    "guard_changed": false,
+    "future_native_tiled_generator": "requires real PhysX validation and matching support-plane/collider policy before acceptance",
+    "raw_array_estimate_bytes": 805887600,
+    "estimate_scope": "height float32, normal float32x3, cost float32, mask bool, component int32 only; NOT peak memory or a performance test"
+  },
+  "red_car_binding_proposal": {
+    "instance_id": "RetroNeighborhood.red_car.0000",
+    "status": "proposed_not_applied",
+    "review_status": "pending",
+    "source_document": "docs/development/ugv-ogn/red-car-binding-recovery.md",
+    "source_candidate": {
+      "center_xyz_m": [
+        90.75834,
+        -29.796228,
+        0.801127
+      ],
+      "color_hint": null,
+      "material_path": null,
+      "prim_path": "/World/stage/Vehicles/Nissan_Fairlady_Z_S30240Z_1978",
+      "semantic_hints": [
+        "red car"
+      ],
+      "size_xyz_m": [
+        2.772231,
+        5.01905,
+        1.350189
+      ]
+    },
+    "reason": "Automatic binder selected Object_9 below the documented whole-car root. Proposed root covers the full vehicle; target class and ID are unchanged. No human approval or reachable status is asserted."
+  },
+  "resources": {
+    "peak_job_commit_gib": 10.401363372802734,
+    "peak_gpu_gib": 3.3671875,
+    "wall_seconds": 397.31,
+    "exit_code": 0,
+    "limits": {
+      "job_memory_gib": 14.0,
+      "cpu_percent": 60,
+      "active_processes": 32,
+      "min_available_gib": 4,
+      "min_available_commit_gib": 2,
+      "max_gpu_fraction": 0.8,
+      "timeout_s": 840.0
+    }
+  },
+  "cleanup": {
+    "network_rules_created": false,
+    "task_removed": true,
+    "processes": [],
+    "wsl_started": false,
+    "checked_at": "2026-10-18T21:38:59.4358149+08:00",
+    "vpn_configuration_changed": false
+  },
+  "source_sha256": {
+    "launch-raven-probe.py": "eb1bb51095dc0737d042350683aada0cca168f9d170215de74332ab0a7a30b65",
+    "paper31-review-a01.json": "525e5092048d7aefd0650ac2d6d969201659090d345027df863bbd5814ad49bd",
+    "paper31-review-input.json": "46ecdd7b59ed82c12d1c5a6fd1c982bbc13afb0c3f47925c72c3f17956669d66",
+    "probe_windows_scene_render.py": "368ff91ab2b048abcd399683ab0c2de26005e126b4cc679c0f90b422c209288c",
+    "run_windows_probe.py": "675bd924366dd478341595abd065fab9e860d6cd2029bd2aa4ce3a0b15f770df"
+  },
+  "validation": {
+    "frame_buffer_checks": 62,
+    "candidate_bounds_compared": 31,
+    "visual_spot_check": {
+      "image_count": 16,
+      "class_count": 8,
+      "files": [
+        "view-0.png",
+        "view-1.png",
+        "view-8.png",
+        "view-9.png",
+        "view-14.png",
+        "view-15.png",
+        "view-50.png",
+        "view-51.png",
+        "view-52.png",
+        "view-53.png",
+        "view-56.png",
+        "view-57.png",
+        "view-58.png",
+        "view-59.png",
+        "view-60.png",
+        "view-61.png"
+      ],
+      "method": "Direct visual inspection of original RGB files; artifact quality only, not human GT approval.",
+      "observations": [
+        "view-9: bus shelter partly occluded by foliage.",
+        "view-51: rear tunnel view exposes the back of the scene asset; not a traversability check.",
+        "view-56: red container partly occluded by perimeter wall; view-57 shows the opposite side.",
+        "view-58 and view-59: red car visible with partial fence occlusion; candidate Object_9 remains a part-level binding.",
+        "view-60: yellow car partly occluded by foliage; view-61 is viewed through chain-link fence."
+      ]
+    },
+    "python_compile": "scripts/probe_windows_scene_render.py",
+    "native_command": "paper31-review-a01/execution.json",
+    "browser_preview": "not attempted: local file URL policy blocks browser automation"
+  },
+  "limitations": [
+    "Static camera locations may be occluded; raw image quality does not prove semantic correctness.",
+    "Red wire is annotation OBB; cyan wire is candidate world AABB, not a semantic segmentation mask.",
+    "All human review decisions are blank. No formal map, arrival regions or episodes generated."
+  ],
+  "artifacts": "runs/paper31_review_20261018/"
+}

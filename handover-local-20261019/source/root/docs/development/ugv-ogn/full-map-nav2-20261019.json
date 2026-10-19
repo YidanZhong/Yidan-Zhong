@@ -1,0 +1,1556 @@
+{
+  "task": "Local-Scene1-Reproduction / Scene1-FullMap-Nav2Validation",
+  "date": "2026-10-19",
+  "job": "full-nav-a02",
+  "passed": true,
+  "scope": "full diagnostic map ingestion with three-goal local detour; not full-scene target coverage",
+  "scene1_reproduced": false,
+  "real_paper_episode_count": 0,
+  "simulator": "Isaac Sim 4.5.0 native Windows",
+  "ros": "Humble / domain 42 / FastDDS UDP",
+  "hardware": "RTX 4060 Laptop 8 GiB / 32 GiB RAM / driver 577.02",
+  "scene_sha256": "2a7141ce928c432f031f78a6b1c3798eaa932431d5a1735f8bad513694afce32",
+  "metrics": {
+    "final_goal_error_m": 0.2490381094596259,
+    "displacement_m": 0.24870176548752077,
+    "path_length_m": 21.717441045812887,
+    "final_speed_mps": 0.0018553088205528808,
+    "sim_duration_s": 223.5083449902013,
+    "cloud_count": 1101,
+    "nonempty_clouds": 1101,
+    "accumulated_abs_yaw_rad": 17.268085274180777,
+    "map_geometry": {
+      "min_center_clearance_m": 1.0457238575168235,
+      "min_circumscribed_footprint_clearance_m": 0.712946153936791,
+      "center_samples_on_obstacles": 0,
+      "center_samples_unknown_or_outside": 0,
+      "center_samples_outside_selected_map": 0,
+      "clearance_method": "distance to raw obstacle/unsupported cell rectangles, conservatively capped at 2 m"
+    }
+  },
+  "nav2_tour": {
+    "event": "nav2_tour_summary",
+    "goal_count": 3,
+    "goals": [
+      {
+        "accepted": true,
+        "closest_approach_m": 0.195,
+        "cmd_sign_flip_rate_per_s": 0.0,
+        "cmd_sign_flips": 0,
+        "goal_xy_m": [
+          -35.5,
+          -26.0
+        ],
+        "index": 0,
+        "min_lethal_clearance_m": null,
+        "outcome": "reached",
+        "path_m": 8.469,
+        "result_status": 4,
+        "ring_hit": true,
+        "sim_time_s": 74.408
+      },
+      {
+        "accepted": true,
+        "closest_approach_m": 0.064,
+        "cmd_sign_flip_rate_per_s": 0.0,
+        "cmd_sign_flips": 0,
+        "goal_xy_m": [
+          -35.5,
+          -20.5
+        ],
+        "index": 1,
+        "min_lethal_clearance_m": null,
+        "outcome": "reached",
+        "path_m": 7.835,
+        "result_status": 4,
+        "ring_hit": true,
+        "sim_time_s": 93.0
+      },
+      {
+        "accepted": true,
+        "closest_approach_m": 0.242,
+        "cmd_sign_flip_rate_per_s": 0.0,
+        "cmd_sign_flips": 0,
+        "goal_xy_m": [
+          -30.0,
+          -21.5
+        ],
+        "index": 2,
+        "min_lethal_clearance_m": null,
+        "outcome": "reached",
+        "path_m": 5.38,
+        "result_status": 4,
+        "ring_hit": true,
+        "sim_time_s": 31.767
+      }
+    ],
+    "max_cmd_sign_flip_rate_per_s": 0.0,
+    "min_lethal_clearance_m": null,
+    "reached_count": 3,
+    "ring_hit_count": 3
+  },
+  "terminal_action_checks": [
+    {
+      "goal": [
+        -35.5,
+        -26.0
+      ],
+      "action_status": 4,
+      "sim_time_s": 89.533338003,
+      "observed_goal_error_m": 0.19479196922109604,
+      "observed_goal_yaw_rad": -0.27007818066755906,
+      "pose": [
+        -35.69358825683594,
+        -25.978378295898438,
+        0.06350404024124146
+      ]
+    },
+    {
+      "goal": [
+        -35.5,
+        -20.5
+      ],
+      "action_status": 4,
+      "sim_time_s": 185.583343012,
+      "observed_goal_error_m": 0.27088880082957206,
+      "observed_goal_yaw_rad": -0.28513680886618153,
+      "pose": [
+        -35.4749870300293,
+        -20.769731521606445,
+        0.06350129842758179
+      ]
+    },
+    {
+      "goal": [
+        -30.0,
+        -21.5
+      ],
+      "action_status": 4,
+      "sim_time_s": 220.408344829,
+      "observed_goal_error_m": 0.24228032309304467,
+      "observed_goal_yaw_rad": 0.281868869872787,
+      "pose": [
+        -30.181514739990234,
+        -21.66047477722168,
+        0.06350080668926239
+      ]
+    }
+  ],
+  "direct_legs": [
+    {
+      "start": [
+        -30.000442504882812,
+        -21.500001907348633
+      ],
+      "goal": [
+        -35.5,
+        -26.0
+      ],
+      "min_center_clearance_m": 0.008817718131965765,
+      "min_circumscribed_footprint_clearance_m": -0.3239599854480668,
+      "center_samples_on_obstacles": 0,
+      "center_samples_unknown_or_outside": 0,
+      "center_samples_outside_selected_map": 39,
+      "clearance_method": "distance to raw obstacle/unsupported cell rectangles, conservatively capped at 2 m"
+    },
+    {
+      "start": [
+        -35.5,
+        -26.0
+      ],
+      "goal": [
+        -35.5,
+        -20.5
+      ],
+      "min_center_clearance_m": 2.0,
+      "min_circumscribed_footprint_clearance_m": 1.6672222964199674,
+      "center_samples_on_obstacles": 0,
+      "center_samples_unknown_or_outside": 0,
+      "center_samples_outside_selected_map": 0,
+      "clearance_method": "distance to raw obstacle/unsupported cell rectangles, conservatively capped at 2 m"
+    },
+    {
+      "start": [
+        -35.5,
+        -20.5
+      ],
+      "goal": [
+        -30.0,
+        -21.5
+      ],
+      "min_center_clearance_m": 2.0,
+      "min_circumscribed_footprint_clearance_m": 1.6672222964199674,
+      "center_samples_on_obstacles": 0,
+      "center_samples_unknown_or_outside": 0,
+      "center_samples_outside_selected_map": 0,
+      "clearance_method": "distance to raw obstacle/unsupported cell rectangles, conservatively capped at 2 m"
+    }
+  ],
+  "first_leg_max_cross_track_m": 1.1973683702785725,
+  "map": {
+    "method": "checksum-pinned full PhysX terrain, footprint sweep and selected reach component",
+    "scope": "unreviewed_full_map_diagnostic",
+    "resolution_m": 0.05,
+    "width": 7792,
+    "height": 4137,
+    "origin": [
+      -168.55,
+      -130.9
+    ],
+    "occupied_cells": 4683606,
+    "free_cells": 27551898,
+    "unknown_cells": 0,
+    "reviewed": false,
+    "scene_sha256": "2a7141ce928c432f031f78a6b1c3798eaa932431d5a1735f8bad513694afce32",
+    "source_manifest_sha256": "f3d417b98ddd5b9a632a58b89b3d1aff77b160409bd51a5ff81880c51ba4b29d",
+    "source_map_pgm_sha256": "e066a67a5edbbd510a786faab50e01c4714fecfa30771e3c7add2f78d1d64094",
+    "config": {
+      "scene_sha256": "2a7141ce928c432f031f78a6b1c3798eaa932431d5a1735f8bad513694afce32",
+      "grid": {
+        "origin_xy_m": [
+          -168.55,
+          -130.9
+        ],
+        "resolution_m": 0.05,
+        "shape": [
+          4137,
+          7792
+        ],
+        "tile_cells": 256
+      },
+      "reviewed": false,
+      "files": {
+        "map_pgm": {
+          "path": "D:/RAVEN-4060/logs/full-post-a01-frames/selected/selected.unreviewed.pgm",
+          "sha256": "e066a67a5edbbd510a786faab50e01c4714fecfa30771e3c7add2f78d1d64094"
+        },
+        "map_yaml": {
+          "path": "D:/RAVEN-4060/logs/full-post-a01-frames/selected/selected.unreviewed.yaml",
+          "sha256": "fe7637b6b49dbdeb70c879aff64bcc80ee69810a7cab907a7eb0d6d5bdad1614"
+        },
+        "obstacle": {
+          "path": "D:/RAVEN-4060/logs/full-post-a01-frames/terrain/obstacle_mask.npy",
+          "sha256": "c6f62dfd0b15173f4c0d3e2691aed0eefc4d6bca8b7587fa67e76c59cb753379"
+        },
+        "support": {
+          "path": "D:/RAVEN-4060/logs/full-post-a01-frames/terrain/support_mask.npy",
+          "sha256": "3d120508d3c750dd8356a8af610cce79387ca999952f56c4d323d9156ad6ba41"
+        }
+      }
+    },
+    "limitations": "center-space conservative map; no formal GT/localization or global-route coverage acceptance"
+  },
+  "cloud_subscribers": [
+    "/ugv/raven_nav2_evidence",
+    "/ugv/local_costmap/local_costmap",
+    "/ugv/global_costmap/global_costmap"
+  ],
+  "costmaps": {
+    "map": {
+      "messages": 1,
+      "max_lethal_cells": 4683606,
+      "width": 7792,
+      "height": 4137,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -168.55,
+        -130.9
+      ],
+      "sha256": "3568a489c5f21162fe9c0fa5a4f507dd24394a7fb8c8265c4514ae6257e27449",
+      "matches_full_source_map": true
+    },
+    "local": {
+      "messages": 367,
+      "max_lethal_cells": 7434,
+      "width": 160,
+      "height": 160,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -34.20000000037252,
+        -25.600000000372535
+      ],
+      "sha256": "c986cde9e3c0e0bfe71f650d8773584c0b900868c1aad2c00edab2c168b60d02"
+    },
+    "global": {
+      "messages": 1,
+      "max_lethal_cells": 5379701,
+      "width": 7792,
+      "height": 4137,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -168.55,
+        -130.9
+      ],
+      "sha256": "bd5b77feef94fac171693195f0a01d65f57752bef5bcafc048eac48aa7385e6f"
+    }
+  },
+  "cross_check": {
+    "cloud_hash_matches": 1081,
+    "clouds_received": 1081,
+    "odom_matches_physx": 4100,
+    "odom_received": 4100,
+    "clock_count": 4100,
+    "clock_backwards": 0,
+    "max_clock_publishers": 1,
+    "planned_paths": 154
+  },
+  "resources": {
+    "peak_job_commit_gib": 10.804283142089844,
+    "peak_gpu_memory_gib": 3.5703125,
+    "min_physical_available_gib": 10.659847259521484,
+    "min_commit_available_gib": 20.63062286376953,
+    "limits": {
+      "job_memory_gib": 14.0,
+      "cpu_percent": 60,
+      "active_processes": 32,
+      "min_available_gib": 4,
+      "min_available_commit_gib": 2,
+      "max_gpu_fraction": 0.8,
+      "timeout_s": 1200.0,
+      "gpu_query_timeout_s": 8,
+      "max_missing_gpu_samples": 2,
+      "preflight_gpu_required": true
+    },
+    "exit_code": 0,
+    "wall_seconds": 362.42
+  },
+  "limitations": [
+    "PhysX state odometry, not SLAM/localization",
+    "CPU raycast cloud, not RTX lidar",
+    "Full tiled terrain center-space map with runtime z=0 support plane, not reviewed GT",
+    "Static obstacle detour on one route; no dynamic obstacle/general collision acceptance",
+    "No semantic search, UAV cooperation, reviewed episodes or paper score",
+    "Visual road and z=0 support plane height mismatch remains; screenshots can appear floating. Ground-height alignment not accepted.",
+    "Planner sometimes misses configured 5 Hz; final pose convergence is slow. First run timed out at goal 2 after 120 simulation seconds."
+  ],
+  "cleanup": {
+    "isolated_wsl_stopped": true,
+    "vpn_configuration_changed": false,
+    "task_removed": true,
+    "processes": [],
+    "temporary_firewall_rules_removed": true,
+    "checked_at": "2026-10-19T04:16:40.0958491+08:00",
+    "ros_processes_absent": true
+  },
+  "artifacts": "runs/full_map_nav2_20261019/",
+  "failed_attempts": [
+    {
+      "job": "full-nav-a01",
+      "execution": {
+        "scope": "diagnostic_only_not_benchmark",
+        "command": [
+          "cmd.exe",
+          "/d",
+          "/c",
+          "D:\\RAVEN-4060\\isaac45\\python.bat",
+          "D:\\RAVEN-4060\\setup\\full-nav-v1\\probe-full-nav-a01.py",
+          "--output",
+          "D:\\RAVEN-4060\\logs\\full-nav-a01-frames",
+          "--graphics-api",
+          "vulkan",
+          "--defer-stage",
+          "--cpu-threads",
+          "16",
+          "--shader-concurrency",
+          "1",
+          "--gui",
+          "--disable-motion-bvh",
+          "--async-loads",
+          "--first-frame-timeout",
+          "480",
+          "--camera-size",
+          "960",
+          "600",
+          "--scene",
+          "D:\\RAVEN-4060\\source\\AirStack\\scenes\\RetroNeighborhood\\RetroNeighborhood_Export.usd",
+          "--ros2-seconds",
+          "540",
+          "--ros2-run-id",
+          "full-nav-a01-20261019",
+          "--jackal-usd",
+          "D:\\RAVEN-4060\\source\\AirStack\\simulation\\isaac-sim\\assets\\robots\\jackal_airground.usda",
+          "--air-stack-root",
+          "D:\\RAVEN-4060\\source\\AirStack",
+          "--jackal-spawn",
+          "-30",
+          "-21.5",
+          ".45",
+          "0",
+          "--nav2-goal",
+          "-35.5",
+          "-26",
+          "--nav2-goal",
+          "-35.5",
+          "-20.5",
+          "--nav2-goal",
+          "-30",
+          "-21.5",
+          "--nav2-require-detour",
+          "--nav2-full-map",
+          "D:/RAVEN-4060/setup/full-nav-v1/manifest.json"
+        ],
+        "limits": {
+          "job_memory_gib": 14.0,
+          "cpu_percent": 60,
+          "active_processes": 32,
+          "min_available_gib": 4,
+          "min_available_commit_gib": 2,
+          "max_gpu_fraction": 0.8,
+          "timeout_s": 1200.0,
+          "gpu_query_timeout_s": 8,
+          "max_missing_gpu_samples": 2,
+          "preflight_gpu_required": true
+        },
+        "initial": {
+          "available_gib": 18.561538696289062,
+          "available_commit_gib": 33.291500091552734,
+          "gpu_memory_fraction": 0.0,
+          "gpu_telemetry_consecutive_failures": 0,
+          "gpu_telemetry_error": null
+        },
+        "pid": 6060,
+        "status": "guard_or_launch_failed",
+        "error": "Diagnostic reported failure: Nav2 local goal validation incomplete; inspect actual evidence",
+        "peak_job_commit_gib": 10.798160552978516,
+        "elapsed_s": 359.81,
+        "gpu_telemetry_failures": 0,
+        "gpu_telemetry_last_error": null
+      }
+    }
+  ],
+  "correction": "Full-map direct leg is footprint blocked. First run reached 2/3 before goal-2 120-s timeout; repeat increases only diagnostic per-goal budget to 180 s, preserving positions, orientations, tolerances, total wall deadlines and protections. This does not prove a controller fix.",
+  "validation": {
+    "native_command_file": "full-nav-a02/execution.json",
+    "wsl_command_file": "full-nav-a02-wsl/command.json",
+    "source_compile": "python -m py_compile scripts/probe_jackal_nav2.py scripts/probe_nav2_wsl_peer.py scripts/probe_windows_scene_render.py",
+    "manually_inspected_original_rgb_images": 7,
+    "image_resolution_px": [
+      960,
+      600
+    ],
+    "html_render_verified": false,
+    "offline_map_contract_tests": {
+      "main_pc": 3,
+      "second_pc": 3,
+      "passed": true
+    },
+    "full_map_binary_snapshot_independently_compared": true
+  },
+  "source_sha256": {
+    "launch-full-nav.py": "311b7be3e1d8fd11206a57905d05345ce9a6f863414e7f649944f97457d3e66e",
+    "preflight.py": "c662d4a38b78e9c5dcb3935ca5ce765754610e181ff2746a69598ab14a86b403",
+    "probe-full-nav-a02.py": "fa93011d20b09ddb674e26c93c587b6f88490cc8f76ad823c6330369a8f2c110",
+    "probe_full_map_nav2.py": "be1858cfb8cc08a59659847bd9f4253929c0c3109a182aca53c05be6a8e16409",
+    "probe_isaac_ros_bridge.py": "e3ff5137907970c320aa58ac289dd5d993ab1636e1aa646582f4112c9bd51f4b",
+    "probe_jackal_motion.py": "831f195ebe964c3ef313b2ede90086a3779d209d5f6ba7422665a85c43f4ff90",
+    "probe_jackal_nav2.py": "b68a1481883cd1ad03b31832517d9ad878f2853fafb380044a6e1540541204d5",
+    "probe_nav2_wsl_peer.py": "347c8302e918f9c63044cb9e4fb92ce9bfe1af07b5fa4df50081208381391076",
+    "probe_windows_scene_render.py": "fa93011d20b09ddb674e26c93c587b6f88490cc8f76ad823c6330369a8f2c110",
+    "run_nav2_smoke.py": "30dfeffb73fe2ab55055348a88f57afc80fc1c4fb4617b67a84c267bdbe3438f",
+    "run_windows_probe.py": "63cc822f1b7b16cfc71a569827e07e8c92774c20658d75f56188ffa270070302"
+  },
+  "images": [
+    {
+      "file": "01-nav2-start.png",
+      "sim_time_s": 2.850000148639083,
+      "position": [
+        -30.000442504882812,
+        -21.500001907348633,
+        0.06350073218345642
+      ],
+      "sha256": "fd7d2ecbfc79317a9808eb53d83e10a8ef6cf373388b36021af87d5c00bbdd6a",
+      "unaltered_camera_rgb": true
+    },
+    {
+      "file": "02-nav2-moving.png",
+      "sim_time_s": 36.14166855160147,
+      "position": [
+        -30.49527931213379,
+        -22.370380401611328,
+        0.0635019987821579
+      ],
+      "sha256": "ef2e2d9597d1e48578a0d57055470cffc4b227437eca273c56f952c6549babbb",
+      "unaltered_camera_rgb": true
+    },
+    {
+      "file": "03-nav2-en-route.png",
+      "sim_time_s": 48.2833358515054,
+      "position": [
+        -32.595237731933594,
+        -23.00619888305664,
+        0.06350867450237274
+      ],
+      "sha256": "ec5b872c0778d824b5ed0cbc4b69091f504b1d3fe0228fc78a44d8599909a31b",
+      "unaltered_camera_rgb": true
+    },
+    {
+      "file": "04-nav2-after-goal-01.png",
+      "sim_time_s": 91.35833809804171,
+      "position": [
+        -35.6962776184082,
+        -25.977642059326172,
+        0.06350347399711609
+      ],
+      "sha256": "d0021b4b3d7db24b34494389291e0c7e55a9bd507010860cabd65b8103464884",
+      "unaltered_camera_rgb": true
+    },
+    {
+      "file": "05-nav2-after-goal-02.png",
+      "sim_time_s": 187.8583431309089,
+      "position": [
+        -35.47807693481445,
+        -20.768835067749023,
+        0.06350120902061462
+      ],
+      "sha256": "c436f689b8e9f511dca799b7a29c8dd2f461d764ea2d3ca58a49ca538ce859cf",
+      "unaltered_camera_rgb": true
+    },
+    {
+      "file": "06-nav2-after-goal-03.png",
+      "sim_time_s": 221.8583449041471,
+      "position": [
+        -30.183155059814453,
+        -21.66094207763672,
+        0.06350058317184448
+      ],
+      "sha256": "91c7af23a26be2fcb80440a3237e55c3e03916c62b2251643ef3ce2f81738a1e",
+      "unaltered_camera_rgb": true
+    },
+    {
+      "file": "07-nav2-stopped.png",
+      "sim_time_s": 226.35834513884038,
+      "position": [
+        -30.188684463500977,
+        -21.66253662109375,
+        0.06350047886371613
+      ],
+      "sha256": "89d5bf8685a411db293d144db1e5508c980ed6be283c423dd4ade6deb3170f33",
+      "unaltered_camera_rgb": true
+    }
+  ],
+  "first_attempt_analysis": {
+    "run": "full-nav-a01",
+    "passed": false,
+    "reached_count": 2,
+    "ring_hit_count": 3,
+    "map_exact_transfer": true,
+    "metrics": {
+      "final_goal_error_m": 0.08627564147947735,
+      "displacement_m": 0.08642229087716535,
+      "path_length_m": 23.28258080787758,
+      "final_speed_mps": 0.0011155511783584727,
+      "sim_duration_s": 268.88334735669196,
+      "cloud_count": 1324,
+      "nonempty_clouds": 1324,
+      "accumulated_abs_yaw_rad": 24.351816790890517,
+      "map_geometry": {
+        "min_center_clearance_m": 1.0041410135519102,
+        "min_circumscribed_footprint_clearance_m": 0.6713633099718777,
+        "center_samples_on_obstacles": 0,
+        "center_samples_unknown_or_outside": 0,
+        "center_samples_outside_selected_map": 0,
+        "clearance_method": "distance to raw obstacle/unsupported cell rectangles, conservatively capped at 2 m"
+      }
+    },
+    "interpretation": "Close approach without timely final pose convergence; rotate commands accompany translation drift. Cause not proven to be timeout alone. A second bounded run increases only diagnostic per-goal timeout from 120 to 180 simulation seconds. No formal episode budget changed.",
+    "second_goal_tail_samples": [
+      {
+        "sim_time_s": 145.0333408974111,
+        "distance_to_goal_m": 0.4132121155293772,
+        "yaw_rad": 2.374416937757127,
+        "command": [
+          0.1,
+          0.2265213318653924
+        ],
+        "position": [
+          -35.10258102416992,
+          -20.613147735595703,
+          0.06350597739219666
+        ]
+      },
+      {
+        "sim_time_s": 146.10000761970878,
+        "distance_to_goal_m": 0.3553776562953112,
+        "yaw_rad": 2.5067592821052207,
+        "command": [
+          0.1,
+          0.257123747984383
+        ],
+        "position": [
+          -35.148826599121094,
+          -20.554502487182617,
+          0.0635012686252594
+        ]
+      },
+      {
+        "sim_time_s": 147.1750076757744,
+        "distance_to_goal_m": 0.3020812847813573,
+        "yaw_rad": 2.6457744916441186,
+        "command": [
+          0.1,
+          0.29287331707515124
+        ],
+        "position": [
+          -35.19806671142578,
+          -20.50945472717285,
+          0.0635024905204773
+        ]
+      },
+      {
+        "sim_time_s": 148.25000773184001,
+        "distance_to_goal_m": 0.2505932465360831,
+        "yaw_rad": 2.803000704414102,
+        "command": [
+          0.1,
+          0.3350689796936934
+        ],
+        "position": [
+          -35.25061798095703,
+          -20.475391387939453,
+          0.06350478529930115
+        ]
+      },
+      {
+        "sim_time_s": 149.31667445413768,
+        "distance_to_goal_m": 0.2094462163176804,
+        "yaw_rad": 2.6359409203818527,
+        "command": [
+          0.0,
+          -0.26249999999999996
+        ],
+        "position": [
+          -35.29151916503906,
+          -20.47991371154785,
+          0.06350445747375488
+        ]
+      },
+      {
+        "sim_time_s": 150.3916745102033,
+        "distance_to_goal_m": 0.17411498466651087,
+        "yaw_rad": 2.440358831203385,
+        "command": [
+          0.0,
+          -0.26249999999999996
+        ],
+        "position": [
+          -35.326534271240234,
+          -20.48497772216797,
+          0.06350483000278473
+        ]
+      },
+      {
+        "sim_time_s": 151.45834123250097,
+        "distance_to_goal_m": 0.1380081791487209,
+        "yaw_rad": 2.2432342524051974,
+        "command": [
+          0.0,
+          -0.26249999999999996
+        ],
+        "position": [
+          -35.363529205322266,
+          -20.47945785522461,
+          0.0635046660900116
+        ]
+      },
+      {
+        "sim_time_s": 152.5333412885666,
+        "distance_to_goal_m": 0.10489402460064025,
+        "yaw_rad": 2.0233957495046564,
+        "command": [
+          0.0,
+          -0.26249999999999996
+        ],
+        "position": [
+          -35.39921569824219,
+          -20.47092628479004,
+          0.06350277364253998
+        ]
+      },
+      {
+        "sim_time_s": 153.60000801086426,
+        "distance_to_goal_m": 0.08291684411723645,
+        "yaw_rad": 1.8115466474490083,
+        "command": [
+          0.0,
+          -0.26249999999999996
+        ],
+        "position": [
+          -35.43162155151367,
+          -20.453100204467773,
+          0.06350365281105042
+        ]
+      },
+      {
+        "sim_time_s": 154.67500806692988,
+        "distance_to_goal_m": 0.08071462553151446,
+        "yaw_rad": 1.5931326983990155,
+        "command": [
+          0.0,
+          -0.26249999999999996
+        ],
+        "position": [
+          -35.460906982421875,
+          -20.429384231567383,
+          0.06350547075271606
+        ]
+      },
+      {
+        "sim_time_s": 155.7500081229955,
+        "distance_to_goal_m": 0.11135879847462583,
+        "yaw_rad": 1.4009675938467885,
+        "command": [
+          0.0,
+          -0.26249999999999996
+        ],
+        "position": [
+          -35.4804573059082,
+          -20.390369415283203,
+          0.06350354850292206
+        ]
+      },
+      {
+        "sim_time_s": 156.81667484529316,
+        "distance_to_goal_m": 0.1545039424093201,
+        "yaw_rad": 1.2171509703339267,
+        "command": [
+          0.0,
+          -0.26249999999999996
+        ],
+        "position": [
+          -35.49129867553711,
+          -20.345741271972656,
+          0.063503697514534
+        ]
+      },
+      {
+        "sim_time_s": 157.89167490135878,
+        "distance_to_goal_m": 0.19366025714227816,
+        "yaw_rad": 1.0170982932845434,
+        "command": [
+          0.0,
+          -0.26249999999999996
+        ],
+        "position": [
+          -35.49812698364258,
+          -20.30634880065918,
+          0.06350323557853699
+        ]
+      },
+      {
+        "sim_time_s": 158.95834162365645,
+        "distance_to_goal_m": 0.2312958885491872,
+        "yaw_rad": 0.8225199272452669,
+        "command": [
+          0.0,
+          -0.26249999999999996
+        ],
+        "position": [
+          -35.49820327758789,
+          -20.26871109008789,
+          0.06350350379943848
+        ]
+      },
+      {
+        "sim_time_s": 160.03334167972207,
+        "distance_to_goal_m": 0.2682687441394496,
+        "yaw_rad": 0.6089351018445428,
+        "command": [
+          0.0,
+          -0.26249999999999996
+        ],
+        "position": [
+          -35.49427032470703,
+          -20.231792449951172,
+          0.06350484490394592
+        ]
+      },
+      {
+        "sim_time_s": 161.10000840201974,
+        "distance_to_goal_m": 0.3038471728649884,
+        "yaw_rad": 0.3979961423294723,
+        "command": [
+          0.0,
+          -0.26249999999999996
+        ],
+        "position": [
+          -35.480648040771484,
+          -20.19676971435547,
+          0.06350535154342651
+        ]
+      },
+      {
+        "sim_time_s": 162.17500845808536,
+        "distance_to_goal_m": 0.3363425684979039,
+        "yaw_rad": 0.18548522084078417,
+        "command": [
+          0.0,
+          -0.26249999999999996
+        ],
+        "position": [
+          -35.46043395996094,
+          -20.165992736816406,
+          0.0635051280260086
+        ]
+      },
+      {
+        "sim_time_s": 163.25000851415098,
+        "distance_to_goal_m": 0.36507143973989986,
+        "yaw_rad": -0.02453166817832546,
+        "command": [
+          0.0,
+          -0.26249999999999996
+        ],
+        "position": [
+          -35.43401336669922,
+          -20.140941619873047,
+          0.06350290775299072
+        ]
+      },
+      {
+        "sim_time_s": 164.31667523644865,
+        "distance_to_goal_m": 0.3909092303620017,
+        "yaw_rad": -0.19134222837221812,
+        "command": [
+          0.0,
+          -0.26249999999999996
+        ],
+        "position": [
+          -35.38709259033203,
+          -20.125751495361328,
+          0.063505619764328
+        ]
+      },
+      {
+        "sim_time_s": 165.39167529251426,
+        "distance_to_goal_m": 0.4153134480344511,
+        "yaw_rad": -0.37170260688993834,
+        "command": [
+          0.0,
+          -0.26249999999999996
+        ],
+        "position": [
+          -35.34178161621094,
+          -20.116004943847656,
+          0.06350666284561157
+        ]
+      },
+      {
+        "sim_time_s": 166.45834201481193,
+        "distance_to_goal_m": 0.43812193596814714,
+        "yaw_rad": -0.56618168455336,
+        "command": [
+          0.0,
+          -0.26249999999999996
+        ],
+        "position": [
+          -35.300662994384766,
+          -20.109851837158203,
+          0.0635053962469101
+        ]
+      },
+      {
+        "sim_time_s": 167.53334207087755,
+        "distance_to_goal_m": 0.4567859671211182,
+        "yaw_rad": -0.7642997804535995,
+        "command": [
+          0.0,
+          -0.26249999999999996
+        ],
+        "position": [
+          -35.26144027709961,
+          -20.110458374023438,
+          0.06350584328174591
+        ]
+      },
+      {
+        "sim_time_s": 168.60000879317522,
+        "distance_to_goal_m": 0.47131086810720785,
+        "yaw_rad": -0.9665508578089318,
+        "command": [
+          0.0,
+          -0.26249999999999996
+        ],
+        "position": [
+          -35.22481155395508,
+          -20.11737060546875,
+          0.06350497901439667
+        ]
+      },
+      {
+        "sim_time_s": 169.67500884924084,
+        "distance_to_goal_m": 0.4800904528827627,
+        "yaw_rad": -1.1685626083821674,
+        "command": [
+          0.0,
+          -0.26249999999999996
+        ],
+        "position": [
+          -35.189640045166016,
+          -20.133716583251953,
+          0.06350350379943848
+        ]
+      },
+      {
+        "sim_time_s": 170.75000890530646,
+        "distance_to_goal_m": 0.48582307628470545,
+        "yaw_rad": -1.3816167390639067,
+        "command": [
+          0.0,
+          -0.26249999999999996
+        ],
+        "position": [
+          -35.15972900390625,
+          -20.153244018554688,
+          0.06350359320640564
+        ]
+      },
+      {
+        "sim_time_s": 171.81667562760413,
+        "distance_to_goal_m": 0.4868405537413316,
+        "yaw_rad": -1.5857660304128356,
+        "command": [
+          0.0,
+          -0.26249999999999996
+        ],
+        "position": [
+          -35.13388442993164,
+          -20.179105758666992,
+          0.0635032057762146
+        ]
+      },
+      {
+        "sim_time_s": 172.89167568366975,
+        "distance_to_goal_m": 0.48248533849087,
+        "yaw_rad": -1.7943260893057182,
+        "command": [
+          0.0,
+          -0.26249999999999996
+        ],
+        "position": [
+          -35.112457275390625,
+          -20.21259307861328,
+          0.06350502371788025
+        ]
+      },
+      {
+        "sim_time_s": 173.95834240596741,
+        "distance_to_goal_m": 0.4631079981241995,
+        "yaw_rad": -1.969902689425345,
+        "command": [
+          0.0,
+          -0.26249999999999996
+        ],
+        "position": [
+          -35.10499572753906,
+          -20.258255004882812,
+          0.06350395083427429
+        ]
+      },
+      {
+        "sim_time_s": 175.03334246203303,
+        "distance_to_goal_m": 0.44738066965460316,
+        "yaw_rad": -2.1553530073777,
+        "command": [
+          0.0,
+          -0.26249999999999996
+        ],
+        "position": [
+          -35.10102081298828,
+          -20.2976016998291,
+          0.0635051280260086
+        ]
+      },
+      {
+        "sim_time_s": 176.1000091843307,
+        "distance_to_goal_m": 0.3769047117436393,
+        "yaw_rad": -2.3460479205934277,
+        "command": [
+          0.1,
+          -0.23905844815764726
+        ],
+        "position": [
+          -35.14147186279297,
+          -20.383747100830078,
+          0.06350408494472504
+        ]
+      },
+      {
+        "sim_time_s": 177.17500924039632,
+        "distance_to_goal_m": 0.28284516160956225,
+        "yaw_rad": -2.6451509510649722,
+        "command": [
+          0.1,
+          -0.3021335331684431
+        ],
+        "position": [
+          -35.21738815307617,
+          -20.488513946533203,
+          0.06350703537464142
+        ]
+      },
+      {
+        "sim_time_s": 178.25000929646194,
+        "distance_to_goal_m": 0.2266131807918658,
+        "yaw_rad": -2.7352831563256768,
+        "command": [
+          0.0,
+          0.26249999999999996
+        ],
+        "position": [
+          -35.27443313598633,
+          -20.521751403808594,
+          0.06350456178188324
+        ]
+      },
+      {
+        "sim_time_s": 179.3166760187596,
+        "distance_to_goal_m": 0.18820304022247175,
+        "yaw_rad": -2.5406902229362793,
+        "command": [
+          0.0,
+          0.26249999999999996
+        ],
+        "position": [
+          -35.312416076660156,
+          -20.5152530670166,
+          0.06350313127040863
+        ]
+      },
+      {
+        "sim_time_s": 180.39167607482523,
+        "distance_to_goal_m": 0.1506894816994028,
+        "yaw_rad": -2.345231883198262,
+        "command": [
+          0.0,
+          0.26249999999999996
+        ],
+        "position": [
+          -35.35007095336914,
+          -20.515119552612305,
+          0.06350408494472504
+        ]
+      },
+      {
+        "sim_time_s": 181.4583427971229,
+        "distance_to_goal_m": 0.11639329282921967,
+        "yaw_rad": -2.150793329180129,
+        "command": [
+          0.0,
+          0.26249999999999996
+        ],
+        "position": [
+          -35.38551330566406,
+          -20.520980834960938,
+          0.0635039210319519
+        ]
+      },
+      {
+        "sim_time_s": 182.53334285318851,
+        "distance_to_goal_m": 0.08701730275087664,
+        "yaw_rad": -1.947312064774686,
+        "command": [
+          0.0,
+          0.26249999999999996
+        ],
+        "position": [
+          -35.419776916503906,
+          -20.533708572387695,
+          0.06350456178188324
+        ]
+      },
+      {
+        "sim_time_s": 183.60000957548618,
+        "distance_to_goal_m": 0.06974427546015388,
+        "yaw_rad": -1.7327527748424505,
+        "command": [
+          0.0,
+          0.26249999999999996
+        ],
+        "position": [
+          -35.44981002807617,
+          -20.54842758178711,
+          0.06350398063659668
+        ]
+      },
+      {
+        "sim_time_s": 184.6750096315518,
+        "distance_to_goal_m": 0.07603402611736444,
+        "yaw_rad": -1.5200299536623567,
+        "command": [
+          0.0,
+          0.26249999999999996
+        ],
+        "position": [
+          -35.47785186767578,
+          -20.572736740112305,
+          0.06350256502628326
+        ]
+      },
+      {
+        "sim_time_s": 185.75000968761742,
+        "distance_to_goal_m": 0.09907590931492755,
+        "yaw_rad": -1.2830144209411327,
+        "command": [
+          0.0,
+          0.26249999999999996
+        ],
+        "position": [
+          -35.502967834472656,
+          -20.599031448364258,
+          0.063505619764328
+        ]
+      },
+      {
+        "sim_time_s": 186.8166764099151,
+        "distance_to_goal_m": 0.14035574705256187,
+        "yaw_rad": -1.106818005859186,
+        "command": [
+          0.0,
+          0.26249999999999996
+        ],
+        "position": [
+          -35.510128021240234,
+          -20.639989852905273,
+          0.06350478529930115
+        ]
+      },
+      {
+        "sim_time_s": 187.8916764659807,
+        "distance_to_goal_m": 0.17936215660691102,
+        "yaw_rad": -0.9131119769011001,
+        "command": [
+          0.0,
+          0.26249999999999996
+        ],
+        "position": [
+          -35.51398849487305,
+          -20.678815841674805,
+          0.06350502371788025
+        ]
+      },
+      {
+        "sim_time_s": 188.95834318827838,
+        "distance_to_goal_m": 0.2164748328166641,
+        "yaw_rad": -0.7199727645307281,
+        "command": [
+          0.0,
+          0.26249999999999996
+        ],
+        "position": [
+          -35.51222610473633,
+          -20.716129302978516,
+          0.06350480020046234
+        ]
+      },
+      {
+        "sim_time_s": 190.033343244344,
+        "distance_to_goal_m": 0.2526728489885562,
+        "yaw_rad": -0.5008691111598842,
+        "command": [
+          0.0,
+          0.26249999999999996
+        ],
+        "position": [
+          -35.50799560546875,
+          -20.752546310424805,
+          0.06350399553775787
+        ]
+      },
+      {
+        "sim_time_s": 191.10000996664166,
+        "distance_to_goal_m": 0.28440373059617274,
+        "yaw_rad": -0.2945216755673017,
+        "command": [
+          0.0,
+          0.26249999999999996
+        ],
+        "position": [
+          -35.49564743041992,
+          -20.78437042236328,
+          0.06350395083427429
+        ]
+      },
+      {
+        "sim_time_s": 192.17501002270728,
+        "distance_to_goal_m": 0.31501512677122484,
+        "yaw_rad": -0.07422246046244764,
+        "command": [
+          0.0,
+          0.26249999999999996
+        ],
+        "position": [
+          -35.478485107421875,
+          -20.814279556274414,
+          0.06350506842136383
+        ]
+      },
+      {
+        "sim_time_s": 193.2500100787729,
+        "distance_to_goal_m": 0.33964363361978506,
+        "yaw_rad": 0.10468024091064422,
+        "command": [
+          0.0,
+          0.26249999999999996
+        ],
+        "position": [
+          -35.44682312011719,
+          -20.8354549407959,
+          0.06350544095039368
+        ]
+      },
+      {
+        "sim_time_s": 194.31667680107057,
+        "distance_to_goal_m": 0.36234190589754156,
+        "yaw_rad": 0.2882885520146515,
+        "command": [
+          0.0,
+          0.26249999999999996
+        ],
+        "position": [
+          -35.40945053100586,
+          -20.850845336914062,
+          0.06350593268871307
+        ]
+      },
+      {
+        "sim_time_s": 195.3916768571362,
+        "distance_to_goal_m": 0.3844880544467929,
+        "yaw_rad": 0.48663247439188906,
+        "command": [
+          0.0,
+          0.26249999999999996
+        ],
+        "position": [
+          -35.371337890625,
+          -20.862321853637695,
+          0.06350664794445038
+        ]
+      },
+      {
+        "sim_time_s": 196.45834357943386,
+        "distance_to_goal_m": 0.4037583109167459,
+        "yaw_rad": 0.6892372969095332,
+        "command": [
+          0.0,
+          0.26249999999999996
+        ],
+        "position": [
+          -35.33523178100586,
+          -20.868608474731445,
+          0.06350423395633698
+        ]
+      },
+      {
+        "sim_time_s": 197.53334363549948,
+        "distance_to_goal_m": 0.41921482033032753,
+        "yaw_rad": 0.8909828269814644,
+        "command": [
+          0.0,
+          0.26249999999999996
+        ],
+        "position": [
+          -35.29920196533203,
+          -20.867996215820312,
+          0.06350404024124146
+        ]
+      },
+      {
+        "sim_time_s": 198.60001035779715,
+        "distance_to_goal_m": 0.4321893264030506,
+        "yaw_rad": 1.1057028157112787,
+        "command": [
+          0.0,
+          0.26249999999999996
+        ],
+        "position": [
+          -35.2646369934082,
+          -20.86248016357422,
+          0.06350362300872803
+        ]
+      },
+      {
+        "sim_time_s": 199.67501041386276,
+        "distance_to_goal_m": 0.4380828515177739,
+        "yaw_rad": 1.3153816752399103,
+        "command": [
+          0.0,
+          0.26249999999999996
+        ],
+        "position": [
+          -35.23133850097656,
+          -20.846031188964844,
+          0.06350246071815491
+        ]
+      },
+      {
+        "sim_time_s": 200.75001046992838,
+        "distance_to_goal_m": 0.4412272897596329,
+        "yaw_rad": 1.518355542705216,
+        "command": [
+          0.0,
+          0.26249999999999996
+        ],
+        "position": [
+          -35.20307159423828,
+          -20.826366424560547,
+          0.06350472569465637
+        ]
+      },
+      {
+        "sim_time_s": 201.81667719222605,
+        "distance_to_goal_m": 0.4342697583620795,
+        "yaw_rad": 1.7076644506859935,
+        "command": [
+          0.0,
+          0.26249999999999996
+        ],
+        "position": [
+          -35.1806640625,
+          -20.79430389404297,
+          0.06350399553775787
+        ]
+      },
+      {
+        "sim_time_s": 202.89167724829167,
+        "distance_to_goal_m": 0.4234025441899022,
+        "yaw_rad": 1.8964158897046777,
+        "command": [
+          0.0,
+          0.26249999999999996
+        ],
+        "position": [
+          -35.1652717590332,
+          -20.759281158447266,
+          0.06350533664226532
+        ]
+      },
+      {
+        "sim_time_s": 203.95834397058934,
+        "distance_to_goal_m": 0.40413597796634415,
+        "yaw_rad": 2.0836832121146234,
+        "command": [
+          0.1,
+          0.23189028337260456
+        ],
+        "position": [
+          -35.159202575683594,
+          -20.71721649169922,
+          0.06350338459014893
+        ]
+      },
+      {
+        "sim_time_s": 205.03334402665496,
+        "distance_to_goal_m": 0.345425368605267,
+        "yaw_rad": 2.194789858125052,
+        "command": [
+          0.0,
+          0.26249999999999996
+        ],
+        "position": [
+          -35.18886947631836,
+          -20.650054931640625,
+          0.06350195407867432
+        ]
+      },
+      {
+        "sim_time_s": 206.10001074895263,
+        "distance_to_goal_m": 0.3002721971455223,
+        "yaw_rad": 2.3457229073449772,
+        "command": [
+          0.1,
+          0.2960944618095613
+        ],
+        "position": [
+          -35.215545654296875,
+          -20.596172332763672,
+          0.06350626051425934
+        ]
+      },
+      {
+        "sim_time_s": 207.17501080501825,
+        "distance_to_goal_m": 0.25031744163262143,
+        "yaw_rad": 2.5279403920148797,
+        "command": [
+          0.1,
+          0.3371427135770344
+        ],
+        "position": [
+          -35.253379821777344,
+          -20.542863845825195,
+          0.06350481510162354
+        ]
+      },
+      {
+        "sim_time_s": 208.25001086108387,
+        "distance_to_goal_m": 0.2105689626371713,
+        "yaw_rad": 2.389868828708005,
+        "command": [
+          0.0,
+          -0.26249999999999996
+        ],
+        "position": [
+          -35.2921142578125,
+          -20.53350830078125,
+          0.06350527703762054
+        ]
+      },
+      {
+        "sim_time_s": 209.31667758338153,
+        "distance_to_goal_m": 0.17293550234307456,
+        "yaw_rad": 2.1850352753066193,
+        "command": [
+          0.0,
+          -0.26249999999999996
+        ],
+        "position": [
+          -35.32911682128906,
+          -20.52656364440918,
+          0.06350532174110413
+        ]
+      },
+      {
+        "sim_time_s": 210.39167763944715,
+        "distance_to_goal_m": 0.1377942203832438,
+        "yaw_rad": 1.984939008643508,
+        "command": [
+          0.0,
+          -0.26249999999999996
+        ],
+        "position": [
+          -35.36278533935547,
+          -20.512624740600586,
+          0.0635044276714325
+        ]
+      },
+      {
+        "sim_time_s": 211.45834436174482,
+        "distance_to_goal_m": 0.10446471438107403,
+        "yaw_rad": 1.761797702221447,
+        "command": [
+          0.0,
+          -0.26249999999999996
+        ],
+        "position": [
+          -35.395606994628906,
+          -20.496129989624023,
+          0.06350411474704742
+        ]
+      },
+      {
+        "sim_time_s": 212.53334441781044,
+        "distance_to_goal_m": 0.08364124962678067,
+        "yaw_rad": 1.558376001914347,
+        "command": [
+          0.0,
+          -0.26249999999999996
+        ],
+        "position": [
+          -35.421634674072266,
+          -20.47076416015625,
+          0.06350503861904144
+        ]
+      },
+      {
+        "sim_time_s": 213.6000111401081,
+        "distance_to_goal_m": 0.09577777928602958,
+        "yaw_rad": 1.3806259836359376,
+        "command": [
+          0.0,
+          -0.26249999999999996
+        ],
+        "position": [
+          -35.43853759765625,
+          -20.426544189453125,
+          0.06350405514240265
+        ]
+      },
+      {
+        "sim_time_s": 214.67501119617373,
+        "distance_to_goal_m": 0.12796484628098578,
+        "yaw_rad": 1.197413932178998,
+        "command": [
+          0.0,
+          -0.26249999999999996
+        ],
+        "position": [
+          -35.44752502441406,
+          -20.383289337158203,
+          0.06350526213645935
+        ]
+      },
+      {
+        "sim_time_s": 215.75001125223935,
+        "distance_to_goal_m": 0.16453804580253895,
+        "yaw_rad": 1.0080710245918976,
+        "command": [
+          0.0,
+          -0.26249999999999996
+        ],
+        "position": [
+          -35.45171356201172,
+          -20.34270668029785,
+          0.06350304186344147
+        ]
+      },
+      {
+        "sim_time_s": 216.81667797453701,
+        "distance_to_goal_m": 0.196327888241293,
+        "yaw_rad": 0.7875917786677116,
+        "command": [
+          0.0,
+          -0.26249999999999996
+        ],
+        "position": [
+          -35.4579963684082,
+          -20.308218002319336,
+          0.06350627541542053
+        ]
+      },
+      {
+        "sim_time_s": 217.89167803060263,
+        "distance_to_goal_m": 0.23304525274046398,
+        "yaw_rad": 0.5876423321788987,
+        "command": [
+          0.0,
+          -0.26249999999999996
+        ],
+        "position": [
+          -35.44975280761719,
+          -20.272436141967773,
+          0.06350439786911011
+        ]
+      },
+      {
+        "sim_time_s": 218.9583447529003,
+        "distance_to_goal_m": 0.24774802460199688,
+        "yaw_rad": 0.4978280965198183,
+        "command": [
+          0.0,
+          0.0
+        ],
+        "position": [
+          -35.446529388427734,
+          -20.25809097290039,
+          0.0635010153055191
+        ]
+      },
+      {
+        "sim_time_s": 220.03334480896592,
+        "distance_to_goal_m": 0.24686726073575205,
+        "yaw_rad": 0.4978207100415037,
+        "command": [
+          0.0,
+          0.0
+        ],
+        "position": [
+          -35.44771194458008,
+          -20.25873374938965,
+          0.0635010302066803
+        ]
+      }
+    ]
+  },
+  "diagnostic_goal_budget_s": 180,
+  "second_goal_repeat_duration_s": 93.0,
+  "timeout_extension_causality": "Not demonstrated: repeat goal 2 finished in 93 simulation seconds, below the original 120-s budget. Run-to-run convergence remains variable."
+}

@@ -1,0 +1,102 @@
+{
+  "scope": "offline incomplete-asset geometry and raw-source proposals; no formal scene acceptance",
+  "rows": [
+    {
+      "scene": "AbandonedCity",
+      "geometry_exit_code": 0,
+      "valid_meshes": 19295,
+      "mesh_read_errors": 0,
+      "composition_errors": 0,
+      "faces": 1179891,
+      "max_rss_mib": 283.14453125,
+      "scene_sha256": "59569c8f08132e32219d19faea5f1ae94d215b07e2a9444b1a38e84263595ee1",
+      "targets": 22,
+      "raw_source_candidate_count": 22196,
+      "proposed_bindings_not_applied": 7,
+      "ambiguous_proposals": 2
+    },
+    {
+      "scene": "DowntownWest",
+      "geometry_exit_code": 2,
+      "valid_meshes": 6026,
+      "mesh_read_errors": 28,
+      "composition_errors": 0,
+      "faces": 42536780,
+      "max_rss_mib": 395.921875,
+      "scene_sha256": "2fafb3c135cc3fd64e1f23e99d64cc84428cd2a048a09a819f870529afef7e17",
+      "targets": 42,
+      "raw_source_candidate_count": 18,
+      "proposed_bindings_not_applied": 11,
+      "ambiguous_proposals": 0
+    },
+    {
+      "scene": "MilitaryBase",
+      "geometry_exit_code": 0,
+      "valid_meshes": 4303,
+      "mesh_read_errors": 0,
+      "composition_errors": 0,
+      "faces": 11140420,
+      "max_rss_mib": 425.3984375,
+      "scene_sha256": "aff646545e258ee1e05972aebfea4a5839783b8ef937f98778c14cf5946a431e",
+      "targets": 14,
+      "raw_source_candidate_count": 1808,
+      "proposed_bindings_not_applied": 14,
+      "ambiguous_proposals": 12
+    },
+    {
+      "scene": "ModernCityDowntown",
+      "geometry_exit_code": 0,
+      "valid_meshes": 9657,
+      "mesh_read_errors": 0,
+      "composition_errors": 0,
+      "faces": 5436877,
+      "max_rss_mib": 452.3125,
+      "scene_sha256": "7f27d1da17fdb4072c859078fab26b7e355b7c754c6bb7fd75e8801a68a38308",
+      "targets": 7,
+      "raw_source_candidate_count": 140,
+      "proposed_bindings_not_applied": 7,
+      "ambiguous_proposals": 6
+    },
+    {
+      "scene": "Shipyard",
+      "geometry_exit_code": 0,
+      "valid_meshes": 5032,
+      "mesh_read_errors": 0,
+      "composition_errors": 0,
+      "faces": 33111970,
+      "max_rss_mib": 970.19921875,
+      "scene_sha256": "fd465b6ea1c735206913aca5ee88411069f6db01c79b6024652f72e24faffd15",
+      "targets": 17,
+      "raw_source_candidate_count": 155,
+      "proposed_bindings_not_applied": 6,
+      "ambiguous_proposals": 5
+    },
+    {
+      "scene": "SnowyVillage",
+      "geometry_exit_code": 2,
+      "valid_meshes": 0,
+      "mesh_read_errors": 0,
+      "composition_errors": 745,
+      "faces": 0,
+      "max_rss_mib": 122.078125,
+      "scene_sha256": "a8be1100c3672e555549d63f3312e24d5ca87e9099f04cee7af43feb8524d717",
+      "targets": 10,
+      "raw_source_candidate_count": 0,
+      "proposed_bindings_not_applied": 0,
+      "ambiguous_proposals": 0
+    }
+  ],
+  "snowy_missing_unique_assets": 197,
+  "formal_accepted": false,
+  "original_assets_and_targets_unchanged": true,
+  "new_approved_bindings": 0,
+  "limitations": [
+    "pxr 0.26.8 on main WSL; not proof of Isaac 4.5 runtime compatibility",
+    "AABB/name matching is tentative; raw paths require runtime remount verification",
+    "Missing textures/materials and DowntownWest empty mesh declarations remain unresolved",
+    "SnowyVillage has no resolved meshes; no geometry-only map can be claimed from its root file"
+  ],
+  "archive_sha256": "dd9a0db0c57ea4269ed1b5e5214c07afce9a76e168d7970391838dcea5827158",
+  "archived_files": 45,
+  "evidence_dir": "runs\\partial_scene_geometry_20261019"
+}

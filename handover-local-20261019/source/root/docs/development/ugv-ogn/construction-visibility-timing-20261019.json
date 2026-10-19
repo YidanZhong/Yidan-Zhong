@@ -1,0 +1,321 @@
+{
+  "scope": "failed private PhysX visibility diagnostics; no formal acceptance",
+  "attempts": [
+    {
+      "job": "construction-visibility-a01",
+      "execution": {
+        "scope": "diagnostic_only_not_benchmark",
+        "command": [
+          "cmd.exe",
+          "/d",
+          "/c",
+          "D:\\RAVEN-4060\\isaac45\\python.bat",
+          "D:\\RAVEN-4060\\setup\\construction-visibility-v1\\probe-construction-visibility-a01.py",
+          "--output",
+          "D:\\RAVEN-4060\\logs\\construction-visibility-a01-frames",
+          "--graphics-api",
+          "vulkan",
+          "--defer-stage",
+          "--cpu-threads",
+          "16",
+          "--shader-concurrency",
+          "1",
+          "--disable-motion-bvh",
+          "--async-loads",
+          "--physics-only",
+          "--scene",
+          "D:/RAVEN-4060/assets/handover-scenes-20261019/ConstructionSite/ConstructionSite_Export.usd",
+          "--tile-validation",
+          "D:/RAVEN-4060/setup/construction-visibility-v1/visibility-scene-input.json",
+          "--air-stack-root",
+          "D:/RAVEN-4060/setup/construction-visibility-v1/air-stack",
+          "--benchmark-package",
+          "D:\\RAVEN-4060\\setup\\tile-benchmark\\airground_benchmark"
+        ],
+        "limits": {
+          "job_memory_gib": 14.0,
+          "cpu_percent": 60,
+          "active_processes": 32,
+          "min_available_gib": 4,
+          "min_available_commit_gib": 2,
+          "max_gpu_fraction": 0.8,
+          "timeout_s": 840.0,
+          "gpu_query_timeout_s": 8,
+          "max_missing_gpu_samples": 2,
+          "preflight_gpu_required": true
+        },
+        "initial": {
+          "available_gib": 21.083370208740234,
+          "available_commit_gib": 36.0261116027832,
+          "gpu_memory_fraction": 0.0,
+          "gpu_telemetry_consecutive_failures": 0,
+          "gpu_telemetry_error": null
+        },
+        "pid": 19960,
+        "status": "guard_or_launch_failed",
+        "error": "Diagnostic reported failure: Five distinct PhysX sample times do not meet frame-gap gate",
+        "peak_job_commit_gib": 6.008693695068359,
+        "elapsed_s": 88.56,
+        "gpu_telemetry_failures": 0,
+        "gpu_telemetry_last_error": null
+      },
+      "archive_sha256": "eb81aa15e2881362b55933527b847dfb9dec01d977131e3eff36a8b1d03ad697",
+      "child_exit_code": "not recorded by guard; do not infer"
+    },
+    {
+      "job": "construction-visibility-a02",
+      "execution": {
+        "scope": "diagnostic_only_not_benchmark",
+        "command": [
+          "cmd.exe",
+          "/d",
+          "/c",
+          "D:\\RAVEN-4060\\isaac45\\python.bat",
+          "D:\\RAVEN-4060\\setup\\construction-visibility-v2\\probe-construction-visibility-a02.py",
+          "--output",
+          "D:\\RAVEN-4060\\logs\\construction-visibility-a02-frames",
+          "--graphics-api",
+          "vulkan",
+          "--defer-stage",
+          "--cpu-threads",
+          "16",
+          "--shader-concurrency",
+          "1",
+          "--disable-motion-bvh",
+          "--async-loads",
+          "--physics-only",
+          "--scene",
+          "D:/RAVEN-4060/assets/handover-scenes-20261019/ConstructionSite/ConstructionSite_Export.usd",
+          "--tile-validation",
+          "D:/RAVEN-4060/setup/construction-visibility-v2/visibility-scene-input.json",
+          "--air-stack-root",
+          "D:/RAVEN-4060/setup/construction-visibility-v2/air-stack",
+          "--benchmark-package",
+          "D:\\RAVEN-4060\\setup\\tile-benchmark\\airground_benchmark"
+        ],
+        "limits": {
+          "job_memory_gib": 14.0,
+          "cpu_percent": 60,
+          "active_processes": 32,
+          "min_available_gib": 4,
+          "min_available_commit_gib": 2,
+          "max_gpu_fraction": 0.8,
+          "timeout_s": 840.0,
+          "gpu_query_timeout_s": 8,
+          "max_missing_gpu_samples": 2,
+          "preflight_gpu_required": true
+        },
+        "initial": {
+          "available_gib": 21.04873275756836,
+          "available_commit_gib": 35.76219940185547,
+          "gpu_memory_fraction": 0.0,
+          "gpu_telemetry_consecutive_failures": 0,
+          "gpu_telemetry_error": null
+        },
+        "pid": 36920,
+        "status": "guard_or_launch_failed",
+        "error": "Diagnostic reported failure: Actual step rate differs from requested 250 Hz",
+        "peak_job_commit_gib": 6.1009063720703125,
+        "elapsed_s": 93.05,
+        "gpu_telemetry_failures": 0,
+        "gpu_telemetry_last_error": null
+      },
+      "archive_sha256": "58830537fe5f07e14ae5e44dd85bd4703d82a0d10c53977fc984341db6d27095",
+      "child_exit_code": "not recorded by guard; do not infer"
+    },
+    {
+      "job": "construction-visibility-a03",
+      "archive_sha256": "5b4a80e8c1d2cd12a6e05dde65c1b7303c66b4251dad059db4090e0d9d004083",
+      "execution": {
+        "scope": "diagnostic_only_not_benchmark",
+        "command": [
+          "cmd.exe",
+          "/d",
+          "/c",
+          "D:\\RAVEN-4060\\isaac45\\python.bat",
+          "D:\\RAVEN-4060\\setup\\construction-visibility-v3\\probe-construction-visibility-a03.py",
+          "--output",
+          "D:\\RAVEN-4060\\logs\\construction-visibility-a03-frames",
+          "--graphics-api",
+          "vulkan",
+          "--defer-stage",
+          "--cpu-threads",
+          "16",
+          "--shader-concurrency",
+          "1",
+          "--disable-motion-bvh",
+          "--async-loads",
+          "--physics-only",
+          "--scene",
+          "D:/RAVEN-4060/assets/handover-scenes-20261019/ConstructionSite/ConstructionSite_Export.usd",
+          "--tile-validation",
+          "D:/RAVEN-4060/setup/construction-visibility-v3/visibility-scene-input.json",
+          "--air-stack-root",
+          "D:/RAVEN-4060/setup/construction-visibility-v3/air-stack",
+          "--benchmark-package",
+          "D:\\RAVEN-4060\\setup\\tile-benchmark\\airground_benchmark"
+        ],
+        "limits": {
+          "job_memory_gib": 14.0,
+          "cpu_percent": 60,
+          "active_processes": 32,
+          "min_available_gib": 4,
+          "min_available_commit_gib": 2,
+          "max_gpu_fraction": 0.8,
+          "timeout_s": 840.0,
+          "gpu_query_timeout_s": 8,
+          "max_missing_gpu_samples": 2,
+          "preflight_gpu_required": true
+        },
+        "initial": {
+          "available_gib": 21.02792739868164,
+          "available_commit_gib": 35.737117767333984,
+          "gpu_memory_fraction": 0.0,
+          "gpu_telemetry_consecutive_failures": 0,
+          "gpu_telemetry_error": null
+        },
+        "pid": 11636,
+        "status": "guard_or_launch_failed",
+        "error": "Diagnostic reported failure: Actual step rate differs from requested 250 Hz",
+        "peak_job_commit_gib": 6.089443206787109,
+        "elapsed_s": 72.73,
+        "gpu_telemetry_failures": 0,
+        "gpu_telemetry_last_error": null
+      },
+      "timing": {
+        "physics_dt_before_s": 0.016666666666666666,
+        "rendering_dt_before_s": 0.004,
+        "requested_physics_dt_s": 0.004,
+        "requested_rendering_dt_s": 0.004,
+        "stride_steps": 25,
+        "physics_dt_after_s": 0.016666666666666666,
+        "rendering_dt_after_s": 0.004,
+        "physics_context_prim_path": "/World/PhysicsScene"
+      }
+    },
+    {
+      "job": "construction-visibility-a04",
+      "archive_sha256": "c7f70187fbc3921bea17c8997585efb47fe0131405adba0b01a3996f0dc98c09",
+      "execution": {
+        "scope": "diagnostic_only_not_benchmark",
+        "command": [
+          "cmd.exe",
+          "/d",
+          "/c",
+          "D:\\RAVEN-4060\\isaac45\\python.bat",
+          "D:\\RAVEN-4060\\setup\\construction-visibility-v4\\probe-construction-visibility-a04.py",
+          "--output",
+          "D:\\RAVEN-4060\\logs\\construction-visibility-a04-frames",
+          "--graphics-api",
+          "vulkan",
+          "--defer-stage",
+          "--cpu-threads",
+          "16",
+          "--shader-concurrency",
+          "1",
+          "--disable-motion-bvh",
+          "--async-loads",
+          "--physics-only",
+          "--scene",
+          "D:/RAVEN-4060/assets/handover-scenes-20261019/ConstructionSite/ConstructionSite_Export.usd",
+          "--tile-validation",
+          "D:/RAVEN-4060/setup/construction-visibility-v4/visibility-scene-input.json",
+          "--air-stack-root",
+          "D:/RAVEN-4060/setup/construction-visibility-v4/air-stack",
+          "--benchmark-package",
+          "D:\\RAVEN-4060\\setup\\tile-benchmark\\airground_benchmark"
+        ],
+        "limits": {
+          "job_memory_gib": 14.0,
+          "cpu_percent": 60,
+          "active_processes": 32,
+          "min_available_gib": 4,
+          "min_available_commit_gib": 2,
+          "max_gpu_fraction": 0.8,
+          "timeout_s": 840.0,
+          "gpu_query_timeout_s": 8,
+          "max_missing_gpu_samples": 2,
+          "preflight_gpu_required": true
+        },
+        "initial": {
+          "available_gib": 20.996055603027344,
+          "available_commit_gib": 35.702877044677734,
+          "gpu_memory_fraction": 0.0,
+          "gpu_telemetry_consecutive_failures": 0,
+          "gpu_telemetry_error": null
+        },
+        "pid": 3556,
+        "status": "guard_or_launch_failed",
+        "error": "Diagnostic reported failure: Actual step rate differs from requested 250 Hz after bounded event flush",
+        "peak_job_commit_gib": 9.412128448486328,
+        "elapsed_s": 278.3,
+        "gpu_telemetry_failures": 0,
+        "gpu_telemetry_last_error": null
+      },
+      "timing": {
+        "requested_physics_dt_s": 0.004,
+        "stride_steps": 25,
+        "snapshots": [
+          {
+            "label": "before_event_flush",
+            "physics_dt_s": 0.016666666666666666,
+            "sim_time_s": 0.09133333805948496,
+            "context_path": "/World/PhysicsScene",
+            "active_scenes": [
+              {
+                "path": "/World/PhysicsScene",
+                "hz": 250
+              }
+            ],
+            "manager_scenes": []
+          },
+          {
+            "label": "after_three_app_updates",
+            "physics_dt_s": 0.016666666666666666,
+            "sim_time_s": 0.10333333862945437,
+            "context_path": "/World/PhysicsScene",
+            "active_scenes": [
+              {
+                "path": "/World/PhysicsScene",
+                "hz": 250
+              }
+            ],
+            "manager_scenes": []
+          },
+          {
+            "label": "after_reapply",
+            "physics_dt_s": 0.016666666666666666,
+            "sim_time_s": 0.10333333862945437,
+            "context_path": "/World/PhysicsScene",
+            "active_scenes": [
+              {
+                "path": "/World/PhysicsScene",
+                "hz": 250
+              }
+            ],
+            "manager_scenes": []
+          }
+        ]
+      }
+    }
+  ],
+  "root_cause_evidence": {
+    "sdk_physics_context": "Isaac 4.5 physics_context.py constructor reuses first existing physics scene despite requested path; setter uses that stored API, getter delegates to SimulationManager last registered scene.",
+    "a01_actual_frame_gap_s": 0.41666668839752674,
+    "max_allowed_frame_gap_s": 0.15,
+    "a02_result": "Reapplying requested 1/250s through World did not make getter report 1/250s; stopped before collecting frames.",
+    "next_candidate": "Separate clock-only test: at most 40 public render calls to obtain exactly 25 actual PhysX steps and 0.1s, four batches. Uses completed instance collision preparation and no invalidated map or visibility candidate input. Prepared, not started.",
+    "source_assets_modified": false,
+    "conclusion": "Not merely duplicate scenes. A04 records one active 250Hz scene but an empty SDK manager registry; getter falls back to 60Hz. Three actual app updates advance 0.012s while getter stays 60Hz."
+  },
+  "a05_render_calls_evidence": {
+    "archive_sha256": "a08b47f304bb0a73a2de6b25d7af9691c4dfd0743d9adafbdf137657be041e18",
+    "verified_files": 27,
+    "wall_s": 378.11,
+    "peak_commit_gib": 10.885834,
+    "render_calls": 25,
+    "actual_physics_steps": 23,
+    "actual_delta_s": 0.09200000436976552,
+    "passed": false
+  }
+}

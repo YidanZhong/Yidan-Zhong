@@ -1,0 +1,65 @@
+{
+  "scope": "private_unreviewed_geometry_only_not_scoring_input",
+  "scene_id": "RetroNeighborhood",
+  "formal_gt_approved": false,
+  "status": "diagnostic_prepared",
+  "input_targets_sha256": "53c5930607ebd0a4bae94ff1587fd8f7d550828dcad93390a6d666679e302f6e",
+  "input_map_sha256": "b1dc10772e51b019aadbf0f7019e998cffb115c00dd4b07a998a8d987bcb2606",
+  "input_report_sha256": "ba4f451b4c90f4b1a82a0b7e9bdf384f908e04e4bdc1c69b68c9f0e8f1ca2b58",
+  "scene_contract_sha256": "02b4ffca99f0513e8be51037c0456674ab81528691fe410613999a785574a428",
+  "source_sha256": {
+    "script": "cc1e3a072c352f3f739d3edda6058c051db09580a567ec01a07fa6bb423b5df6",
+    "roi_analysis.py": "a5e6e9e81095329757f2ee409a1196f1255929bf972722ae23b4a27a567cd10f"
+  },
+  "selected_component": 0,
+  "input_annotation_count": 165,
+  "paper_target_count": 31,
+  "overlap_cells": 469261,
+  "max_instances_per_cell": 4,
+  "union_cells": 4065218,
+  "sum_instance_cells": 4591972,
+  "output_sha256": "0454d63242effbeb38598be5f37ea5105b70a37c797337e41257973f8874b2ca",
+  "readback_equal": true,
+  "input_targets_unchanged": true,
+  "elapsed_s": 1.661313608999997,
+  "limitations": [
+    "Unbound and unreviewed geometry remains in this diagnostic only.",
+    "No target annotation, verified/reachable flag, or visibility value was changed.",
+    "This preserves overlapping candidates but does not change the official arrival format.",
+    "Collision-profile or coordinate changes invalidate these candidates."
+  ],
+  "output": "runs/arrival_candidates_20261019/RetroNeighborhood-a02/",
+  "earlier_a01": "Preserved all-annotation diagnostic (165 entries); a02 correctly restricts Table A.3 paper classes (31). No formal artifacts were written.",
+  "validation_command": "timeout 180 /home/raven/.venvs/raven-scene1/bin/python scripts/prepare_unreviewed_arrival_candidates.py --postprocess runs/full_map_postprocess_20261019/full-post-a01-frames --targets runs/full_map_postprocess_20261019/source/targets.binding-corrected.unreviewed.json --output runs/arrival_candidates_20261019/RetroNeighborhood-a02",
+  "exit_code": 0,
+  "additional_cpu_validation": {
+    "scalar_distance": {
+      "file": "runs/arrival_candidates_20261019/RetroNeighborhood-a02/independent-check.json",
+      "sha256": "7b38bf610dd31b7473fc2221c88ad483eab167d1a622c4f039a86735fd3aa934",
+      "result": {
+        "scope": "independent scalar-distance verification of actual exported geometry",
+        "sampled_cells": 31000,
+        "instances": 31,
+        "metadata_and_component_report_hashes_verified": true,
+        "all_samples_within_original_window": true,
+        "formal_accepted": false
+      }
+    },
+    "input_guards": {
+      "file": "runs/arrival_candidates_20261019/guard-check/result.json",
+      "sha256": "459265feb63007d97b4c36dad983bc89edf0c0a27e0d1aeea5040c877de07897",
+      "result": {
+        "scope": "CPU guard checks using actual map metadata",
+        "checks": [
+          "existing output refused",
+          "target hash mismatch refused",
+          "metadata displacement refused"
+        ],
+        "original_outputs_unchanged": true,
+        "source_sha256": "e302483eee805e69a183616b627d2df49cb0ac9ef9f54070624b32e6cd8a05d1",
+        "formal_accepted": false
+      }
+    }
+  },
+  "validation_scope": "CPU geometry and guards only; no real visibility or human GT acceptance"
+}

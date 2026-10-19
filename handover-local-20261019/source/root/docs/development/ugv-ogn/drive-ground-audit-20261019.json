@@ -1,0 +1,350 @@
+{
+  "scope": "真实 PhysX 诊断，不是导航稳定性或正式场景验收",
+  "runs": {
+    "direct": {
+      "job": "drive-audit-a03",
+      "segments": [
+        {
+          "name": "settle",
+          "sim_duration_s": 3.0,
+          "yaw_change_rad": 3.362264934581322e-06,
+          "max_displacement_m": 0.003925323949726696,
+          "path_m": 0.003917914407166114,
+          "final_speed_mps": 0.0011563642553109156
+        },
+        {
+          "name": "forward",
+          "sim_duration_s": 8.0,
+          "yaw_change_rad": 1.2716270604598303e-05,
+          "max_displacement_m": 1.0216140747088118,
+          "path_m": 1.0216351628780558,
+          "final_speed_mps": 0.14925883752147784
+        },
+        {
+          "name": "stop-forward",
+          "sim_duration_s": 3.0,
+          "yaw_change_rad": 7.289067533755441e-08,
+          "max_displacement_m": 0.004671098359412622,
+          "path_m": 0.006331805986257227,
+          "final_speed_mps": 0.001197654285933591
+        },
+        {
+          "name": "turn-left",
+          "sim_duration_s": 18.0,
+          "yaw_change_rad": 2.953862351401248,
+          "max_displacement_m": 0.3865346338674355,
+          "path_m": 0.5784378532120984,
+          "final_speed_mps": 0.04264535037588419
+        },
+        {
+          "name": "stop-left",
+          "sim_duration_s": 3.0,
+          "yaw_change_rad": -1.2395030640099947e-05,
+          "max_displacement_m": 0.0025075019573314594,
+          "path_m": 0.004004505746685779,
+          "final_speed_mps": 0.0012773368780177958
+        },
+        {
+          "name": "turn-right",
+          "sim_duration_s": 18.0,
+          "yaw_change_rad": -2.9604996655650178,
+          "max_displacement_m": 0.38880232603758397,
+          "path_m": 0.5966980940005002,
+          "final_speed_mps": 0.03706294526582019
+        },
+        {
+          "name": "stop-right",
+          "sim_duration_s": 3.0,
+          "yaw_change_rad": 5.450117809197887e-06,
+          "max_displacement_m": 0.0034618903121954063,
+          "path_m": 0.004075144584206556,
+          "final_speed_mps": 0.0009196179708761621
+        }
+      ],
+      "execution": {
+        "scope": "diagnostic_only_not_benchmark",
+        "command": [
+          "cmd.exe",
+          "/d",
+          "/c",
+          "D:\\RAVEN-4060\\isaac45\\python.bat",
+          "D:\\RAVEN-4060\\setup\\drive-audit-v1\\probe-drive-audit-a03.py",
+          "--output",
+          "D:\\RAVEN-4060\\logs\\drive-audit-a03-frames",
+          "--graphics-api",
+          "vulkan",
+          "--defer-stage",
+          "--cpu-threads",
+          "16",
+          "--shader-concurrency",
+          "1",
+          "--disable-motion-bvh",
+          "--async-loads",
+          "--physics-only",
+          "--drive-audit",
+          "direct",
+          "--scene",
+          "D:/RAVEN-4060/source/AirStack/scenes/RetroNeighborhood/RetroNeighborhood_Export.usd",
+          "--jackal-usd",
+          "D:/RAVEN-4060/source/AirStack/simulation/isaac-sim/assets/robots/jackal_airground.usda",
+          "--air-stack-root",
+          "D:/RAVEN-4060/source/AirStack",
+          "--jackal-spawn",
+          "-30",
+          "-21.5",
+          ".45",
+          "0",
+          "--ray-origin",
+          "-30",
+          "-21.5",
+          "8"
+        ],
+        "limits": {
+          "job_memory_gib": 14.0,
+          "cpu_percent": 60,
+          "active_processes": 32,
+          "min_available_gib": 4,
+          "min_available_commit_gib": 2,
+          "max_gpu_fraction": 0.8,
+          "timeout_s": 360.0,
+          "gpu_query_timeout_s": 8,
+          "max_missing_gpu_samples": 2,
+          "preflight_gpu_required": true
+        },
+        "initial": {
+          "available_gib": 20.977828979492188,
+          "available_commit_gib": 36.19075393676758,
+          "gpu_memory_fraction": 0.0,
+          "gpu_telemetry_consecutive_failures": 0,
+          "gpu_telemetry_error": null
+        },
+        "pid": 40772,
+        "exit_code": 0,
+        "status": "completed",
+        "result_json": "D:\\RAVEN-4060\\logs\\drive-audit-a03-frames\\report.json",
+        "diagnostic_status": "passed",
+        "peak_job_commit_gib": 8.358879089355469,
+        "elapsed_s": 133.92,
+        "gpu_telemetry_failures": 0,
+        "gpu_telemetry_last_error": null
+      }
+    },
+    "actions": {
+      "job": "drive-audit-a02",
+      "segments": [
+        {
+          "name": "settle",
+          "sim_duration_s": 3.0,
+          "yaw_change_rad": 1.3402400030308318e-06,
+          "max_displacement_m": 0.003931052935804774,
+          "path_m": 0.003923636922873087,
+          "final_speed_mps": 0.0009268255629317263
+        },
+        {
+          "name": "forward",
+          "sim_duration_s": 8.0,
+          "yaw_change_rad": -4.288523195049361e-06,
+          "max_displacement_m": 1.0215950104510156,
+          "path_m": 1.0216199660856158,
+          "final_speed_mps": 0.14906078125026345
+        },
+        {
+          "name": "stop-forward",
+          "sim_duration_s": 3.0,
+          "yaw_change_rad": 2.6934345724275827e-05,
+          "max_displacement_m": 0.004735947039354903,
+          "path_m": 0.006563431208438882,
+          "final_speed_mps": 0.001016473997886539
+        },
+        {
+          "name": "turn-left",
+          "sim_duration_s": 18.0,
+          "yaw_change_rad": 3.1835102360947314,
+          "max_displacement_m": 0.3620897236048487,
+          "path_m": 0.5639639213491437,
+          "final_speed_mps": 0.05313283285230249
+        },
+        {
+          "name": "stop-left",
+          "sim_duration_s": 3.0,
+          "yaw_change_rad": 1.8977720817048294e-06,
+          "max_displacement_m": 0.002370845859097624,
+          "path_m": 0.004567524898563028,
+          "final_speed_mps": 0.0010425268828765167
+        },
+        {
+          "name": "turn-right",
+          "sim_duration_s": 18.0,
+          "yaw_change_rad": -3.303672383440988,
+          "max_displacement_m": 0.34748424732345473,
+          "path_m": 0.6157939718047616,
+          "final_speed_mps": 0.06612266223737596
+        },
+        {
+          "name": "stop-right",
+          "sim_duration_s": 3.0,
+          "yaw_change_rad": -6.667153643405421e-06,
+          "max_displacement_m": 0.0019098999126546652,
+          "path_m": 0.004754519973232868,
+          "final_speed_mps": 0.0012762882589140289
+        }
+      ],
+      "execution": {
+        "scope": "diagnostic_only_not_benchmark",
+        "command": [
+          "cmd.exe",
+          "/d",
+          "/c",
+          "D:\\RAVEN-4060\\isaac45\\python.bat",
+          "D:\\RAVEN-4060\\setup\\drive-audit-v1\\probe-drive-audit-a02.py",
+          "--output",
+          "D:\\RAVEN-4060\\logs\\drive-audit-a02-frames",
+          "--graphics-api",
+          "vulkan",
+          "--defer-stage",
+          "--cpu-threads",
+          "16",
+          "--shader-concurrency",
+          "1",
+          "--disable-motion-bvh",
+          "--async-loads",
+          "--physics-only",
+          "--drive-audit",
+          "actions",
+          "--scene",
+          "D:/RAVEN-4060/source/AirStack/scenes/RetroNeighborhood/RetroNeighborhood_Export.usd",
+          "--jackal-usd",
+          "D:/RAVEN-4060/source/AirStack/simulation/isaac-sim/assets/robots/jackal_airground.usda",
+          "--air-stack-root",
+          "D:/RAVEN-4060/source/AirStack",
+          "--jackal-spawn",
+          "-30",
+          "-21.5",
+          ".45",
+          "0",
+          "--ray-origin",
+          "-30",
+          "-21.5",
+          "8"
+        ],
+        "limits": {
+          "job_memory_gib": 14.0,
+          "cpu_percent": 60,
+          "active_processes": 32,
+          "min_available_gib": 4,
+          "min_available_commit_gib": 2,
+          "max_gpu_fraction": 0.8,
+          "timeout_s": 360.0,
+          "gpu_query_timeout_s": 8,
+          "max_missing_gpu_samples": 2,
+          "preflight_gpu_required": true
+        },
+        "initial": {
+          "available_gib": 20.742630004882812,
+          "available_commit_gib": 35.81249237060547,
+          "gpu_memory_fraction": 0.0,
+          "gpu_telemetry_consecutive_failures": 0,
+          "gpu_telemetry_error": null
+        },
+        "pid": 24016,
+        "exit_code": 0,
+        "status": "completed",
+        "result_json": "D:\\RAVEN-4060\\logs\\drive-audit-a02-frames\\report.json",
+        "diagnostic_status": "passed",
+        "peak_job_commit_gib": 8.402374267578125,
+        "elapsed_s": 162.95,
+        "gpu_telemetry_failures": 0,
+        "gpu_telemetry_last_error": null
+      }
+    }
+  },
+  "archive_sha256": "597f9cddc5018ab8390d73af5ecc5f7536d45e8f765ca0fb11df3f838ff5f8d8",
+  "source_hashes": {
+    "scripts\\probe_jackal_drive_audit.py": "bb9b40f6a51a6a3bbd2a0667f486f9d5ee3ae7d3d386926964cc5b0355bb5144",
+    "scripts\\probe_windows_scene_render.py": "59450e202dfbe543a448eef7a067c1732d3dcc0e0b221c970133511acba0b77e",
+    "runs\\drive_audit_20261019\\drive-asset-audit.json": "d8c649047ed75dea025842be4ff5ab558106299e2de6757a5ea502469ae0241a"
+  },
+  "findings": [
+    "动作接口没有消除原地转向平移，暂不改变默认轮控接口。",
+    "五个真实 PhysX 射线位置显示 z=0 支持平面与原道路 z≈-0.19126 m 并存；轮心 z≈0.098 m，与轮半径吻合。",
+    "静态 USD 中轮胎 authored extent 方向与圆柱 schema 不一致；schema axis=Z 经 X 轴90度旋转后与车轮关节轴一致，不能把缓存包围盒异常解释成实际轮轴装反。",
+    "原三目标/朝向/容差/120 s 下的稳定性重复验收仍未完成。"
+  ],
+  "unresolved": [
+    "转向摩擦、驱动力与控制/规划重置对末端漂移的相对影响未确定。",
+    "Nav2 Humble 上游 setPlannerPath 重置 goal checker；与本机安装二进制和失败时序尚未完整对照，不能当作已证明根因。",
+    "未修改支持平面、场景坐标、机器人碰撞几何或 GT；视觉高差仍存在。"
+  ],
+  "references": [
+    "https://raw.githubusercontent.com/ros-navigation/navigation2/humble/nav2_controller/src/controller_server.cpp",
+    "https://raw.githubusercontent.com/ros-navigation/navigation2/humble/nav2_regulated_pure_pursuit_controller/src/regulated_pure_pursuit_controller.cpp"
+  ],
+  "failed_attempt": {
+    "job": "drive-audit-a01",
+    "reason": "CLI缺少必须的ray-origin，应用启动前退出；证据保留",
+    "execution": {
+      "scope": "diagnostic_only_not_benchmark",
+      "command": [
+        "cmd.exe",
+        "/d",
+        "/c",
+        "D:\\RAVEN-4060\\isaac45\\python.bat",
+        "D:\\RAVEN-4060\\setup\\drive-audit-v1\\probe-drive-audit-a01.py",
+        "--output",
+        "D:\\RAVEN-4060\\logs\\drive-audit-a01-frames",
+        "--graphics-api",
+        "vulkan",
+        "--defer-stage",
+        "--cpu-threads",
+        "16",
+        "--shader-concurrency",
+        "1",
+        "--disable-motion-bvh",
+        "--async-loads",
+        "--physics-only",
+        "--drive-audit",
+        "direct",
+        "--scene",
+        "D:/RAVEN-4060/source/AirStack/scenes/RetroNeighborhood/RetroNeighborhood_Export.usd",
+        "--jackal-usd",
+        "D:/RAVEN-4060/source/AirStack/simulation/isaac-sim/assets/robots/jackal_airground.usda",
+        "--air-stack-root",
+        "D:/RAVEN-4060/source/AirStack",
+        "--jackal-spawn",
+        "-30",
+        "-21.5",
+        ".45",
+        "0"
+      ],
+      "limits": {
+        "job_memory_gib": 14.0,
+        "cpu_percent": 60,
+        "active_processes": 32,
+        "min_available_gib": 4,
+        "min_available_commit_gib": 2,
+        "max_gpu_fraction": 0.8,
+        "timeout_s": 360.0,
+        "gpu_query_timeout_s": 8,
+        "max_missing_gpu_samples": 2,
+        "preflight_gpu_required": true
+      },
+      "initial": {
+        "available_gib": 20.920093536376953,
+        "available_commit_gib": 36.12601852416992,
+        "gpu_memory_fraction": 0.0,
+        "gpu_telemetry_consecutive_failures": 0,
+        "gpu_telemetry_error": null
+      },
+      "pid": 24840,
+      "exit_code": 1,
+      "status": "guard_or_launch_failed",
+      "result_json": "D:\\RAVEN-4060\\logs\\drive-audit-a01-frames\\report.json",
+      "error": "[Errno 2] No such file or directory: 'D:\\\\RAVEN-4060\\\\logs\\\\drive-audit-a01-frames\\\\report.json'",
+      "peak_job_commit_gib": 0.016845703125,
+      "elapsed_s": 2.02,
+      "gpu_telemetry_failures": 0,
+      "gpu_telemetry_last_error": null
+    }
+  },
+  "cleanup": "三次诊断均已退出；临时计划任务已移除，无本轮仿真后台进程。"
+}

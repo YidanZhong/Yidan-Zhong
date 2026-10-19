@@ -1,0 +1,403 @@
+/ugv/lifecycle_manager_navigation:
+  ros__parameters:
+    use_sim_time: true
+    autostart: true
+    node_names:
+      - map_server
+      - controller_server
+      - smoother_server
+      - planner_server
+      - behavior_server
+      - velocity_smoother
+      - bt_navigator
+
+/ugv/map_server:
+  ros__parameters:
+    use_sim_time: true
+
+/ugv/controller_server:
+  ros__parameters:
+    use_sim_time: true
+    controller_frequency: 10.0
+    costmap_update_timeout: 1.0
+    min_x_velocity_threshold: 0.001
+    min_y_velocity_threshold: 0.5
+    min_theta_velocity_threshold: 0.001
+    failure_tolerance: 1.0
+    progress_checker_plugins: ["progress_checker"]
+    goal_checker_plugins: ["general_goal_checker"]
+    controller_plugins: ["FollowPath"]
+    progress_checker:
+      plugin: "nav2_controller::SimpleProgressChecker"
+      required_movement_radius: 0.05
+      movement_time_allowance: 25.0
+    general_goal_checker:
+      plugin: "nav2_controller::SimpleGoalChecker"
+      stateful: false
+      xy_goal_tolerance: 0.25
+      # 2026-10-04 (user rule): the arrival must face the point the
+      # goal was sent for; the resolver already commands the goal
+      # yaw toward the injected point, so the goal checker enforces
+      # it.  The 2026-09-19 "any heading" relaxation predates the
+      # drivetrain fix - ``smoke_20260919_193841`` could not rotate
+      # in place (5.6 N*m/wheel needed vs the 5.0 N*m wheelie
+      # bound), but the 2026-09-21 reconfiguration (tyre friction
+      # pair + 8 N*m cap) re-enabled rotate-to-heading and measured
+      # 0.19-0.41 rad/s in place, so a 0.30 rad gate is executable.
+      # The stateful checker keeps the 0.25 m xy contract first and
+      # rotates afterwards.
+      yaw_goal_tolerance: 0.30
+    FollowPath:
+      plugin: "dwb_core::DWBLocalPlanner"
+      debug_trajectory_details: false
+      min_vel_x: -0.15
+      min_vel_y: 0.0
+      max_vel_x: 0.25
+      max_vel_y: 0.0
+      max_vel_theta: 0.35
+      min_speed_xy: 0.0
+      max_speed_xy: 0.25
+      min_speed_theta: 0.0
+      acc_lim_x: 1.0
+      acc_lim_y: 0.0
+      acc_lim_theta: 20.0
+      decel_lim_x: -1.0
+      decel_lim_y: 0.0
+      decel_lim_theta: -20.0
+      vx_samples: 20
+      vy_samples: 5
+      vtheta_samples: 40
+      sim_time: 1.7
+      linear_granularity: 0.05
+      angular_granularity: 0.025
+      transform_tolerance: 0.2
+      xy_goal_tolerance: 0.10
+      trans_stopped_velocity: 0.25
+      short_circuit_trajectory_evaluation: true
+      stateful: true
+      critics: ["RotateToGoal", "Oscillation", "BaseObstacle", "GoalAlign", "PathAlign", "PathDist", "GoalDist"]
+      BaseObstacle.scale: 0.02
+      PathAlign.scale: 32.0
+      PathAlign.forward_point_distance: 0.1
+      GoalAlign.scale: 24.0
+      GoalAlign.forward_point_distance: 0.1
+      PathDist.scale: 32.0
+      GoalDist.scale: 24.0
+      RotateToGoal.scale: 32.0
+      RotateToGoal.slowing_factor: 5.0
+      RotateToGoal.lookahead_time: -1.0
+      Oscillation.scale: 1.0
+      Oscillation.oscillation_reset_dist: 0.05
+      Oscillation.oscillation_reset_angle: 0.2
+  # The Jackal could not rotate in place on this drivetrain when
+  # this lane was tuned: with a
+      # pure-rotation command (linear.x = 0) the wheels slip and the
+      # chassis turns ~1% of the commanded rate, so RPP's
+      # rotate-to-heading phase wedged the UGV 2.5 m short of the
+      # 2026-09-17 injected goal until "Controller patience
+      # exceeded" aborted it.  Steering-only forward following keeps
+      # the robot moving; allowing reverse as well made it ping-pong
+      # (measured 2026-09-18: -23.3 -> -24.0 -> -23.3 m with the goal
+      # still 2.3 m away).
+      #
+      # 2026-09-19 (second measurement, ``smoke_20260919_165233``):
+      # rotate-to-heading was re-enabled after the wheel-torque
+      # bound and *failed*: the controller commanded its 0.45 rad/s
+      # rotation for 15 simulated seconds while the chassis yaw
+      # stayed at 171 deg and the wheel targets stayed inside
+      # +-0.1 rad/s - the robot never left the start.  Rotating in
+      # place needs a yaw moment above the skid-steer scrub
+      # resistance (~43 N*m with the benchmark tyre friction 1.0/1.2)
+      # = 5.6 N*m per wheel, i.e. *above* the 5.0 N*m wheelie
+      # threshold, so this drivetrain genuinely cannot spin in
+      # place.  Steering-only forward following stays enabled; the
+      # nose-in deadlock it can cause is handled by allowing reverse
+      # (below) and by the plan probe.
+      # 2026-09-20: rotate-to-heading also failed with a 6 N*m cap.
+      # Commanded pure rotation (linear 0, angular 0.07-0.16 rad/s)
+      # moved the yaw only ~0.15 deg per simulated second (~2-4 % of
+      # the command) over 480 wall seconds: the yaw moment was eaten
+      # by the skid-steer scrub.
+      #
+      # 2026-09-21 (this turn, measured): that conclusion is
+      # obsolete.  With the tyre friction lowered to 0.7/0.6 on a
+      # ``min``-combined pair, the drive cap raised to 8 N*m and the
+      # measured 0.40 yaw gain shaped into the command
+      # (``AIRGROUND_UGV_CMD_VEL_ANGULAR_GAIN=2.5``), the spin probe
+      # measures 0.189 rad/s at 0.5 and 0.407 rad/s at 1.0 rad/s
+      # commanded, i.e. in-place rotation works and scales.  The
+      # formal injected run ``smoke_20260921_203844`` still failed
+      # *because* this flag was false: after reaching the first
+      # dispatched goal the UGV had the next goal behind it, RPP had
+      # no rotate-to-heading phase, so it drew a forward-left arc
+      # into the pocket next to the 0002 bus stop (x -26.9 -> -29.4
+      # while the goal was 23 m east), then aborted on the collision
+      # pre-check.  Rotate-to-heading is therefore re-enabled.
+      # ``allow_reversing`` must stay false: RPP disables reversing
+      # whenever rotate-to-heading is on (its constructor warns and
+      # forces the pair), and reversing was the ping-pong source.
+      use_rotate_to_heading: true
+      # 2026-09-19 (third measurement, ``smoke_20260919_225512``):
+      # reversing was re-enabled to escape the nose-in deadlock, and
+      # that made the controller *ping-pong* instead: with the
+      # heading roughly across the path the forward/reverse decision
+      # flips every cycle.  Measured directly on ``/ugv/control/status``
+      # for 24 + simulated seconds at the RetroNeighborhood fence
+      # (``(-20.99, -14.80)``): cmd linear +0.13 -> -0.13 m/s and
+      # angular -0.44 -> +0.44 rad/s every ~0.5-1 s while the chassis
+      # oscillated within +-2 mm, so ``follow_path`` ended in
+      # "Failed to make progress" and the target timed out.  That is
+      # the same limit cycle the 2026-09-18 runs saw; it is *not* a
+      # phantom-costmap artefact (the costmap in front of the robot
+      # was free here).  Steering-only forward following is therefore
+      # restored.
+      allow_reversing: false
+      rotate_to_heading_min_angle: 0.5
+      max_angular_accel: 20.0
+      max_robot_pose_search_dist: 10.0
+      use_interpolation: true
+
+/ugv/local_costmap/local_costmap:
+  ros__parameters:
+    use_sim_time: true
+    update_frequency: 10.0
+    publish_frequency: 2.0
+    global_frame: map
+    robot_base_frame: ugv/base_link
+    initial_transform_timeout: 10.0
+    rolling_window: true
+    width: 8
+    height: 8
+    resolution: 0.05
+    footprint: "[[0.254, 0.215], [0.254, -0.215], [-0.254, -0.215], [-0.254, 0.215]]"
+    footprint_padding: 0.000
+    # 2026-09-19: the local costmap MUST also carry the static
+    # prior.  The traversability prior marks every cell under a
+    # bus-shelter roof as blocked (its vertical ray hits the roof),
+    # and NavFn seeds its potential field at the *robot's* cell:
+    # ``smoke_20260919_153113`` measured the UGV physically driving
+    # *under* the shelter, after which the robot's cell was a
+    # one-cell hole inside the lethal footprint and the planner
+    # answered ``GridBased: failed to create plan`` for every goal
+    # (14x for the east bus stop, 4/4 probes for the west one) until
+    # a recovery shoved it out.  The controller now refuses that
+    # region in the first place, while the voxel layer keeps adding
+    # live 3D geometry and the global costmap keeps planning around
+    # both.
+    static_layer:
+      plugin: "nav2_costmap_2d::StaticLayer"
+      map_subscribe_transient_local: true
+    # ``track_unknown_space: true`` (the Nav2 default) leaves the
+    # not-yet-observed cells of the rolling window at NO_INFORMATION
+    # (255), and RPP's collision check treats >= INSCRIBED (253) as a
+    # collision - measured 2026-09-18: the UGV stopped every ~2 m
+    # with "RegulatedPurePursuitController detected collision ahead"
+    # followed by "Controller patience exceeded" while the local
+    # costmap around the robot was free.
+    track_unknown_space: false
+    plugins: ["static_layer", "voxel_layer", "inflation_layer"]
+    voxel_layer:
+      plugin: "nav2_costmap_2d::VoxelLayer"
+      enabled: true
+      # Footprint clearing must stay enabled.  With it disabled the
+      # cells the sensor cannot see (its own occluded footprint)
+      # keep whatever the vehicle marked while driving over them, so
+      # the robot ends up standing inside a lethal island: measured
+      # 2026-09-19 02:14 (``smoke_20260919_021234``) the robot's own
+      # cell was INSCRIBED (99) and every cell within +-0.5 m was
+      # 99/100 in both costmaps, while the live cloud had *zero*
+      # points within 1 m in the [0.05, 0.6) m band -- i.e. the
+      # marks were stale, not live.  The planner then failed to
+      # create a plan from a lethal start cell and RPP's collision
+      # check fired continuously ("detected collision ahead!" x756),
+      # pinning the UGV ~2 m from its start.  A real 5 cm step is
+      # still carried by the 0.05 m static layer, which footprint
+      # clearing does not touch.
+      footprint_clearing_enabled: true
+      combination_method: 1
+      z_resolution: 0.05
+      z_voxels: 16
+      mark_threshold: 0
+      publish_voxel_map: false
+      observation_sources: ugv_point_cloud
+      ugv_point_cloud:
+        topic: /ugv/sensors/ouster/point_cloud
+        data_type: "PointCloud2"
+        clearing: true
+        marking: true
+        inf_is_valid: false
+        min_obstacle_height: 0.05
+        max_obstacle_height: 1.0
+        raytrace_max_range: 6.0
+        raytrace_min_range: 0.0
+        obstacle_max_range: 4.5
+        obstacle_min_range: 0.0
+    inflation_layer:
+      plugin: "nav2_costmap_2d::InflationLayer"
+      cost_scaling_factor: 1.0
+      inflation_radius: 0.65
+    always_send_full_costmap: true
+
+/ugv/global_costmap/global_costmap:
+  ros__parameters:
+    use_sim_time: true
+    # 2026-09-19: 2 Hz lagged the 10 Hz local costmap badly enough
+    # that fresh fan returns appeared in the *local* layer while the
+    # global plan still routed through them (4095 "collision ahead"
+    # in ``smoke_20260919_160240``).  5 Hz keeps the two surfaces in
+    # step at ~4 % of the wall-time budget.
+    update_frequency: 5.0
+    publish_frequency: 2.0
+    global_frame: map
+    robot_base_frame: ugv/base_link
+    initial_transform_timeout: 10.0
+    footprint: "[[0.254, 0.215], [0.254, -0.215], [-0.254, -0.215], [-0.254, 0.215]]"
+    footprint_padding: 0.000
+    resolution: 0.05
+    track_unknown_space: false
+    # 2026-09-19: the *live* 3D cloud feeds the local costmap only.
+    # With the voxel layer in the global costmap, the fan's returns
+    # extend the instance structures by 0.1-0.3 m, and the dispatch
+    # pose (nearest reachable cell to the structural anchor, 0.35 m
+    # from the bus-stop shelter) then falls inside the inscribed
+    # ring.  ``nav2_navfn_planner`` feeds the *goal* to
+    # ``NavFn::setStart`` and ``NavFn::setStart`` refuses a cell with
+    # cost >= INSCRIBED, so the planner produced **no plan at all**
+    # (``GridBased: failed to create plan`` x18 in
+    # ``smoke_20260919_122659``/``142336``) until the recovery
+    # cleared the marks.  The global plan now runs on the published
+    # 0.05 m traversability prior (same runtime PhysX source as the
+    # GT), while the local costmap still blocks live geometry 5 cm or
+    # more above the ground within its 8 m window.
+    plugins: ["static_layer", "voxel_layer", "inflation_layer"]
+    static_layer:
+      plugin: "nav2_costmap_2d::StaticLayer"
+      map_subscribe_transient_local: true
+    voxel_layer:
+      plugin: "nav2_costmap_2d::VoxelLayer"
+      enabled: true
+      # Footprint clearing must stay enabled.  With it disabled the
+      # cells the sensor cannot see (its own occluded footprint)
+      # keep whatever the vehicle marked while driving over them, so
+      # the robot ends up standing inside a lethal island: measured
+      # 2026-09-19 02:14 (``smoke_20260919_021234``) the robot's own
+      # cell was INSCRIBED (99) and every cell within +-0.5 m was
+      # 99/100 in both costmaps, while the live cloud had *zero*
+      # points within 1 m in the [0.05, 0.6) m band -- i.e. the
+      # marks were stale, not live.  The planner then failed to
+      # create a plan from a lethal start cell and RPP's collision
+      # check fired continuously ("detected collision ahead!" x756),
+      # pinning the UGV ~2 m from its start.  A real 5 cm step is
+      # still carried by the 0.05 m static layer, which footprint
+      # clearing does not touch.
+      footprint_clearing_enabled: true
+      combination_method: 1
+      z_resolution: 0.05
+      z_voxels: 16
+      mark_threshold: 0
+      publish_voxel_map: false
+      observation_sources: ugv_point_cloud
+      ugv_point_cloud:
+        topic: /ugv/sensors/ouster/point_cloud
+        data_type: "PointCloud2"
+        clearing: true
+        marking: true
+        inf_is_valid: false
+        min_obstacle_height: 0.05
+        max_obstacle_height: 1.0
+        raytrace_max_range: 6.0
+        raytrace_min_range: 0.0
+        obstacle_max_range: 4.5
+        obstacle_min_range: 0.0
+    inflation_layer:
+      plugin: "nav2_costmap_2d::InflationLayer"
+      cost_scaling_factor: 1.0
+      inflation_radius: 0.65
+    always_send_full_costmap: true
+
+/ugv/planner_server:
+  ros__parameters:
+    use_sim_time: true
+    expected_planner_frequency: 5.0
+    costmap_update_timeout: 1.0
+    planner_plugins: ["GridBased"]
+    GridBased:
+      plugin: "nav2_navfn_planner/NavfnPlanner"
+      tolerance: 0.5
+      use_astar: false
+      allow_unknown: true
+
+/ugv/smoother_server:
+  ros__parameters:
+    use_sim_time: true
+    smoother_plugins: ["simple_smoother"]
+    simple_smoother:
+      plugin: "nav2_smoother::SimpleSmoother"
+      tolerance: 1.0e-10
+      max_its: 1000
+      do_refinement: true
+
+/ugv/behavior_server:
+  ros__parameters:
+    use_sim_time: true
+    local_costmap_topic: local_costmap/costmap_raw
+    global_costmap_topic: global_costmap/costmap_raw
+    local_footprint_topic: local_costmap/published_footprint
+    global_footprint_topic: global_costmap/published_footprint
+    cycle_frequency: 10.0
+    behavior_plugins: ["spin", "backup", "wait"]
+    spin:
+      plugin: "nav2_behaviors/Spin"
+    backup:
+      plugin: "nav2_behaviors/BackUp"
+      backup_dist: 0.4
+      backup_speed: 0.1
+    wait:
+      plugin: "nav2_behaviors/Wait"
+    local_frame: map
+    global_frame: map
+    robot_base_frame: ugv/base_link
+    transform_tolerance: 0.2
+    simulate_ahead_time: 1.0
+    # 2026-09-18: the recovery spin is the only motion commanded
+    # while the UGV is stalled against blocked cells, and the
+    # drivetrain cannot rotate in place (measured: ~1-4 % of the
+    # commanded yaw).  The original 0.9/0.45 rad/s spin ran
+    # straight into the roll-over, so the recovery torque is now
+    # bounded to roughly a third of it.
+    max_rotational_vel: 0.35
+    min_rotational_vel: 0.15
+    rotational_acc_lim: 0.8
+
+/ugv/bt_navigator:
+  ros__parameters:
+    use_sim_time: true
+    global_frame: map
+    robot_base_frame: ugv/base_link
+    odom_topic: /ugv/odom
+    bt_loop_duration: 20
+    default_server_timeout: 20
+    wait_for_service_timeout: 2000
+    action_server_result_timeout: 120.0
+    navigators: ["navigate_to_pose"]
+    navigate_to_pose:
+      plugin: "nav2_bt_navigator::NavigateToPoseNavigator"
+    error_code_names:
+      - compute_path_error_code
+      - follow_path_error_code
+
+/ugv/velocity_smoother:
+  ros__parameters:
+    use_sim_time: true
+    smoothing_frequency: 10.0
+    stamp_smoothed_velocity_with_smoothing_time: false
+    scale_velocities: false
+    feedback: "OPEN_LOOP"
+    max_velocity: [0.25, 0.0, 0.35]
+    min_velocity: [-0.125, 0.0, -0.35]
+    max_accel: [1.0, 0.0, 20.0]
+    max_decel: [-1.0, 0.0, -20.0]
+    odom_topic: /ugv/odom
+    odom_duration: 0.1
+    deadband_velocity: [0.0, 0.0, 0.0]
+    velocity_timeout: 1.0

@@ -1,0 +1,249 @@
+{
+  "task": "Local-Scene1-Reproduction / Scene1-TiledMap-Validation",
+  "job": "tile-map-a01",
+  "passed": true,
+  "scope": "small-window native PhysX tile equivalence; not formal GT or full-scene validation",
+  "scene_sha256": "2a7141ce928c432f031f78a6b1c3798eaa932431d5a1735f8bad513694afce32",
+  "binding_change": {
+    "status": "applied_to_separate_unreviewed_copy",
+    "before": {
+      "instance_id": "RetroNeighborhood.red_car.0000",
+      "semantic_class": "red car",
+      "source_class": "red car",
+      "source_index": 163,
+      "obb": {
+        "frame": "map",
+        "center_xyz_m": [
+          90.5,
+          -29.5,
+          0.5
+        ],
+        "size_xyz_m": [
+          3.0,
+          4.0,
+          2.0
+        ],
+        "orientation_rpy_rad": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "usd_prim_path": "/World/stage/Vehicles/Nissan_Fairlady_Z_S30240Z_1978/Meshes/Sketchfab_model/Nissan_S30_obj_cleaner_materialmerger_gles/Object_9",
+      "verified": false,
+      "excluded_reason": null,
+      "review_version": null,
+      "ground_reachable": "unknown",
+      "confirmation_region_id": null
+    },
+    "after": {
+      "instance_id": "RetroNeighborhood.red_car.0000",
+      "semantic_class": "red car",
+      "source_class": "red car",
+      "source_index": 163,
+      "obb": {
+        "frame": "map",
+        "center_xyz_m": [
+          90.5,
+          -29.5,
+          0.5
+        ],
+        "size_xyz_m": [
+          3.0,
+          4.0,
+          2.0
+        ],
+        "orientation_rpy_rad": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "usd_prim_path": "/World/stage/Vehicles/Nissan_Fairlady_Z_S30240Z_1978",
+      "verified": false,
+      "excluded_reason": null,
+      "review_version": null,
+      "ground_reachable": "unknown",
+      "confirmation_region_id": null
+    },
+    "annotation_obb_changed": false,
+    "source_sha256": "b1fd794663d548f716d4debb7c8eb9c47f434cd65f6f32927d57a877cbc7d526",
+    "output_sha256": "53c5930607ebd0a4bae94ff1587fd8f7d550828dcad93390a6d666679e302f6e",
+    "reason": "Automatic binder selected Object_9 below the documented whole-car root. Proposed root covers the full vehicle; target class and ID are unchanged. No human approval or reachable status is asserted.",
+    "human_approval": false
+  },
+  "window_count": 2,
+  "reference_cells": 51200,
+  "actual_rays": 314976,
+  "comparison": [
+    {
+      "window": "bus_stop_0002",
+      "finite_arrays": true,
+      "arrays_compared": 14,
+      "exact_mismatch_values": 0,
+      "outside_tolerance": 0,
+      "seam_mismatch_values": 0
+    },
+    {
+      "window": "red_car_0000",
+      "finite_arrays": true,
+      "arrays_compared": 14,
+      "exact_mismatch_values": 0,
+      "outside_tolerance": 0,
+      "seam_mismatch_values": 0
+    }
+  ],
+  "execution": {
+    "scope": "diagnostic_only_not_benchmark",
+    "command": [
+      "cmd.exe",
+      "/d",
+      "/c",
+      "D:\\RAVEN-4060\\isaac45\\python.bat",
+      "D:\\RAVEN-4060\\setup\\probe-tile-map-a01.py",
+      "--output",
+      "D:\\RAVEN-4060\\logs\\tile-map-a01-frames",
+      "--graphics-api",
+      "vulkan",
+      "--defer-stage",
+      "--cpu-threads",
+      "16",
+      "--shader-concurrency",
+      "1",
+      "--disable-motion-bvh",
+      "--async-loads",
+      "--physics-only",
+      "--scene",
+      "D:\\RAVEN-4060\\source\\AirStack\\scenes\\RetroNeighborhood\\RetroNeighborhood_Export.usd",
+      "--tile-validation",
+      "D:\\RAVEN-4060\\setup\\tile-input.json",
+      "--air-stack-root",
+      "D:\\RAVEN-4060\\source\\AirStack",
+      "--benchmark-package",
+      "D:\\RAVEN-4060\\setup\\tile-benchmark\\airground_benchmark"
+    ],
+    "limits": {
+      "job_memory_gib": 14.0,
+      "cpu_percent": 60,
+      "active_processes": 32,
+      "min_available_gib": 4,
+      "min_available_commit_gib": 2,
+      "max_gpu_fraction": 0.8,
+      "timeout_s": 840.0
+    },
+    "initial": {
+      "available_gib": 21.316329956054688,
+      "available_commit_gib": 36.38088607788086,
+      "gpu_memory_fraction": 0.0
+    },
+    "pid": 8500,
+    "exit_code": 0,
+    "status": "completed",
+    "result_json": "D:\\RAVEN-4060\\logs\\tile-map-a01-frames\\report.json",
+    "diagnostic_status": "passed",
+    "peak_job_commit_gib": 8.839771270751953,
+    "elapsed_s": 464.0
+  },
+  "cleanup": {
+    "network_rules_created": false,
+    "task_removed": true,
+    "processes": [],
+    "wsl_started": false,
+    "checked_at": "2026-10-18T22:05:58.9628921+08:00",
+    "vpn_configuration_changed": false
+  },
+  "peak_gpu_gib": 2.427734375,
+  "runtime": {
+    "isaac_sim": "4.5",
+    "os": "native Windows",
+    "gpu": "RTX 4060 Laptop 8 GB",
+    "driver": "577.02",
+    "container_tag": null,
+    "ros_topics_tf": "not applicable; static PhysX queries"
+  },
+  "source_sha256": {
+    "launch-raven-probe.py": "eb1bb51095dc0737d042350683aada0cca168f9d170215de74332ab0a7a30b65",
+    "package-tiled-map.py": "d2ab07ff7bc75896bb6742ce7803ffbf71fefad85702c9c7b9453734e5121cea",
+    "prepare-tiled-map.py": "2bf555e8310ec32a60405541f7b7e9099748595f4f6863ec31296570cdd2c8b6",
+    "probe-tile-map-a01.py": "a8b88a30b56623a27d3d8c96a2f1cc1eea3529bb3cf9b47dca6930c46e287d51",
+    "probe_tiled_terrain.py": "f4a70a632bb0587fe6967678bc8f0b2eedab6d13c8349e45a998a9bacd344a4b",
+    "probe_windows_scene_render.py": "a8b88a30b56623a27d3d8c96a2f1cc1eea3529bb3cf9b47dca6930c46e287d51",
+    "run_windows_probe.py": "675bd924366dd478341595abd065fab9e860d6cd2029bd2aa4ce3a0b15f770df",
+    "tile-benchmark.zip": "aa374e804930be004ef7e7786c355034d2352c67ed21973f101ac92bb431882e",
+    "tile-input.json": "56584bc039bde669ff7c9917babf520558859566d0ed7e083275a2fc817f45ed",
+    "tile-map-a01.json": "d5a8151229fa4f8299945a60bfc29503d310541ecf72c35a99b31758586e81eb",
+    "validate-tiled-map.py": "fb56adb6a5e977283b50a6853471a5bf9a4aa3be43bad6a4440898e50ef84db0"
+  },
+  "terrain_source_sha256": {
+    "AirStack/simulation/isaac-sim/utils/scene_prep.py": "eef36f2865152f9713b42efa981038703c989b5fc0b0a1275f05fd0e16332e8f",
+    "AirStack/simulation/isaac-sim/utils/scene_physics_profile.py": "3024b4563c3ee7266c26c45a0812382a0e287635d3f8b9e50064f54233bc78f8",
+    "AirStack/simulation/isaac-sim/utils/scene_audit.py": "d46d90ee021a8aa42076f33aef4b586821c06edffe23365497c40c7a88bc6abc",
+    "AirStack/simulation/isaac-sim/utils/ugv_traction_setup.py": "0dd3ca39a4aadf3b374dfbae968a1d63ee47b9047e87b9dc23b34fbea09d0518",
+    "benchmark/api.py": "520fe2e50a12a3373c5d6a081f496b511687c2c1f3fb438fb63d5a07d05d5bfd",
+    "benchmark/assets.py": "105bf112e648e92cc26c9534f27c10ecf9a20b51ccf8a864068ac4bb7df88f07",
+    "benchmark/cli.py": "3af2e65d2e8dfe38be2b3614f780b93ca3bffddc463e2173257becfc56f8b6b3",
+    "benchmark/communication.py": "299d0278838e8f190222dfab73062a450ade23b56a1417e588a6a28e2ecc8f9c",
+    "benchmark/dock.py": "c2dcd00ca8785cee1238847990183f0f18fe55eeb6bc8183e60add79249275cf",
+    "benchmark/env.py": "4bf1cd3c09dd8483fe226f6b604c87ab1a36ab806357904bdf4cb2864c4705f3",
+    "benchmark/episode_audit.py": "072ed7ae28279b67d9a2f28c7ff9da4c3a591f37b9131a279f41bd19b0a447a1",
+    "benchmark/episode_generation.py": "ab21519e49e4ab748acbab8f7c00ac15a4b49c603929dc23b89255fa561dc886",
+    "benchmark/episode_manifest.py": "b7f010ea6860a43fce4c6411bfaa967a3de158816f3799a27b44e79c2a8edeba",
+    "benchmark/faults.py": "06b454be6eeb2b5ab85816911dc5e92ad256ea244a385beb67f62f8edfd743de",
+    "benchmark/full_mission_evidence.py": "ae2dca3166c30d9d3dcb59b3a32f9df47233c06072e70f32b056cc3b8206fa3a",
+    "benchmark/ground_truth.py": "ebcd0de0927e4378e7242d67cb8e4a85cb5045c08f0f5b3bc37d2b06a6d5c5ea",
+    "benchmark/headless_integration.py": "ba5b7f5d59a84a9ec85fcad9e11dccded19e31cd1f47cd0f7cb89345e6db1f56",
+    "benchmark/isaac_los.py": "7cb70f33a5cf25f35cd8dfea0dc0a7ca094befb9eecf73af7420ee868b9f12f0",
+    "benchmark/lftw02.py": "d81d46c666d760de613df13fe575ea57b5ec3bb1943d116a17f216ea89ab5d30",
+    "benchmark/metrics.py": "07eb31009518cc11bf0e3f8d595acd496127ce4f72cd330a5eba9e84d25ea9b2",
+    "benchmark/motion.py": "d2cfe9d87c6c2ccf0abeeee20b8face96728ed193e1e7797e8cea4a1fad1c2df",
+    "benchmark/navigation_map_validation.py": "a302e1b2fb8fee0c41ec0b4dfee1169f920104579b4f26edbc19efa1e7bb4951",
+    "benchmark/performance.py": "cb1fbb211cee03d611028275ed6e56eb97ee06a06ee319d7a7672d38c319cbd4",
+    "benchmark/release_audit.py": "3a5bb89dae520aacac457dd036980d1d6d2ce9bbf1d36116fc1bc98389220cf1",
+    "benchmark/release_checklist.py": "e500819a2c28f024fa46286a756a41efbb4ab19d4f2f51502cee70b63c840ead",
+    "benchmark/release_manifest.py": "228a5e6b45dd11635ef0ed6029f811fc01e3b3a99bf141a1d65259058b09fa5d",
+    "benchmark/reproducibility.py": "6318d297871dbd685f4ef1122c2c12fda63f477ca39c763a9d80be1425ab9f80",
+    "benchmark/reset.py": "37a2b931bfa99ae186d7a4fdac8894d80caccc526ab5d791915a73ce84dc830a",
+    "benchmark/roi_analysis.py": "a5e6e9e81095329757f2ee409a1196f1255929bf972722ae23b4a27a567cd10f",
+    "benchmark/run.py": "4b250be5b4df5f29890844dae77a0e5b2aeb69f939951d5f66c2f9268de341a3",
+    "benchmark/runtime_api.py": "17fc403544f94671bac38930d0156cbd9f41332812a85e124c13c7f2bf358af0",
+    "benchmark/runtime_barrier.py": "c2656a761b49cbde7d72bc631927ffff73cb630aa6c1fc604443d2d6d09127c6",
+    "benchmark/runtime_communication.py": "d204958b7661d6376b54651894c524620b4d98928b858f6715c028385693ca19",
+    "benchmark/runtime_fault_suite.py": "cec079e4de878e296aa00b75acd3f2829d4df48b606c2e7d2e52bdb88c14b698",
+    "benchmark/scenes.py": "862b9cb82f9e97741a3590897c8a69a24aecadceba70f9154e108fa78b0f6014",
+    "benchmark/smoke.py": "28a3fda85501330edba62b37068cf527ef3bbcc7f3e563e3d57e1c6960ae9971",
+    "benchmark/system_run.py": "f9b8a0728571c2cdeaad538580ed325a3d1c9d766eca615e10ed07e902e0938b",
+    "benchmark/task.py": "647a918140f01b80b8acbd44aaff10f54a0cdef9e8411f3b2711eecfe170d30d",
+    "benchmark/task_catalog.py": "54305707778024c5a9170a428fdb4e6bdbd417418cd02c19e275968456f42128",
+    "benchmark/timing.py": "6d9644a3a2d93a651336b05a579b634bb38298606d7b4902fb9d0f4f004db477",
+    "benchmark/trajectory_replay.py": "6f5f0b31af8ef7feb70175edf573c556df3b538e77fe262f14cbdaaa2eaec4c8",
+    "benchmark/traversability.py": "2b63483138f1949bd7fb1fff880ec05f0ee8036ff2f47aa3d9a6e9b9c17218e4",
+    "benchmark/ugv_progress.py": "63ec4667c6245f2141de23a8332b4d9b1306fb8b7b47048d27ad4b12ffc0d987",
+    "benchmark/__init__.py": "2ba85fbb6188607757da8d7cc7da02abd0d2d7411e65354101b18204892c28f1",
+    "benchmark/config/loader.py": "3482d37e1164e4c4d3273b97d75920b9706124b8af67cc3a310595d51610cdd2",
+    "benchmark/config/schema.py": "4ab8f7dc5f38dda82daf84c4b0226f1f7899814e1cdf6f92972740cfffa5f504",
+    "benchmark/config/__init__.py": "ed89686c6b4f594c71fd5536da4b6014b9af2e73ac6c48941f3c11982eea4106"
+  },
+  "full_scene_extrapolation": {
+    "cells": 32235504,
+    "seconds_per_cell_measured": 0.0006653231875000643,
+    "sampling_only_estimated_hours": 5.9575078533197425,
+    "scope": "linear extrapolation from two small windows; not a full-map runtime measurement; excludes startup, global processing and scene complexity changes"
+  },
+  "formal_gt_approved": false,
+  "full_map_generated": false,
+  "formal_episode_count": 0,
+  "visual_qa": {
+    "checked_images": [
+      "map-comparison-0.png",
+      "map-comparison-1.png",
+      "red-car-binding.png"
+    ],
+    "result": "All three plots directly inspected: labels readable, map axes aligned, seam lines visible and difference panels empty as expected.",
+    "browser_preview": "not attempted; local file URL automation is blocked"
+  },
+  "limitations": [
+    "Small windows only; no full-scene mapping or server artifact equivalence.",
+    "No camera, ROS, live robot motion or semantic detector in this experiment.",
+    "One-cell halo validates terrain derivatives only; footprint and component operations run globally."
+  ]
+}

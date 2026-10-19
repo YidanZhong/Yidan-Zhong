@@ -1,0 +1,345 @@
+{
+  "scope": "local dependencies intentionally not uploaded; no credentials/asset binaries included",
+  "items": [
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\isaac45-simulation-manager.py",
+      "reason": "third-party SDK reference excerpt, not project-generated code"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-audit-v1\\audit-input.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-clock-v1\\ground-input.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-clock-v1\\instance-collision-geometry-matches.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-clock-v1\\source-sha256.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-ground-map-v2\\stream-input.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-ground-post-v2\\targets.unreviewed.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-ground-v2\\ground-input.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-instance-map-v1\\ground-input.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-instance-map-v1\\instance-collision-geometry-matches.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-instance-map-v1\\source-sha256.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-instance-map-v1\\stream-input.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-instance-post-v1\\source-sha256.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-instance-post-v1\\targets.unreviewed.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-instances-v1\\ground-input.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-instances-v1\\source-sha256.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-instances-v2\\ground-input.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-instances-v2\\instance-collision-geometry-matches.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-instances-v2\\source-sha256.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-instancewindows-v1\\ground-input.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-instancewindows-v1\\instance-collision-geometry-matches.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-instancewindows-v1\\source-sha256.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-portable-v1\\expected-colliders.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-portable-v1\\ground-input.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-portable-v1\\source-sha256.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-portable-v1\\static-instance-collision-manifest.unreviewed.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-post-v1\\targets.unreviewed.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-review-v1\\review-input.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-review-v2\\review-input.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-review-v2\\source-sha256.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-review-v3\\review-input-a04.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-review-v3\\review-input-a05.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-review-v3\\review-input-a06.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-review-v3\\review-input-a07.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-review-v3\\source-sha256.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-tiles-v1\\stream-input.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-tiles-v1\\tile-input.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-visibility-v1\\source-sha256.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-visibility-v1\\visibility-input.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-visibility-v1\\visibility-scene-input.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-visibility-v2\\source-sha256.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-visibility-v2\\visibility-input.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-visibility-v2\\visibility-scene-input.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-visibility-v3\\source-sha256.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-visibility-v3\\visibility-input.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-visibility-v3\\visibility-scene-input.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-visibility-v4\\source-sha256.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-visibility-v4\\visibility-input.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-visibility-v4\\visibility-scene-input.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-visibility-v5\\source-sha256.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-visibility-v5\\visibility-input.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\construction-visibility-v5\\visibility-scene-input.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\factory-geometry-v1\\geometry-input.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\factory-geometry-v1\\source-ray-baseline.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\factory-geometry-v1\\source-sha256.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\factory-review-v1\\review-input.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\factory-triangle-v1\\geometry-input.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\factory-triangle-v1\\source-ray-baseline.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\factory-triangle-v1\\source-sha256.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\fireacademy-geometry-v1\\geometry-input.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\fireacademy-geometry-v1\\source-ray-baseline.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\fireacademy-geometry-v1\\source-sha256.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\fireacademy-map-v1\\geometry-input.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\fireacademy-map-v1\\source-ray-baseline.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\fireacademy-map-v1\\source-sha256.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\fireacademy-map-v1\\stream-input.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\fireacademy-post-v1\\source-sha256.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\fireacademy-post-v1\\targets.unreviewed.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\fireacademy-review-v1\\review-input.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\fireacademy-triangle-v1\\geometry-input.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\fireacademy-triangle-v1\\source-ray-baseline.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\fireacademy-triangle-v1\\source-sha256.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\fireacademy-triangle-v2\\geometry-input.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\fireacademy-triangle-v2\\source-ray-baseline.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\fireacademy-triangle-v2\\source-sha256.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\fireacademy-windows-v1\\geometry-input.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\fireacademy-windows-v1\\source-ray-baseline.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\fireacademy-windows-v1\\source-sha256.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\full-nav-dwb-v1\\manifest.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\full-nav-strict-v1\\candidate.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\full-nav-strict-v1\\config-check\\result.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\full-nav-strict-v1\\controller-candidate.diff",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\full-nav-strict-v1\\manifest.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\full-nav-v1\\manifest.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    },
+    {
+      "source": "D:\\xprogram\\.raven-setup-cache\\full-nav-v2\\manifest.json",
+      "reason": "runtime input/output, unreviewed GT, array, or manifest; retained locally, not source upload"
+    }
+  ]
+}

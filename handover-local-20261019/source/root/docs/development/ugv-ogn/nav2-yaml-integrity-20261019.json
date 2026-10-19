@@ -1,0 +1,27 @@
+{
+  "scope": "Windows newline serialization integrity correction; grid parameters unchanged",
+  "before": "Windows real-file regression 1 failed/1 passed: YAML text LF digest differed from written CRLF bytes",
+  "after": "2 Windows tests and 2 Linux tests passed; deterministic UTF-8 LF byte serialization",
+  "checks": [
+    {
+      "file": "footprint/footprint.unreviewed.yaml",
+      "declared_lf_sha256": "0a92547da2e1c0174a41c560a4b62d492ffa582973eb15331d95a3852e34a853",
+      "actual_crlf_sha256": "0ffc8e0e1af47ffe359de9afc8e57e0273da88f8cd3ae86d4d53abcbaf7f13c6",
+      "archive_integrity_passed": true
+    },
+    {
+      "file": "reach/reach.unreviewed.yaml",
+      "declared_lf_sha256": "fe5ff626aea2c75689537b2ab60db3129a9a331e368eb9586f5d446c6774997f",
+      "actual_crlf_sha256": "4b54d3e838f7ef5adc095e6a88d4f1ff09df5081b0f4c99c2342a98b0f5587f3",
+      "archive_integrity_passed": true
+    },
+    {
+      "file": "selected/selected.unreviewed.yaml",
+      "declared_lf_sha256": "ec9145410d034139aa7b5ef621355853f1a592df763df2f803160de2b0031bf7",
+      "actual_crlf_sha256": "8c1d6c54d4415dc9e05737441f19de7cff784f7d01ffb9ab960a9583b0cd389d",
+      "archive_integrity_passed": true
+    }
+  ],
+  "existing_outputs": "preserved; archive manifests pin actual bytes",
+  "source_sha256": "77b4efacd7450adb60cc1128d94ddb863826a72d16ab2f44a87b89d8751a0cc8"
+}

@@ -1,0 +1,419 @@
+{
+  "task": "Local-Scene1-Reproduction / Second-PC-Runtime / Jackal-Nav2-LocalGoal",
+  "date": "2026-10-18",
+  "job": "jackal-nav2-a04",
+  "passed": true,
+  "scope": "single local Nav2 goal diagnostic",
+  "scene1_reproduced": false,
+  "real_paper_episode_count": 0,
+  "simulator": "Isaac Sim 4.5.0 native Windows",
+  "ros": "Humble / domain 42 / FastDDS UDP",
+  "hardware": "RTX 4060 Laptop 8 GiB / 32 GiB RAM / driver 577.02",
+  "scene_sha256": "2a7141ce928c432f031f78a6b1c3798eaa932431d5a1735f8bad513694afce32",
+  "metrics": {
+    "final_goal_error_m": 0.24368858965158494,
+    "displacement_m": 2.256753922140709,
+    "path_length_m": 2.293416881598676,
+    "final_speed_mps": 0.0012530003438225785,
+    "sim_duration_s": 27.233334753662348,
+    "cloud_count": 135,
+    "nonempty_clouds": 135
+  },
+  "nav2_tour": {
+    "event": "nav2_tour_summary",
+    "goal_count": 1,
+    "goals": [
+      {
+        "accepted": true,
+        "closest_approach_m": 0.237,
+        "cmd_sign_flip_rate_per_s": 0.0,
+        "cmd_sign_flips": 0,
+        "goal_xy_m": [
+          -27.5,
+          -21.5
+        ],
+        "index": 0,
+        "min_lethal_clearance_m": null,
+        "outcome": "reached",
+        "path_m": 2.274,
+        "result_status": 4,
+        "ring_hit": true,
+        "sim_time_s": 13.825
+      }
+    ],
+    "max_cmd_sign_flip_rate_per_s": 0.0,
+    "min_lethal_clearance_m": null,
+    "reached_count": 1,
+    "ring_hit_count": 1
+  },
+  "map": {
+    "method": "vertical PhysX raycast, z=3 to -0.1 m, self excluded, obstacle z>0.05 m",
+    "resolution_m": 0.1,
+    "width": 200,
+    "height": 200,
+    "origin": [
+      -41.0,
+      -32.0
+    ],
+    "occupied_cells": 2762,
+    "free_cells": 36442,
+    "unknown_cells": 796,
+    "obstacle_paths": {
+      "/World/stage/Neighborhood/Trees/SM_Tree_77/SM_Tree_01/Section1": 130,
+      "/World/stage/Neighborhood/Trees/SM_Tree_77/SM_Tree_01/Section0": 19,
+      "/World/stage/Neighborhood/BP_FlowerBed_21/FlowerBed/SM_FlowerBed_01/Section0": 238,
+      "/World/stage/Neighborhood/BP_FlowerBed_21/Flower3/SM_Flower_01": 24,
+      "/World/stage/Neighborhood/BP_FlowerBed_21/FlowerBed/SM_FlowerBed_01/Section1": 619,
+      "/World/stage/Neighborhood/BP_FlowerBed_21/Flower4/SM_Flower_01": 19,
+      "/World/stage/Neighborhood/BP_FlowerBed_21/Flower/SM_Flower_01": 19,
+      "/World/stage/Neighborhood/BP_FlowerBed_21/Grass/SM_Grass_02": 11,
+      "/World/stage/Neighborhood/BP_FlowerBed_21/Grass1/SM_Grass_02": 9,
+      "/World/stage/Neighborhood/BP_FlowerBed_21/Flower7/SM_Flower_02": 12,
+      "/World/stage/Neighborhood/BP_FlowerBed_21/Flower6/SM_Flower_02": 12,
+      "/World/stage/Neighborhood/BP_FlowerBed_21/Flower8/SM_Flower_03": 19,
+      "/World/stage/Neighborhood/BP_FlowerBed_21/Flower10/SM_Flower_03": 19,
+      "/World/stage/Neighborhood/BP_FlowerBed_21/Flower11/SM_Flower_03": 19,
+      "/World/stage/Neighborhood/BP_FlowerBed_21/Flower9/SM_Flower_03": 19,
+      "/World/stage/Neighborhood/BP_FlowerBed_21/Flower2/SM_Flower_01": 20,
+      "/World/stage/Neighborhood/BP_FlowerBed_21/Flower5/SM_Flower_01": 20,
+      "/World/stage/Neighborhood/BP_FlowerBed_21/Flower1/SM_Flower_01": 21,
+      "/World/stage/Neighborhood/BP_FlowerBed_21/Grass2/SM_Grass_02": 10,
+      "/World/stage/Neighborhood/BP_FlowerBed_21/Grass3/SM_Grass_02": 10,
+      "/World/stage/Neighborhood/SM_MailBox4/SM_MailBox": 16,
+      "/World/stage/Neighborhood/Fences/SM_Fence_150/SM_Fence_05": 6,
+      "/World/stage/Neighborhood/Fences/SM_Fence_05_Pole/SM_Fence_05_Pole": 2,
+      "/World/stage/Neighborhood/Fences/SM_Fence_148/SM_Fence_05": 29,
+      "/World/stage/Neighborhood/Fences/SM_Fence_147/SM_Fence_05": 30,
+      "/World/stage/Neighborhood/Fences/SM_Fence_146/SM_Fence_05": 30,
+      "/World/stage/Neighborhood/Trees/SM_Tree_53/SM_Tree_01/Section1": 131,
+      "/World/stage/Neighborhood/Trees/SM_Tree_53/SM_Tree_01/Section0": 19,
+      "/World/stage/Neighborhood/RoadSigns/SM_Sign_Stop/SM_Sign_Stop": 6,
+      "/World/stage/Neighborhood/Trees/SM_Tree_49/SM_Tree_01/Section1": 133,
+      "/World/stage/Neighborhood/BP_BusStop3/Bus_Stop/SM_BusStop/Section0": 1080,
+      "/World/stage/Neighborhood/Trees/SM_Tree_49/SM_Tree_01/Section0": 12
+    },
+    "reviewed": false,
+    "limitations": "local diagnostic projection; not reviewed traversability or semantic GT"
+  },
+  "cloud_subscribers": [
+    "/ugv/raven_nav2_evidence",
+    "/ugv/global_costmap/global_costmap",
+    "/ugv/local_costmap/local_costmap"
+  ],
+  "costmaps": {
+    "map": {
+      "messages": 1,
+      "max_lethal_cells": 2762
+    },
+    "local": {
+      "messages": 29,
+      "max_lethal_cells": 269
+    },
+    "global": {
+      "messages": 27,
+      "max_lethal_cells": 4081
+    }
+  },
+  "cross_check": {
+    "cloud_hash_matches": 116,
+    "clouds_received": 116,
+    "odom_matches_physx": 438,
+    "odom_received": 438,
+    "clock_count": 438,
+    "clock_backwards": 0,
+    "max_clock_publishers": 1,
+    "planned_paths": 14
+  },
+  "resources": {
+    "peak_job_commit_gib": 11.020221710205078,
+    "peak_gpu_memory_gib": 3.5576171875,
+    "min_physical_available_gib": 13.088062286376953,
+    "min_commit_available_gib": 22.732078552246094,
+    "limits": {
+      "job_memory_gib": 14.0,
+      "cpu_percent": 60,
+      "active_processes": 32,
+      "min_available_gib": 4,
+      "min_available_commit_gib": 2,
+      "max_gpu_fraction": 0.8,
+      "timeout_s": 840.0
+    },
+    "exit_code": 0,
+    "wall_seconds": 97.86
+  },
+  "limitations": [
+    "PhysX state odometry, no localization validation",
+    "CPU raycast cloud, not RTX lidar",
+    "20 m local vertical projection, not reviewed traversability/GT",
+    "runtime z=0 support plane",
+    "one short goal, no forced obstacle detour/dynamic obstacle acceptance",
+    "No semantic search, UAV cooperation, reviewed episodes or paper score"
+  ],
+  "cleanup": {
+    "isolated_wsl_stopped": true,
+    "vpn_configuration_changed": false,
+    "task_removed": true,
+    "processes": [],
+    "temporary_firewall_rules_removed": true,
+    "checked_at": "2026-10-18T20:43:36.2824346+08:00",
+    "ros_processes_absent": true
+  },
+  "artifacts": "runs/nav2_local_goal_20261018/",
+  "validation": {
+    "native_command_file": "runs/nav2_local_goal_20261018/jackal-nav2-a04/execution.json",
+    "wsl_command_file": "runs/nav2_local_goal_20261018/jackal-nav2-a04-wsl/command.json",
+    "source_compile": "python -m py_compile scripts/probe_jackal_nav2.py scripts/probe_nav2_wsl_peer.py scripts/probe_windows_scene_render.py",
+    "camera_images_visually_inspected": 3,
+    "image_dimensions": [
+      960,
+      600
+    ],
+    "render_stability": [
+      {
+        "consecutive_valid_frames": 60,
+        "invalid_frames_after_first": 1
+      },
+      {
+        "consecutive_valid_frames": 60,
+        "invalid_frames_after_first": 0
+      }
+    ]
+  },
+  "failed_attempts": [
+    {
+      "job": "jackal-nav2-a01",
+      "execution": {
+        "scope": "diagnostic_only_not_benchmark",
+        "command": [
+          "cmd.exe",
+          "/d",
+          "/c",
+          "D:\\RAVEN-4060\\isaac45\\python.bat",
+          "D:\\RAVEN-4060\\setup\\probe-jackal-nav2-a01.py",
+          "--output",
+          "D:\\RAVEN-4060\\logs\\jackal-nav2-a01-frames",
+          "--graphics-api",
+          "vulkan",
+          "--defer-stage",
+          "--cpu-threads",
+          "16",
+          "--shader-concurrency",
+          "1",
+          "--gui",
+          "--disable-motion-bvh",
+          "--async-loads",
+          "--first-frame-timeout",
+          "480",
+          "--camera-size",
+          "960",
+          "600",
+          "--scene",
+          "D:\\RAVEN-4060\\source\\AirStack\\scenes\\RetroNeighborhood\\RetroNeighborhood_Export.usd",
+          "--ros2-seconds",
+          "540",
+          "--ros2-run-id",
+          "jackal-nav2-a01-20261018",
+          "--jackal-usd",
+          "D:\\RAVEN-4060\\source\\AirStack\\simulation\\isaac-sim\\assets\\robots\\jackal_airground.usda",
+          "--air-stack-root",
+          "D:\\RAVEN-4060\\source\\AirStack",
+          "--jackal-spawn",
+          "-30",
+          "-21.5",
+          ".45",
+          "0",
+          "--nav2-goal",
+          "-27.5",
+          "-21.5"
+        ],
+        "limits": {
+          "job_memory_gib": 14.0,
+          "cpu_percent": 60,
+          "active_processes": 32,
+          "min_available_gib": 4,
+          "min_available_commit_gib": 2,
+          "max_gpu_fraction": 0.8,
+          "timeout_s": 840.0
+        },
+        "initial": {
+          "available_gib": 19.399173736572266,
+          "available_commit_gib": 34.10209274291992,
+          "gpu_memory_fraction": 0.0
+        },
+        "pid": 45196,
+        "status": "guard_or_launch_failed",
+        "error": "Diagnostic reported failure: Sensor frame became invalid during settling",
+        "peak_job_commit_gib": 10.277496337890625,
+        "elapsed_s": 264.09
+      }
+    },
+    {
+      "job": "jackal-nav2-a02",
+      "execution": {
+        "scope": "diagnostic_only_not_benchmark",
+        "command": [
+          "cmd.exe",
+          "/d",
+          "/c",
+          "D:\\RAVEN-4060\\isaac45\\python.bat",
+          "D:\\RAVEN-4060\\setup\\probe-jackal-nav2-a02.py",
+          "--output",
+          "D:\\RAVEN-4060\\logs\\jackal-nav2-a02-frames",
+          "--graphics-api",
+          "vulkan",
+          "--defer-stage",
+          "--cpu-threads",
+          "16",
+          "--shader-concurrency",
+          "1",
+          "--gui",
+          "--disable-motion-bvh",
+          "--async-loads",
+          "--first-frame-timeout",
+          "480",
+          "--camera-size",
+          "960",
+          "600",
+          "--scene",
+          "D:\\RAVEN-4060\\source\\AirStack\\scenes\\RetroNeighborhood\\RetroNeighborhood_Export.usd",
+          "--ros2-seconds",
+          "540",
+          "--ros2-run-id",
+          "jackal-nav2-a02-20261018",
+          "--jackal-usd",
+          "D:\\RAVEN-4060\\source\\AirStack\\simulation\\isaac-sim\\assets\\robots\\jackal_airground.usda",
+          "--air-stack-root",
+          "D:\\RAVEN-4060\\source\\AirStack",
+          "--jackal-spawn",
+          "-30",
+          "-21.5",
+          ".45",
+          "0",
+          "--nav2-goal",
+          "-27.5",
+          "-21.5"
+        ],
+        "limits": {
+          "job_memory_gib": 14.0,
+          "cpu_percent": 60,
+          "active_processes": 32,
+          "min_available_gib": 4,
+          "min_available_commit_gib": 2,
+          "max_gpu_fraction": 0.8,
+          "timeout_s": 840.0
+        },
+        "initial": {
+          "available_gib": 19.227718353271484,
+          "available_commit_gib": 33.93042755126953,
+          "gpu_memory_fraction": 0.0
+        },
+        "pid": 52172,
+        "status": "guard_or_launch_failed",
+        "error": "Command '['nvidia-smi', '--query-gpu=memory.used,memory.total', '--format=csv,noheader,nounits']' timed out after 8 seconds",
+        "peak_job_commit_gib": 9.287368774414062,
+        "elapsed_s": 60.3
+      }
+    },
+    {
+      "job": "jackal-nav2-a03",
+      "execution": {
+        "scope": "diagnostic_only_not_benchmark",
+        "command": [
+          "cmd.exe",
+          "/d",
+          "/c",
+          "D:\\RAVEN-4060\\isaac45\\python.bat",
+          "D:\\RAVEN-4060\\setup\\probe-jackal-nav2-a03.py",
+          "--output",
+          "D:\\RAVEN-4060\\logs\\jackal-nav2-a03-frames",
+          "--graphics-api",
+          "vulkan",
+          "--defer-stage",
+          "--cpu-threads",
+          "16",
+          "--shader-concurrency",
+          "1",
+          "--gui",
+          "--disable-motion-bvh",
+          "--async-loads",
+          "--first-frame-timeout",
+          "480",
+          "--camera-size",
+          "960",
+          "600",
+          "--scene",
+          "D:\\RAVEN-4060\\source\\AirStack\\scenes\\RetroNeighborhood\\RetroNeighborhood_Export.usd",
+          "--ros2-seconds",
+          "540",
+          "--ros2-run-id",
+          "jackal-nav2-a03-20261018",
+          "--jackal-usd",
+          "D:\\RAVEN-4060\\source\\AirStack\\simulation\\isaac-sim\\assets\\robots\\jackal_airground.usda",
+          "--air-stack-root",
+          "D:\\RAVEN-4060\\source\\AirStack",
+          "--jackal-spawn",
+          "-30",
+          "-21.5",
+          ".45",
+          "0",
+          "--nav2-goal",
+          "-27.5",
+          "-21.5"
+        ],
+        "limits": {
+          "job_memory_gib": 14.0,
+          "cpu_percent": 60,
+          "active_processes": 32,
+          "min_available_gib": 4,
+          "min_available_commit_gib": 2,
+          "max_gpu_fraction": 0.8,
+          "timeout_s": 840.0
+        },
+        "initial": {
+          "available_gib": 19.273841857910156,
+          "available_commit_gib": 33.97035598754883,
+          "gpu_memory_fraction": 0.0
+        },
+        "pid": 26524,
+        "status": "guard_or_launch_failed",
+        "error": "Diagnostic reported failure: spawn footprint not free in actual raycast map",
+        "peak_job_commit_gib": 10.94449234008789,
+        "elapsed_s": 82.95
+      }
+    }
+  ],
+  "source_sha256": {
+    "launch-raven-probe.py": "eb1bb51095dc0737d042350683aada0cca168f9d170215de74332ab0a7a30b65",
+    "probe-jackal-nav2-a01.py": "1939db5e076155d9cf8290715467daca025af58c362215a38b52bce828b4dd50",
+    "probe-jackal-nav2-a02.py": "abb6c08e54926f982cc8f25ec03e1c178a83217690afb2c70459173b75b1b268",
+    "probe-jackal-nav2-a03.py": "abb6c08e54926f982cc8f25ec03e1c178a83217690afb2c70459173b75b1b268",
+    "probe-jackal-nav2-a04.py": "abb6c08e54926f982cc8f25ec03e1c178a83217690afb2c70459173b75b1b268",
+    "probe_jackal_motion.py": "831f195ebe964c3ef313b2ede90086a3779d209d5f6ba7422665a85c43f4ff90",
+    "probe_jackal_nav2-a03.py": "0520f1e2f7e6e789dd2d0453d3a7deabe82df53ff29f21776bb72cd354cc48d8",
+    "probe_jackal_nav2.py": "cec75f0e9ef14c3101fce4491e6d3122c8feaf05708e237a73cacbe6f25ee971",
+    "probe_nav2_wsl_peer.py": "6d943c7e768439be0107e445cac4a421836013d81fea9faa98109ae1364a845e",
+    "probe_windows_scene_render.py": "abb6c08e54926f982cc8f25ec03e1c178a83217690afb2c70459173b75b1b268",
+    "run_windows_probe.py": "675bd924366dd478341595abd065fab9e860d6cd2029bd2aa4ce3a0b15f770df"
+  },
+  "costmap_extra_lethal_over_static_free": {
+    "local": 2,
+    "global": 14
+  },
+  "images": [
+    {
+      "file": "01-start.png",
+      "sha256": "2737bd84296c386e9ec9c489d5f138c05041c762cea84dce40cd24ed6d5ea4e7",
+      "unaltered_camera_rgb": true
+    },
+    {
+      "file": "02-moving.png",
+      "sha256": "9adb639352b2bb89c3899c691984d092ff550e3b3142b439095da52ea40bb744",
+      "unaltered_camera_rgb": true
+    },
+    {
+      "file": "03-stopped.png",
+      "sha256": "7b04a002be7058026491aea1a9eb3df71d93ff66b4751c18eaadee26ac617808",
+      "unaltered_camera_rgb": true
+    }
+  ]
+}

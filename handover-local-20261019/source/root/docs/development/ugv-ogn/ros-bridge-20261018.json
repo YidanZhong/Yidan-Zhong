@@ -1,0 +1,185 @@
+{
+  "task": "Local-Scene1-Reproduction / Windows-WSL-ROS-Bridge",
+  "date": "2026-10-18",
+  "scope": "Actual Isaac 4.5 Retro camera + simulation clock + ROS command reception, no robot actuation",
+  "passed": true,
+  "scene1_reproduced": false,
+  "robot_motion_verified": false,
+  "nav2_verified": false,
+  "real_episode_count": 0,
+  "hardware": "Second PC RTX 4060 Laptop 8 GiB / 32 GiB RAM / NVIDIA 577.02",
+  "ros_distro": "humble",
+  "rmw": "rmw_fastrtps_cpp",
+  "domain": 42,
+  "source": {
+    "scene_sha256": "2a7141ce928c432f031f78a6b1c3798eaa932431d5a1735f8bad513694afce32",
+    "stage_prims": 27986,
+    "render_script_sha256": "61c180e51e8178c2faf79722de826606dace371e1f71d56ba9ec80569d5f1849"
+  },
+  "network": {
+    "windows_rule": "RAVEN-ROS42-WSL-20261018",
+    "domain": 42,
+    "wsl_ip": "172.19.83.203",
+    "host_ip": "172.19.80.1",
+    "hyperv_rule": "RAVEN-ROS42-HyperV-20261018",
+    "checked_at": "2026-10-18T19:17:39.9483853+08:00"
+  },
+  "execution": {
+    "scope": "diagnostic_only_not_benchmark",
+    "command": [
+      "cmd.exe",
+      "/d",
+      "/c",
+      "D:\\RAVEN-4060\\isaac45\\python.bat",
+      "D:\\RAVEN-4060\\setup\\probe-ros-bridge-a01.py",
+      "--output",
+      "D:\\RAVEN-4060\\logs\\ros-bridge-a01-frames",
+      "--graphics-api",
+      "vulkan",
+      "--defer-stage",
+      "--cpu-threads",
+      "16",
+      "--shader-concurrency",
+      "1",
+      "--gui",
+      "--disable-motion-bvh",
+      "--async-loads",
+      "--first-frame-timeout",
+      "480",
+      "--camera-size",
+      "480",
+      "300",
+      "--scene",
+      "D:\\RAVEN-4060\\source\\AirStack\\scenes\\RetroNeighborhood\\RetroNeighborhood_Export.usd",
+      "--ros2-seconds",
+      "35",
+      "--ros2-run-id",
+      "ros-bridge-a01-20261018"
+    ],
+    "limits": {
+      "job_memory_gib": 14.0,
+      "cpu_percent": 60,
+      "active_processes": 32,
+      "min_available_gib": 4,
+      "min_available_commit_gib": 2,
+      "max_gpu_fraction": 0.8,
+      "timeout_s": 600.0
+    },
+    "initial": {
+      "available_gib": 18.684066772460938,
+      "available_commit_gib": 32.84440994262695,
+      "gpu_memory_fraction": 0.0
+    },
+    "pid": 50552,
+    "exit_code": 0,
+    "status": "completed",
+    "result_json": "D:\\RAVEN-4060\\logs\\ros-bridge-a01-frames\\report.json",
+    "diagnostic_status": "passed",
+    "peak_job_commit_gib": 10.098644256591797,
+    "elapsed_s": 206.27
+  },
+  "checks": {
+    "clock_messages": 488,
+    "clock_monotonic": true,
+    "clock_publishers": 1,
+    "received_sim_time_start_s": 6.883333692,
+    "received_sim_time_end_s": 15.000000782,
+    "images_sent": 162,
+    "images_received": 160,
+    "pixel_hash_matches": 160,
+    "camera_info_received": 162,
+    "commands_received": 166,
+    "command_kinds": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.05
+      ],
+      [
+        0.1,
+        0.0
+      ]
+    ],
+    "challenge_received": true
+  },
+  "resources": {
+    "min_available_gib": 12.877437591552734,
+    "min_commit_headroom_gib": 22.045040130615234,
+    "peak_gpu_fraction": 0.38544211040547144
+  },
+  "topics": [
+    [
+      "/clock",
+      [
+        "rosgraph_msgs/msg/Clock"
+      ]
+    ],
+    [
+      "/parameter_events",
+      [
+        "rcl_interfaces/msg/ParameterEvent"
+      ]
+    ],
+    [
+      "/rosout",
+      [
+        "rcl_interfaces/msg/Log"
+      ]
+    ],
+    [
+      "/ugv/cmd_vel",
+      [
+        "geometry_msgs/msg/Twist"
+      ]
+    ],
+    [
+      "/ugv/diagnostic/ack",
+      [
+        "std_msgs/msg/String"
+      ]
+    ],
+    [
+      "/ugv/diagnostic/challenge",
+      [
+        "std_msgs/msg/String"
+      ]
+    ],
+    [
+      "/ugv/diagnostic_camera/camera_info",
+      [
+        "sensor_msgs/msg/CameraInfo"
+      ]
+    ],
+    [
+      "/ugv/diagnostic_camera/rgb",
+      [
+        "sensor_msgs/msg/Image"
+      ]
+    ]
+  ],
+  "limitations": [
+    "Commands were received and acknowledged but not connected to an articulation.",
+    "This was a bounded low-rate 480x300 diagnostic, not full navigation sensor throughput.",
+    "Native rclpy publishing in the enabled bridge was tested; full OmniGraph runtime was not.",
+    "Camera is a diagnostic scene viewpoint, not a calibrated robot-mounted sensor.",
+    "Teacher-reviewed GT/map/episode inputs and robot/Nav2 integration remain pending."
+  ],
+  "cleanup": {
+    "isolated_wsl_stopped": true,
+    "task_removed": true,
+    "processes": [],
+    "temporary_firewall_rules_removed": true,
+    "checked_at": "2026-10-18T19:22:38.7475477+08:00",
+    "ros_peer_absent": true,
+    "vpn_configuration_changed": false
+  },
+  "artifacts": "D:\\xprogram\\RAVEN-AirGround-github\\runs\\ros_bridge_20261018",
+  "script_sha256": {
+    "probe_windows_scene_render.py": "61c180e51e8178c2faf79722de826606dace371e1f71d56ba9ec80569d5f1849",
+    "probe_isaac_ros_bridge.py": "e3ff5137907970c320aa58ac289dd5d993ab1636e1aa646582f4112c9bd51f4b",
+    "probe_ros_wsl_peer.py": "dbbf8037ae2e67831b66ec9fdaca6385a92a37fb561dca85f04d1e32208cf5dc"
+  }
+}

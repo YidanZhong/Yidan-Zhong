@@ -1,0 +1,75 @@
+{
+  "scope": "CPU derivative correction from actual PhysX window samples; not new raycast or formal GT",
+  "issue": "Historical window reach_component used support minus obstacle seed, bypassing swept footprint. Terrain/footprint arrays and whole/tiled equality are unchanged.",
+  "corrected_source_sha256": "4ad9bd4026d4f56c33ef8cd8c31997b0ad89c5308476ed74fb251a4d2b8f86f9",
+  "rows": [
+    {
+      "scene": "ConstructionSite",
+      "window": 0,
+      "source_npz_sha256": {
+        "reference": "30b61d59750b6de3e6561dcc4b7ca8b1fe4931b00257a31c0481feac2ed71123",
+        "tiled": "30b61d59750b6de3e6561dcc4b7ca8b1fe4931b00257a31c0481feac2ed71123"
+      },
+      "footprint_cells": 14295,
+      "corrected_reach_cells": 12460,
+      "old_diagnostic_seed_reach_cells": 20980,
+      "corrected_npz_sha256": "5dc1e21fcf4735ebd3bbcbda8d148eac6b73585ca5686e3060d6e74452bdb3a7",
+      "whole_tiled_corrected_reach_equal": true
+    },
+    {
+      "scene": "ConstructionSite",
+      "window": 1,
+      "source_npz_sha256": {
+        "reference": "86ec10c3072433e4b029d2eb58e65f84c69b9f3064cf9fc6d315adeecd517ea2",
+        "tiled": "86ec10c3072433e4b029d2eb58e65f84c69b9f3064cf9fc6d315adeecd517ea2"
+      },
+      "footprint_cells": 11891,
+      "corrected_reach_cells": 10185,
+      "old_diagnostic_seed_reach_cells": 19094,
+      "corrected_npz_sha256": "f23be9187fcfe9841d8f6df70d58891149eb1837bd1c3e4efb7fd70e9740140a",
+      "whole_tiled_corrected_reach_equal": true
+    },
+    {
+      "scene": "FireAcademy",
+      "window": 0,
+      "source_npz_sha256": {
+        "reference": "f5892e9c785a8d0d0d7a6bd4a3911867fe207c27f1ca487f0c495fb487376848",
+        "tiled": "f5892e9c785a8d0d0d7a6bd4a3911867fe207c27f1ca487f0c495fb487376848"
+      },
+      "footprint_cells": 4180,
+      "corrected_reach_cells": 3674,
+      "old_diagnostic_seed_reach_cells": 5950,
+      "corrected_npz_sha256": "ee2dc5008ca6be218b6d16fab9c7443cea8d5afee6e197994f8727abe09e9fea",
+      "whole_tiled_corrected_reach_equal": true
+    },
+    {
+      "scene": "FireAcademy",
+      "window": 1,
+      "source_npz_sha256": {
+        "reference": "21399978ecd2f6cd58b7c2af1463e597ef8cd96096bb663acf1c816507efef79",
+        "tiled": "21399978ecd2f6cd58b7c2af1463e597ef8cd96096bb663acf1c816507efef79"
+      },
+      "footprint_cells": 13456,
+      "corrected_reach_cells": 12544,
+      "old_diagnostic_seed_reach_cells": 16381,
+      "corrected_npz_sha256": "c5355cf8e2bc6c8bfe72b56a1324873309dc7ccd4a67c9ebbc845917b4ea23b0",
+      "whole_tiled_corrected_reach_equal": true
+    },
+    {
+      "scene": "FireAcademy",
+      "window": 2,
+      "source_npz_sha256": {
+        "reference": "d7c97b72bdc5719085f3c826ee15a26e2c92f6ad37e92632a84c6bf082b5cdc9",
+        "tiled": "d7c97b72bdc5719085f3c826ee15a26e2c92f6ad37e92632a84c6bf082b5cdc9"
+      },
+      "footprint_cells": 12219,
+      "corrected_reach_cells": 11384,
+      "old_diagnostic_seed_reach_cells": 14905,
+      "corrected_npz_sha256": "a77e63cfef93ef7539969b2baea4960b8d438ff6468aebe2e808b4f57558a6a5",
+      "whole_tiled_corrected_reach_equal": true
+    }
+  ],
+  "original_archives_unchanged": true,
+  "active_map_effect": "None: streaming returns before window derivatives; pinned full-map postprocessor already builds reach from swept footprint and recomputes independent windows that way. Frozen active sources not changed.",
+  "formal_accepted": false
+}

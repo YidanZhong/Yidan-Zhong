@@ -1,0 +1,119 @@
+{
+  "job": "construction-review-a02",
+  "status": "failed",
+  "error": "Camera stable-frame deadline exceeded; output shape: (0,)",
+  "elapsed_s": 601.33,
+  "peak_job_commit_gib": 11.656227111816406,
+  "camera_frames": 0,
+  "expected_camera_frames": 56,
+  "scheduled_task_result": 1,
+  "guard_child_exit_code": null,
+  "archive": "runs/construction_adaptation_20261019/construction-review-a02-evidence.zip",
+  "archive_sha256": "1b5a04c81cf897c159f659ef74ea55f0456a8f5ff34af3f5dbc5f9cc27952e90",
+  "verified_files": 21,
+  "limits": {
+    "job_memory_gib": 14.0,
+    "cpu_percent": 60,
+    "active_processes": 32,
+    "min_available_gib": 4,
+    "min_available_commit_gib": 2,
+    "max_gpu_fraction": 0.8,
+    "timeout_s": 840.0,
+    "gpu_query_timeout_s": 8,
+    "max_missing_gpu_samples": 2,
+    "preflight_gpu_required": true
+  },
+  "formal_accepted": false,
+  "interpretation": "Camera deadline reached while material compilation was still progressing; no measured GPU/RAM guard violation; underlying camera readiness still unresolved.",
+  "warm_cache_a03": {
+    "job": "construction-review-a03",
+    "scope": "partial static review material; batch failed",
+    "execution": {
+      "scope": "diagnostic_only_not_benchmark",
+      "command": [
+        "cmd.exe",
+        "/d",
+        "/c",
+        "D:\\RAVEN-4060\\isaac45\\python.bat",
+        "D:\\RAVEN-4060\\setup\\construction-review-v2\\probe-construction-review-a03.py",
+        "--output",
+        "D:\\RAVEN-4060\\logs\\construction-review-a03-frames",
+        "--graphics-api",
+        "vulkan",
+        "--defer-stage",
+        "--cpu-threads",
+        "16",
+        "--shader-concurrency",
+        "1",
+        "--gui",
+        "--disable-motion-bvh",
+        "--async-loads",
+        "--first-frame-timeout",
+        "480",
+        "--camera-size",
+        "960",
+        "600",
+        "--scene",
+        "D:/RAVEN-4060/assets/handover-scenes-20261019/ConstructionSite/ConstructionSite_Export.usd",
+        "--review-manifest",
+        "D:/RAVEN-4060/setup/construction-review-v2/review-input.json"
+      ],
+      "limits": {
+        "job_memory_gib": 14.0,
+        "cpu_percent": 60,
+        "active_processes": 32,
+        "min_available_gib": 4,
+        "min_available_commit_gib": 2,
+        "max_gpu_fraction": 0.8,
+        "timeout_s": 840.0,
+        "gpu_query_timeout_s": 8,
+        "max_missing_gpu_samples": 2,
+        "preflight_gpu_required": true
+      },
+      "initial": {
+        "available_gib": 20.964332580566406,
+        "available_commit_gib": 35.70439529418945,
+        "gpu_memory_fraction": 0.0,
+        "gpu_telemetry_consecutive_failures": 0,
+        "gpu_telemetry_error": null
+      },
+      "pid": 29492,
+      "status": "guard_or_launch_failed",
+      "error": "Diagnostic reported failure: Camera stable-frame deadline exceeded; output shape: (600, 960, 4)",
+      "peak_job_commit_gib": 11.730945587158203,
+      "elapsed_s": 707.78,
+      "gpu_telemetry_failures": 0,
+      "gpu_telemetry_last_error": null
+    },
+    "error": "Camera stable-frame deadline exceeded; output shape: (600, 960, 4)",
+    "saved_valid_rgb": 12,
+    "expected_rgb": 56,
+    "targets_with_two_images": 6,
+    "targets_in_inventory": 28,
+    "formal_accepted": false,
+    "archive_sha256": "f564ecc2923a9360806b8d7935bc2f84bc1e45041954943327b77da7abad6d1c",
+    "verified_files": 33,
+    "image_packet": "runs/construction_adaptation_20261019/teacher-review-a03/查看进展.html",
+    "packet_sha256": "7c4b0edf338621c199748444ff5ac2eda66d6990e41d79294b8f60c864726be0",
+    "visual_qa": {
+      "scope": "assistant visual inspection of actual RGB; not human GT verification",
+      "inspected": [
+        "view-0.png",
+        "view-3.png",
+        "12-image contact sheet"
+      ],
+      "findings": [
+        "view-2 faces an intervening building interior; target not clearly exposed in that view.",
+        "view-10 and view-11 are heavily occluded/dark or blocked by containers; the intended biotoilet cannot be reliably confirmed from this pair.",
+        "view-0/1/3 show rollers; views4-9 show groups of blue portable toilets, but overlapping objects and candidate identity still need human review."
+      ],
+      "accepted_image_quality_does_not_imply_target_visible": true,
+      "human_verified_count": 0,
+      "need_follow_up": [
+        "Generate alternative camera azimuths for obstructed targets without changing target annotations or semantic approval.",
+        "Retain raw buffers and image statistics for any next rejected camera view."
+      ]
+    },
+    "next": "Smaller batches retain quality criteria, record and skip failed views; no blind rerun of the full 56-view job."
+  }
+}

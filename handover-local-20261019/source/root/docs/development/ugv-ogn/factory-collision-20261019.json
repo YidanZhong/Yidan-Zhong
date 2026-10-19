@@ -1,0 +1,107 @@
+{
+  "scope": "actual PhysX baseline vs readonly source surface, not GT acceptance",
+  "scene_id": "AbandonedFactory",
+  "rows": [
+    {
+      "xy_m": [
+        30.025,
+        -82.025
+      ],
+      "source_mesh_z_m": [
+        0.5380991
+      ],
+      "convex_collision_z_m": [
+        5.774604320526123
+      ]
+    },
+    {
+      "xy_m": [
+        20.025,
+        -67.025
+      ],
+      "source_mesh_z_m": [
+        0.5380991
+      ],
+      "convex_collision_z_m": [
+        5.774604320526123
+      ]
+    },
+    {
+      "xy_m": [
+        0.025,
+        0.025
+      ],
+      "source_mesh_z_m": [
+        0.5380991
+      ],
+      "convex_collision_z_m": [
+        6.014528751373291
+      ]
+    }
+  ],
+  "archive_sha256": "82a9a2b4186cb7abf8fb255305e26ef073980f952288ceed3d43e73d74b10aa3",
+  "verified_files": 38,
+  "execution": {
+    "scope": "diagnostic_only_not_benchmark",
+    "command": [
+      "cmd.exe",
+      "/d",
+      "/c",
+      "D:\\RAVEN-4060\\isaac45\\python.bat",
+      "D:\\RAVEN-4060\\setup\\factory-geometry-v1\\probe-factory-geometry-a01.py",
+      "--output",
+      "D:\\RAVEN-4060\\logs\\factory-geometry-a01-frames",
+      "--graphics-api",
+      "vulkan",
+      "--defer-stage",
+      "--cpu-threads",
+      "16",
+      "--shader-concurrency",
+      "1",
+      "--disable-motion-bvh",
+      "--async-loads",
+      "--physics-only",
+      "--scene",
+      "D:/RAVEN-4060/assets/handover-scenes-20261019/AbandonedFactory/AbandonedFactory_Export.usd",
+      "--tile-validation",
+      "D:/RAVEN-4060/setup/factory-geometry-v1/geometry-input.json",
+      "--air-stack-root",
+      "D:/RAVEN-4060/setup/factory-geometry-v1/air-stack",
+      "--benchmark-package",
+      "D:/RAVEN-4060/setup/tile-benchmark/airground_benchmark"
+    ],
+    "limits": {
+      "job_memory_gib": 14.0,
+      "cpu_percent": 60,
+      "active_processes": 32,
+      "min_available_gib": 4,
+      "min_available_commit_gib": 2,
+      "max_gpu_fraction": 0.8,
+      "timeout_s": 840.0,
+      "gpu_query_timeout_s": 8,
+      "max_missing_gpu_samples": 2,
+      "preflight_gpu_required": true
+    },
+    "initial": {
+      "available_gib": 20.894004821777344,
+      "available_commit_gib": 35.61445617675781,
+      "gpu_memory_fraction": 0.0,
+      "gpu_telemetry_consecutive_failures": 0,
+      "gpu_telemetry_error": null
+    },
+    "pid": 24480,
+    "exit_code": 0,
+    "status": "completed",
+    "result_json": "D:\\RAVEN-4060\\logs\\factory-geometry-a01-frames\\report.json",
+    "diagnostic_status": "passed",
+    "peak_job_commit_gib": 6.726802825927734,
+    "elapsed_s": 247.44,
+    "gpu_telemetry_failures": 0,
+    "gpu_telemetry_last_error": null
+  },
+  "next_candidate": "Only merged_38 -> static triangle collision, queries bothSides=True; other colliders unchanged; prepared not started",
+  "limitations": [
+    "Three points only; the other 15 large convex meshes remain separate risks.",
+    "No asset, human GT flag, map protocol parameter, or acceptance criterion changed."
+  ]
+}

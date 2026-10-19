@@ -1,0 +1,471 @@
+{
+  "task": "Local-Scene1-Reproduction / Second-PC-Runtime / Jackal-Nav2-RouteCoverage",
+  "date": "2026-10-18",
+  "job": "jackal-route-a02",
+  "passed": true,
+  "scope": "three goals with turning and static obstacle detour",
+  "scene1_reproduced": false,
+  "real_paper_episode_count": 0,
+  "simulator": "Isaac Sim 4.5.0 native Windows",
+  "ros": "Humble / domain 42 / FastDDS UDP",
+  "hardware": "RTX 4060 Laptop 8 GiB / 32 GiB RAM / driver 577.02",
+  "scene_sha256": "2a7141ce928c432f031f78a6b1c3798eaa932431d5a1735f8bad513694afce32",
+  "metrics": {
+    "final_goal_error_m": 0.24194147169424984,
+    "displacement_m": 0.2416168031588546,
+    "path_length_m": 22.062287394675273,
+    "final_speed_mps": 0.0022977322502610387,
+    "sim_duration_s": 217.12501132395118,
+    "cloud_count": 1069,
+    "nonempty_clouds": 1069,
+    "accumulated_abs_yaw_rad": 17.221844382584806,
+    "map_geometry": {
+      "min_center_clearance_m": 0.7162831234198461,
+      "min_circumscribed_footprint_clearance_m": 0.38350541983981357,
+      "center_samples_on_obstacles": 0,
+      "center_samples_unknown_or_outside": 0
+    }
+  },
+  "nav2_tour": {
+    "event": "nav2_tour_summary",
+    "goal_count": 3,
+    "goals": [
+      {
+        "accepted": true,
+        "closest_approach_m": 0.224,
+        "cmd_sign_flip_rate_per_s": 0.0,
+        "cmd_sign_flips": 0,
+        "goal_xy_m": [
+          -35.5,
+          -26.0
+        ],
+        "index": 0,
+        "min_lethal_clearance_m": null,
+        "outcome": "reached",
+        "path_m": 8.846,
+        "result_status": 4,
+        "ring_hit": true,
+        "sim_time_s": 73.875
+      },
+      {
+        "accepted": true,
+        "closest_approach_m": 0.066,
+        "cmd_sign_flip_rate_per_s": 0.0,
+        "cmd_sign_flips": 0,
+        "goal_xy_m": [
+          -35.5,
+          -20.5
+        ],
+        "index": 1,
+        "min_lethal_clearance_m": null,
+        "outcome": "reached",
+        "path_m": 7.827,
+        "result_status": 4,
+        "ring_hit": true,
+        "sim_time_s": 91.175
+      },
+      {
+        "accepted": true,
+        "closest_approach_m": 0.235,
+        "cmd_sign_flip_rate_per_s": 0.0,
+        "cmd_sign_flips": 0,
+        "goal_xy_m": [
+          -30.0,
+          -21.5
+        ],
+        "index": 2,
+        "min_lethal_clearance_m": null,
+        "outcome": "reached",
+        "path_m": 5.36,
+        "result_status": 4,
+        "ring_hit": true,
+        "sim_time_s": 31.817
+      }
+    ],
+    "max_cmd_sign_flip_rate_per_s": 0.0,
+    "min_lethal_clearance_m": null,
+    "reached_count": 3,
+    "ring_hit_count": 3
+  },
+  "terminal_action_checks": [
+    {
+      "goal": [
+        -35.5,
+        -26.0
+      ],
+      "action_status": 4,
+      "sim_time_s": 85.083337771,
+      "observed_goal_error_m": 0.2236356151452173,
+      "observed_goal_yaw_rad": -0.2770554201396537,
+      "pose": [
+        -35.7236328125,
+        -25.99888038635254,
+        0.06350210309028625
+      ]
+    },
+    {
+      "goal": [
+        -35.5,
+        -20.5
+      ],
+      "action_status": 4,
+      "sim_time_s": 179.316676019,
+      "observed_goal_error_m": 0.23916304504047906,
+      "observed_goal_yaw_rad": -0.28922242435818013,
+      "pose": [
+        -35.430511474609375,
+        -20.728845596313477,
+        0.06350520253181458
+      ]
+    },
+    {
+      "goal": [
+        -30.0,
+        -21.5
+      ],
+      "action_status": 4,
+      "sim_time_s": 214.191677838,
+      "observed_goal_error_m": 0.23535323869690247,
+      "observed_goal_yaw_rad": 0.27071903601785074,
+      "pose": [
+        -30.169713973999023,
+        -21.66305923461914,
+        0.06350092589855194
+      ]
+    }
+  ],
+  "direct_legs": [
+    {
+      "start": [
+        -30.000442504882812,
+        -21.500001907348633
+      ],
+      "goal": [
+        -35.5,
+        -26.0
+      ],
+      "min_center_clearance_m": 0.0,
+      "min_circumscribed_footprint_clearance_m": -0.33277770358003256,
+      "center_samples_on_obstacles": 56,
+      "center_samples_unknown_or_outside": 0
+    },
+    {
+      "start": [
+        -35.5,
+        -26.0
+      ],
+      "goal": [
+        -35.5,
+        -20.5
+      ],
+      "min_center_clearance_m": 1.0999999999999985,
+      "min_circumscribed_footprint_clearance_m": 0.767222296419966,
+      "center_samples_on_obstacles": 0,
+      "center_samples_unknown_or_outside": 0
+    },
+    {
+      "start": [
+        -35.5,
+        -20.5
+      ],
+      "goal": [
+        -30.0,
+        -21.5
+      ],
+      "min_center_clearance_m": 1.503329637837288,
+      "min_circumscribed_footprint_clearance_m": 1.1705519342572555,
+      "center_samples_on_obstacles": 0,
+      "center_samples_unknown_or_outside": 0
+    }
+  ],
+  "first_leg_max_cross_track_m": 1.621494613885159,
+  "map": {
+    "method": "vertical PhysX raycast, z=3 to -0.1 m, self excluded, obstacle z>0.05 m",
+    "resolution_m": 0.1,
+    "width": 200,
+    "height": 200,
+    "origin": [
+      -41.0,
+      -32.0
+    ],
+    "occupied_cells": 2762,
+    "free_cells": 36442,
+    "unknown_cells": 796,
+    "obstacle_paths": {
+      "/World/stage/Neighborhood/Trees/SM_Tree_77/SM_Tree_01/Section1": 130,
+      "/World/stage/Neighborhood/Trees/SM_Tree_77/SM_Tree_01/Section0": 19,
+      "/World/stage/Neighborhood/BP_FlowerBed_21/FlowerBed/SM_FlowerBed_01/Section0": 238,
+      "/World/stage/Neighborhood/BP_FlowerBed_21/Flower3/SM_Flower_01": 24,
+      "/World/stage/Neighborhood/BP_FlowerBed_21/FlowerBed/SM_FlowerBed_01/Section1": 619,
+      "/World/stage/Neighborhood/BP_FlowerBed_21/Flower4/SM_Flower_01": 19,
+      "/World/stage/Neighborhood/BP_FlowerBed_21/Flower/SM_Flower_01": 19,
+      "/World/stage/Neighborhood/BP_FlowerBed_21/Grass/SM_Grass_02": 11,
+      "/World/stage/Neighborhood/BP_FlowerBed_21/Grass1/SM_Grass_02": 9,
+      "/World/stage/Neighborhood/BP_FlowerBed_21/Flower7/SM_Flower_02": 12,
+      "/World/stage/Neighborhood/BP_FlowerBed_21/Flower6/SM_Flower_02": 12,
+      "/World/stage/Neighborhood/BP_FlowerBed_21/Flower8/SM_Flower_03": 19,
+      "/World/stage/Neighborhood/BP_FlowerBed_21/Flower10/SM_Flower_03": 19,
+      "/World/stage/Neighborhood/BP_FlowerBed_21/Flower11/SM_Flower_03": 19,
+      "/World/stage/Neighborhood/BP_FlowerBed_21/Flower9/SM_Flower_03": 19,
+      "/World/stage/Neighborhood/BP_FlowerBed_21/Flower2/SM_Flower_01": 20,
+      "/World/stage/Neighborhood/BP_FlowerBed_21/Flower5/SM_Flower_01": 20,
+      "/World/stage/Neighborhood/BP_FlowerBed_21/Flower1/SM_Flower_01": 21,
+      "/World/stage/Neighborhood/BP_FlowerBed_21/Grass2/SM_Grass_02": 10,
+      "/World/stage/Neighborhood/BP_FlowerBed_21/Grass3/SM_Grass_02": 10,
+      "/World/stage/Neighborhood/SM_MailBox4/SM_MailBox": 16,
+      "/World/stage/Neighborhood/Fences/SM_Fence_150/SM_Fence_05": 6,
+      "/World/stage/Neighborhood/Fences/SM_Fence_05_Pole/SM_Fence_05_Pole": 2,
+      "/World/stage/Neighborhood/Fences/SM_Fence_148/SM_Fence_05": 29,
+      "/World/stage/Neighborhood/Fences/SM_Fence_147/SM_Fence_05": 30,
+      "/World/stage/Neighborhood/Fences/SM_Fence_146/SM_Fence_05": 30,
+      "/World/stage/Neighborhood/Trees/SM_Tree_53/SM_Tree_01/Section1": 131,
+      "/World/stage/Neighborhood/Trees/SM_Tree_53/SM_Tree_01/Section0": 19,
+      "/World/stage/Neighborhood/RoadSigns/SM_Sign_Stop/SM_Sign_Stop": 6,
+      "/World/stage/Neighborhood/Trees/SM_Tree_49/SM_Tree_01/Section1": 133,
+      "/World/stage/Neighborhood/BP_BusStop3/Bus_Stop/SM_BusStop/Section0": 1080,
+      "/World/stage/Neighborhood/Trees/SM_Tree_49/SM_Tree_01/Section0": 12
+    },
+    "reviewed": false,
+    "limitations": "local diagnostic projection; not reviewed traversability or semantic GT"
+  },
+  "cloud_subscribers": [
+    "/ugv/raven_nav2_evidence",
+    "/ugv/local_costmap/local_costmap",
+    "/ugv/global_costmap/global_costmap"
+  ],
+  "costmaps": {
+    "map": {
+      "messages": 1,
+      "max_lethal_cells": 2762
+    },
+    "local": {
+      "messages": 361,
+      "max_lethal_cells": 1177
+    },
+    "global": {
+      "messages": 343,
+      "max_lethal_cells": 4152
+    }
+  },
+  "cross_check": {
+    "cloud_hash_matches": 1051,
+    "clouds_received": 1051,
+    "odom_matches_physx": 3986,
+    "odom_received": 3986,
+    "clock_count": 3987,
+    "clock_backwards": 0,
+    "max_clock_publishers": 1,
+    "planned_paths": 187
+  },
+  "resources": {
+    "peak_job_commit_gib": 10.934375762939453,
+    "peak_gpu_memory_gib": 3.3505859375,
+    "min_physical_available_gib": 13.008502960205078,
+    "min_commit_available_gib": 22.755924224853516,
+    "limits": {
+      "job_memory_gib": 14.0,
+      "cpu_percent": 60,
+      "active_processes": 32,
+      "min_available_gib": 4,
+      "min_available_commit_gib": 2,
+      "max_gpu_fraction": 0.8,
+      "timeout_s": 840.0
+    },
+    "exit_code": 0,
+    "wall_seconds": 288.39
+  },
+  "limitations": [
+    "PhysX state odometry, not SLAM/localization",
+    "CPU raycast cloud, not RTX lidar",
+    "Local vertical projection with runtime z=0 support plane, not reviewed GT",
+    "Static obstacle detour on one route; no dynamic obstacle/general collision acceptance",
+    "No semantic search, UAV cooperation, reviewed episodes or paper score"
+  ],
+  "cleanup": {
+    "isolated_wsl_stopped": true,
+    "vpn_configuration_changed": false,
+    "task_removed": true,
+    "processes": [],
+    "temporary_firewall_rules_removed": true,
+    "checked_at": "2026-10-18T21:06:11.9000397+08:00",
+    "ros_processes_absent": true
+  },
+  "artifacts": "runs/nav2_route_20261018/",
+  "failed_attempts": [
+    {
+      "job": "jackal-route-a01",
+      "execution": {
+        "scope": "diagnostic_only_not_benchmark",
+        "command": [
+          "cmd.exe",
+          "/d",
+          "/c",
+          "D:\\RAVEN-4060\\isaac45\\python.bat",
+          "D:\\RAVEN-4060\\setup\\probe-jackal-route-a01.py",
+          "--output",
+          "D:\\RAVEN-4060\\logs\\jackal-route-a01-frames",
+          "--graphics-api",
+          "vulkan",
+          "--defer-stage",
+          "--cpu-threads",
+          "16",
+          "--shader-concurrency",
+          "1",
+          "--gui",
+          "--disable-motion-bvh",
+          "--async-loads",
+          "--first-frame-timeout",
+          "480",
+          "--camera-size",
+          "960",
+          "600",
+          "--scene",
+          "D:\\RAVEN-4060\\source\\AirStack\\scenes\\RetroNeighborhood\\RetroNeighborhood_Export.usd",
+          "--ros2-seconds",
+          "540",
+          "--ros2-run-id",
+          "jackal-route-a01-20261018",
+          "--jackal-usd",
+          "D:\\RAVEN-4060\\source\\AirStack\\simulation\\isaac-sim\\assets\\robots\\jackal_airground.usda",
+          "--air-stack-root",
+          "D:\\RAVEN-4060\\source\\AirStack",
+          "--jackal-spawn",
+          "-30",
+          "-21.5",
+          ".45",
+          "0",
+          "--nav2-goal",
+          "-35.5",
+          "-26",
+          "--nav2-goal",
+          "-35.5",
+          "-20.5",
+          "--nav2-goal",
+          "-30",
+          "-21.5",
+          "--nav2-require-detour"
+        ],
+        "limits": {
+          "job_memory_gib": 14.0,
+          "cpu_percent": 60,
+          "active_processes": 32,
+          "min_available_gib": 4,
+          "min_available_commit_gib": 2,
+          "max_gpu_fraction": 0.8,
+          "timeout_s": 840.0
+        },
+        "initial": {
+          "available_gib": 19.285160064697266,
+          "available_commit_gib": 33.99565505981445,
+          "gpu_memory_fraction": 0.0
+        },
+        "pid": 22060,
+        "status": "guard_or_launch_failed",
+        "error": "Diagnostic reported failure: Nav2 local goal validation incomplete; inspect actual evidence",
+        "peak_job_commit_gib": 10.877246856689453,
+        "elapsed_s": 266.41
+      }
+    }
+  ],
+  "correction": "Removed diagnostic angular_accel=0.4 override; repository RPP default 20 retained. Angular speed, wheel torque, watchdog and resource limits unchanged.",
+  "validation": {
+    "native_command_file": "jackal-route-a02/execution.json",
+    "wsl_command_file": "jackal-route-a02-wsl/command.json",
+    "source_compile": "python -m py_compile scripts/probe_jackal_nav2.py scripts/probe_nav2_wsl_peer.py scripts/probe_windows_scene_render.py",
+    "manually_inspected_original_rgb_images": 7,
+    "image_resolution_px": [
+      960,
+      600
+    ]
+  },
+  "source_sha256": {
+    "launch-raven-probe.py": "eb1bb51095dc0737d042350683aada0cca168f9d170215de74332ab0a7a30b65",
+    "probe-jackal-route-a01.py": "23cda4ebf3f35be664b5a9f1699b6e1f71efa1a0e178fe57398f0d30bab263e1",
+    "probe-jackal-route-a02.py": "23cda4ebf3f35be664b5a9f1699b6e1f71efa1a0e178fe57398f0d30bab263e1",
+    "probe_jackal_motion.py": "831f195ebe964c3ef313b2ede90086a3779d209d5f6ba7422665a85c43f4ff90",
+    "probe_jackal_nav2.py": "3a13f3ae9a01977149ca43a8429f0164c35c0dd725f14dc6b5faa07dba018d0c",
+    "probe_nav2_wsl_peer-route-a01.py": "cf9389e61ca3e3d6e644a107e9c7ee61c56bd8973f16504397460ddae46e9585",
+    "probe_nav2_wsl_peer.py": "b717b46b09c5c0dcb698a7dc70b7497c9beb7d7d9963d1a2ee17c1b56405e3de",
+    "probe_windows_scene_render.py": "23cda4ebf3f35be664b5a9f1699b6e1f71efa1a0e178fe57398f0d30bab263e1",
+    "run_windows_probe.py": "675bd924366dd478341595abd065fab9e860d6cd2029bd2aa4ce3a0b15f770df"
+  },
+  "images": [
+    {
+      "file": "01-nav2-start.png",
+      "sim_time_s": 2.850000148639083,
+      "position": [
+        -30.000442504882812,
+        -21.500001907348633,
+        0.06350073218345642
+      ],
+      "sha256": "bd906a1a3b21e9d64d500518319eafe925de6c7cfb79886c049e767da663eef1",
+      "unaltered_camera_rgb": true
+    },
+    {
+      "file": "02-nav2-moving.png",
+      "sim_time_s": 32.70833503920585,
+      "position": [
+        -30.784669876098633,
+        -22.122520446777344,
+        0.06350268423557281
+      ],
+      "sha256": "e8c970594765be9102d9fa094d87a636946e01d2a457fe19ad95c60e3d39656a",
+      "unaltered_camera_rgb": true
+    },
+    {
+      "file": "03-nav2-en-route.png",
+      "sim_time_s": 43.35833559464663,
+      "position": [
+        -32.80439758300781,
+        -22.570478439331055,
+        0.06350107491016388
+      ],
+      "sha256": "f0c8c64b2796f2393c3244f7b268dd2266c472e58c7f510ffb67b337d8fd98ce",
+      "unaltered_camera_rgb": true
+    },
+    {
+      "file": "04-nav2-after-goal-01.png",
+      "sim_time_s": 87.35833788942546,
+      "position": [
+        -35.726600646972656,
+        -25.998043060302734,
+        0.06350463628768921
+      ],
+      "sha256": "19ecda1309b61630f7a637247a877f022ec5892e9eb41a94bc60ffe0318d0e2c",
+      "unaltered_camera_rgb": true
+    },
+    {
+      "file": "05-nav2-after-goal-02.png",
+      "sim_time_s": 181.3583427919075,
+      "position": [
+        -35.432621002197266,
+        -20.728221893310547,
+        0.06350110471248627
+      ],
+      "sha256": "4ce2a055c731c72a4a8d222e430f7635193f05d0ea1cbaf3812df3a5e168e360",
+      "unaltered_camera_rgb": true
+    },
+    {
+      "file": "06-nav2-after-goal-03.png",
+      "sim_time_s": 215.8583445912227,
+      "position": [
+        -30.17173194885254,
+        -21.663616180419922,
+        0.06350061297416687
+      ],
+      "sha256": "c35518fef6c4fd25b7cd2caade72c74354543cab0ac84cad05714f34358a3ea5",
+      "unaltered_camera_rgb": true
+    },
+    {
+      "file": "07-nav2-stopped.png",
+      "sim_time_s": 219.97501147259027,
+      "position": [
+        -30.176904678344727,
+        -21.66504669189453,
+        0.06350043416023254
+      ],
+      "sha256": "43d78bb681c8a47e56c8ab621780297661c3c53eea1a99410e7b4a2ea9e79059",
+      "unaltered_camera_rgb": true
+    }
+  ]
+}

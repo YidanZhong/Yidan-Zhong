@@ -1,0 +1,17 @@
+from pathlib import Path
+import ast
+base=Path('D:/xprogram/.raven-setup-cache')
+s=(base/'package-construction-review-a03.py').read_text(encoding='utf-8')
+s=s.replace("assert render['status']=='passed' and execution['exit_code']==0", "assert render['status'] in ('passed','failed','partial_review')\nassert execution.get('status') in ('completed','guard_or_launch_failed','timeout') or execution.get('exit_code') is not None")
+s=s.replace("assert len(render['frames'])==56 and len(render['review_targets'])==28", "assert 0<len(render['frames'])<=56 and len(render['review_targets'])==28\nassert len({(f['instance_id'],f['view_index']) for f in render['frames']})==len(render['frames'])")
+s=s.replace(" assert len(group[key])==2", " assert len(group[key])<=2\n if len(group[key])<2:notes.append(f'当前只取得 {len(group[key])}/2 张合格原图；缺失视角保持待处理')")
+s=s.replace(" 'human_verified_count':0", " 'render_run_passed':render['status']=='passed' and execution.get('exit_code')==0,\n 'render_status':render['status'],'render_error':render.get('error'),\n 'human_verified_count':0")
+s=s.replace("'original_image_count':56", "'original_image_count':len(images),'planned_image_count':56")
+s=s.replace("'visual_inspection':'pending direct inspection of generated image samples'", "'visual_inspection':'Samples view-0.png and view-3.png directly inspected: actual scene content visible; no human semantic approval. Other views require review.'")
+s=s.replace('28 个目标 / 56 张真实 RGB','28 个目标清单 / 当前部分真实 RGB')
+s=s.replace('<p>全部待人工审核；25 个候选有歧义', '<p>本轮渲染未完整通过：只有已取得合格图像的视角显示图片；缺失视角仍待处理，运行失败记录保留。全部目标待人工审核；25 个候选有歧义')
+s=s.replace(" 'runtime':{'isaac_sim'", " 'runtime':{'diagnostic_status':execution.get('diagnostic_status'),'guard_status':execution.get('status'),'isaac_sim'")
+s=s.replace("'exit_code':execution['exit_code']", "'exit_code':execution.get('exit_code')")
+ast.parse(s)
+(base/'package-construction-review-a03-partial.py').write_text(s,encoding='utf-8')
+print('Prepared partial packager; requires completed execution record and actual saved frames.')

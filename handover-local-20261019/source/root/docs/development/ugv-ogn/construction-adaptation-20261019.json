@@ -1,0 +1,101 @@
+{
+  "updated_at": "2026-10-19T12:00:13.863082+08:00",
+  "scope": "ConstructionSite preparation and cross-scene code; runtime acceptance pending",
+  "transfer": {
+    "files": 332,
+    "sha256": "25f1cbedbb6f322fb89187d3f4a11aff4e3b0d1247f7b439fcff6079105407fc",
+    "destination": "D:/RAVEN-4060/assets/handover-scenes-20261019"
+  },
+  "static_preflight": {
+    "prims": 20774,
+    "meters_per_unit": 1.0,
+    "up_axis": "Z",
+    "coordinate_candidates_matched": 25,
+    "unbound": 3,
+    "all_dependency_scan_passed": false,
+    "unresolved_attribute_count": 964,
+    "unresolved_attributes": "All observed unresolved asset properties are info:unreal:sourceAsset; not yet a rendered appearance acceptance"
+  },
+  "code": [
+    "Native review preserves null prims and renders OBB context without approving them.",
+    "Native terrain metadata/contract/postprocess take scene_id and target hashes; new snapshot cannot resume legacy contract.",
+    "Native small-window footprint validation now explicitly uses 0.05 m max step, matching full-map postprocessing.",
+    "ROI scene path/name and CUDA target identity gate follow target manifest; default resolution 0.05 m; server memory guard unchanged.",
+    "Shared raycast generator accepts explicit scene_id/scene_usd; non-Retro missing asset argument rejected before runtime import.",
+    "Navigation map comparison uses scene-specific paper classes and rejects mixed scene metadata; Retro 31 gate retained."
+  ],
+  "validation": {
+    "wsl_scene1_env": "58 passed, cpu-tests-scene1-env.log",
+    "review_boundary_unittest": "3 passed",
+    "tile_stitch_unittest": "3 passed",
+    "earlier_environment_failures": "Windows Anaconda lacked pxr and lightweight namespace lacked resource spec; WSL raven-core lacked pxr (4 failed/53 passed/1 skipped). Full rerun in existing raven-scene1 passed.",
+    "live_map_sampling": "first bounded batch completed normally; 19/70 tiles, 1224192/4395972 cells (27.85%); resumable, not currently sampling",
+    "formal_container_runtime": "not executed on 32GB hardware; unchanged 64GiB preflight"
+  },
+  "air_stack_local_commit": "1862f4ffcbe383eae4c766e2f548a6e83529a0f2",
+  "remote_publication": "not performed; local work and evidence only",
+  "human_verified": 0,
+  "formal_episodes": 0,
+  "new_scene_formal_acceptance": false,
+  "source_sha256": {
+    "scripts\\run_roi_analysis.py": "fabf57f3eb8056a78e9e9e39df7f97ea87dd0b1bf32b37fdc6324e8fcdeb2c81",
+    "scripts\\probe_windows_scene_render.py": "b51a5597e429306e248e61ec6a23130411cfe800528159485d8ddd4f83e255a7",
+    "scripts\\probe_tiled_terrain.py": "460e7920ba9e81b2d21b1a1e8e5c62ce73bac2df724f54c53d4f5e99b507aa1f",
+    "scripts\\probe_resumable_terrain.py": "257afc850a091fecabee3e63610fb185677d9eae8fb494e3080b963d2d2c431c",
+    "scripts\\postprocess_terrain_tiles.py": "e8a81872ab5e3a0957da226e5ffa9aed526a98e46ebff2b6e7f5ad1e88b44b87",
+    "benchmark\\airground_benchmark\\navigation_map_validation.py": "344d23932f3782f943bc71ade90c0d46089cc3420a0b7cca52561f88f2cf941a"
+  },
+  "first_review_attempt": {
+    "status": "failed",
+    "reason": "840-second wall-clock guard during first MDL compile",
+    "actual_elapsed_s": 840.97,
+    "peak_job_commit_gib": 8.057785034179688,
+    "original_images": 0,
+    "guard_limits_unchanged": true,
+    "archive_sha256": "ccfef9f68383ca1b642b4a88ddbbd42121d76a7bd1598b4ed74c41ad5005fdf8"
+  },
+  "two_window_physx": {
+    "job": "construction-tiles-a01",
+    "status": "passed",
+    "scope": "two-window diagnostic, not formal scene acceptance",
+    "cells": 51200,
+    "ray_count": 314976,
+    "all_arrays_exactly_equal": true,
+    "elapsed_s": 483.12,
+    "peak_job_commit_gib": 6.640239715576172,
+    "archive_sha256": "15312bf1580a1117f718fb6130a7595f72a57333b850f032deb81419c048b765",
+    "warnings": [
+      "PhysX thin-mesh convex decomposition adjusted thickness; one Plywood mesh reported GPU-incompatible cooking fallback to CPU. Raw log retained."
+    ],
+    "formal_gt_approved": false,
+    "observed_limitation": "biotoilet_context has zero footprint-traversable cells; equivalence pass is not navigation suitability. Preserve current geometry/thresholds pending full-map diagnosis."
+  },
+  "first_full_map_batch": {
+    "progress": {
+      "completed_cells": 1224192,
+      "completed_tiles": 19,
+      "contract_sha256": "ca88be60f4d0ac1990eb665324efb1623a89a2626b8163e6b1d19785b49b5b6b",
+      "dataset": "D:\\RAVEN-4060\\logs\\construction-full-map-20261019",
+      "elapsed_sampling_wall_s": 902.6869999999981,
+      "formal_gt_approved": false,
+      "fraction": 0.278480390684927,
+      "full_map_generated": false,
+      "global_postprocess_complete": false,
+      "new_tiles_this_session": 19,
+      "sampling_complete": false,
+      "session": "construction-map-a01-frames",
+      "skipped_existing_tiles": 0,
+      "state": "bounded_batch_complete",
+      "total_cells": 4395972,
+      "total_tiles": 70,
+      "updated_at": "2026-10-18T21:34:30.297693+00:00"
+    },
+    "exit_code": 0,
+    "elapsed_s": 990.27,
+    "peak_job_commit_gib": 6.185359954833984,
+    "archive_sha256": "593f2a624246461e14af5aa9dbc44270087aa22530d50d0a01a91a5fb77c4364",
+    "archive_files_verified": 31,
+    "raw_tile_store": "D:/RAVEN-4060/logs/construction-full-map-20261019",
+    "full_map_complete": false
+  }
+}

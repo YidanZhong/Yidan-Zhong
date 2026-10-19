@@ -1,0 +1,310 @@
+{
+  "checked_on": "2026-10-18",
+  "plan_task": "P0-UGV-OGN-Benchmark / Scene-GT-Handover / resource recovery",
+  "status": "six_root_usd_files_downloaded_private_dependencies_blocked",
+  "scope": "Resource recovery in this chat; no computer pairing, network reconfiguration, runtime installation or simulator launch.",
+  "cache_root_relative_to_repo": "../.raven-setup-cache/scene-resources-20261018",
+  "historical_source": {
+    "commit": "94b8d42c4bd549b8cdfa3829a1dc018b2d21fd0e",
+    "script": "https://github.com/castacks/AirStack/blob/94b8d42c4bd549b8cdfa3829a1dc018b2d21fd0e/scenes/download_scenes.sh",
+    "folder": "https://drive.google.com/drive/folders/1Sap3R2yZUPvcMn88CQ27pmp0TkxJNUi1"
+  },
+  "nucleus_public_access_document": "https://github.com/castacks/AirStack/blob/a6dad8caf54722e5eba3481367e914ce213e6135/docs/simulation/scenes.md",
+  "public_guest_access": "Documented public guest account used for read-only directory/file access; no personal credentials supplied.",
+  "downloaded_scene_count": 6,
+  "downloaded_scene_bytes": 1371671767,
+  "public_dependency_file_count": 30,
+  "public_dependency_bytes": 65315361,
+  "public_dependency_http_failures": [
+    {
+      "url": "https://omniverse-content-production.s3.us-west-2.amazonaws.com/Environments/2023_1/DomeLights/Sky_Elements/materials/cloudy/textures/randomstars.png",
+      "status": "failed",
+      "error": "<HTTPError 404: 'Not Found'>"
+    },
+    {
+      "url": "https://omniverse-content-production.s3.us-west-2.amazonaws.com/Environments/2023_1/DomeLights/Sky_Elements/OmniPBR.mdl",
+      "status": "failed",
+      "error": "<HTTPError 404: 'Not Found'>"
+    }
+  ],
+  "public_dependency_note": "Includes material preview thumbnails. OmniPBR.mdl is an authored bare MDL search-path reference; its generated HTTP 404 is not proof of a missing Isaac builtin. randomstars.png returned HTTP 404 at its authored relative URL.",
+  "scenes": [
+    {
+      "scene_id": "AbandonedCity",
+      "file": "drive-usd/AbandonedCity.usd",
+      "source_url": "https://drive.usercontent.google.com/download?id=1uk6cHBCroce0C2FmtsqcSJ8mXvawQDL2&export=download&confirm=t",
+      "bytes": 4975314,
+      "sha256": "59569c8f08132e32219d19faea5f1ae94d215b07e2a9444b1a38e84263595ee1",
+      "meters_per_unit": 1.0,
+      "up_axis": "Z",
+      "authored_mesh_count": 19295,
+      "unique_dependency_count_excluding_unreal_markers": 34,
+      "complete_scene_package": false,
+      "asset_and_composition_field_errors": 0,
+      "geometry_sample_status": "3_mesh_samples_read_ok",
+      "runtime_status": "not_started",
+      "status": "root_usd_downloaded_external_dependencies_pending"
+    },
+    {
+      "scene_id": "DowntownWest",
+      "file": "drive-usd/DowntownWest.usd",
+      "source_url": "https://drive.usercontent.google.com/download?id=1aS2Hg2SUc9sr8sE6-eP-VrgxaNyLJDLy&export=download&confirm=t",
+      "bytes": 279927874,
+      "sha256": "2fafb3c135cc3fd64e1f23e99d64cc84428cd2a048a09a819f870529afef7e17",
+      "meters_per_unit": 1.0,
+      "up_axis": "Z",
+      "authored_mesh_count": 6054,
+      "unique_dependency_count_excluding_unreal_markers": 787,
+      "complete_scene_package": false,
+      "asset_and_composition_field_errors": 0,
+      "geometry_sample_status": "3_mesh_samples_read_ok",
+      "runtime_status": "not_started",
+      "status": "root_usd_downloaded_external_dependencies_pending"
+    },
+    {
+      "scene_id": "MilitaryBase",
+      "file": "drive-usd/MilitaryBase.usd",
+      "source_url": "https://drive.usercontent.google.com/download?id=1ttx39VqhEOtS3YjurwYRjM-Y-e3p63q-&export=download&confirm=t",
+      "bytes": 462186176,
+      "sha256": "aff646545e258ee1e05972aebfea4a5839783b8ef937f98778c14cf5946a431e",
+      "meters_per_unit": 1.0,
+      "up_axis": "Z",
+      "authored_mesh_count": 4303,
+      "unique_dependency_count_excluding_unreal_markers": 139,
+      "complete_scene_package": false,
+      "asset_and_composition_field_errors": 0,
+      "geometry_sample_status": "3_mesh_samples_read_ok",
+      "runtime_status": "not_started",
+      "status": "root_usd_downloaded_external_dependencies_pending"
+    },
+    {
+      "scene_id": "ModernCityDowntown",
+      "file": "drive-usd/ModernCityDowntown.usd",
+      "source_url": "https://drive.usercontent.google.com/download?id=1U1s55JNueUDgOMYfPmrGfzpqzQSIwpex&export=download&confirm=t",
+      "bytes": 25248046,
+      "sha256": "7f27d1da17fdb4072c859078fab26b7e355b7c754c6bb7fd75e8801a68a38308",
+      "meters_per_unit": 1.0,
+      "up_axis": "Z",
+      "authored_mesh_count": 9657,
+      "unique_dependency_count_excluding_unreal_markers": 601,
+      "complete_scene_package": false,
+      "asset_and_composition_field_errors": 0,
+      "geometry_sample_status": "3_mesh_samples_read_ok",
+      "runtime_status": "not_started",
+      "status": "root_usd_downloaded_external_dependencies_pending"
+    },
+    {
+      "scene_id": "Shipyard",
+      "file": "drive-usd/Shipyard.usd",
+      "source_url": "https://drive.usercontent.google.com/download?id=1ALpvDf-HSPlGTXhmj-ZHURGghwSPz_6C&export=download&confirm=t",
+      "bytes": 581472009,
+      "sha256": "fd465b6ea1c735206913aca5ee88411069f6db01c79b6024652f72e24faffd15",
+      "meters_per_unit": 1.0,
+      "up_axis": "Z",
+      "authored_mesh_count": 5032,
+      "unique_dependency_count_excluding_unreal_markers": 432,
+      "complete_scene_package": false,
+      "asset_and_composition_field_errors": 0,
+      "geometry_sample_status": "3_mesh_samples_read_ok",
+      "runtime_status": "not_started",
+      "status": "root_usd_downloaded_external_dependencies_pending"
+    },
+    {
+      "scene_id": "SnowyVillage",
+      "file": "nucleus/Projects/AirStack/scenes/rural/SnowyVillage.scene.usd",
+      "source_url": "omniverse://airlab-nucleus.andrew.cmu.edu:443/Projects/AirStack/scenes/rural/SnowyVillage.scene.usd",
+      "bytes": 17862348,
+      "sha256": "a8be1100c3672e555549d63f3312e24d5ca87e9099f04cee7af43feb8524d717",
+      "meters_per_unit": 1.0,
+      "up_axis": "Z",
+      "authored_mesh_count": 0,
+      "unique_dependency_count_excluding_unreal_markers": 225,
+      "complete_scene_package": false,
+      "asset_and_composition_field_errors": 0,
+      "geometry_sample_status": "root_contains_references_not_embedded_meshes",
+      "runtime_status": "not_started",
+      "status": "root_usd_downloaded_external_dependencies_pending"
+    }
+  ],
+  "required_file_access_probes": [
+    {
+      "url": "omniverse://airlab-nucleus.andrew.cmu.edu:443/Users/yunwool/Test/AbandonedCity/Materials/Glass.mdl",
+      "result": "Result.ERROR_ACCESS_DENIED",
+      "size": null
+    },
+    {
+      "url": "omniverse://airlab-nucleus.andrew.cmu.edu:443/Library/Stages/AbandonedFactory/Materials/Ground.mdl",
+      "result": "Result.ERROR_ACCESS_DENIED",
+      "size": null
+    },
+    {
+      "url": "omniverse://airlab-nucleus.andrew.cmu.edu:443/Users/yunwool/Test/Military/Oshkosh_M-ATV_Reinvented.usdz",
+      "result": "Result.ERROR_ACCESS_DENIED",
+      "size": null
+    },
+    {
+      "url": "omniverse://airlab-nucleus.andrew.cmu.edu:443/Library/Stages/SnowyVillage/Animations/SM_Fisherman03_Animated_Sequence.prop.usd",
+      "result": "Result.ERROR_ACCESS_DENIED",
+      "size": null
+    }
+  ],
+  "remaining_inputs": [
+    "Complete per-scene material/texture/model dependency bundles, including SnowyVillage props and animation assets.",
+    "AbandonedFactory original Materials/Ground.mdl and its dependencies."
+  ],
+  "validation": {
+    "google_drive_lengths_matched": true,
+    "usd_magic_headers_checked": true,
+    "sha256_recorded": true,
+    "sdf_asset_and_composition_fields_read": true,
+    "five_scene_geometry_samples": [
+      {
+        "file": "AbandonedCity.usd",
+        "scope": "three raw mesh samples only; no renderer or full geometry validation",
+        "samples": [
+          {
+            "path": "/World/AbandonedCity/Sky_and_Fog/BP_Sky_Sphere_194/SkySphereMesh/SM_SkySphere",
+            "points_count": 1986,
+            "faceVertexCounts_count": 3968,
+            "faceVertexIndices_count": 11904,
+            "status": "sample_read_ok"
+          },
+          {
+            "path": "/World/AbandonedCity/Buildings/Building_01/Building_01_A/upper_brick_wall_a_l_3x11_542/upper_brick_wndw_a_l_3x2/Section0",
+            "points_count": 18,
+            "faceVertexCounts_count": 24,
+            "faceVertexIndices_count": 72,
+            "status": "sample_read_ok"
+          },
+          {
+            "path": "/World/AbandonedCity/Buildings/Building_01/Building_01_A/upper_brick_wall_a_l_3x11_542/upper_brick_wndw_a_l_3x2/Section1",
+            "points_count": 21,
+            "faceVertexCounts_count": 22,
+            "faceVertexIndices_count": 66,
+            "status": "sample_read_ok"
+          }
+        ]
+      },
+      {
+        "file": "DowntownWest.usd",
+        "scope": "three raw mesh samples only; no renderer or full geometry validation",
+        "samples": [
+          {
+            "path": "/Root/lightpost_light_post_a33",
+            "points_count": 2146,
+            "faceVertexCounts_count": 3348,
+            "faceVertexIndices_count": 10044,
+            "status": "sample_read_ok"
+          },
+          {
+            "path": "/Root/light_streetlight_complete13",
+            "points_count": 15845,
+            "faceVertexCounts_count": 17952,
+            "faceVertexIndices_count": 53856,
+            "status": "sample_read_ok"
+          },
+          {
+            "path": "/Root/build_d_mod_trim_top_a_corner14",
+            "points_count": 4715,
+            "faceVertexCounts_count": 5234,
+            "faceVertexIndices_count": 15702,
+            "status": "sample_read_ok"
+          }
+        ]
+      },
+      {
+        "file": "MilitaryBase.usd",
+        "scope": "three raw mesh samples only; no renderer or full geometry validation",
+        "samples": [
+          {
+            "path": "/Environment/DTC_0502/Military/SM_Landscape_08_2/SM_Landscape_08",
+            "points_count": 62259,
+            "faceVertexCounts_count": 123499,
+            "faceVertexIndices_count": 370497,
+            "status": "sample_read_ok"
+          },
+          {
+            "path": "/Environment/DTC_0502/Military/SM_ConcreteBarrierBlock_01a_21/SM_ConcreteBarrierBlock_01",
+            "points_count": 94,
+            "faceVertexCounts_count": 168,
+            "faceVertexIndices_count": 504,
+            "status": "sample_read_ok"
+          },
+          {
+            "path": "/Environment/DTC_0502/Military/SM_ConcreteBarrierBlock_01a2/SM_ConcreteBarrierBlock_01",
+            "points_count": 94,
+            "faceVertexCounts_count": 168,
+            "faceVertexIndices_count": 504,
+            "status": "sample_read_ok"
+          }
+        ]
+      },
+      {
+        "file": "ModernCityDowntown.usd",
+        "scope": "three raw mesh samples only; no renderer or full geometry validation",
+        "samples": [
+          {
+            "path": "/Root/SM_Ground_Floor_Base1398",
+            "points_count": 56,
+            "faceVertexCounts_count": 36,
+            "faceVertexIndices_count": 108,
+            "status": "sample_read_ok"
+          },
+          {
+            "path": "/Root/SM_Ground_Floor_Base1290",
+            "points_count": 56,
+            "faceVertexCounts_count": 36,
+            "faceVertexIndices_count": 108,
+            "status": "sample_read_ok"
+          },
+          {
+            "path": "/Root/SM_Ground_Floor_Base1356",
+            "points_count": 56,
+            "faceVertexCounts_count": 36,
+            "faceVertexIndices_count": 108,
+            "status": "sample_read_ok"
+          }
+        ]
+      },
+      {
+        "file": "Shipyard.usd",
+        "scope": "three raw mesh samples only; no renderer or full geometry validation",
+        "samples": [
+          {
+            "path": "/Root/SM_Water_Tower_6/LOD0",
+            "points_count": 14341,
+            "faceVertexCounts_count": 8735,
+            "faceVertexIndices_count": 26205,
+            "status": "sample_read_ok"
+          },
+          {
+            "path": "/Root/SM_WoodLadder_1/LOD0",
+            "points_count": 874,
+            "faceVertexCounts_count": 584,
+            "faceVertexIndices_count": 1752,
+            "status": "sample_read_ok"
+          },
+          {
+            "path": "/Root/SM_WoodenBeam_256",
+            "points_count": 1100,
+            "faceVertexCounts_count": 802,
+            "faceVertexIndices_count": 2406,
+            "status": "sample_read_ok"
+          }
+        ]
+      }
+    ],
+    "scope": "Static root-layer/asset-field inspection and 3 mesh samples per Google Drive scene, not all geometry and not rendering.",
+    "tool_caveat": "A generic UsdUtils.ExtractExternalReferences attempt on ModernCityDowntown emitted unsupported type enum 0 with usd-core 26.8. Selective Sdf traversal and sampled points/indices then succeeded; compatibility still requires the target runtime."
+  },
+  "network_note": "Downloads used the existing Windows proxy setting per process. System/SSH/WSL network settings were not changed.",
+  "existing_scene_directories_modified": false,
+  "simulation_started": false,
+  "reference_only_download": "military_camp.usd is not established as the paper MilitaryBase and is excluded from the six-scene count.",
+  "final_integrity_check": {
+    "verified_files": 36,
+    "verified_bytes": 1436987128,
+    "sha256_mismatches": 0,
+    "diff_check_exit_code": 0
+  }
+}

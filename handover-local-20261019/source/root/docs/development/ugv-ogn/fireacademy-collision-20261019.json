@@ -1,0 +1,756 @@
+{
+  "scope": "actual PhysX local collision comparison, not full map or GT acceptance",
+  "scene_id": "FireAcademy",
+  "checks_passed": true,
+  "baseline_archive_sha256": "d729e482264dfcf0744b69c6430d41875358d41414709cde627937c9460f3eed",
+  "candidate_archive_sha256": "0037af0b578af362390f47462d65d569ea74552564280724a2b8716342c72545",
+  "verified_files_each": 38,
+  "source_baseline_sha256": "e476570a38acc151cab141adeae7a5a60141a1fafd1b4517bc6c9c098442150f",
+  "rows": [
+    {
+      "xy_m": [
+        -30.475,
+        -4.825
+      ],
+      "source_surface_z_m": [
+        0.8720466,
+        3.4758083,
+        3.5219974,
+        4.748055,
+        4.9677028
+      ],
+      "baseline_inside_hits": 2,
+      "triangle_down_z_m": 4.967702865600586,
+      "top_surface_error_m": 6.560058629645482e-08,
+      "triangle_up_hits": []
+    },
+    {
+      "xy_m": [
+        -40.475,
+        10.175
+      ],
+      "source_surface_z_m": [
+        1.4510109
+      ],
+      "baseline_inside_hits": 2,
+      "triangle_down_z_m": 1.4510107040405273,
+      "top_surface_error_m": 1.9595947264861024e-07,
+      "triangle_up_hits": []
+    },
+    {
+      "xy_m": [
+        0.025,
+        0.025
+      ],
+      "source_surface_z_m": [
+        -0.0999822
+      ],
+      "baseline_inside_hits": 2,
+      "triangle_down_z_m": -0.09998214244842529,
+      "top_surface_error_m": 5.75515747003319e-08,
+      "triangle_up_hits": []
+    }
+  ],
+  "collider_changes": [
+    {
+      "before": {
+        "path": "/World/stage/Ds/Ds_001",
+        "enabled": true,
+        "approximation": "convexDecomposition"
+      },
+      "after": {
+        "path": "/World/stage/Ds/Ds_001",
+        "enabled": true,
+        "approximation": "none"
+      }
+    }
+  ],
+  "candidate_execution": {
+    "scope": "diagnostic_only_not_benchmark",
+    "command": [
+      "cmd.exe",
+      "/d",
+      "/c",
+      "D:\\RAVEN-4060\\isaac45\\python.bat",
+      "D:\\RAVEN-4060\\setup\\fireacademy-triangle-v1\\probe-fireacademy-triangle-a01.py",
+      "--output",
+      "D:\\RAVEN-4060\\logs\\fireacademy-triangle-a01-frames",
+      "--graphics-api",
+      "vulkan",
+      "--defer-stage",
+      "--cpu-threads",
+      "16",
+      "--shader-concurrency",
+      "1",
+      "--disable-motion-bvh",
+      "--async-loads",
+      "--physics-only",
+      "--scene",
+      "D:/RAVEN-4060/assets/handover-scenes-20261019/FireAcademy/FireAcademy_Export.usd",
+      "--tile-validation",
+      "D:/RAVEN-4060/setup/fireacademy-triangle-v1/geometry-input.json",
+      "--air-stack-root",
+      "D:/RAVEN-4060/setup/fireacademy-triangle-v1/air-stack",
+      "--benchmark-package",
+      "D:/RAVEN-4060/setup/tile-benchmark/airground_benchmark"
+    ],
+    "limits": {
+      "job_memory_gib": 14.0,
+      "cpu_percent": 60,
+      "active_processes": 32,
+      "min_available_gib": 4,
+      "min_available_commit_gib": 2,
+      "max_gpu_fraction": 0.8,
+      "timeout_s": 840.0,
+      "gpu_query_timeout_s": 8,
+      "max_missing_gpu_samples": 2,
+      "preflight_gpu_required": true
+    },
+    "initial": {
+      "available_gib": 21.01116943359375,
+      "available_commit_gib": 35.74045181274414,
+      "gpu_memory_fraction": 0.0,
+      "gpu_telemetry_consecutive_failures": 0,
+      "gpu_telemetry_error": null
+    },
+    "pid": 45892,
+    "exit_code": 0,
+    "status": "completed",
+    "result_json": "D:\\RAVEN-4060\\logs\\fireacademy-triangle-a01-frames\\report.json",
+    "diagnostic_status": "passed",
+    "peak_job_commit_gib": 8.1220703125,
+    "elapsed_s": 140.56,
+    "gpu_telemetry_failures": 0,
+    "gpu_telemetry_last_error": null
+  },
+  "limitations": [
+    "Only three sparse points and 12 grid cells tested; no full traversability or navigation.",
+    "Two-sided A02 query detects z=0.8720466 source face, but normal process exit was not achieved. Larger three-window validation remains pending.",
+    "Static triangle mode is isolated in memory. No asset or target flags changed; no production profile rollout."
+  ],
+  "two_sided_query": {
+    "sampling_passed": true,
+    "first_point_up_surface_z_m": 0.8720465898513794,
+    "topology_change_from_triangle_a01": "none; only PhysX raycast_all bothSides=True",
+    "archive_sha256": "8bd56427a85013754859815f4b37960a3d95dffc451dd679ba05fd89b676c838",
+    "verified_files": 39,
+    "shutdown": {
+      "time": "2026-10-19T15:10:01.401723+08:00",
+      "scope": "correction to operator-stop record; original archive remains immutable",
+      "actual_stopped_process": "PID6476 was the Python resource guard, not the Isaac child. Its command line contained the child command and matched the broad pattern.",
+      "effect": "Guard termination closed its kill-on-close Job Object and reclaimed the whole task; launcher exited 4294967295 without execution.json.",
+      "sampling_status": "report passed and raw ray records saved before shutdown",
+      "normal_exit_verified": false,
+      "child_exit_code": null,
+      "prevention": "Do not use command-substring matches for manual child termination. Leave bounded shutdown to the existing timeout guard unless exact executable/parent identity is separately established.",
+      "archive_sha256": "8bd56427a85013754859815f4b37960a3d95dffc451dd679ba05fd89b676c838",
+      "verified_files": 39
+    },
+    "next": "Three 128x128 real windows with whole/tiled comparison prepared; not yet started"
+  },
+  "larger_windows": {
+    "scope": "actual PhysX static triangle + two-sided query diagnostic, not formal map",
+    "execution": {
+      "scope": "diagnostic_only_not_benchmark",
+      "command": [
+        "cmd.exe",
+        "/d",
+        "/c",
+        "D:\\RAVEN-4060\\isaac45\\python.bat",
+        "D:\\RAVEN-4060\\setup\\fireacademy-windows-v1\\probe-fireacademy-windows-a01.py",
+        "--output",
+        "D:\\RAVEN-4060\\logs\\fireacademy-windows-a01-frames",
+        "--graphics-api",
+        "vulkan",
+        "--defer-stage",
+        "--cpu-threads",
+        "16",
+        "--shader-concurrency",
+        "1",
+        "--disable-motion-bvh",
+        "--async-loads",
+        "--physics-only",
+        "--scene",
+        "D:/RAVEN-4060/assets/handover-scenes-20261019/FireAcademy/FireAcademy_Export.usd",
+        "--tile-validation",
+        "D:/RAVEN-4060/setup/fireacademy-windows-v1/geometry-input.json",
+        "--air-stack-root",
+        "D:/RAVEN-4060/setup/fireacademy-windows-v1/air-stack",
+        "--benchmark-package",
+        "D:/RAVEN-4060/setup/tile-benchmark/airground_benchmark"
+      ],
+      "limits": {
+        "job_memory_gib": 14.0,
+        "cpu_percent": 60,
+        "active_processes": 32,
+        "min_available_gib": 4,
+        "min_available_commit_gib": 2,
+        "max_gpu_fraction": 0.8,
+        "timeout_s": 840.0,
+        "gpu_query_timeout_s": 8,
+        "max_missing_gpu_samples": 2,
+        "preflight_gpu_required": true
+      },
+      "initial": {
+        "available_gib": 20.89044952392578,
+        "available_commit_gib": 35.67755126953125,
+        "gpu_memory_fraction": 0.0,
+        "gpu_telemetry_consecutive_failures": 0,
+        "gpu_telemetry_error": null
+      },
+      "pid": 50764,
+      "exit_code": 0,
+      "status": "completed",
+      "result_json": "D:\\RAVEN-4060\\logs\\fireacademy-windows-a01-frames\\report.json",
+      "diagnostic_status": "passed",
+      "peak_job_commit_gib": 6.824058532714844,
+      "elapsed_s": 152.7,
+      "gpu_telemetry_failures": 0,
+      "gpu_telemetry_last_error": null
+    },
+    "windows": [
+      {
+        "name": "geometry_context_0",
+        "metadata": {
+          "schema_version": "1.0.0",
+          "scene_id": "FireAcademy",
+          "frame": "map",
+          "origin": {
+            "x_m": -33.65,
+            "y_m": -8.0,
+            "z_m": 0.0
+          },
+          "resolution_m": 0.05,
+          "shape": [
+            128,
+            128
+          ],
+          "arrays": {
+            "height": "height",
+            "normal": "normal",
+            "cost": "cost",
+            "mask": "mask",
+            "component": "component"
+          },
+          "generator": "native-physx-tile-validation",
+          "generator_version": "diagnostic-v1",
+          "npz_sha256": null
+        },
+        "comparisons": {
+          "height": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 1e-05,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "normal": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 1e-05,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "cost": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 1e-05,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "mask": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 0.0,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "component": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 0.0,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "ceiling_height": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 1e-05,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "obstacle_mask": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 0.0,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "overhead_clearance_m": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 1e-05,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "slope_rad": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 1e-05,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "step_height_m": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 1e-05,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "support_mask": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 0.0,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "footprint_mask": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 0.0,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "footprint_component": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 0.0,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "reach_component": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 0.0,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          }
+        },
+        "terrain_summary": {
+          "generator": "airground-isaac-raycast-terrain-grid-v1",
+          "height_max_m": 0.9082611799240112,
+          "height_min_m": 9.5367431640625e-07,
+          "obstacle_cells": 10104,
+          "overhead_clearance_min_m": 0.593123197555542,
+          "shape": [
+            128,
+            128
+          ],
+          "slope_max_rad": 1.5215626955032349,
+          "status": "ok",
+          "step_height_max_m": 0.9082602262496948,
+          "support_cells": 16384,
+          "traversable_seed_cells": 6280,
+          "obstacle_band_min_height_m": 0.05,
+          "obstacle_band_max_height_m": 1.0
+        },
+        "footprint_summary": {
+          "blocked_cost": 1000000.0,
+          "component_count": 1,
+          "footprint_length_m": 0.508,
+          "footprint_source": "manual",
+          "footprint_width_m": 0.43,
+          "generator": "airground-jackal-footprint-sweep-v1",
+          "inflated_cells": 2100,
+          "max_slope_rad": 0.2617993877991494,
+          "max_step_height_m": 0.05,
+          "min_overhead_clearance_m": 0.5,
+          "shape": [
+            128,
+            128
+          ],
+          "status": "ok",
+          "traversable_cells": 4180,
+          "yaw_samples": 16
+        },
+        "reach_summary": {
+          "clearance_margin_m": 0.1075,
+          "component_cell_counts": [
+            5932,
+            18
+          ],
+          "component_count": 2,
+          "corridor_width_m": 0.645,
+          "footprint_width_m": 0.43,
+          "min_clearance_m": 0.111803,
+          "passable_cells": 5950,
+          "reach_rule": "corridor_1p5x_ugv_width"
+        },
+        "passed": true
+      },
+      {
+        "name": "geometry_context_1",
+        "metadata": {
+          "schema_version": "1.0.0",
+          "scene_id": "FireAcademy",
+          "frame": "map",
+          "origin": {
+            "x_m": -43.65,
+            "y_m": 7.0,
+            "z_m": 0.0
+          },
+          "resolution_m": 0.05,
+          "shape": [
+            128,
+            128
+          ],
+          "arrays": {
+            "height": "height",
+            "normal": "normal",
+            "cost": "cost",
+            "mask": "mask",
+            "component": "component"
+          },
+          "generator": "native-physx-tile-validation",
+          "generator_version": "diagnostic-v1",
+          "npz_sha256": null
+        },
+        "comparisons": {
+          "height": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 1e-05,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "normal": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 1e-05,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "cost": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 1e-05,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "mask": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 0.0,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "component": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 0.0,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "ceiling_height": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 1e-05,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "obstacle_mask": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 0.0,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "overhead_clearance_m": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 1e-05,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "slope_rad": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 1e-05,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "step_height_m": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 1e-05,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "support_mask": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 0.0,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "footprint_mask": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 0.0,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "footprint_component": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 0.0,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "reach_component": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 0.0,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          }
+        },
+        "terrain_summary": {
+          "generator": "airground-isaac-raycast-terrain-grid-v1",
+          "height_max_m": 2.384185791015625e-06,
+          "height_min_m": 1.430511474609375e-06,
+          "obstacle_cells": 0,
+          "overhead_clearance_min_m": 1.2480969429016113,
+          "shape": [
+            128,
+            128
+          ],
+          "slope_max_rad": 4.76837158203125e-06,
+          "status": "ok",
+          "step_height_max_m": 4.76837158203125e-07,
+          "support_cells": 16384,
+          "traversable_seed_cells": 16384,
+          "obstacle_band_min_height_m": 0.05,
+          "obstacle_band_max_height_m": 1.0
+        },
+        "footprint_summary": {
+          "blocked_cost": 1000000.0,
+          "component_count": 1,
+          "footprint_length_m": 0.508,
+          "footprint_source": "manual",
+          "footprint_width_m": 0.43,
+          "generator": "airground-jackal-footprint-sweep-v1",
+          "inflated_cells": 2928,
+          "max_slope_rad": 0.2617993877991494,
+          "max_step_height_m": 0.05,
+          "min_overhead_clearance_m": 0.5,
+          "shape": [
+            128,
+            128
+          ],
+          "status": "ok",
+          "traversable_cells": 13456,
+          "yaw_samples": 16
+        },
+        "reach_summary": {
+          "clearance_margin_m": 0.1075,
+          "component_cell_counts": [
+            16381
+          ],
+          "component_count": 1,
+          "corridor_width_m": 0.645,
+          "footprint_width_m": 0.43,
+          "min_clearance_m": 0.111803,
+          "passable_cells": 16381,
+          "reach_rule": "corridor_1p5x_ugv_width"
+        },
+        "passed": true
+      },
+      {
+        "name": "geometry_context_2",
+        "metadata": {
+          "schema_version": "1.0.0",
+          "scene_id": "FireAcademy",
+          "frame": "map",
+          "origin": {
+            "x_m": -3.15,
+            "y_m": -3.15,
+            "z_m": 0.0
+          },
+          "resolution_m": 0.05,
+          "shape": [
+            128,
+            128
+          ],
+          "arrays": {
+            "height": "height",
+            "normal": "normal",
+            "cost": "cost",
+            "mask": "mask",
+            "component": "component"
+          },
+          "generator": "native-physx-tile-validation",
+          "generator_version": "diagnostic-v1",
+          "npz_sha256": null
+        },
+        "comparisons": {
+          "height": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 1e-05,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "normal": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 1e-05,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "cost": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 1e-05,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "mask": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 0.0,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "component": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 0.0,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "ceiling_height": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 1e-05,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "obstacle_mask": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 0.0,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "overhead_clearance_m": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 1e-05,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "slope_rad": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 1e-05,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "step_height_m": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 1e-05,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "support_mask": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 0.0,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "footprint_mask": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 0.0,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "footprint_component": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 0.0,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          },
+          "reach_component": {
+            "exact_mismatch_values": 0,
+            "outside_tolerance": 0,
+            "tolerance": 0.0,
+            "max_abs_error": 0.0,
+            "seam_mismatch_values": 0
+          }
+        },
+        "terrain_summary": {
+          "generator": "airground-isaac-raycast-terrain-grid-v1",
+          "height_max_m": 0.13750934600830078,
+          "height_min_m": -2.86102294921875e-06,
+          "obstacle_cells": 1336,
+          "overhead_clearance_min_m": 3.0,
+          "shape": [
+            128,
+            128
+          ],
+          "slope_max_rad": 0.08771536499261856,
+          "status": "ok",
+          "step_height_max_m": 0.006142973899841309,
+          "support_cells": 16384,
+          "traversable_seed_cells": 15048,
+          "obstacle_band_min_height_m": 0.05,
+          "obstacle_band_max_height_m": 1.0
+        },
+        "footprint_summary": {
+          "blocked_cost": 1000000.0,
+          "component_count": 1,
+          "footprint_length_m": 0.508,
+          "footprint_source": "manual",
+          "footprint_width_m": 0.43,
+          "generator": "airground-jackal-footprint-sweep-v1",
+          "inflated_cells": 2829,
+          "max_slope_rad": 0.2617993877991494,
+          "max_step_height_m": 0.05,
+          "min_overhead_clearance_m": 0.5,
+          "shape": [
+            128,
+            128
+          ],
+          "status": "ok",
+          "traversable_cells": 12219,
+          "yaw_samples": 16
+        },
+        "reach_summary": {
+          "clearance_margin_m": 0.1075,
+          "component_cell_counts": [
+            14905
+          ],
+          "component_count": 1,
+          "corridor_width_m": 0.645,
+          "footprint_width_m": 0.43,
+          "min_clearance_m": 0.111803,
+          "passable_cells": 14905,
+          "reach_rule": "corridor_1p5x_ugv_width"
+        },
+        "passed": true
+      }
+    ],
+    "archive_sha256": "f2f45b72492a06ce34108af6d99d44f501a5b4f37d442c75f925b763ecd9d24e",
+    "verified_files": 38,
+    "reference_cells": 49152,
+    "compared_fields": 14,
+    "old_shutdown_failure_retained": true,
+    "formal_gt_approved": false
+  },
+  "window_reach_correction": "Historical window reach_component used unswept seed; corrected from preserved raw actual terrain in runs/window_reach_correction_20261019. Footprint/ray evidence unchanged; active full-map postprocessor already uses swept footprint."
+}

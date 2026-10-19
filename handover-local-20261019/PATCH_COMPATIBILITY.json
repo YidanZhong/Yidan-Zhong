@@ -1,0 +1,34 @@
+[
+  {
+    "patch": "root-local-changes.patch",
+    "base_kind": "original_tested_base",
+    "base_sha": "0ddd5d9441e7d502df23450e4b1d2eacd4a8d084",
+    "applies_without_conflict": true,
+    "exit_code": 0,
+    "diagnostic": ""
+  },
+  {
+    "patch": "root-local-changes.patch",
+    "base_kind": "current_remote_main_base",
+    "base_sha": "43cca28f5167ff31047bde8ce8d74941b450bc2f",
+    "applies_without_conflict": false,
+    "exit_code": 1,
+    "diagnostic": "error: patch failed: docs/development/ugv-ogn/README.md:18\nerror: docs/development/ugv-ogn/README.md: patch does not apply\nerror: patch failed: scripts/build_paper_protocol_episodes.py:41\nerror: scripts/build_paper_protocol_episodes.py: patch does not apply\n"
+  },
+  {
+    "patch": "AirStack-local-changes.patch",
+    "base_kind": "original_tested_base",
+    "base_sha": "b6cd51d46dcec1b1cca99d1b55bfa61f206d05ad",
+    "applies_without_conflict": true,
+    "exit_code": 0,
+    "diagnostic": ""
+  },
+  {
+    "patch": "AirStack-local-changes.patch",
+    "base_kind": "current_remote_main_base",
+    "base_sha": "5f745b6e10ba7190ad2c33f0d0a69ff12d27dbcf",
+    "applies_without_conflict": true,
+    "exit_code": 0,
+    "diagnostic": ""
+  }
+]

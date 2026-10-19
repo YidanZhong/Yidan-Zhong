@@ -1,0 +1,1030 @@
+diff --git a/docs/development/static-instance-collision-manifests.md b/docs/development/static-instance-collision-manifests.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..584f17c24d28e7fddb44828e5eff7a5129ece3d3
+--- /dev/null
++++ b/docs/development/static-instance-collision-manifests.md
+@@ -0,0 +1,33 @@
++# 显式静态实例碰撞清单
++
++ConstructionSite 导出中有 5,075 个可见实例代理没有碰撞 API。普通子节点遍历会跳过这些网格，导致采样和运行时低估障碍。新的可选接口使用已核对的清单，将实例展开到会话层，并从顶点和拓扑字节完全一致、已启用碰撞的非代理网格继承物理分类。
++
++`simulation/isaac-sim/utils/scene_instance_colliders.py` 的 `prepare_static_instance_colliders()` 要求本地资产及清单。它检查资产 SHA256、default prim、路径范围、重复目标、几何哈希、原型分类及动态刚体，包括场景根的动态祖先。未被清单覆盖的无碰撞可见代理会被拒绝。展开后再次核对世界变换、几何和可见性；异常会恢复原会话层。接口不保存 USD，不设置目标 `verified`，也不推断语义归属。
++
++清单结构为：
++
++```json
++{
++  "schema": "static-instance-collision-manifest-v1",
++  "asset_sha256": "<source USD SHA256>",
++  "asset_default_prim": "/World",
++  "scene_root": "/World/stage",
++  "human_gt_approved": false,
++  "unmatched_count": 0,
++  "ambiguous_count": 0,
++  "matches": [{
++    "path": "/World/stage/ExampleCopy/Mesh",
++    "donor": "/World/stage/Example/Mesh",
++    "geometry_sha256": "<points, face counts and indices SHA256>",
++    "profile": "static_obstacle"
++  }]
++}
++```
++
++直接 `open_stage` 时不传 `reference_root`。资产引用到 `/World/stage` 时传该路径；接口将资产 default prim 映射到引用挂载点。因此源 `/World/stage/ConstructionSite/...` 会成为运行时 `/World/stage/stage/ConstructionSite/...`。返回的 `profile_overrides` 必须同时传给 `add_profiled_colliders()` 和 `configure_airground_physics_profile()`，以保持碰撞近似与物理材质使用同一分类。
++
++共享启动器通过 `AIRGROUND_INSTANCE_COLLIDER_MANIFEST` 显式启用此流程，且只允许 `profiled` 碰撞模式。未设置时保留原启动行为。可见性 CLI 提供 `--instance-collider-manifest`，并在 `.scene-runtime.json` 中记录实际准备摘要。资产、清单和目标路径映射仍须分别匹配；提供碰撞清单不代表地图有效或目标已审核。
++
++2026-10-19 验证：20 项相关 CPU 检查通过；实际 ConstructionSite 在原生和引用两种组合方式下均补齐 5,075 个代理，5,757 个场景网格碰撞清单与此前真实 PhysX `construction-instances-a02` 完全一致。世界几何和源文件保持不变，CPU 峰值约 322 MiB。证据在顶层 `runs/construction_adaptation_20261019/portable-instance-runtime-cpu.json`，清单 SHA256 为 `1ae5e19324ac6381b502a31c673fe637862b237c805672327e26935fed027d90`。
++
++本提交的新接口和共享启动路径尚未完成新的真实仿真验收。此前 PhysX 窗口、当前全图采样使用独立冻结实现；不得把清单一致或 CPU 检查写成新接口的真实烹制、S8、导航或 K=M 通过。当前冻结任务不受此提交影响，后续须在资源空闲时做独立有界实测。
+diff --git a/docs/scene-raycast-parameterization-20261019.md b/docs/scene-raycast-parameterization-20261019.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..aa29819f270d69005e5b868533761dac0995800f
+--- /dev/null
++++ b/docs/scene-raycast-parameterization-20261019.md
+@@ -0,0 +1,104 @@
++# 显式场景 raycast 输入
++
++`generate_traversability_raycast.py` 新增 `--scene-id` 和 `--scene-usd`。
++非 Retro 场景必须显式指定资产；在加载共享 AirGround launch 之前设置
++`AIRGROUND_ENV_URL`，输出 metadata 使用同一个 scene_id。默认仍使用
++Retro 双机器人模板，未切换到各场景的 legacy PX4 launch。
++
++该提交只完成入口参数化，不表示各场景的双机器人、坐标、支持平面或导航已验收。
++用户授权的 Windows 原生诊断另由顶层仓库 `scripts/probe_tiled_terrain.py`
++执行；正式容器入口的资源保护没有修改。
++
++验证：顶层仓库 2026-10-19 的场景、ROI、地图比较及 collision geometry
++测试 58 项通过，另执行本文件对应脚本的 py_compile。使用主机隔离环境
++`/home/raven/.venvs/raven-scene1/bin/python`，Isaac 仿真未在此 CPU 测试中启动。
++证据：顶层 `runs/construction_adaptation_20261019/cpu-tests-scene1-env.log`；
++唯一任务状态仍在顶层 `IMPLEMENTATION_PLAN.md`，S0/runtime 尚未全部完成。
++
++## ConstructionSite 两块地形的碰撞分类
++
++2026-10-19 的真实 PhysX 射线发现，`ConstructionSite/Land/Landscape2/Landscape2`
++在两处视觉表面 z=-0.3 m 的位置产生了 z=1.210654 m 的碰撞顶部，且从
++z=0.05 m 发出的障碍带射线在起点即命中。原名称规则没有识别 Landscape，
++将其当作静态障碍做 convexDecomposition，填平了开放地形的凹处。
++
++`scene_audit.py` 现在将以下两个精确、相对场景的 mesh 路径识别为 ground：
++
++- `/ConstructionSite/Land/Landscape/Landscape_0`
++- `/ConstructionSite/Land/Landscape2/Landscape2`
++
++ground 沿用既有 meshSimplification 与地面接触材质。动态刚体判断仍优先；
++不使用宽泛的 land/landscape 字符串匹配，不修改其他场景、原始 USD 或坐标。
++这是碰撞配置变化，旧地图不可混用。z=0 无限支持平面仍保留；视觉表面与
++支持平面的高度差仍存在，未通过移动机器人或资产掩盖。
++
++真实有界验证：Isaac Sim 4.5 Windows 原生（非容器）、RTX 4060 Laptop
++8 GiB / driver 577.02，无 ROS，静态确定性射线无随机 seed。命令及全部参数见
++顶层 `runs/construction_adaptation_20261019/ground-v2-evidence/logs/`
++`construction-ground-a01/execution.json`。运行退出0，142.69 s，峰值提交
++6.129 GiB，仍保留14 GiB/840 s等资源保护。682个碰撞体全部保留，只有两块
++地形的碰撞近似改变；两个8×8 m、0.05 m窗口的整块/分块对照通过。
++厕所窗口footprint从0变为16,219格，另一空地窗口14字段全部不变。
++同位置射线恢复为z=-0.3 m，障碍带错误命中消失。
++
++CPU验证命令：`python -m pytest -q simulation/isaac-sim/tests/test_scene_audit.py`，
++3项通过，包括精确匹配边界、动态优先与原Retro完整资产审计。
++真实归档SHA-256：`cff78d7ef5123a1a3147a6c8daf93efd7c7b55a4f6c746a0567fd0000a3bf0c0`。
++结果只验收上述碰撞修正及窗口对照；新全图、人工GT、S8可见性和巡游仍待验收。
++# Confirmation visibility scene selection
++
++`simulation/isaac-sim/tools/validate_confirmation_visibility_raycast.py` now
++loads annotations before importing the simulation launcher. Non-Retro annotations
++require `--scene-usd`; an inherited `AIRGROUND_ENV_URL` alone cannot silently
++select an asset for a new scene. Explicit paths take precedence over that
++environment variable. A known scene export filename that contradicts the
++annotation scene, a missing file, or a supplied `--scene-sha256` mismatch is
++rejected before Isaac starts. Custom filenames remain allowed; their recorded
++hash provides provenance, not proof of semantic asset identity.
++
++Example after reviewed regions have actually been prepared:
++
++```bash
++./python.sh tools/validate_confirmation_visibility_raycast.py \
++  --annotations "$REVIEWED_TARGETS" --scene-usd "$CONSTRUCTION_USD" \
++  --scene-sha256 "$EXPECTED_SCENE_SHA256" --output "$RUN_DIR/visibility.json"
++```
++
++All camera, distance, visibility, consecutive-frame and ray sampling defaults
++are unchanged. The existing validator still produces the same report schema;
++`visibility.scene-runtime.json` additionally records scene, annotation, launcher
++and report hashes. This sidecar does not approve human GT. The launcher already
++accepts `AIRGROUND_ENV_URL`; its support geometry is an infinite PhysX plane at
++z=0, so legacy 128 m size fields do not limit map coverage.
++
++CPU validation: four scene-selection checks passed in the local reproduction
++WSL environment, including rejection using the real unreviewed ConstructionSite
++manifest before the launcher can start. These tests exercise selection/hashing,
++not USD loading or actual visibility. New-scene S8 remains pending reviewed
++inputs and a guarded real PhysX run. No running diagnostic source snapshot was
++changed by this edit.
++
++The runner also checks every declared target prim path in the actual loaded
++stage before querying visibility. A CPU reproduction of Pegasus `AddReference`
++showed that the downloaded exports have default prim `/World`: referencing them
++at `/World/stage` adds an extra `stage` namespace. The current unreviewed bound
++paths therefore do not exist unchanged in that referenced composition (Retro
++165, ConstructionSite 25, AbandonedFactory 1). The native direct-stage diagnostic
++loads preserve those paths and are unaffected. No GT paths were rewritten and
++no namespace remapping is claimed approved. A real USD composition regression
++now rejects the mismatched reference and accepts the same path in the direct
++stage. Merely selecting the right file is insufficient for S8.
++
++For the shared reference loader, `--target-reference-root /World/stage` now
++explicitly projects source-default-prim paths into that mount **in memory only**.
++It first compares the source and runtime world matrices and world bounds of
++every declared target. Missing geometry or a changed world pose is rejected;
++the sidecar records each path pair and measured errors. All annotation fields
++except the temporary path are preserved, including OBB, regions and verified
++state; source files are never rewritten. Native direct-stage loading should
++omit this flag.
++
++Seven CPU checks pass, including an actual target transform perturbation that
++must be rejected. A separate read-only composition check covers Retro 165,
++ConstructionSite 25 and Factory 1 declared paths with unchanged input hashes.
++These are USD composition tests, not a real shared-launcher or PhysX run.
+diff --git a/simulation/isaac-sim/launch_scripts/RetroNeighborhood_Launch.py b/simulation/isaac-sim/launch_scripts/RetroNeighborhood_Launch.py
+index abe5fe0f2b1987b2ee29e08d8373655b0c30ae01..085c19ab9f15182d1c41bded3f3971eb6c1932ab 100644
+--- a/simulation/isaac-sim/launch_scripts/RetroNeighborhood_Launch.py
++++ b/simulation/isaac-sim/launch_scripts/RetroNeighborhood_Launch.py
+@@ -4417,6 +4417,20 @@ class PegasusApp:
+ 
+         stage_prim = stage.GetPrimAtPath("/World/stage")
+         if stage_prim.IsValid():
++            instance_profiles = None
++            self.instance_collision_launch_summary = None
++            instance_manifest = os.environ.get("AIRGROUND_INSTANCE_COLLIDER_MANIFEST", "").strip()
++            if instance_manifest:
++                if AIRGROUND_SCENE_COLLIDER_MODE != "profiled":
++                    raise ValueError("Instance collision manifests require the profiled scene collider mode")
++                from scene_instance_colliders import prepare_static_instance_colliders
++                prepared_instances = prepare_static_instance_colliders(
++                    stage, manifest_path=Path(instance_manifest).resolve(strict=True),
++                    asset_path=Path(ENV_URL).resolve(strict=True), reference_root="/World/stage",
++                )
++                instance_profiles = prepared_instances.pop("profile_overrides")
++                self.instance_collision_launch_summary = prepared_instances
++                carb.log_warn(f"Explicit instance collision preparation: {prepared_instances}")
+             if AIRGROUND_SCENE_COLLIDER_MODE == "none":
+                 carb.log_warn("AirGround scene collider mode: none")
+             elif AIRGROUND_SCENE_COLLIDER_MODE == "ground_only":
+@@ -4439,13 +4453,20 @@ class PegasusApp:
+                 add_static_obstacle_box_proxies(stage, stage_prim)
+             else:
+                 carb.log_warn("AirGround scene collider mode: profiled")
+-                add_profiled_colliders(stage_prim)
++                if instance_profiles:
++                    add_profiled_colliders(stage_prim, profile_overrides=instance_profiles)
++                else:
++                    add_profiled_colliders(stage_prim)
+             from dataclasses import replace
+             from scene_physics_profile import DEFAULT_AIRGROUND_PHYSICS_PROFILE
+             profile = DEFAULT_AIRGROUND_PHYSICS_PROFILE
+             if physics_device == "cuda:0":
+                 profile = replace(profile, enable_gpu_dynamics=True, broadphase_type="GPU")
+-            configure_airground_physics_profile(stage, root_prim_path="/World/stage", profile=profile)
++            if instance_profiles:
++                configure_airground_physics_profile(stage, root_prim_path="/World/stage", profile=profile,
++                                                   profile_overrides=instance_profiles)
++            else:
++                configure_airground_physics_profile(stage, root_prim_path="/World/stage", profile=profile)
+             self.ground_support_launch_summary = self._ensure_ground_support_plane(
+                 stage,
+                 "launch_after_physics_profile",
+diff --git a/simulation/isaac-sim/tests/test_asset_reports.py b/simulation/isaac-sim/tests/test_asset_reports.py
+index b7ddec125c64f8e0b28d6d2da48d1b4d33a8783f..91475ff23da98a9da4f38c9489ce00646331502c 100644
+--- a/simulation/isaac-sim/tests/test_asset_reports.py
++++ b/simulation/isaac-sim/tests/test_asset_reports.py
+@@ -1374,7 +1374,7 @@ def test_retro_neighborhood_launch_uses_profiled_colliders_not_blanket_mesh_swee
+     assert "from scene_audit import classify_scene_mesh" in scene_prep
+     assert "collision_approximation_for_profile" in scene_prep
+     assert "from scene_physics_profile import configure_airground_physics_profile" in scene_prep
+-    assert "def add_profiled_colliders(prim, enabled_profiles=None, disable_other_colliders: bool = False):" in scene_prep
++    assert "def add_profiled_colliders(prim, enabled_profiles=None, disable_other_colliders: bool = False," in scene_prep
+     assert "def add_static_obstacle_box_proxies(" in scene_prep
+     assert "airground:collisionProxyVersion" in scene_prep
+     assert "enabled_profiles = {\"ground\", \"static_obstacle\"}" in scene_prep
+diff --git a/simulation/isaac-sim/tests/test_scene_audit.py b/simulation/isaac-sim/tests/test_scene_audit.py
+index 9200bc1567ebf12f262af7321149d04a4630369d..73ffd621d009352d7cb161723c1c7bca6067616b 100644
+--- a/simulation/isaac-sim/tests/test_scene_audit.py
++++ b/simulation/isaac-sim/tests/test_scene_audit.py
+@@ -55,6 +55,24 @@ def test_scene_profile_classifier_rules():
+     assert collision_approximation_for_profile("dynamic") is None
+ 
+ 
++def test_construction_terrain_preserves_concavity_without_broad_name_matches():
++    for suffix in ("Landscape/Landscape_0", "Landscape2/Landscape2"):
++        path = "/World/stage/ConstructionSite/Land/" + suffix
++        profile = classify_scene_mesh(path, has_collision=True, has_rigid_body=False)
++        assert collision_approximation_for_profile(profile) == "meshSimplification"
++        assert classify_scene_mesh(path, has_collision=True, has_rigid_body=True) == "dynamic"
++        # Referencing the same asset under another parent must retain its policy.
++        assert classify_scene_mesh("/World/Scene" + path[6:], has_collision=True,
++                                   has_rigid_body=False) == "ground"
++    for path in (
++        "/World/stage/OtherScene/Land/Landscape2/Landscape2",
++        "/World/stage/ConstructionSite/Land/Landscape2/Landscape2Decoration",
++        "/World/stage/ConstructionSite/Land/Landscape2/Landscape2/Decoration",
++    ):
++        assert classify_scene_mesh(path, has_collision=True,
++                                   has_rigid_body=False) == "static_obstacle"
++
++
+ def test_retro_neighborhood_scene_audit_contract():
+     pytest.importorskip("pxr")
+ 
+diff --git a/simulation/isaac-sim/tests/test_scene_instance_colliders.py b/simulation/isaac-sim/tests/test_scene_instance_colliders.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..904b7e393ee5ad8a7ebb3bdbbd658ffc1ab53d8c
+--- /dev/null
++++ b/simulation/isaac-sim/tests/test_scene_instance_colliders.py
+@@ -0,0 +1,113 @@
++"""Actual USD composition checks; these are not PhysX cooking/navigation tests."""
++import hashlib
++import json
++from pathlib import Path
++import sys
++
++import pytest
++
++pxr = pytest.importorskip("pxr")
++from pxr import Usd, UsdGeom, UsdPhysics
++
++sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "utils"))
++from scene_instance_colliders import mesh_geometry_sha256, prepare_static_instance_colliders
++
++
++@pytest.fixture
++def asset_manifest(tmp_path):
++    asset = tmp_path / "scene.usda"
++    stage = Usd.Stage.CreateNew(str(asset))
++    world = UsdGeom.Xform.Define(stage, "/World").GetPrim()
++    stage.SetDefaultPrim(world)
++    UsdGeom.Xform.Define(stage, "/World/stage")
++    for name in ["Donor", "Template"]:
++        UsdGeom.Xform.Define(stage, "/World/stage/" + name)
++        mesh = UsdGeom.Mesh.Define(stage, "/World/stage/" + name + "/Mesh")
++        mesh.CreatePointsAttr([(0, 0, 0), (1, 0, 0), (0, 1, 0)])
++        mesh.CreateFaceVertexCountsAttr([3])
++        mesh.CreateFaceVertexIndicesAttr([0, 1, 2])
++    UsdPhysics.CollisionAPI.Apply(stage.GetPrimAtPath("/World/stage/Donor/Mesh")).CreateCollisionEnabledAttr(True)
++    clone = stage.DefinePrim("/World/stage/Clone", "Xform")
++    clone.GetReferences().AddInternalReference("/World/stage/Template")
++    clone.SetInstanceable(True)
++    UsdGeom.Xformable(clone).AddTranslateOp().Set((2, 3, 0))
++    stage.GetRootLayer().Save()
++    manifest = {"schema": "static-instance-collision-manifest-v1",
++                "asset_sha256": hashlib.sha256(asset.read_bytes()).hexdigest(),
++                "asset_default_prim": "/World", "scene_root": "/World/stage",
++                "human_gt_approved": False, "unmatched_count": 0, "ambiguous_count": 0,
++                "matches": [{"path": "/World/stage/Clone/Mesh", "donor": "/World/stage/Donor/Mesh",
++                             "geometry_sha256": mesh_geometry_sha256(stage.GetPrimAtPath("/World/stage/Donor/Mesh")),
++                             "profile": "static_obstacle"}]}
++    path = tmp_path / "collision.json"
++    path.write_text(json.dumps(manifest))
++    return asset, path, manifest
++
++
++@pytest.mark.parametrize("mount", [None, "/World/environment"])
++def test_native_and_referenced_instances_keep_geometry_and_file_bytes(asset_manifest, mount):
++    asset, manifest, _ = asset_manifest
++    original = asset.read_bytes()
++    if mount is None:
++        stage = Usd.Stage.Open(str(asset))
++        prefix = "/World"
++    else:
++        stage = Usd.Stage.CreateInMemory()
++        stage.DefinePrim(mount, "Xform").GetReferences().AddReference(str(asset))
++        prefix = mount
++    target = prefix + "/stage/Clone/Mesh"
++    result = prepare_static_instance_colliders(stage, manifest_path=manifest, asset_path=asset, reference_root=mount)
++    prim = stage.GetPrimAtPath(target)
++    assert not prim.IsInstanceProxy()
++    assert UsdPhysics.CollisionAPI(prim).GetCollisionEnabledAttr().Get()
++    assert result["profile_overrides"] == {target: "static_obstacle"}
++    assert result["mesh_geometry_transforms_visibility_unchanged"] == 3
++    assert result["expanded_roots"] == result["seeded_meshes"] == 1
++    assert not result["source_saved"]
++    assert asset.read_bytes() == original
++    assert stage.GetSessionLayer().GetPrimAtPath(prefix + "/stage/Clone")
++
++
++@pytest.mark.parametrize("fault", ["asset_hash", "geometry", "duplicate", "profile", "escaped_path", "dynamic", "dynamic_ancestor"])
++def test_bad_inputs_leave_session_and_instances_untouched(asset_manifest, fault):
++    asset, path, manifest = asset_manifest
++    stage = Usd.Stage.Open(str(asset))
++    if fault == "asset_hash":
++        manifest["asset_sha256"] = "0" * 64
++    elif fault == "geometry":
++        manifest["matches"][0]["geometry_sha256"] = "0" * 64
++    elif fault == "duplicate":
++        manifest["matches"].append(dict(manifest["matches"][0]))
++    elif fault == "profile":
++        manifest["matches"][0]["profile"] = "dynamic"
++    elif fault == "escaped_path":
++        manifest["matches"][0]["donor"] = "/Other/Mesh"
++    else:
++        body = "/World" if fault == "dynamic_ancestor" else "/World/stage/Clone"
++        UsdPhysics.RigidBodyAPI.Apply(stage.GetPrimAtPath(body)).CreateRigidBodyEnabledAttr(True)
++    path.write_text(json.dumps(manifest))
++    before = stage.GetSessionLayer().ExportToString()
++    with pytest.raises(ValueError):
++        prepare_static_instance_colliders(stage, manifest_path=path, asset_path=asset)
++    assert stage.GetPrimAtPath("/World/stage/Clone/Mesh").IsInstanceProxy()
++    assert stage.GetSessionLayer().ExportToString() == before
++
++
++def test_post_expansion_validation_error_rolls_back_session_changes(asset_manifest, monkeypatch):
++    import scene_instance_colliders
++
++    asset, path, _ = asset_manifest
++    stage = Usd.Stage.Open(str(asset))
++    before = stage.GetSessionLayer().ExportToString()
++    original = scene_instance_colliders.mesh_geometry_sha256
++
++    def simulate_changed_geometry_after_expansion(prim):
++        if str(prim.GetPath()) == "/World/stage/Clone/Mesh" and not prim.IsInstanceProxy():
++            return "0" * 64
++        return original(prim)
++
++    monkeypatch.setattr(scene_instance_colliders, "mesh_geometry_sha256", simulate_changed_geometry_after_expansion)
++    with pytest.raises(RuntimeError, match="changed mesh geometry"):
++        prepare_static_instance_colliders(stage, manifest_path=path, asset_path=asset)
++    assert stage.GetSessionLayer().ExportToString() == before
++    assert stage.GetPrimAtPath("/World/stage/Clone").IsInstance()
+diff --git a/simulation/isaac-sim/tests/test_visibility_scene_selection.py b/simulation/isaac-sim/tests/test_visibility_scene_selection.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..dd4af8ba35ce90b1e173129e215cf96aabac9bb8
+--- /dev/null
++++ b/simulation/isaac-sim/tests/test_visibility_scene_selection.py
+@@ -0,0 +1,121 @@
++"""CPU scene-selection safety checks; these do not exercise PhysX visibility."""
++from pathlib import Path
++import hashlib
++import importlib.util
++
++import pytest
++
++
++@pytest.fixture
++def runner(monkeypatch):
++    path = Path(__file__).resolve().parents[1] / "tools/validate_confirmation_visibility_raycast.py"
++    package = path.parents[4] / "benchmark/airground_benchmark"
++    monkeypatch.setenv("AIRGROUND_BENCHMARK_PACKAGE", str(package))
++    monkeypatch.delenv("AIRGROUND_ENV_URL", raising=False)
++    monkeypatch.delenv("AIRGROUND_PROJECT_ROOT", raising=False)
++    spec = importlib.util.spec_from_file_location("visibility_scene_selection", path)
++    module = importlib.util.module_from_spec(spec)
++    spec.loader.exec_module(module)
++    return module
++
++
++def test_nonretro_cannot_silently_use_retro_even_with_environment_override(runner, monkeypatch, tmp_path):
++    asset = tmp_path / "ConstructionSite_Export.usd"
++    asset.write_text("test fixture, not a valid USD")
++    monkeypatch.setenv("AIRGROUND_ENV_URL", str(asset))
++    with pytest.raises(ValueError, match="require --scene-usd"):
++        runner._resolve_scene_asset("ConstructionSite", None)
++
++
++def test_known_cross_scene_filename_and_changed_asset_are_rejected(runner, tmp_path):
++    wrong = tmp_path / "FireAcademy_Export.usd"
++    wrong.write_bytes(b"fixture")
++    with pytest.raises(ValueError, match="annotations identify ConstructionSite"):
++        runner._resolve_scene_asset("ConstructionSite", wrong)
++    correct = tmp_path / "ConstructionSite_Export.usd"
++    correct.write_bytes(b"fixture")
++    expected = hashlib.sha256(correct.read_bytes()).hexdigest()
++    assert runner._resolve_scene_asset("ConstructionSite", correct, expected) == (correct.resolve(), expected)
++    correct.write_bytes(b"changed fixture")
++    with pytest.raises(ValueError, match="SHA256 differs"):
++        runner._resolve_scene_asset("ConstructionSite", correct, expected)
++
++
++def test_retro_default_respects_project_root_and_cli_wins_over_environment(runner, monkeypatch, tmp_path):
++    default = tmp_path / "scenes/RetroNeighborhood/RetroNeighborhood_Export.usd"
++    default.parent.mkdir(parents=True)
++    default.write_bytes(b"retro fixture")
++    monkeypatch.setenv("AIRGROUND_PROJECT_ROOT", str(tmp_path))
++    assert runner._resolve_scene_asset("RetroNeighborhood", None)[0] == default.resolve()
++    other = tmp_path / "ConstructionSite_Export.usd"
++    other.write_bytes(b"construction fixture")
++    monkeypatch.setenv("AIRGROUND_ENV_URL", str(other))
++    assert runner._resolve_scene_asset("RetroNeighborhood", default)[0] == default.resolve()
++    with pytest.raises(ValueError, match="annotations identify RetroNeighborhood"):
++        runner._resolve_scene_asset("RetroNeighborhood", None)
++
++
++def test_real_annotations_fail_before_simulation_import_without_explicit_scene(runner, monkeypatch, tmp_path):
++    from types import SimpleNamespace
++    repository = Path(__file__).resolve().parents[4]
++    annotations = repository / "runs/scene_gt_adaptation_20261017/ConstructionSite/targets.bound.json"
++    # A real manifest is available in the reproduction workspace, not in clean CI.
++    if not annotations.exists():
++        annotations = repository / "runs/scene_gt_adaptation_20261017/ConstructionSite/targets.unreviewed.json"
++    if not annotations.exists():
++        pytest.skip("real unreviewed annotation artifact unavailable")
++    args = SimpleNamespace(settle_steps=5, sensor_frame_count=5, sensor_frame_stride_steps=25,
++                           sensor_report_output=None, sensor_topic_report_output=None,
++                           sensor_topic_spin_s=1., annotations=annotations, scene_usd=None,
++                           scene_sha256=None)
++    monkeypatch.setattr(runner, "_parse_args", lambda: args)
++    monkeypatch.setattr(runner, "_load_retro_launch_module", lambda *_: pytest.fail("Isaac must not start"))
++    with pytest.raises(ValueError, match="require --scene-usd"):
++        runner.main()
++
++
++def test_reference_namespace_mismatch_rejected_with_real_usd_composition(runner):
++    from types import SimpleNamespace
++    from pxr import Usd
++    repository = Path(__file__).resolve().parents[4]
++    asset = repository / "AirStack/scenes/ConstructionSite/ConstructionSite_Export.usd"
++    if not asset.exists():
++        pytest.skip("downloaded ConstructionSite asset unavailable")
++    stage = Usd.Stage.CreateInMemory()
++    stage.DefinePrim("/World/stage").GetReferences().AddReference(str(asset))
++    manifest = SimpleNamespace(instances=[SimpleNamespace(
++        usd_prim_path="/World/stage/ConstructionSite/AsphaltRoller")])
++    with pytest.raises(RuntimeError, match="reference namespace"):
++        runner._validate_runtime_target_paths(manifest, stage)
++    original = Usd.Stage.Open(str(asset))
++    assert runner._validate_runtime_target_paths(manifest, original) == 1
++
++
++def test_reference_projection_preserves_actual_gt_and_rejects_geometry_shift(runner):
++    from pxr import Usd, UsdGeom, Gf
++    repository = Path(__file__).resolve().parents[4]
++    asset = repository / "AirStack/scenes/ConstructionSite/ConstructionSite_Export.usd"
++    annotations = repository / "runs/scene_gt_adaptation_20261017/ConstructionSite/targets.unreviewed.json"
++    if not asset.exists() or not annotations.exists():
++        pytest.skip("real ConstructionSite inputs unavailable")
++    original_bytes = annotations.read_bytes()
++    manifest = runner.load_target_annotations(annotations)
++    stage = Usd.Stage.CreateInMemory()
++    stage.DefinePrim("/World/stage").GetReferences().AddReference(str(asset))
++    projected, mapping = runner._project_reference_target_paths(manifest, stage, asset, "/World/stage")
++    assert len(mapping) == 25
++    assert runner._validate_runtime_target_paths(projected, stage) == 25
++    assert annotations.read_bytes() == original_bytes
++    for original, runtime in zip(manifest.instances, projected.instances):
++        assert original.model_dump(exclude={"usd_prim_path"}) == runtime.model_dump(exclude={"usd_prim_path"})
++        if original.usd_prim_path:
++            assert original.usd_prim_path.startswith("/World/stage/ConstructionSite/")
++            assert runtime.usd_prim_path.startswith("/World/stage/stage/ConstructionSite/")
++        else:
++            assert runtime.usd_prim_path is None
++    # The authored scene resets its transform stack below the mount, so shift
++    # a target itself to exercise an actual world-geometry change.
++    UsdGeom.Xformable(stage.GetPrimAtPath(mapping[0]["runtime_prim"])).AddTranslateOp(
++        opSuffix="test_shift").Set(Gf.Vec3d(.1, 0., 0.))
++    with pytest.raises(RuntimeError, match="world geometry changed"):
++        runner._project_reference_target_paths(manifest, stage, asset, "/World/stage")
+diff --git a/simulation/isaac-sim/tools/export_target_prim_candidates.py b/simulation/isaac-sim/tools/export_target_prim_candidates.py
+index 92d9c033091f02af587d61b7466459edc9bee984..a461d8f276050c8ba40c930b00040d6179d178dc 100644
+--- a/simulation/isaac-sim/tools/export_target_prim_candidates.py
++++ b/simulation/isaac-sim/tools/export_target_prim_candidates.py
+@@ -1,5 +1,5 @@
+ #!/usr/bin/env python3
+-"""Export RetroNeighborhood USD prim candidates for target annotation binding.
++"""Export USD prim candidates for target annotation binding.
+ 
+ This tool reads the real USD stage with Pixar USD/PXR APIs and writes the
+ candidate surface consumed by ``airground gt targets bind-usd-prims``.  It does
+@@ -220,10 +220,22 @@ def main(argv: list[str] | None = None) -> int:
+     parser.add_argument("--frame", default="map")
+     parser.add_argument("--root-prefix", default="/World/stage")
+     parser.add_argument("--class", dest="classes", action="append", help="target class to export")
++    parser.add_argument("--aliases", help="JSON mapping of additional class names to USD name hints; not review approval")
+     parser.add_argument("--min-volume", type=float, default=1.0e-6)
+     parser.add_argument("--generator-version", default="p1-05b")
+     args = parser.parse_args(argv)
+ 
++    if args.aliases:
++        aliases = json.loads(Path(args.aliases).read_text(encoding="utf-8"))
++        if not isinstance(aliases, dict) or any(
++            not isinstance(key, str) or not key.strip()
++            or not isinstance(values, list) or not values
++            or any(not isinstance(value, str) or not value.strip() for value in values)
++            for key, values in aliases.items()
++        ):
++            parser.error("--aliases must map nonempty class names to nonempty lists of string hints")
++        TARGET_ALIAS_TOKENS.update({key.strip().lower(): tuple(values) for key, values in aliases.items()})
++
+     manifest = export_candidates(
+         Path(args.stage),
+         scene_id=args.scene_id,
+diff --git a/simulation/isaac-sim/tools/generate_traversability_raycast.py b/simulation/isaac-sim/tools/generate_traversability_raycast.py
+index 627c887e15445a7fe794fbc0a8f3269a713bf873..2e8177f7cc5d0619c875ae9e32348e8199983edc 100644
+--- a/simulation/isaac-sim/tools/generate_traversability_raycast.py
++++ b/simulation/isaac-sim/tools/generate_traversability_raycast.py
+@@ -1,8 +1,8 @@
+ #!/usr/bin/env python3
+ """Generate a traversability raycast seed grid inside Isaac Sim.
+ 
+-This tool is intentionally Isaac-side.  It launches the current
+-RetroNeighborhood scene, obtains the PhysX scene-query interface, casts
++This tool is intentionally Isaac-side.  It launches the explicit scene through
++the shared AirGround runtime (Retro by default), obtains the PhysX query interface, casts
+ downward and upward rays through ``airground_benchmark.traversability``, and
+ writes schema-compatible traversability metadata/NPZ plus a compact summary.
+ 
+@@ -68,6 +68,7 @@ def _prepare_benchmark_package_import() -> None:
+ _prepare_benchmark_package_import()
+ 
+ from airground_benchmark.config.schema import SCHEMA_VERSION  # noqa: E402
++from airground_benchmark.scenes import SCENE_IDS  # noqa: E402
+ from airground_benchmark.ground_truth import (  # noqa: E402
+     GridOrigin,
+     TraversabilityMetadata,
+@@ -111,9 +112,9 @@ def _set_launch_defaults() -> None:
+         os.environ.setdefault(name, value)
+ 
+ 
+-def _load_retro_launch_module(launch_script: Path) -> Any:
++def _load_launch_module(launch_script: Path) -> Any:
+     spec = importlib.util.spec_from_file_location(
+-        "airground_retro_launch_for_traversability",
++        "airground_launch_for_traversability",
+         launch_script,
+     )
+     if spec is None or spec.loader is None:
+@@ -260,6 +261,8 @@ def _write_npz(path: Path, arrays: dict[str, np.ndarray]) -> None:
+ 
+ def _parse_args() -> argparse.Namespace:
+     parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument('--scene-id',choices=SCENE_IDS,default='RetroNeighborhood')
++    parser.add_argument('--scene-usd',type=Path,help='Explicit scene asset; required for non-Retro scenes')
+     parser.add_argument(
+         "--launch-script",
+         type=Path,
+@@ -307,7 +310,11 @@ def main() -> int:
+         raise ValueError("--settle-steps must be non-negative")
+ 
+     _set_launch_defaults()
+-    launch_module = _load_retro_launch_module(args.launch_script.resolve(strict=True))
++    if args.scene_id!='RetroNeighborhood' and args.scene_usd is None:
++        raise ValueError('Non-Retro metadata requires an explicit --scene-usd')
++    if args.scene_usd is not None:
++        os.environ['AIRGROUND_ENV_URL']=str(args.scene_usd.resolve(strict=True))
++    launch_module = _load_launch_module(args.launch_script.resolve(strict=True))
+     app = launch_module.PegasusApp()
+     try:
+         app.timeline.play()
+@@ -349,7 +356,7 @@ def main() -> int:
+             return 0
+         metadata = TraversabilityMetadata(
+             schema_version=SCHEMA_VERSION,
+-            scene_id="RetroNeighborhood",
++            scene_id=args.scene_id,
+             frame="map",
+             origin=GridOrigin(
+                 x_m=float(args.origin_x_m),
+diff --git a/simulation/isaac-sim/tools/validate_confirmation_visibility_raycast.py b/simulation/isaac-sim/tools/validate_confirmation_visibility_raycast.py
+index b81f2a9f520c7c5ba60061382534587519d1c56e..572c4e252bb680af3bb2279019061c183ee07204 100644
+--- a/simulation/isaac-sim/tools/validate_confirmation_visibility_raycast.py
++++ b/simulation/isaac-sim/tools/validate_confirmation_visibility_raycast.py
+@@ -1,8 +1,8 @@
+ #!/usr/bin/env python3
+ """Validate UGV confirmation-region visibility with Isaac PhysX raycasts.
+ 
+-The script loads RetroNeighborhood, obtains the real PhysX scene-query
+-interface, binds it to the benchmark raycast confirmation validator, and writes
++The script loads the annotation scene (RetroNeighborhood by default), obtains
++the real PhysX scene-query interface, binds it to the benchmark validator, and writes
+ a deterministic report.  It requires target annotations that already contain
+ confirmation regions; it does not generate regions and does not mark targets as
+ human-reviewed.
+@@ -11,6 +11,7 @@ human-reviewed.
+ from __future__ import annotations
+ 
+ import argparse
++import hashlib
+ import importlib.util
+ import json
+ import math
+@@ -66,6 +67,101 @@ from airground_benchmark.ground_truth import (  # noqa: E402
+     validate_confirmation_visibility_with_raycast,
+ )
+ from airground_benchmark.isaac_los import make_isaac_physx_raycast_fn  # noqa: E402
++from airground_benchmark.scenes import SCENE_IDS  # noqa: E402
++
++
++def _resolve_scene_asset(
++    scene_id: str, explicit: Path | None, expected_sha256: str | None = None,
++) -> tuple[Path, str]:
++    """Reject cross-scene defaults before starting Isaac; pin local asset bytes."""
++    if scene_id not in SCENE_IDS:
++        raise ValueError(f"Unknown annotation scene: {scene_id}")
++    if scene_id != "RetroNeighborhood" and explicit is None:
++        raise ValueError("Non-Retro annotations require --scene-usd; refusing the Retro default")
++    project = Path(os.environ.get("AIRGROUND_PROJECT_ROOT") or AIR_STACK_ISAAC_ROOT.parents[1])
++    candidate = explicit or Path(os.environ.get("AIRGROUND_ENV_URL") or
++                                project / "scenes/RetroNeighborhood/RetroNeighborhood_Export.usd")
++    scene = candidate.resolve(strict=True)
++    if not scene.is_file():
++        raise ValueError("Scene asset must be a local USD file")
++    for known_scene in SCENE_IDS:
++        if scene.stem == f"{known_scene}_Export" and known_scene != scene_id:
++            raise ValueError(f"Asset filename identifies {known_scene}, annotations identify {scene_id}")
++    checksum = hashlib.sha256()
++    with scene.open("rb") as stream:
++        for chunk in iter(lambda: stream.read(1024 * 1024), b""):
++            checksum.update(chunk)
++    observed = checksum.hexdigest()
++    if expected_sha256 is not None and observed != expected_sha256.lower():
++        raise ValueError("Scene SHA256 differs from --scene-sha256")
++    return scene, observed
++
++
++def _validate_runtime_target_paths(manifest: Any, stage: Any) -> int:
++    """Do not treat a missing target namespace as a successful visibility run."""
++    bound = [instance for instance in manifest.instances if instance.usd_prim_path]
++    missing = [instance.usd_prim_path for instance in bound
++               if not stage.GetPrimAtPath(instance.usd_prim_path).IsValid()]
++    if missing:
++        raise RuntimeError(
++            f"{len(missing)} target prim paths are missing in the loaded runtime; "
++            f"check the asset reference namespace: {missing[:5]}")
++    return len(bound)
++
++
++def _project_reference_target_paths(
++    manifest: Any, runtime_stage: Any, scene_asset: Path, reference_root: str,
++) -> tuple[Any, list[dict[str, Any]]]:
++    """Explicit private runtime projection, preserving source GT and world poses."""
++    from pxr import Sdf, Usd, UsdGeom
++
++    destination = Sdf.Path(reference_root)
++    if not destination.IsAbsolutePath() or not destination.IsPrimPath():
++        raise ValueError("--target-reference-root must be an absolute prim path")
++    source_stage = Usd.Stage.Open(str(scene_asset))
++    source_default = source_stage.GetDefaultPrim()
++    if not source_default:
++        raise ValueError("Scene has no default prim for reference path projection")
++    source_root = source_default.GetPath()
++    source_xforms = UsdGeom.XformCache()
++    runtime_xforms = UsdGeom.XformCache()
++    source_bounds = UsdGeom.BBoxCache(Usd.TimeCode.Default(), ["default", "render"])
++    runtime_bounds = UsdGeom.BBoxCache(Usd.TimeCode.Default(), ["default", "render"])
++    instances, mapping = [], []
++    for instance in manifest.instances:
++        if not instance.usd_prim_path:
++            instances.append(instance)
++            continue
++        original_path = Sdf.Path(instance.usd_prim_path)
++        if not original_path.HasPrefix(source_root):
++            raise ValueError(f"Target is outside the referenced default prim: {original_path}")
++        projected_path = original_path.ReplacePrefix(source_root, destination)
++        original = source_stage.GetPrimAtPath(original_path)
++        projected = runtime_stage.GetPrimAtPath(projected_path)
++        if not original or not projected:
++            raise RuntimeError(f"Reference target missing: {original_path} -> {projected_path}")
++        original_matrix = source_xforms.GetLocalToWorldTransform(original)
++        projected_matrix = runtime_xforms.GetLocalToWorldTransform(projected)
++        matrix_delta = max(abs(original_matrix[i][j] - projected_matrix[i][j])
++                           for i in range(4) for j in range(4))
++        original_box = source_bounds.ComputeWorldBound(original).ComputeAlignedRange()
++        projected_box = runtime_bounds.ComputeWorldBound(projected).ComputeAlignedRange()
++        if original_box.IsEmpty() or projected_box.IsEmpty():
++            raise RuntimeError(f"Reference target has empty geometry bounds: {original_path}")
++        left = list(original_box.GetMin()) + list(original_box.GetMax())
++        right = list(projected_box.GetMin()) + list(projected_box.GetMax())
++        bounds_delta = max(abs(a - b) for a, b in zip(left, right))
++        if (not all(math.isfinite(v) for v in left + right)
++                or not math.isfinite(matrix_delta) or matrix_delta > 1e-8
++                or bounds_delta > 1e-5):
++            raise RuntimeError(f"Reference target world geometry changed: {original_path}")
++        instances.append(instance.model_copy(update={"usd_prim_path": str(projected_path)}))
++        mapping.append({"instance_id": instance.instance_id,
++                        "source_prim": str(original_path), "runtime_prim": str(projected_path),
++                        "world_matrix_max_error": matrix_delta,
++                        "world_bounds_max_error_m": bounds_delta,
++                        "source_verified_unchanged": instance.verified})
++    return manifest.model_copy(update={"instances": tuple(instances)}), mapping
+ 
+ 
+ def _set_launch_defaults() -> None:
+@@ -231,6 +327,15 @@ def _parse_args() -> argparse.Namespace:
+         default=AIR_STACK_ISAAC_ROOT / "launch_scripts/RetroNeighborhood_Launch.py",
+     )
+     parser.add_argument("--annotations", type=Path, required=True)
++    parser.add_argument("--scene-usd", type=Path,
++                        help="local scene asset; required for non-Retro annotations")
++    parser.add_argument("--scene-sha256", help="optional expected SHA256 of the scene asset")
++    parser.add_argument("--instance-collider-manifest", type=Path,
++                        help="explicit checksum-pinned static instance collision manifest; "
++                             "does not approve semantic targets or arrival regions")
++    parser.add_argument("--target-reference-root",
++                        help="explicit reference mount (for example /World/stage); validates "
++                             "world transforms/bounds and projects target paths only in memory")
+     parser.add_argument("--output", type=Path, required=True)
+     parser.add_argument("--settle-steps", type=int, default=5)
+     parser.add_argument("--camera-height", type=float, default=1.2)
+@@ -286,16 +391,33 @@ def main() -> int:
+     if args.sensor_topic_spin_s <= 0.0:
+         raise ValueError("--sensor-topic-spin-s must be positive")
+ 
++    manifest = load_target_annotations(args.annotations)
++    scene_asset, scene_sha256 = _resolve_scene_asset(
++        manifest.scene_id, args.scene_usd, args.scene_sha256)
++    os.environ["AIRGROUND_ENV_URL"] = str(scene_asset)
++    if args.instance_collider_manifest:
++        os.environ["AIRGROUND_INSTANCE_COLLIDER_MANIFEST"] = str(
++            args.instance_collider_manifest.resolve(strict=True))
+     _set_launch_defaults()
+     launch_module = _load_retro_launch_module(args.launch_script.resolve(strict=True))
++    try:
++        if Path(launch_module.ENV_URL).resolve(strict=True) != scene_asset:
++            raise RuntimeError("Launch module did not select the pinned scene asset")
++    except Exception:
++        launch_module.simulation_app.close(wait_for_replicator=False, skip_cleanup=True)
++        raise
+     app = launch_module.PegasusApp()
+     try:
+         app.timeline.play()
+         for _ in range(args.settle_steps):
+             app.world.step(render=False)
++        runtime_path_mapping = []
++        if args.target_reference_root:
++            manifest, runtime_path_mapping = _project_reference_target_paths(
++                manifest, app.world.stage, scene_asset, args.target_reference_root)
++        validated_target_paths = _validate_runtime_target_paths(manifest, app.world.stage)
+         scene_query = _get_physx_scene_query()
+         raycast_fn = make_isaac_physx_raycast_fn(scene_query)
+-        manifest = load_target_annotations(args.annotations)
+         report = validate_confirmation_visibility_with_raycast(
+             manifest,
+             raycast_fn,
+@@ -313,6 +435,21 @@ def main() -> int:
+         args.output.parent.mkdir(parents=True, exist_ok=True)
+         output = canonical_raycast_confirmation_visibility_report_json(report)
+         args.output.write_text(output, encoding="utf-8")
++        scene_evidence = {
++            "scope": "asset provenance for this actual raycast report; not human GT approval",
++            "scene_id": manifest.scene_id,
++            "scene_asset": str(scene_asset), "scene_sha256": scene_sha256,
++            "annotations_sha256": hashlib.sha256(args.annotations.read_bytes()).hexdigest(),
++            "launch_script_sha256": hashlib.sha256(args.launch_script.read_bytes()).hexdigest(),
++            "raycast_report_sha256": hashlib.sha256(output.encode("utf-8")).hexdigest(),
++            "raycast_status": report.status,
++            "validated_runtime_target_paths": validated_target_paths,
++            "runtime_path_mapping": runtime_path_mapping,
++            "instance_collision_preparation": getattr(app, "instance_collision_launch_summary", None),
++            "source_annotations_modified": False,
++        }
++        args.output.with_name(args.output.stem + ".scene-runtime.json").write_text(
++            json.dumps(scene_evidence, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+         sensor_report_status = "ok"
+         sensor_topic_report_status = "ok"
+         if args.sensor_trace_output or args.publish_sensor_topic:
+diff --git a/simulation/isaac-sim/utils/scene_audit.py b/simulation/isaac-sim/utils/scene_audit.py
+index d437b082c841abd7e602ef1f3f8c30951c1d884e..637bbdaea7c51c265130e623ee3ea1672abd89d9 100644
+--- a/simulation/isaac-sim/utils/scene_audit.py
++++ b/simulation/isaac-sim/utils/scene_audit.py
+@@ -39,6 +39,14 @@ VISUAL_ONLY_PATH_TERMS = (
+     "omniversekit",
+ )
+ 
++# Exact scene-relative mesh identities, not a broad "land" substring rule.
++# ConstructionSite's two open terrain surfaces otherwise become convex solids,
++# filling valleys above the actual mesh. Preserve their concave ground shape.
++SCENE_GROUND_MESH_SUFFIXES = (
++    "/constructionsite/land/landscape/landscape_0",
++    "/constructionsite/land/landscape2/landscape2",
++)
++
+ 
+ def _sha256(path: Path) -> str:
+     digest = hashlib.sha256()
+@@ -60,6 +68,8 @@ def classify_scene_mesh(path_string: str, *, has_collision: bool, has_rigid_body
+     normalized = path_string.lower()
+     if has_rigid_body:
+         return "dynamic"
++    if normalized.endswith(SCENE_GROUND_MESH_SUFFIXES):
++        return "ground"
+     if any(term in normalized for term in GROUND_PATH_TERMS):
+         return "ground"
+     if any(term in normalized for term in VISUAL_ONLY_PATH_TERMS) and not has_collision:
+diff --git a/simulation/isaac-sim/utils/scene_instance_colliders.py b/simulation/isaac-sim/utils/scene_instance_colliders.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..798a39e70ae76e728d5be978a29d2941bbe73079
+--- /dev/null
++++ b/simulation/isaac-sim/utils/scene_instance_colliders.py
+@@ -0,0 +1,158 @@
++"""Explicit, checksum-pinned static instance collision preparation.
++
++This changes a stage's session layer only. It does not approve semantic targets,
++save source USD files, or choose collision donors automatically.
++"""
++from __future__ import annotations
++
++import hashlib
++import json
++import logging
++from pathlib import Path
++from typing import Any
++
++LOGGER = logging.getLogger(__name__)
++
++
++def mesh_geometry_sha256(prim: Any) -> str:
++    import numpy as np
++    from pxr import UsdGeom
++
++    if not prim or not prim.IsA(UsdGeom.Mesh):
++        raise ValueError("Collision manifest path must identify a mesh")
++    mesh = UsdGeom.Mesh(prim)
++    digest = hashlib.sha256()
++    for attr in (mesh.GetPointsAttr(), mesh.GetFaceVertexCountsAttr(), mesh.GetFaceVertexIndicesAttr()):
++        value = attr.Get()
++        if value is None or not len(value):
++            raise ValueError(f"Collision mesh has no geometry: {prim.GetPath()}")
++        digest.update(np.asarray(value).tobytes())
++    return digest.hexdigest()
++
++
++def prepare_static_instance_colliders(
++    stage: Any, *, manifest_path: Path, asset_path: Path,
++    reference_root: str | None = None, max_roots: int = 10000,
++) -> dict[str, Any]:
++    """Restore explicitly declared static proxies from identical collider meshes.
++
++    ``reference_root`` maps the asset default prim to its runtime reference mount.
++    Omit it for a stage opened directly. Rejection checks run before expansion.
++    The returned profile overrides must feed both collision and material setup.
++    """
++    import numpy as np
++    from pxr import Sdf, Usd, UsdGeom, UsdPhysics
++    from scene_audit import classify_scene_mesh
++
++    payload_bytes = Path(manifest_path).read_bytes()
++    manifest = json.loads(payload_bytes)
++    if manifest.get("schema") != "static-instance-collision-manifest-v1":
++        raise ValueError("Unsupported static instance collision manifest")
++    asset_sha = hashlib.sha256(Path(asset_path).read_bytes()).hexdigest()
++    if manifest.get("asset_sha256") != asset_sha:
++        raise ValueError("Collision manifest asset SHA256 differs")
++    if manifest.get("human_gt_approved") is not False:
++        raise ValueError("Collision preparation cannot imply human GT approval")
++    if manifest.get("unmatched_count") != 0 or manifest.get("ambiguous_count") != 0:
++        raise ValueError("Unresolved collision donor matches")
++    rows = manifest.get("matches", [])
++    if not rows or len(rows) > max_roots or not 1 <= max_roots <= 10000:
++        raise ValueError("Static instance expansion budget exceeded or empty manifest")
++    asset = Usd.Stage.Open(str(asset_path), load=Usd.Stage.LoadNone)
++    if not asset or not asset.GetDefaultPrim():
++        raise ValueError("Asset requires an explicit default prim")
++    source_root = str(asset.GetDefaultPrim().GetPath())
++    if manifest.get("asset_default_prim") != source_root:
++        raise ValueError("Asset default prim differs from collision manifest")
++    mount = source_root if reference_root is None else reference_root
++    if not Sdf.Path(mount).IsAbsoluteRootOrPrimPath() or mount == "/":
++        raise ValueError("Reference root must be an absolute prim path")
++
++    def mapped(path: str) -> str:
++        value = Sdf.Path(path)
++        if not value.IsAbsoluteRootOrPrimPath() or not value.HasPrefix(Sdf.Path(source_root)):
++            raise ValueError("Collision manifest path escapes the asset default prim")
++        return str(value.ReplacePrefix(Sdf.Path(source_root), Sdf.Path(mount)))
++
++    root_path = mapped(manifest["scene_root"])
++    root = stage.GetPrimAtPath(root_path)
++    if not root:
++        raise ValueError("Mapped collision scene root is missing")
++    ancestor = root.GetParent()
++    while ancestor and not ancestor.IsPseudoRoot():
++        if ancestor.HasAPI(UsdPhysics.RigidBodyAPI) and UsdPhysics.RigidBodyAPI(ancestor).GetRigidBodyEnabledAttr().Get():
++            raise ValueError("Dynamic scene ancestors require a separate collision policy")
++        ancestor = ancestor.GetParent()
++    paths: set[str] = set()
++    prepared = []
++    digest_cache: dict[str, str] = {}
++
++    def geometry(prim: Any) -> str:
++        key = str(prim.GetPath())
++        if key not in digest_cache:
++            digest_cache[key] = mesh_geometry_sha256(prim)
++        return digest_cache[key]
++
++    for prim in Usd.PrimRange(root, Usd.TraverseInstanceProxies()):
++        if prim.HasAPI(UsdPhysics.RigidBodyAPI) and UsdPhysics.RigidBodyAPI(prim).GetRigidBodyEnabledAttr().Get():
++            raise ValueError("Dynamic rigid bodies require a separate instance collision policy")
++    for row in rows:
++        target_path, donor_path = mapped(row["path"]), mapped(row["donor"])
++        if target_path in paths or not Sdf.Path(target_path).HasPrefix(Sdf.Path(root_path)) or not Sdf.Path(donor_path).HasPrefix(Sdf.Path(root_path)):
++            raise ValueError("Duplicate collision target or path outside scene root")
++        paths.add(target_path)
++        target, donor = stage.GetPrimAtPath(target_path), stage.GetPrimAtPath(donor_path)
++        if not target or not target.IsInstanceProxy():
++            raise ValueError("Expected an unexpanded instance proxy target")
++        if not donor or donor.IsInstanceProxy() or not donor.HasAPI(UsdPhysics.CollisionAPI) or not UsdPhysics.CollisionAPI(donor).GetCollisionEnabledAttr().Get():
++            raise ValueError("Collision donor must be an existing enabled non-proxy collider")
++        expected = row["geometry_sha256"]
++        if geometry(target) != expected or geometry(donor) != expected:
++            raise ValueError("Collision donor/instance geometry differs from manifest")
++        role = classify_scene_mesh(donor_path, has_collision=True, has_rigid_body=False)
++        if role != row["profile"] or role not in {"ground", "static_obstacle"}:
++            raise ValueError("Collision donor profile differs or is not static")
++        prepared.append((target_path, role))
++
++    before = {}
++    for prim in Usd.PrimRange(root, Usd.TraverseInstanceProxies()):
++        if prim.IsA(UsdGeom.Mesh):
++            path = str(prim.GetPath())
++            before[path] = (geometry(prim), np.asarray(UsdGeom.Xformable(prim).ComputeLocalToWorldTransform(Usd.TimeCode.Default())).tobytes(), str(UsdGeom.Imageable(prim).ComputeVisibility()))
++            missing_collision = not prim.HasAPI(UsdPhysics.CollisionAPI) or not UsdPhysics.CollisionAPI(prim).GetCollisionEnabledAttr().Get()
++            if prim.IsInstanceProxy() and missing_collision and before[path][2] != "invisible" and path not in paths:
++                raise ValueError("Visible proxy without collision omitted from manifest")
++    expanded: list[str] = []
++    session = stage.GetSessionLayer()
++    original_session = session.ExportToString()
++    try:
++        with Usd.EditContext(stage, session):
++            for _ in range(8):
++                instances = [prim for prim in Usd.PrimRange(root) if prim.IsInstance()]
++                if not instances:
++                    break
++                if len(expanded) + len(instances) > max_roots:
++                    raise ValueError("Nested instance expansion exceeds root budget")
++                for prim in instances:
++                    expanded.append(str(prim.GetPath()))
++                    prim.SetInstanceable(False)
++            else:
++                raise RuntimeError("Nested instance expansion exceeds eight passes")
++            for path, expected in before.items():
++                prim = stage.GetPrimAtPath(path)
++                actual = (mesh_geometry_sha256(prim), np.asarray(UsdGeom.Xformable(prim).ComputeLocalToWorldTransform(Usd.TimeCode.Default())).tobytes(), str(UsdGeom.Imageable(prim).ComputeVisibility()))
++                if prim.IsInstanceProxy() or actual != expected:
++                    raise RuntimeError("Instance expansion changed mesh geometry, transform, or visibility")
++            for path, _ in prepared:
++                UsdPhysics.CollisionAPI.Apply(stage.GetPrimAtPath(path)).CreateCollisionEnabledAttr().Set(True)
++    except Exception:
++        session.ImportFromString(original_session)
++        raise
++    result = {"scope": "explicit static collision preparation, not human GT approval",
++              "manifest_sha256": hashlib.sha256(payload_bytes).hexdigest(), "asset_sha256": asset_sha,
++              "source_default_prim": source_root, "runtime_reference_root": mount,
++              "expanded_roots": len(expanded), "seeded_meshes": len(prepared),
++              "mesh_geometry_transforms_visibility_unchanged": len(before),
++              "source_saved": False, "profile_overrides": dict(prepared)}
++    LOGGER.info("Prepared %d static instance colliders in session layer", len(prepared))
++    return result
+diff --git a/simulation/isaac-sim/utils/scene_physics_profile.py b/simulation/isaac-sim/utils/scene_physics_profile.py
+index d3792e8430efdd625a82fd2439ce6d620b37931f..0b44dc6fbef3ea736c2c0c77fba55dfa5f8edb8b 100644
+--- a/simulation/isaac-sim/utils/scene_physics_profile.py
++++ b/simulation/isaac-sim/utils/scene_physics_profile.py
+@@ -97,9 +97,12 @@ def configure_airground_physics_profile(
+     root_prim_path: str = "/World/stage",
+     physics_scene_path: str = "/World/PhysicsScene",
+     profile: PhysicsProfile = DEFAULT_AIRGROUND_PHYSICS_PROFILE,
++    profile_overrides: dict[str, str] | None = None,
+ ) -> dict[str, Any]:
+     """Apply AirGround stage, scene, material, and PhysX contact settings."""
+ 
++    if any(value not in {"ground", "static_obstacle"} for value in (profile_overrides or {}).values()):
++        raise ValueError("Material profile overrides must come from static donor profiles")
+     UsdGeom.SetStageMetersPerUnit(stage, profile.meters_per_unit)
+     UsdGeom.SetStageUpAxis(stage, UsdGeom.Tokens.z)
+ 
+@@ -170,6 +173,7 @@ def configure_airground_physics_profile(
+             has_collision=has_collision,
+             has_rigid_body=prim.HasAPI(UsdPhysics.RigidBodyAPI),
+         )
++        profile_name = (profile_overrides or {}).get(str(prim.GetPath()), profile_name)
+         if profile_name == "ground":
+             _bind_physics_material(prim, ground_material)
+             summary["ground_material_bindings"] += 1
+diff --git a/simulation/isaac-sim/utils/scene_prep.py b/simulation/isaac-sim/utils/scene_prep.py
+index 9c8f50547dd65ed8f3471d134b0ba6b828217fed..85ecc71596f939092db4352f6048c3d813127687 100644
+--- a/simulation/isaac-sim/utils/scene_prep.py
++++ b/simulation/isaac-sim/utils/scene_prep.py
+@@ -140,13 +140,16 @@ def add_colliders(prim):
+         add_colliders(child)
+ 
+ 
+-def add_profiled_colliders(prim, enabled_profiles=None, disable_other_colliders: bool = False):
++def add_profiled_colliders(prim, enabled_profiles=None, disable_other_colliders: bool = False,
++                          *, profile_overrides: dict[str, str] | None = None):
+     """Apply CollisionAPI only to ground and static-obstacle mesh profiles.
+ 
+     Returns a summary dict suitable for launch logs. Classification is based on
+     scene_audit.classify_scene_mesh() so the offline audit and runtime scene
+     preparation use the same rules.
+     """
++    if any(value not in {"ground", "static_obstacle"} for value in (profile_overrides or {}).values()):
++        raise ValueError("Collision profile overrides must come from static donor profiles")
+     if enabled_profiles is None:
+         enabled_profiles = {"ground", "static_obstacle"}
+     else:
+@@ -175,6 +178,7 @@ def add_profiled_colliders(prim, enabled_profiles=None, disable_other_colliders:
+                 has_collision=has_collision,
+                 has_rigid_body=has_rigid_body,
+             )
++            profile = (profile_overrides or {}).get(str(current.GetPath()), profile)
+             summary[profile] += 1
+             if profile in enabled_profiles:
+                 if has_collision:

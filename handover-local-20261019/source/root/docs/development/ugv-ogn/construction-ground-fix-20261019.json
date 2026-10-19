@@ -1,0 +1,197 @@
+{
+  "scope": "actual PhysX collision-profile A/B; not human GT or complete scene acceptance",
+  "status": "passed_bounded_ground_profile_comparison",
+  "execution": {
+    "scope": "diagnostic_only_not_benchmark",
+    "command": [
+      "cmd.exe",
+      "/d",
+      "/c",
+      "D:\\RAVEN-4060\\isaac45\\python.bat",
+      "D:\\RAVEN-4060\\setup\\construction-ground-v2\\probe-construction-ground-a01.py",
+      "--output",
+      "D:\\RAVEN-4060\\logs\\construction-ground-a01-frames",
+      "--graphics-api",
+      "vulkan",
+      "--defer-stage",
+      "--cpu-threads",
+      "16",
+      "--shader-concurrency",
+      "1",
+      "--disable-motion-bvh",
+      "--async-loads",
+      "--physics-only",
+      "--scene",
+      "D:/RAVEN-4060/assets/handover-scenes-20261019/ConstructionSite/ConstructionSite_Export.usd",
+      "--tile-validation",
+      "D:/RAVEN-4060/setup/construction-ground-v2/ground-input.json",
+      "--air-stack-root",
+      "D:/RAVEN-4060/setup/construction-ground-v2/air-stack",
+      "--benchmark-package",
+      "D:\\RAVEN-4060\\setup\\tile-benchmark\\airground_benchmark"
+    ],
+    "limits": {
+      "job_memory_gib": 14.0,
+      "cpu_percent": 60,
+      "active_processes": 32,
+      "min_available_gib": 4,
+      "min_available_commit_gib": 2,
+      "max_gpu_fraction": 0.8,
+      "timeout_s": 840.0,
+      "gpu_query_timeout_s": 8,
+      "max_missing_gpu_samples": 2,
+      "preflight_gpu_required": true
+    },
+    "initial": {
+      "available_gib": 20.999725341796875,
+      "available_commit_gib": 35.696563720703125,
+      "gpu_memory_fraction": 0.0,
+      "gpu_telemetry_consecutive_failures": 0,
+      "gpu_telemetry_error": null
+    },
+    "pid": 42856,
+    "exit_code": 0,
+    "status": "completed",
+    "result_json": "D:\\RAVEN-4060\\logs\\construction-ground-a01-frames\\report.json",
+    "diagnostic_status": "passed",
+    "peak_job_commit_gib": 6.129245758056641,
+    "elapsed_s": 142.69,
+    "gpu_telemetry_failures": 0,
+    "gpu_telemetry_last_error": null
+  },
+  "changed_colliders": [
+    {
+      "path": "/World/stage/ConstructionSite/Land/Landscape/Landscape_0",
+      "before": {
+        "path": "/World/stage/ConstructionSite/Land/Landscape/Landscape_0",
+        "enabled": true,
+        "approximation": "convexDecomposition"
+      },
+      "after": {
+        "path": "/World/stage/ConstructionSite/Land/Landscape/Landscape_0",
+        "enabled": true,
+        "approximation": "meshSimplification"
+      }
+    },
+    {
+      "path": "/World/stage/ConstructionSite/Land/Landscape2/Landscape2",
+      "before": {
+        "path": "/World/stage/ConstructionSite/Land/Landscape2/Landscape2",
+        "enabled": true,
+        "approximation": "convexDecomposition"
+      },
+      "after": {
+        "path": "/World/stage/ConstructionSite/Land/Landscape2/Landscape2",
+        "enabled": true,
+        "approximation": "meshSimplification"
+      }
+    }
+  ],
+  "source_scene_sha256": "d07b04097b7f1d75f99c6a411c86c66be5aa380757ad618e41c82e607065185c",
+  "targets_sha256": "d840c2807fa0e85841f5098f55281ea2e02cf3c3521b6028b0ab24a05b7a7e62",
+  "raw_assets_changed": false,
+  "support_plane_unchanged": true,
+  "terrain_parameters_unchanged": true,
+  "windows": [
+    {
+      "name": "asphalt_roller_context",
+      "changed_values_by_field": {
+        "height": 0,
+        "normal": 0,
+        "cost": 0,
+        "mask": 0,
+        "component": 0,
+        "ceiling_height": 0,
+        "obstacle_mask": 0,
+        "overhead_clearance_m": 0,
+        "slope_rad": 0,
+        "step_height_m": 0,
+        "support_mask": 0,
+        "footprint_mask": 0,
+        "footprint_component": 0,
+        "reach_component": 0
+      },
+      "before_footprint_cells": 16385,
+      "after_footprint_cells": 16385,
+      "before_obstacle_cells": 2723,
+      "after_obstacle_cells": 2723
+    },
+    {
+      "name": "biotoilet_context",
+      "changed_values_by_field": {
+        "height": 0,
+        "normal": 0,
+        "cost": 0,
+        "mask": 22178,
+        "component": 22178,
+        "ceiling_height": 0,
+        "obstacle_mask": 22178,
+        "overhead_clearance_m": 0,
+        "slope_rad": 0,
+        "step_height_m": 0,
+        "support_mask": 0,
+        "footprint_mask": 16219,
+        "footprint_component": 16219,
+        "reach_component": 21096
+      },
+      "before_footprint_cells": 0,
+      "after_footprint_cells": 16219,
+      "before_obstacle_cells": 24160,
+      "after_obstacle_cells": 1982
+    }
+  ],
+  "real_ray_matches_source_triangles": true,
+  "archive_sha256": "cff78d7ef5123a1a3147a6c8daf93efd7c7b55a4f6c746a0567fd0000a3bf0c0",
+  "formal_gt_approved": false,
+  "limitations": [
+    "Only two 8x8m windows and three ray points; new full map must be sampled.",
+    "No target binding/OBB approval; all remain unreviewed.",
+    "At measured points visual ground is -.3m while mandatory support plane remains0.",
+    "This is an actual-data plot, not camera RGB or robot navigation evidence."
+  ],
+  "contact_material_note": "The two meshes also switch from the existing obstacle contact material to the existing ground contact material as part of the profile; physical constants were not retuned.",
+  "physics_profile_before": {
+    "meters_per_unit": 1.0,
+    "up_axis": "Z",
+    "gravity_magnitude": 9.81,
+    "physics_scene": "/World/PhysicsScene",
+    "physx_schema_available": true,
+    "physx_scene_attrs": {
+      "TimeStepsPerSecond": 250,
+      "SolverType": "TGS",
+      "BroadphaseType": "MBP",
+      "EnableCCD": true,
+      "EnableStabilization": true,
+      "EnableGPUDynamics": false
+    },
+    "ground_material_bindings": 111,
+    "obstacle_material_bindings": 571,
+    "contact_offsets": 682,
+    "rest_offsets": 682,
+    "skipped": 0
+  },
+  "physics_profile_after": {
+    "meters_per_unit": 1.0,
+    "up_axis": "Z",
+    "gravity_magnitude": 9.81,
+    "physics_scene": "/World/PhysicsScene",
+    "physx_schema_available": true,
+    "physx_scene_attrs": {
+      "TimeStepsPerSecond": 250,
+      "SolverType": "TGS",
+      "BroadphaseType": "MBP",
+      "EnableCCD": true,
+      "EnableStabilization": true,
+      "EnableGPUDynamics": false
+    },
+    "ground_material_bindings": 113,
+    "obstacle_material_bindings": 569,
+    "contact_offsets": 682,
+    "rest_offsets": 682,
+    "skipped": 0
+  },
+  "airstack_commit": "dca38441",
+  "baseline_archive_sha256": "0b53ad743fb178040f2851fece5d9e59d77c9f3d7a0ae76e089e4fdf725b20f7",
+  "baseline_raw_tiles_backed_up": 36,
+  "new_contract_sha256": "659129eb5189aeeaab7e7525956ce76c409a5215aae2f3359be5785069a749cd"
+}

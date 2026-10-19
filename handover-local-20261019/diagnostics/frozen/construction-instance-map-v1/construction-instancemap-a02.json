@@ -1,0 +1,27 @@
+{
+  "name": "construction-instancemap-a02",
+  "timeout": 1200,
+  "memory_gib": 14,
+  "ros2": false,
+  "env": {},
+  "args": [
+    "--graphics-api",
+    "vulkan",
+    "--defer-stage",
+    "--cpu-threads",
+    "16",
+    "--shader-concurrency",
+    "1",
+    "--disable-motion-bvh",
+    "--async-loads",
+    "--physics-only",
+    "--scene",
+    "D:/RAVEN-4060/assets/handover-scenes-20261019/ConstructionSite/ConstructionSite_Export.usd",
+    "--tile-validation",
+    "D:/RAVEN-4060/setup/construction-instance-map-v1/stream-input.json",
+    "--air-stack-root",
+    "D:/RAVEN-4060/setup/construction-instance-map-v1/air-stack",
+    "--benchmark-package",
+    "D:/RAVEN-4060/setup/tile-benchmark-lf-v1/airground_benchmark"
+  ]
+}

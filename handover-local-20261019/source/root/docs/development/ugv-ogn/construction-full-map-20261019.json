@@ -1,0 +1,190 @@
+{
+  "scope": "completed actual PhysX map and unreviewed geometry candidates, not formal acceptance",
+  "scene_id": "ConstructionSite",
+  "formal_accepted": false,
+  "formal_episode_count": 0,
+  "archive": "runs/construction_adaptation_20261019/construction-ground-map-complete70-evidence.zip",
+  "archive_sha256": "5b4dd76a4cea279e9ae58cddc8256f2d859733fa277c8e047ed7b5b23582f0d0",
+  "verified_files": 241,
+  "contract_sha256": "659129eb5189aeeaab7e7525956ce76c409a5215aae2f3359be5785069a749cd",
+  "grid": {
+    "origin_xy_m": [
+      -53.400000000000006,
+      -54.0
+    ],
+    "resolution_m": 0.05,
+    "shape": [
+      1774,
+      2478
+    ],
+    "tile_cells": 256
+  },
+  "stitch": {
+    "all_8_fields_disk_readback_equal": true,
+    "cells": 4395972,
+    "coverage_exactly_once": true,
+    "tiles": 70
+  },
+  "derivatives": {
+    "slope_rad": {
+      "max_abs_error": 0.0,
+      "outside_tolerance": 0,
+      "seam_outside_tolerance": 0,
+      "tolerance": 1e-05
+    },
+    "step_height_m": {
+      "max_abs_error": 0.0,
+      "outside_tolerance": 0,
+      "seam_outside_tolerance": 0,
+      "tolerance": 1e-05
+    }
+  },
+  "reference_comparison_passed": true,
+  "footprint_summary": {
+    "blocked_cost": 1000000.0,
+    "component_count": 72,
+    "footprint_length_m": 0.508,
+    "footprint_source": "manual",
+    "footprint_width_m": 0.43,
+    "generator": "airground-jackal-footprint-sweep-v1",
+    "inflated_cells": 344918,
+    "max_slope_rad": 0.2617993877991494,
+    "max_step_height_m": 0.05,
+    "min_overhead_clearance_m": 0.5,
+    "shape": [
+      1774,
+      2478
+    ],
+    "status": "ok",
+    "traversable_cells": 3709207,
+    "yaw_samples": 16
+  },
+  "reach_summary": {
+    "clearance_margin_m": 0.1075,
+    "component_cell_counts": [
+      3607950,
+      3,
+      3,
+      2107,
+      2153,
+      131,
+      146,
+      71,
+      15,
+      819,
+      444,
+      99,
+      1,
+      4,
+      3,
+      27,
+      472,
+      173,
+      1,
+      195,
+      2069,
+      10,
+      878,
+      789,
+      2,
+      63,
+      27,
+      202,
+      33,
+      293,
+      21,
+      302
+    ],
+    "component_count": 32,
+    "corridor_width_m": 0.645,
+    "footprint_width_m": 0.43,
+    "min_clearance_m": 0.111803,
+    "passable_cells": 3619506,
+    "reach_rule": "corridor_1p5x_ugv_width"
+  },
+  "selected_component": {
+    "area_m2": 9019.875,
+    "bound_target_count": 16,
+    "cell_count": 3607950,
+    "component_id": 0,
+    "target_count": 18,
+    "target_ids": [
+      "ConstructionSite.asphalt_roller.0000",
+      "ConstructionSite.asphalt_roller.0001",
+      "ConstructionSite.biotoilet.0000",
+      "ConstructionSite.biotoilet.0001",
+      "ConstructionSite.biotoilet.0002",
+      "ConstructionSite.biotoilet.0003",
+      "ConstructionSite.biotoilet.0004",
+      "ConstructionSite.biotoilet.0005",
+      "ConstructionSite.biotoilet.0006",
+      "ConstructionSite.blue_tarp.0000",
+      "ConstructionSite.blue_tarp.0001",
+      "ConstructionSite.cabling_winches.0000",
+      "ConstructionSite.construction_lift.0000",
+      "ConstructionSite.forklift.0000",
+      "ConstructionSite.forklift.0001",
+      "ConstructionSite.forklift.0002",
+      "ConstructionSite.orange_towercrane.0000",
+      "ConstructionSite.yellow_towercrane.0000"
+    ]
+  },
+  "completed_jobs": [
+    {
+      "name": "construction-groundmap-a02",
+      "exit": 0,
+      "wall_s": 724.48,
+      "peak_commit_gib": 6.125587463378906
+    },
+    {
+      "name": "construction-groundmap-a03",
+      "exit": 0,
+      "wall_s": 771.06,
+      "peak_commit_gib": 6.017539978027344
+    },
+    {
+      "name": "construction-groundmap-a04",
+      "exit": 0,
+      "wall_s": 353.11,
+      "peak_commit_gib": 6.1837615966796875
+    },
+    {
+      "name": "construction-groundpost-a01",
+      "exit": 0,
+      "wall_s": 15.03,
+      "peak_commit_gib": 1.6106033325195312
+    }
+  ],
+  "s7": {
+    "paper_target_count": 18,
+    "input_annotation_count": 28,
+    "sum_instance_cells": 1581726,
+    "union_cells": 1166061,
+    "overlap_cells": 287278,
+    "max_instances_per_cell": 5,
+    "output_sha256": "a1c009961a6ff8af881849a611448505db14a5b9b686fab228c84193bfec139f",
+    "input_targets_unchanged": true,
+    "readback_equal": true,
+    "elapsed_s": 0.5641671270000002
+  },
+  "limitations": [
+    "Uses actual PhysX data but postprocessing itself does not run robot dynamics.",
+    "No teacher map comparison or human target review; geometry candidates are not scoring eligible.",
+    "Reach labels use existing 8-connectivity; live navigation and corner-clearance validation remain pending.",
+    "Reference-window comparisons exclude local boundary influence; no full monolithic raycast reference.",
+    "z=0 support plane and existing collider approximations retained from sampled scene.",
+    "S7 includes two unbound blue tarp instances as geometry only; S8 skips them.",
+    "Nested export YAML digest hashes LF text while Windows wrote CRLF; final bytes remain pinned by report.files and archive manifest. See nav2-yaml-integrity-20261019.json."
+  ],
+  "later_invalidation": {
+    "status": "invalidated_for_navigation_or_acceptance",
+    "time": "2026-10-19T15:18:20.347527+08:00",
+    "contract_sha256": "659129eb5189aeeaab7e7525956ce76c409a5215aae2f3359be5785069a749cd",
+    "reason": "5075 visible instance-proxy meshes have no runtime collider; current recursive GetChildren preparation skips instance descendants.",
+    "evidence": "runs/construction_adaptation_20261019/instance-collider-audit.json",
+    "original_artifacts": "Preserved without rewriting. This additive sidecar marks invalidity discovered after completed sampling.",
+    "required_next_step": "Verify in-memory instance expansion with real PhysX, then use a new scene contract and resample; regenerate candidates/visibility after new map.",
+    "formal_accepted": false
+  },
+  "navigation_eligible": false
+}

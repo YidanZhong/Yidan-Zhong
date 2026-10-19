@@ -1,0 +1,205 @@
+{
+  "checked_at": "2026-10-19T13:22:45.501263+08:00",
+  "source_archive_sha256": "feb1067b6df6efa4388f0b769ba4529d8f0925065c76e9bbbcc9becf56b64224",
+  "files_verified": 32,
+  "execution": {
+    "scope": "diagnostic_only_not_benchmark",
+    "command": [
+      "cmd.exe",
+      "/d",
+      "/c",
+      "D:\\RAVEN-4060\\isaac45\\python.bat",
+      "D:\\RAVEN-4060\\setup\\construction-audit-v1\\probe-construction-audit-a01.py",
+      "--output",
+      "D:\\RAVEN-4060\\logs\\construction-audit-a01-frames",
+      "--graphics-api",
+      "vulkan",
+      "--defer-stage",
+      "--cpu-threads",
+      "16",
+      "--shader-concurrency",
+      "1",
+      "--disable-motion-bvh",
+      "--async-loads",
+      "--physics-only",
+      "--scene",
+      "D:/RAVEN-4060/assets/handover-scenes-20261019/ConstructionSite/ConstructionSite_Export.usd",
+      "--tile-validation",
+      "D:/RAVEN-4060/setup/construction-audit-v1/audit-input.json",
+      "--air-stack-root",
+      "D:\\RAVEN-4060\\source\\AirStack",
+      "--benchmark-package",
+      "D:\\RAVEN-4060\\setup\\tile-benchmark\\airground_benchmark"
+    ],
+    "limits": {
+      "job_memory_gib": 14.0,
+      "cpu_percent": 60,
+      "active_processes": 32,
+      "min_available_gib": 4,
+      "min_available_commit_gib": 2,
+      "max_gpu_fraction": 0.8,
+      "timeout_s": 840.0,
+      "gpu_query_timeout_s": 8,
+      "max_missing_gpu_samples": 2,
+      "preflight_gpu_required": true
+    },
+    "initial": {
+      "available_gib": 19.341800689697266,
+      "available_commit_gib": 34.07253646850586,
+      "gpu_memory_fraction": 0.0,
+      "gpu_telemetry_consecutive_failures": 0,
+      "gpu_telemetry_error": null
+    },
+    "pid": 12420,
+    "exit_code": 0,
+    "status": "completed",
+    "result_json": "D:\\RAVEN-4060\\logs\\construction-audit-a01-frames\\report.json",
+    "diagnostic_status": "passed",
+    "peak_job_commit_gib": 7.968723297119141,
+    "elapsed_s": 122.59,
+    "gpu_telemetry_failures": 0,
+    "gpu_telemetry_last_error": null
+  },
+  "raw": {
+    "scope": "raw actual PhysX hit diagnostic, no collision changes or GT approval",
+    "scene_id": "ConstructionSite",
+    "config_sha256": "6ba6c88fd813d36a357aec53e7335dbaf57fa74c2df1c6ac4506ac1078804fb2",
+    "frozen_sim_time_s": 0.09133333805948496,
+    "obstacle_band_absolute_z_m": [
+      0.05,
+      1.0
+    ],
+    "formal_gt_approved": false,
+    "points": [
+      {
+        "xy_m": [
+          -32.025,
+          -14.025
+        ],
+        "down_hits": [
+          {
+            "distance_m": 6.789346694946289,
+            "position_xyz_m": [
+              -32.025001525878906,
+              -14.024999618530273,
+              1.21065354347229
+            ],
+            "normal_xyz": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "prim_path": "/World/stage/ConstructionSite/Land/Landscape2/Landscape2"
+          },
+          {
+            "distance_m": 7.999999046325684,
+            "position_xyz_m": [
+              -32.025001525878906,
+              -14.024999618530273,
+              9.5367431640625e-07
+            ],
+            "normal_xyz": [
+              1.1920928955078125e-07,
+              0.0,
+              1.0000001192092896
+            ],
+            "prim_path": "/World/AirGroundGroundSupportPlane"
+          }
+        ],
+        "absolute_obstacle_band_up_hits": [
+          {
+            "distance_m": 0.0,
+            "position_xyz_m": [
+              -32.025001525878906,
+              -14.024999618530273,
+              0.05000000074505806
+            ],
+            "normal_xyz": [
+              -0.0,
+              -0.0,
+              -1.0
+            ],
+            "prim_path": "/World/stage/ConstructionSite/Land/Landscape2/Landscape2"
+          }
+        ]
+      },
+      {
+        "xy_m": [
+          -34.025,
+          -16.025
+        ],
+        "down_hits": [
+          {
+            "distance_m": 6.789346694946289,
+            "position_xyz_m": [
+              -34.025001525878906,
+              -16.024999618530273,
+              1.21065354347229
+            ],
+            "normal_xyz": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "prim_path": "/World/stage/ConstructionSite/Land/Landscape2/Landscape2"
+          },
+          {
+            "distance_m": 7.999998569488525,
+            "position_xyz_m": [
+              -34.025001525878906,
+              -16.024999618530273,
+              1.430511474609375e-06
+            ],
+            "normal_xyz": [
+              1.1920928955078125e-07,
+              0.0,
+              1.0000001192092896
+            ],
+            "prim_path": "/World/AirGroundGroundSupportPlane"
+          }
+        ],
+        "absolute_obstacle_band_up_hits": [
+          {
+            "distance_m": 0.0,
+            "position_xyz_m": [
+              -34.025001525878906,
+              -16.024999618530273,
+              0.05000000074505806
+            ],
+            "normal_xyz": [
+              -0.0,
+              -0.0,
+              -1.0
+            ],
+            "prim_path": "/World/stage/ConstructionSite/Land/Landscape2/Landscape2"
+          }
+        ]
+      },
+      {
+        "xy_m": [
+          -49.975,
+          -0.025
+        ],
+        "down_hits": [
+          {
+            "distance_m": 7.999997138977051,
+            "position_xyz_m": [
+              -49.974998474121094,
+              -0.02500000037252903,
+              2.86102294921875e-06
+            ],
+            "normal_xyz": [
+              1.1920928955078125e-07,
+              0.0,
+              1.0000001192092896
+            ],
+            "prim_path": "/World/AirGroundGroundSupportPlane"
+          }
+        ],
+        "absolute_obstacle_band_up_hits": []
+      }
+    ]
+  },
+  "formal_accepted": false,
+  "finding": "At two blocked-context points, downward hit Landscape2 at 1.210654 m and absolute obstacle ray starts inside at z=.05. Offline visual triangles at identical XY are z=-.3. Existing static_obstacle convexDecomposition produces filled concavity, not a visual terrain rise. Candidate exact ground classification needs independent real validation and a new map contract."
+}

@@ -1,0 +1,514 @@
+{
+  "checked_on": "2026-10-17",
+  "plan_task": "P0-UGV-OGN-Benchmark / Scene-GT-Handover",
+  "status": "partial_cpu_preparation_complete_runtime_blocked",
+  "source_root_commit": "0ddd5d9441e7d502df23450e4b1d2eacd4a8d084",
+  "asset_archive": {
+    "archive_bytes": 4541378641,
+    "archive_sha256": "cc20fb05345f93577d20321de25c9435d1e0ccf63d8fa3e0c876f4a9b7120280",
+    "extracted_count": 908,
+    "crc_verified_on_read": true,
+    "retro_preserved": true
+  },
+  "asset_source": "https://raw.githubusercontent.com/castacks/AirStack/278acbffaf748cd6e0102b3a25cfea544e031c83/scenes/download_scenes.sh",
+  "annotation_count": 164,
+  "scene_count": 9,
+  "task_count": 90,
+  "verified_target_count": 0,
+  "real_gt_generated": false,
+  "real_episodes_generated": 0,
+  "simulation_started": false,
+  "scenes": [
+    {
+      "S1": "converted",
+      "S2": "real_USD_has_no_semantic_name_candidates",
+      "S3": "blocked_no_candidates",
+      "S4_S10": "pending_real_RGB_review_PhysX_GT_and_UGV_runtime",
+      "annotation_classes": [
+        "blue container",
+        "fuel tank",
+        "green container",
+        "radio tower",
+        "red building",
+        "red container",
+        "water tower"
+      ],
+      "annotation_count": 13,
+      "blocked_task_count": 10,
+      "bound_count": 0,
+      "candidate_count": 0,
+      "coordinate_status": "upstream world coordinates retained; runtime transform still needs verification",
+      "export_exit_code": 0,
+      "ground_reachable_count": 0,
+      "missing_paper_classes": [],
+      "notes": [],
+      "scene_id": "FireAcademy",
+      "source_annotation_sha256": "557bf32c88a4fb17d46f4629f5f9af9f43576e0f4ee92361c8ae27e7123f9951",
+      "spawn_offset_xyz_m": [
+        0,
+        0,
+        0
+      ],
+      "task_count": 10,
+      "unbound_by_class": {
+        "blue container": 1,
+        "fuel tank": 5,
+        "green container": 1,
+        "radio tower": 1,
+        "red building": 3,
+        "red container": 1,
+        "water tower": 1
+      },
+      "usd_path": "AirStack/scenes/FireAcademy/FireAcademy_Export.usd",
+      "usd_sha256": "242dafc6f6315d1de9ac1f6023f1c931f11410aa27dde8345d2a45808e8db252",
+      "verified_count": 0
+    },
+    {
+      "S1": "converted",
+      "S2": "exported_real_USD",
+      "S3": "automatic_binding_pending_review",
+      "S4_S10": "pending_real_RGB_review_PhysX_GT_and_UGV_runtime",
+      "ambiguous_count": 25,
+      "annotation_classes": [
+        "asphalt roller",
+        "biotoilet",
+        "blue tarp",
+        "cabling winches",
+        "construction lift",
+        "forklift",
+        "orange tarp",
+        "orange towercrane",
+        "red container",
+        "yellow towercrane"
+      ],
+      "annotation_count": 28,
+      "blocked_task_count": 10,
+      "bound_count": 25,
+      "candidate_count": 649,
+      "coordinate_status": "upstream world coordinates retained; runtime transform still needs verification",
+      "export_exit_code": 0,
+      "ground_reachable_count": 0,
+      "missing_paper_classes": [],
+      "notes": [],
+      "scene_id": "ConstructionSite",
+      "source_annotation_sha256": "40335e18e96e7312c17143133ce080aff190138f8307cc0b7d431733e426d719",
+      "spawn_offset_xyz_m": [
+        0,
+        0,
+        0
+      ],
+      "task_count": 10,
+      "unbound_by_class": {
+        "blue tarp": 2,
+        "orange tarp": 1
+      },
+      "usd_path": "AirStack/scenes/ConstructionSite/ConstructionSite_Export.usd",
+      "usd_sha256": "d07b04097b7f1d75f99c6a411c86c66be5aa380757ad618e41c82e607065185c",
+      "verified_count": 0
+    },
+    {
+      "S1": "converted",
+      "S2": "exported_real_USD",
+      "S3": "automatic_binding_pending_review",
+      "S4_S10": "pending_real_RGB_review_PhysX_GT_and_UGV_runtime",
+      "ambiguous_count": 1,
+      "annotation_classes": [
+        "building",
+        "pipe",
+        "water tower",
+        "white silo"
+      ],
+      "annotation_count": 11,
+      "blocked_task_count": 10,
+      "bound_count": 1,
+      "candidate_count": 135,
+      "coordinate_status": "upstream world coordinates retained; runtime transform still needs verification",
+      "export_exit_code": 0,
+      "ground_reachable_count": 0,
+      "missing_paper_classes": [],
+      "notes": [],
+      "scene_id": "AbandonedFactory",
+      "source_annotation_sha256": "2c9f4cdc05822f88d039e55aa7c2e511f88ee112993fcaae4bf200f60e066245",
+      "spawn_offset_xyz_m": [
+        0,
+        0,
+        0
+      ],
+      "task_count": 10,
+      "unbound_by_class": {
+        "building": 3,
+        "pipe": 4,
+        "water tower": 2,
+        "white silo": 1
+      },
+      "usd_path": "AirStack/scenes/AbandonedFactory/AbandonedFactory_Export.usd",
+      "usd_sha256": "c6d12e6ca061145daf7e95169446880ccfa8ce2661572a9a92d48f7e20539e16",
+      "verified_count": 0
+    },
+    {
+      "S1": "converted",
+      "S2": "blocked_missing_usd",
+      "S3": "blocked_missing_usd",
+      "S4_S10": "pending_real_RGB_review_PhysX_GT_and_UGV_runtime",
+      "annotation_classes": [
+        "building",
+        "bus stop"
+      ],
+      "annotation_count": 22,
+      "blocked_task_count": 10,
+      "coordinate_status": "upstream world coordinates retained; runtime transform still needs verification",
+      "ground_reachable_count": 0,
+      "missing_paper_classes": [
+        "car",
+        "yellow motorhome"
+      ],
+      "notes": [
+        "Upstream annotations lack car and yellow motorhome; add scene-evidenced annotations before review."
+      ],
+      "scene_id": "AbandonedCity",
+      "source_annotation_sha256": "be62f9f943877eff10e86a42d9c98eda8eda8e670954cdb83e6d5923dbd4c859",
+      "spawn_offset_xyz_m": [
+        0,
+        0,
+        0
+      ],
+      "task_count": 10,
+      "verified_count": 0
+    },
+    {
+      "S1": "converted",
+      "S2": "blocked_missing_usd",
+      "S3": "blocked_missing_usd",
+      "S4_S10": "pending_real_RGB_review_PhysX_GT_and_UGV_runtime",
+      "annotation_classes": [
+        "bridge",
+        "car",
+        "human",
+        "outhouse",
+        "pond",
+        "water tower"
+      ],
+      "annotation_count": 10,
+      "blocked_task_count": 10,
+      "coordinate_status": "upstream world coordinates retained; runtime transform still needs verification",
+      "ground_reachable_count": 0,
+      "missing_paper_classes": [
+        "tower"
+      ],
+      "notes": [
+        "Do not alias tower to water tower until USD/RGB identity is reviewed.",
+        "No validated dual-robot launch configuration is available."
+      ],
+      "scene_id": "SnowyVillage",
+      "source_annotation_sha256": "785bd34869e83775eaf1162eca5d898ff4b8ce258f9748c112daae9fcfa431a6",
+      "spawn_offset_xyz_m": [
+        0,
+        0,
+        0
+      ],
+      "task_count": 10,
+      "verified_count": 0
+    },
+    {
+      "S1": "converted",
+      "S2": "blocked_missing_usd",
+      "S3": "blocked_missing_usd",
+      "S4_S10": "pending_real_RGB_review_PhysX_GT_and_UGV_runtime",
+      "annotation_classes": [
+        "fire hydrant",
+        "food cart",
+        "fountain",
+        "traffic light",
+        "trash bin"
+      ],
+      "annotation_count": 42,
+      "blocked_task_count": 10,
+      "coordinate_status": "upstream world coordinates retained; runtime transform still needs verification",
+      "ground_reachable_count": 0,
+      "missing_paper_classes": [],
+      "notes": [],
+      "scene_id": "DowntownWest",
+      "source_annotation_sha256": "0495208980283ddd467066537544530d2305a06db447d30be37b3fd3f3620d8e",
+      "spawn_offset_xyz_m": [
+        0,
+        0,
+        0
+      ],
+      "task_count": 10,
+      "verified_count": 0
+    },
+    {
+      "S1": "converted",
+      "S2": "blocked_missing_usd",
+      "S3": "blocked_missing_usd",
+      "S4_S10": "pending_real_RGB_review_PhysX_GT_and_UGV_runtime",
+      "annotation_classes": [
+        "bankomat",
+        "cafe table",
+        "obelisk",
+        "yellow truck"
+      ],
+      "annotation_count": 7,
+      "blocked_task_count": 10,
+      "coordinate_status": "upstream world coordinates retained; runtime transform still needs verification",
+      "ground_reachable_count": 0,
+      "missing_paper_classes": [],
+      "notes": [],
+      "scene_id": "ModernCityDowntown",
+      "source_annotation_sha256": "625a20b8590e969a16900ec873ddc2be7af2218831a234110840e54a86b25a2d",
+      "spawn_offset_xyz_m": [
+        0,
+        0,
+        0
+      ],
+      "task_count": 10,
+      "verified_count": 0
+    },
+    {
+      "S1": "converted",
+      "S2": "blocked_missing_usd",
+      "S3": "blocked_missing_usd",
+      "S4_S10": "pending_real_RGB_review_PhysX_GT_and_UGV_runtime",
+      "annotation_classes": [
+        "airfield",
+        "atv",
+        "bridge",
+        "guard tower",
+        "helicopter",
+        "mobile radar",
+        "radio tower"
+      ],
+      "annotation_count": 14,
+      "blocked_task_count": 10,
+      "coordinate_status": "upstream world coordinates retained; runtime transform still needs verification",
+      "ground_reachable_count": 0,
+      "missing_paper_classes": [],
+      "notes": [],
+      "scene_id": "MilitaryBase",
+      "source_annotation_sha256": "24f12907f5b1c3be279be9aa488de7614f13b09161702919544b6e0d7f77c3c0",
+      "spawn_offset_xyz_m": [
+        0,
+        0,
+        0
+      ],
+      "task_count": 10,
+      "verified_count": 0
+    },
+    {
+      "S1": "converted",
+      "S2": "blocked_missing_usd",
+      "S3": "blocked_missing_usd",
+      "S4_S10": "pending_real_RGB_review_PhysX_GT_and_UGV_runtime",
+      "annotation_classes": [
+        "crane",
+        "ship",
+        "ship construction",
+        "white silo"
+      ],
+      "annotation_count": 17,
+      "blocked_task_count": 10,
+      "coordinate_status": "upstream world coordinates retained; runtime transform still needs verification",
+      "ground_reachable_count": 0,
+      "missing_paper_classes": [],
+      "notes": [
+        "Table A.3 prints 'ship silo' without a comma; interpreted as ship + silo for Type II, pending protocol review."
+      ],
+      "scene_id": "Shipyard",
+      "source_annotation_sha256": "17ddd6ab08f5b3340c8d115e119e7cc32f4b871af5ac5e794d3cad333a3d0246",
+      "spawn_offset_xyz_m": [
+        0,
+        0,
+        0
+      ],
+      "task_count": 10,
+      "verified_count": 0
+    }
+  ],
+  "usd_static_inspection": [
+    {
+      "scene_id": "FireAcademy",
+      "geometry_count": 6,
+      "meshes": 2,
+      "meters_per_unit": 1.0,
+      "up_axis": "Z",
+      "unresolved_reference_types": {
+        "info:mdl:sourceAsset": 50
+      },
+      "unresolved_image_texture_references": 0,
+      "interpretation": "Static USD inspection only; OmniPBR requires Isaac runtime, Unreal source markers are not image textures."
+    },
+    {
+      "scene_id": "ConstructionSite",
+      "geometry_count": 11690,
+      "meshes": 678,
+      "meters_per_unit": 1.0,
+      "up_axis": "Z",
+      "unresolved_reference_types": {
+        "info:unreal:sourceAsset": 964
+      },
+      "unresolved_image_texture_references": 0,
+      "interpretation": "Static USD inspection only; OmniPBR requires Isaac runtime, Unreal source markers are not image textures."
+    },
+    {
+      "scene_id": "AbandonedFactory",
+      "geometry_count": 149,
+      "meshes": 105,
+      "meters_per_unit": 1.0,
+      "up_axis": "Z",
+      "unresolved_reference_types": {
+        "info:unreal:sourceAsset": 348,
+        "info:mdl:sourceAsset": 1
+      },
+      "unresolved_image_texture_references": 0,
+      "interpretation": "Static USD inspection only; OmniPBR requires Isaac runtime, Unreal source markers are not image textures."
+    }
+  ],
+  "limitations": [
+    "RTX 5060 Laptop Blackwell is incompatible with the Isaac 4.5 RTX rendering pipeline; WSL 24 GiB also fails current resource guards.",
+    "Six scene USD asset directories are missing; the pinned official ZIP includes only four scenes including Retro.",
+    "FireAcademy main environment is one mesh /World/stage/Ds/Ds_001; per-instance binding requires reviewed mesh/face segmentation or instance-preserving assets.",
+    "AbandonedFactory missing SubUSDs/materials/Ground.mdl; merged meshes obscure semantic names.",
+    "ConstructionSite automatic parent/child matches are ambiguous; all candidates require actual RGB review.",
+    "Runtime ROI runner, raycast metadata and dual-robot launch remain Retro-specific; CPU support does not imply scene runtime readiness.",
+    "No 0.05m real raycast map, PhysX visibility trace, reviewed target GT, or K=M UGV tour was produced."
+  ],
+  "hardware_reference": "docs/development/ugv-ogn/local-scene1-preparation-20261017.json",
+  "hardware_support_source": "https://forums.developer.nvidia.com/t/isaac-sim-4-5-not-working-on-windows-11-via-wsl2/366463/3",
+  "reproduce_cpu_command": "python scripts/prepare_scene_gt.py --output-dir runs/scene_gt_adaptation_20261017",
+  "artifact_root": "runs/scene_gt_adaptation_20261017",
+  "artifact_sha256": {
+    "runs/scene_gt_adaptation_20261017/asset_extraction.json": "eb7403be86a1577b7c41e70fa7accbb7a5c2d9b8a2050a72aee6a94975995a5a",
+    "runs/scene_gt_adaptation_20261017/summary.json": "aa3241e8bfeb5173d5b5ee6f245ba300e99214781569dfb6e729c64808a6bf80",
+    "runs/scene_gt_adaptation_20261017/validation.json": "c40bc7c47e52136c28053cdf893b3e29b4090df39a7c365a610540ddd3194963",
+    "runs/scene_gt_adaptation_20261017/AbandonedCity/raycast.request.json": "03f78e0928a088b88496d9b09fd7910647e65750621ddcf37b4fb85786619af4",
+    "runs/scene_gt_adaptation_20261017/AbandonedCity/review.ledger.template.json": "9417faefd8da57c341edb839236d710dacb8dbc4c9ba4f20aade0f598ecdc563",
+    "runs/scene_gt_adaptation_20261017/AbandonedCity/review.queue.json": "f0ec6e6cb4fb00642a7a2a5c2f24359ca38d87e916b9e8f28715282f0825fb40",
+    "runs/scene_gt_adaptation_20261017/AbandonedCity/summary.json": "665498dc1c38dca0a3df138c17f4ecffe1723411b163f95a342f9808f14c475a",
+    "runs/scene_gt_adaptation_20261017/AbandonedCity/targets.converted.json": "5f1a8d3893c969b98e23b19dd0d3e60e345b6c2c049ac1b3ab49bb590dd1b7c5",
+    "runs/scene_gt_adaptation_20261017/AbandonedCity/targets.unreviewed.json": "5f1a8d3893c969b98e23b19dd0d3e60e345b6c2c049ac1b3ab49bb590dd1b7c5",
+    "runs/scene_gt_adaptation_20261017/AbandonedCity/task_catalog.blocked.json": "91a014948eae76102805c2c1680fabefd02b60decd919f430da039efbac00126",
+    "runs/scene_gt_adaptation_20261017/AbandonedFactory/binding.report.json": "802165998957a3b384905b97015ba8eb715a0b43cb206b20ce87f07fab7af1f3",
+    "runs/scene_gt_adaptation_20261017/AbandonedFactory/export.command.json": "dae7075428dcfe740cb955bb35dda2d236c49a34f3a544f716ee132e87bfe462",
+    "runs/scene_gt_adaptation_20261017/AbandonedFactory/geometry.diagnostic.json": "49bce6471101147f4e904a9d740763660b29a54e124e05614612e7d2c14f4d9c",
+    "runs/scene_gt_adaptation_20261017/AbandonedFactory/prim_candidates.json": "84bb0f69d9b74dfba1d83db449178640a0a39a4c8c338725995fdcbec5a7571d",
+    "runs/scene_gt_adaptation_20261017/AbandonedFactory/raycast.request.json": "0f8619d8195e4ffd7b73079d7ebf5071e0e847aee37ea55daf6df4f8fe5e89c1",
+    "runs/scene_gt_adaptation_20261017/AbandonedFactory/review.ledger.template.json": "6bda9f7c3ba8bc84f63aea71f08fda1b03a17fe6ca83134833be0d56ce0d782f",
+    "runs/scene_gt_adaptation_20261017/AbandonedFactory/review.queue.json": "5e68f5b11d2dfe4eda878d42d24117a9ca169e9014b760b373167a0971ce830d",
+    "runs/scene_gt_adaptation_20261017/AbandonedFactory/summary.json": "6fb05023a86f083795d7346334c2d76a99e78b789af88a16900f995ac6a36757",
+    "runs/scene_gt_adaptation_20261017/AbandonedFactory/targets.converted.json": "fd21df941e408661dc594f791e0acca2159dcfa99a906945ca9b3a06306d6b2f",
+    "runs/scene_gt_adaptation_20261017/AbandonedFactory/targets.unreviewed.json": "43504380da5e14901af7bdf57c291aafacd7aff10c504011da74ce50ed78598c",
+    "runs/scene_gt_adaptation_20261017/AbandonedFactory/task_catalog.blocked.json": "71afcc6697a3d089117c21ea6c6616c9eea7e5eb72674ba52c5a60542a91448b",
+    "runs/scene_gt_adaptation_20261017/AbandonedFactory/usd_aliases.json": "1d5ab3127eee948c4021da4544e0095519208cc2d44adcfd1c896b4fd343542f",
+    "runs/scene_gt_adaptation_20261017/ConstructionSite/binding.report.json": "f25a50a8d69ec06a6058e86116ebdb3450e5befa0871e7600d5e1e5043014101",
+    "runs/scene_gt_adaptation_20261017/ConstructionSite/export.command.json": "665a921c7060b1e2a6ed4ebd41701540b1dcca6771ca1ede1b3daf61d94ea233",
+    "runs/scene_gt_adaptation_20261017/ConstructionSite/geometry.diagnostic.json": "fec831284ada271af16324457654ad5429833afc8087400c30a6e4ee33724237",
+    "runs/scene_gt_adaptation_20261017/ConstructionSite/prim_candidates.json": "bc0f6d82d0be96f068ebe09081f16c3776065670b365878363afa8b5409b985d",
+    "runs/scene_gt_adaptation_20261017/ConstructionSite/raycast.request.json": "0cf3f06e771bfda70652f98012db076a01a914c952289d2579582ba8f704cfcc",
+    "runs/scene_gt_adaptation_20261017/ConstructionSite/review.ledger.template.json": "726083c7fe800e3b7f710615b41d0028cef67ef4994ad835d45f11b4a50152f5",
+    "runs/scene_gt_adaptation_20261017/ConstructionSite/review.queue.json": "5f0cc565d95ac328b5092136dfa03a25c3d28cf98a66826664c9cf17bc82e806",
+    "runs/scene_gt_adaptation_20261017/ConstructionSite/summary.json": "f2f1947572fde8f75c0c91feff0618add0a41112b2f71b2b6b9984998671b928",
+    "runs/scene_gt_adaptation_20261017/ConstructionSite/targets.converted.json": "55bb49ff0b6cef5dee8e6abce9df5df11fb2f90481d6100f7ed5c579b7e4ba9e",
+    "runs/scene_gt_adaptation_20261017/ConstructionSite/targets.unreviewed.json": "d840c2807fa0e85841f5098f55281ea2e02cf3c3521b6028b0ab24a05b7a7e62",
+    "runs/scene_gt_adaptation_20261017/ConstructionSite/task_catalog.blocked.json": "ba500c2c52039b607f7757a094e48b65c4bb4f0bee0f7931c78835a2bf258ad1",
+    "runs/scene_gt_adaptation_20261017/ConstructionSite/usd_aliases.json": "1d5ab3127eee948c4021da4544e0095519208cc2d44adcfd1c896b4fd343542f",
+    "runs/scene_gt_adaptation_20261017/DowntownWest/raycast.request.json": "c9cb2b4a75dd6a3ecf61a2c620e211cf96dfd9c62b0294223282ef879658d8b9",
+    "runs/scene_gt_adaptation_20261017/DowntownWest/review.ledger.template.json": "ce6ecc40572f1861998df4154169653a25ca04bc99b4561047d6304ca5e9e8ac",
+    "runs/scene_gt_adaptation_20261017/DowntownWest/review.queue.json": "7c2d6e441ba5f50687c727298cfde4bf77ecef325143d1e488aa87bd1575015a",
+    "runs/scene_gt_adaptation_20261017/DowntownWest/summary.json": "ce370efae492cf90599273247fdbd99e0a8a4943b9ac6ea3db1a2a14282e697b",
+    "runs/scene_gt_adaptation_20261017/DowntownWest/targets.converted.json": "9ccab902c924300b03cb0e5131c73be42ccd1f09ea6a5c5a8a1e78f7953b48e5",
+    "runs/scene_gt_adaptation_20261017/DowntownWest/targets.unreviewed.json": "9ccab902c924300b03cb0e5131c73be42ccd1f09ea6a5c5a8a1e78f7953b48e5",
+    "runs/scene_gt_adaptation_20261017/DowntownWest/task_catalog.blocked.json": "533e75fd7e00f1e0966d7f05b3f5ed261145c80f0390830e93bf3f22b81f853f",
+    "runs/scene_gt_adaptation_20261017/FireAcademy/cli.catalog.smoke.json": "027730d55955e2e4e1253ea245dfdc57f59c5aca77f2734d1712b4334449de16",
+    "runs/scene_gt_adaptation_20261017/FireAcademy/cli.convert.smoke.json": "a5b527258be9c6ba5ce712ec8ba974f6f0c8fbf3fd9ba2d98c1ce7e4939c9450",
+    "runs/scene_gt_adaptation_20261017/FireAcademy/export.command.json": "013ba9364c58e83e55f5b513ef7e2a657d9e6189b9c36538f8c30c5a0ad74979",
+    "runs/scene_gt_adaptation_20261017/FireAcademy/geometry.diagnostic.json": "ad2b60c09a7f5115781c3c3b164d2072f4541dd200c44d85c453ea4b6cc4fca9",
+    "runs/scene_gt_adaptation_20261017/FireAcademy/prim_candidates.json": "1583b311236654d85d7d72339189acc413af9a86b4c1048b9e16983c06125a7a",
+    "runs/scene_gt_adaptation_20261017/FireAcademy/raycast.request.json": "962bc45cc7da26011fa4c985b45f159786cbf4e1dd5dacba10af22da14eecc8f",
+    "runs/scene_gt_adaptation_20261017/FireAcademy/review.ledger.template.json": "708918fb9c26458deb7d5d2c0d8593aab73971807e5b90d1db7809ec3b1945e8",
+    "runs/scene_gt_adaptation_20261017/FireAcademy/review.queue.json": "7f718ec258e9bd144ac457cbf7148765cd3437074400a0c998fd0b41b88fed18",
+    "runs/scene_gt_adaptation_20261017/FireAcademy/summary.json": "00f02ad1166910dff9eb17b1d755e1c50159de27510f1cc917c698077a74642f",
+    "runs/scene_gt_adaptation_20261017/FireAcademy/targets.converted.json": "a5b527258be9c6ba5ce712ec8ba974f6f0c8fbf3fd9ba2d98c1ce7e4939c9450",
+    "runs/scene_gt_adaptation_20261017/FireAcademy/targets.unreviewed.json": "a5b527258be9c6ba5ce712ec8ba974f6f0c8fbf3fd9ba2d98c1ce7e4939c9450",
+    "runs/scene_gt_adaptation_20261017/FireAcademy/task_catalog.blocked.json": "834ccc09c9aa9aafa8b1247c7b179ab26ee4937657473bad4e90da3fb628e29f",
+    "runs/scene_gt_adaptation_20261017/FireAcademy/usd_aliases.json": "1d5ab3127eee948c4021da4544e0095519208cc2d44adcfd1c896b4fd343542f",
+    "runs/scene_gt_adaptation_20261017/MilitaryBase/raycast.request.json": "867b6052082c28c6cee95a59dc0518bb47a3396c462475098286b23858588bc6",
+    "runs/scene_gt_adaptation_20261017/MilitaryBase/review.ledger.template.json": "305dfbe3635ea167d1b8d5a075769c14f1083ebb07a27b3c4d1004f29e42beae",
+    "runs/scene_gt_adaptation_20261017/MilitaryBase/review.queue.json": "32f1c6353e6c91a4546b481e0913ad42adeffa94a47dd7dc12e6282bbd3c47a5",
+    "runs/scene_gt_adaptation_20261017/MilitaryBase/summary.json": "9989ed86fc21ce0c8b99d0a1476e841588fafba4f4e0566c5e402a3411ce91a5",
+    "runs/scene_gt_adaptation_20261017/MilitaryBase/targets.converted.json": "d9e1c268ce9c5982c29b86d8e3cb93d20fa5164da16336a2f4d241015c89accb",
+    "runs/scene_gt_adaptation_20261017/MilitaryBase/targets.unreviewed.json": "d9e1c268ce9c5982c29b86d8e3cb93d20fa5164da16336a2f4d241015c89accb",
+    "runs/scene_gt_adaptation_20261017/MilitaryBase/task_catalog.blocked.json": "18d7f66d9377101d6bc3d75acddd8b61e17e7943a2764f55d9373a21f8c552ab",
+    "runs/scene_gt_adaptation_20261017/ModernCityDowntown/raycast.request.json": "e8a6f687d8f0bf18b1e281f53fca1bdddb08e2e49fa476f1b63fa1251677b987",
+    "runs/scene_gt_adaptation_20261017/ModernCityDowntown/review.ledger.template.json": "148ea8e3518ecd6708bbc8b5f5c75623bf9ce6106d7551d27faffa555b7881ae",
+    "runs/scene_gt_adaptation_20261017/ModernCityDowntown/review.queue.json": "e6c0f78fa5cacbc1f5e498ccf025dfb8592fc0750bd99fdae25149b1b333153a",
+    "runs/scene_gt_adaptation_20261017/ModernCityDowntown/summary.json": "cc03752c8a1e846dad290dc3fb7982115d67deb7bc939ec7570506eb0f1e91d9",
+    "runs/scene_gt_adaptation_20261017/ModernCityDowntown/targets.converted.json": "7d55db51baa7e9241192e3c3bdbc65c4137c3421440acd272597630d72e9a71b",
+    "runs/scene_gt_adaptation_20261017/ModernCityDowntown/targets.unreviewed.json": "7d55db51baa7e9241192e3c3bdbc65c4137c3421440acd272597630d72e9a71b",
+    "runs/scene_gt_adaptation_20261017/ModernCityDowntown/task_catalog.blocked.json": "9b623b1fe5d11952c689e0b9723234a1444a5ba37b183b63da3f029fc5025a7c",
+    "runs/scene_gt_adaptation_20261017/Shipyard/raycast.request.json": "86ed8cd8cfe7bac24aec2942a9c47f04dacd7a4a68cbef0b3aed787d26c6ea6b",
+    "runs/scene_gt_adaptation_20261017/Shipyard/review.ledger.template.json": "d6ebbfd75ba7044c2d1d9776d53f6437a04df8bfa5df5403f473b37b49295b9d",
+    "runs/scene_gt_adaptation_20261017/Shipyard/review.queue.json": "fc7c14a49b11f7513d014fa3838bf6918cb44b1b183fb712c28bc149e9cf4010",
+    "runs/scene_gt_adaptation_20261017/Shipyard/summary.json": "8efde826f05600cc9db792e754b9f43371380f0691a87e025fb48898e9072913",
+    "runs/scene_gt_adaptation_20261017/Shipyard/targets.converted.json": "0d8a1892f532b8fce36c5ae45d7bc8b4eb3ea19d8d2720d72156dc9e014ddc24",
+    "runs/scene_gt_adaptation_20261017/Shipyard/targets.unreviewed.json": "0d8a1892f532b8fce36c5ae45d7bc8b4eb3ea19d8d2720d72156dc9e014ddc24",
+    "runs/scene_gt_adaptation_20261017/Shipyard/task_catalog.blocked.json": "da69bc809d1c6a7c487598870bada4908b80bb3403b3354d54ee1c252fec2328",
+    "runs/scene_gt_adaptation_20261017/SnowyVillage/raycast.request.json": "fc3d180368934a9d1bd7700d7bdc3a15dfbbfd5f8acc6c9938da49e99ed77338",
+    "runs/scene_gt_adaptation_20261017/SnowyVillage/review.ledger.template.json": "9d24ed3846cb31e018cc2cb6f76e069b1b92fc37b4fa58d23132f4e72abdfe02",
+    "runs/scene_gt_adaptation_20261017/SnowyVillage/review.queue.json": "a4b41d7f86580265729ab6a7c783d3805c4294867a5a3a0fb543db4d19f877e1",
+    "runs/scene_gt_adaptation_20261017/SnowyVillage/summary.json": "5238a7adc234130c003a042088107030673f8dbc6a9e2fc38f3a26882c05c3a7",
+    "runs/scene_gt_adaptation_20261017/SnowyVillage/targets.converted.json": "37a626c327b8a6a6181057400ad555b1619462ba2fdb9ca341c1bd4e0ce1ee20",
+    "runs/scene_gt_adaptation_20261017/SnowyVillage/targets.unreviewed.json": "37a626c327b8a6a6181057400ad555b1619462ba2fdb9ca341c1bd4e0ce1ee20",
+    "runs/scene_gt_adaptation_20261017/SnowyVillage/task_catalog.blocked.json": "6ab90c9d270fb457c9dbbd3c1dc4da8f4cbd41ccc74c80614e262f72bd2c41cc"
+  },
+  "validation": {
+    "scope": "CPU/schema/GT tooling regression only; no Isaac/ROS simulation acceptance",
+    "passed": 155,
+    "commands": [
+      {
+        "command": "python -m pytest -q tests/test_scene_gt_adaptation.py tests/test_ground_truth.py tests/test_task_catalog.py tests/test_episode_generation.py tests/test_roi_analysis.py tests/test_episode_manifest.py tests/test_config.py tests/test_ugv_progress.py AirStack/simulation/isaac-sim/tests/test_scene_audit.py",
+        "exit_code": 0,
+        "passed": 130,
+        "elapsed_s": 6.37
+      },
+      {
+        "command": "python -m pytest -q tests/test_cli.py -k 'gt_targets or gt_traversability or task_catalog or build_catalog or episodes_validate'",
+        "exit_code": 0,
+        "passed": 25,
+        "deselected": 257,
+        "elapsed_s": 2.32
+      }
+    ],
+    "broader_cli_attempt": "Interrupted during unrelated release/provenance checks; not claimed as a completed suite. Relevant CLI checks subsequently passed.",
+    "wsl_invocation_note": "Concurrent cold-start WSL commands stalled; only those own frontends were cancelled. Serial WSL invocation then passed; no distro shutdown or settings change.",
+    "cli_smoke": {
+      "scene": "FireAcademy",
+      "convert_exit_code": 0,
+      "catalog_exit_code": 0
+    },
+    "diff_check_exit_code": 0
+  },
+  "airstack_commit": "d3f829bbf9304d02f9a49d9d8ef177cf32838e4e",
+  "airstack_branch": "airground",
+  "commit_author_note": "Local automation commit uses per-command Codex <codex@localhost>; user/global Git identity unchanged.",
+  "git_status_note": "AirStack change committed locally, root submodule gitlink staged; root implementation edits remain uncommitted. Nothing pushed.",
+  "code_sha256": {
+    "benchmark/airground_benchmark/cli.py": "3af2e65d2e8dfe38be2b3614f780b93ca3bffddc463e2173257becfc56f8b6b3",
+    "benchmark/airground_benchmark/config/schema.py": "4ab8f7dc5f38dda82daf84c4b0226f1f7899814e1cdf6f92972740cfffa5f504",
+    "benchmark/airground_benchmark/episode_generation.py": "ab21519e49e4ab748acbab8f7c00ac15a4b49c603929dc23b89255fa561dc886",
+    "benchmark/airground_benchmark/episode_manifest.py": "b7f010ea6860a43fce4c6411bfaa967a3de158816f3799a27b44e79c2a8edeba",
+    "benchmark/airground_benchmark/ground_truth.py": "ebcd0de0927e4378e7242d67cb8e4a85cb5045c08f0f5b3bc37d2b06a6d5c5ea",
+    "benchmark/airground_benchmark/roi_analysis.py": "a5e6e9e81095329757f2ee409a1196f1255929bf972722ae23b4a27a567cd10f",
+    "benchmark/airground_benchmark/task_catalog.py": "54305707778024c5a9170a428fdb4e6bdbd417418cd02c19e275968456f42128",
+    "scripts/build_paper_protocol_episodes.py": "23a786bf1952f10429faf0d6ff01576bf3378806194fb6b4a59173f588eda5a5",
+    "scripts/calibrate_reach_region.py": "981ca3917b9811fd98eb056bf7c4515a731859280989f0a2d0713e78736d76e4",
+    "scripts/filter_paper_task_candidates.py": "f90469cdcb4fcc57846fd323ecdf240124627c4b30dfa9c010e3c39e55cc766e",
+    "scripts/score_paper_protocol.py": "5d82664cc50d37881fc61ebf0fc5d69b454f118da8b148cf70864b1bee8fd93d",
+    "scripts/select_smoke_starts.py": "64999d2e0d856d57f913a065b1c1a356e85e8166aa7387683ebbb0821a0040b4",
+    "tests/test_episode_generation.py": "5577eaf2198028bd56b6dea21d061671b9368cc53638ca27ca2c11ca97223568",
+    "tests/test_ground_truth.py": "ad1972df254e778789e64dff7a48224104cc7b23c2ad23959a360ea40eb90bf0",
+    "benchmark/airground_benchmark/scenes.py": "862b9cb82f9e97741a3590897c8a69a24aecadceba70f9154e108fa78b0f6014",
+    "scripts/prepare_scene_gt.py": "d6a918e71b1ddf768f6a65bcd17d4f604c6130433214b02a3f57f6d0797669c9",
+    "tests/test_scene_gt_adaptation.py": "bbbf7e04a006f88ba7b64422d0b1dc04c0034376e10a5cd8cbe088e7ba865fa3",
+    "AirStack/simulation/isaac-sim/tools/export_target_prim_candidates.py": "7e1b0b5a2d4dc08e39ba5bfd33f883200e4a64eb1acc9bc28c3689d99c9549db"
+  }
+}

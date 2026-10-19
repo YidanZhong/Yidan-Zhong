@@ -1,0 +1,28 @@
+{
+  "name": "construction-review-a01",
+  "timeout": 840,
+  "memory_gib": 14,
+  "args": [
+    "--graphics-api",
+    "vulkan",
+    "--defer-stage",
+    "--cpu-threads",
+    "16",
+    "--shader-concurrency",
+    "1",
+    "--gui",
+    "--disable-motion-bvh",
+    "--async-loads",
+    "--first-frame-timeout",
+    "480",
+    "--camera-size",
+    "960",
+    "600",
+    "--scene",
+    "D:/RAVEN-4060/assets/handover-scenes-20261019/ConstructionSite/ConstructionSite_Export.usd",
+    "--review-manifest",
+    "D:/RAVEN-4060/setup/construction-review-v1/review-input.json"
+  ],
+  "ros2": false,
+  "env": {}
+}

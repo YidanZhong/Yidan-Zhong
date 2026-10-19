@@ -1,0 +1,371 @@
+{
+  "updated_at": "2026-10-19T13:31:26.424064+08:00",
+  "completed_repetitions": 3,
+  "planned_bounded_repetitions": 3,
+  "goals_per_run": 3,
+  "formal_scene_accepted": false,
+  "limitations": [
+    "Same static route only; not general stability or K=M.",
+    "PhysX odometry and CPU raycast cloud, not SLAM/RTX lidar.",
+    "Unreviewed map and existing z=0/visual-road height difference.",
+    "Existing direct joint velocity actuation retained; authored joint force limit is not proof of commanded-state torque bounding."
+  ],
+  "visual_inspection": {
+    "full-nav-dwb-a01": [
+      "nav2-start.png",
+      "nav2-after-goal-02.png",
+      "nav2-stopped.png"
+    ],
+    "full-nav-dwb-a02": [
+      "nav2-stopped.png"
+    ],
+    "full-nav-dwb-a03": [
+      "nav2-after-goal-02.png"
+    ]
+  },
+  "strict_pose_checks_passed": 7,
+  "strict_repetitions_passed": 2,
+  "strict_stability_accepted": false,
+  "arrival_finding": "All nine actions succeeded, but a03 goals 1/2 had latest odometry errors 0.251970/0.264959 m when terminal status was received. Strict pose-at-success repeatability is not accepted. Stateful goal checker and rotation critic latch their near-goal state; controller decision time vs status receipt time must be distinguished.",
+  "source_references": [
+    "https://raw.githubusercontent.com/ros-navigation/navigation2/humble/nav2_controller/plugins/simple_goal_checker.cpp",
+    "https://raw.githubusercontent.com/ros-navigation/navigation2/humble/nav2_dwb_controller/dwb_critics/src/rotate_to_goal.cpp"
+  ],
+  "prior_rpp_runs": [
+    {
+      "job": "full-nav-a01",
+      "planner": "rpp",
+      "configured_goal_budget_s": 120.0,
+      "goals": [
+        {
+          "accepted": true,
+          "closest_approach_m": 0.193,
+          "cmd_sign_flip_rate_per_s": 0.0,
+          "cmd_sign_flips": 0,
+          "goal_xy_m": [
+            -35.5,
+            -26.0
+          ],
+          "index": 0,
+          "min_lethal_clearance_m": null,
+          "outcome": "reached",
+          "path_m": 8.439,
+          "result_status": 4,
+          "ring_hit": true,
+          "sim_time_s": 75.425
+        },
+        {
+          "accepted": true,
+          "closest_approach_m": 0.068,
+          "cmd_sign_flip_rate_per_s": 0.0,
+          "cmd_sign_flips": 0,
+          "goal_xy_m": [
+            -35.5,
+            -20.5
+          ],
+          "index": 1,
+          "min_lethal_clearance_m": null,
+          "outcome": "timeout",
+          "path_m": 8.914,
+          "result_status": null,
+          "ring_hit": true,
+          "sim_time_s": 120.908
+        },
+        {
+          "accepted": true,
+          "closest_approach_m": 0.087,
+          "cmd_sign_flip_rate_per_s": 0.0,
+          "cmd_sign_flips": 0,
+          "goal_xy_m": [
+            -30.0,
+            -21.5
+          ],
+          "index": 2,
+          "min_lethal_clearance_m": null,
+          "outcome": "reached",
+          "path_m": 5.89,
+          "result_status": 4,
+          "ring_hit": true,
+          "sim_time_s": 43.608
+        }
+      ],
+      "metrics": {
+        "final_goal_error_m": 0.08627564147947735,
+        "displacement_m": 0.08642229087716535,
+        "path_length_m": 23.28258080787758,
+        "final_speed_mps": 0.0011155511783584727,
+        "sim_duration_s": 268.88334735669196,
+        "cloud_count": 1324,
+        "nonempty_clouds": 1324,
+        "accumulated_abs_yaw_rad": 24.351816790890517,
+        "map_geometry": {
+          "min_center_clearance_m": 1.0041410135519102,
+          "min_circumscribed_footprint_clearance_m": 0.6713633099718777,
+          "center_samples_on_obstacles": 0,
+          "center_samples_unknown_or_outside": 0,
+          "center_samples_outside_selected_map": 0,
+          "clearance_method": "distance to raw obstacle/unsupported cell rectangles, conservatively capped at 2 m"
+        }
+      }
+    },
+    {
+      "job": "full-nav-a02",
+      "planner": "rpp",
+      "configured_goal_budget_s": 180.0,
+      "goals": [
+        {
+          "accepted": true,
+          "closest_approach_m": 0.195,
+          "cmd_sign_flip_rate_per_s": 0.0,
+          "cmd_sign_flips": 0,
+          "goal_xy_m": [
+            -35.5,
+            -26.0
+          ],
+          "index": 0,
+          "min_lethal_clearance_m": null,
+          "outcome": "reached",
+          "path_m": 8.469,
+          "result_status": 4,
+          "ring_hit": true,
+          "sim_time_s": 74.408
+        },
+        {
+          "accepted": true,
+          "closest_approach_m": 0.064,
+          "cmd_sign_flip_rate_per_s": 0.0,
+          "cmd_sign_flips": 0,
+          "goal_xy_m": [
+            -35.5,
+            -20.5
+          ],
+          "index": 1,
+          "min_lethal_clearance_m": null,
+          "outcome": "reached",
+          "path_m": 7.835,
+          "result_status": 4,
+          "ring_hit": true,
+          "sim_time_s": 93.0
+        },
+        {
+          "accepted": true,
+          "closest_approach_m": 0.242,
+          "cmd_sign_flip_rate_per_s": 0.0,
+          "cmd_sign_flips": 0,
+          "goal_xy_m": [
+            -30.0,
+            -21.5
+          ],
+          "index": 2,
+          "min_lethal_clearance_m": null,
+          "outcome": "reached",
+          "path_m": 5.38,
+          "result_status": 4,
+          "ring_hit": true,
+          "sim_time_s": 31.767
+        }
+      ],
+      "metrics": {
+        "final_goal_error_m": 0.2490381094596259,
+        "displacement_m": 0.24870176548752077,
+        "path_length_m": 21.717441045812887,
+        "final_speed_mps": 0.0018553088205528808,
+        "sim_duration_s": 223.5083449902013,
+        "cloud_count": 1101,
+        "nonempty_clouds": 1101,
+        "accumulated_abs_yaw_rad": 17.268085274180777,
+        "map_geometry": {
+          "min_center_clearance_m": 1.0457238575168235,
+          "min_circumscribed_footprint_clearance_m": 0.712946153936791,
+          "center_samples_on_obstacles": 0,
+          "center_samples_unknown_or_outside": 0,
+          "center_samples_outside_selected_map": 0,
+          "clearance_method": "distance to raw obstacle/unsupported cell rectangles, conservatively capped at 2 m"
+        }
+      }
+    }
+  ],
+  "comparison_caveat": "RPP a01 used 120s and goal2 timed out; a02 configured 180s but goal2 actually completed in 93s. Budget increase is not established as cause of success. DWB repetitions all use original 120s; conclusions are limited to this route.",
+  "runs": [
+    {
+      "job": "full-nav-dwb-a01",
+      "actions": [
+        {
+          "goal": [
+            -35.5,
+            -26.0
+          ],
+          "action_status": 4,
+          "goal_duration_sim_s": 56.092,
+          "sample_time_offset_s": -3.1822366963751847e-10,
+          "observed_xy_error_m": 0.22149725993655278,
+          "observed_yaw_error_rad": 0.2963121672346335,
+          "observed_within_original_tolerances": true
+        },
+        {
+          "goal": [
+            -35.5,
+            -20.5
+          ],
+          "action_status": 4,
+          "goal_duration_sim_s": 40.983,
+          "sample_time_offset_s": -4.675939635490067e-10,
+          "observed_xy_error_m": 0.24850445157924403,
+          "observed_yaw_error_rad": 0.2914334210122729,
+          "observed_within_original_tolerances": true
+        },
+        {
+          "goal": [
+            -30.0,
+            -21.5
+          ],
+          "action_status": 4,
+          "goal_duration_sim_s": 27.75,
+          "sample_time_offset_s": -3.544755600159988e-10,
+          "observed_xy_error_m": 0.1941114612599214,
+          "observed_yaw_error_rad": 0.29458347020052705,
+          "observed_within_original_tolerances": true
+        }
+      ],
+      "metrics": {
+        "final_goal_error_m": 0.2022851910744438,
+        "displacement_m": 0.2019372222790564,
+        "path_length_m": 18.960982773312967,
+        "final_speed_mps": 0.0012761207723361362,
+        "sim_duration_s": 153.5083413394168,
+        "cloud_count": 756,
+        "nonempty_clouds": 756,
+        "accumulated_abs_yaw_rad": 8.364924851813168,
+        "map_geometry": {
+          "min_center_clearance_m": 1.1465979048352777,
+          "min_circumscribed_footprint_clearance_m": 0.8138202012552451,
+          "center_samples_on_obstacles": 0,
+          "center_samples_unknown_or_outside": 0,
+          "center_samples_outside_selected_map": 0,
+          "clearance_method": "distance to raw obstacle/unsupported cell rectangles, conservatively capped at 2 m"
+        }
+      },
+      "archive_sha256": "0cc281d548fc35743cc2c45520a7039f55ccd498f9123d2960c26c4773eb5adb"
+    },
+    {
+      "job": "full-nav-dwb-a02",
+      "actions": [
+        {
+          "goal": [
+            -35.5,
+            -26.0
+          ],
+          "action_status": 4,
+          "goal_duration_sim_s": 55.075,
+          "sample_time_offset_s": 7.074163477227557e-11,
+          "observed_xy_error_m": 0.24352473528141047,
+          "observed_yaw_error_rad": 0.29618056424304223,
+          "observed_within_original_tolerances": true
+        },
+        {
+          "goal": [
+            -35.5,
+            -20.5
+          ],
+          "action_status": 4,
+          "goal_duration_sim_s": 38.033,
+          "sample_time_offset_s": 6.689049314445583e-11,
+          "observed_xy_error_m": 0.24190266361031368,
+          "observed_yaw_error_rad": 0.2917354992615317,
+          "observed_within_original_tolerances": true
+        },
+        {
+          "goal": [
+            -30.0,
+            -21.5
+          ],
+          "action_status": 4,
+          "goal_duration_sim_s": 27.692,
+          "sample_time_offset_s": -1.956550477189012e-10,
+          "observed_xy_error_m": 0.201118559763338,
+          "observed_yaw_error_rad": 0.2948342298932678,
+          "observed_within_original_tolerances": true
+        }
+      ],
+      "metrics": {
+        "final_goal_error_m": 0.20879906562873116,
+        "displacement_m": 0.2084474305538072,
+        "path_length_m": 18.80073550969343,
+        "final_speed_mps": 0.0023852975190597086,
+        "sim_duration_s": 146.4500076379627,
+        "cloud_count": 721,
+        "nonempty_clouds": 721,
+        "accumulated_abs_yaw_rad": 7.858199935208395,
+        "map_geometry": {
+          "min_center_clearance_m": 1.149276018938323,
+          "min_circumscribed_footprint_clearance_m": 0.8164983153582905,
+          "center_samples_on_obstacles": 0,
+          "center_samples_unknown_or_outside": 0,
+          "center_samples_outside_selected_map": 0,
+          "clearance_method": "distance to raw obstacle/unsupported cell rectangles, conservatively capped at 2 m"
+        }
+      },
+      "archive_sha256": "aeb46db435215743076553df3886fee77e091a9601003357a0cc933495ccca2a"
+    },
+    {
+      "job": "full-nav-dwb-a03",
+      "actions": [
+        {
+          "goal": [
+            -35.5,
+            -26.0
+          ],
+          "action_status": 4,
+          "goal_duration_sim_s": 55.017,
+          "sample_time_offset_s": -4.0381564758718014e-10,
+          "observed_xy_error_m": 0.25197030384324587,
+          "observed_yaw_error_rad": 0.2913546238454209,
+          "observed_within_original_tolerances": false
+        },
+        {
+          "goal": [
+            -35.5,
+            -20.5
+          ],
+          "action_status": 4,
+          "goal_duration_sim_s": 42.05,
+          "sample_time_offset_s": -4.875602144238655e-10,
+          "observed_xy_error_m": 0.26495892711729196,
+          "observed_yaw_error_rad": 0.2922672896167897,
+          "observed_within_original_tolerances": false
+        },
+        {
+          "goal": [
+            -30.0,
+            -21.5
+          ],
+          "action_status": 4,
+          "goal_duration_sim_s": 27.425,
+          "sample_time_offset_s": -3.2451907827635296e-10,
+          "observed_xy_error_m": 0.1929547034434481,
+          "observed_yaw_error_rad": 0.2961241154842054,
+          "observed_within_original_tolerances": true
+        }
+      ],
+      "metrics": {
+        "final_goal_error_m": 0.20061485797737919,
+        "displacement_m": 0.20026451180016924,
+        "path_length_m": 18.81694568300126,
+        "final_speed_mps": 0.0011616645950489031,
+        "sim_duration_s": 149.75834114383906,
+        "cloud_count": 738,
+        "nonempty_clouds": 738,
+        "accumulated_abs_yaw_rad": 7.941115450172029,
+        "map_geometry": {
+          "min_center_clearance_m": 1.1480601235607268,
+          "min_circumscribed_footprint_clearance_m": 0.8152824199806943,
+          "center_samples_on_obstacles": 0,
+          "center_samples_unknown_or_outside": 0,
+          "center_samples_outside_selected_map": 0,
+          "clearance_method": "distance to raw obstacle/unsupported cell rectangles, conservatively capped at 2 m"
+        }
+      },
+      "archive_sha256": "4f0613f40232d7ad15fe6a37e3c9ca3e63f45ab9aac563cba46d1d8d682c87fc"
+    }
+  ]
+}

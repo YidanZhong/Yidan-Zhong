@@ -1,0 +1,582 @@
+{
+  "task": "Local-Scene1-Reproduction / Scene1-FullMap-Completion",
+  "postprocessing_passed": true,
+  "execution": {
+    "scope": "diagnostic_only_not_benchmark",
+    "command": [
+      "cmd.exe",
+      "/d",
+      "/c",
+      "D:\\RAVEN-4060\\isaac45\\python.bat",
+      "D:\\RAVEN-4060\\setup\\full-post-v1\\postprocess_terrain_tiles.py",
+      "--dataset",
+      "D:\\RAVEN-4060\\logs\\full-scene-map-20261018",
+      "--output",
+      "D:\\RAVEN-4060\\logs\\full-post-a01-frames",
+      "--benchmark-package",
+      "D:\\RAVEN-4060\\setup\\tile-benchmark\\airground_benchmark",
+      "--targets",
+      "D:\\RAVEN-4060\\setup\\full-post-v1\\targets.binding-corrected.unreviewed.json",
+      "--reference-dir",
+      "D:\\RAVEN-4060\\logs\\tile-map-a01-frames"
+    ],
+    "limits": {
+      "job_memory_gib": 14.0,
+      "cpu_percent": 60,
+      "active_processes": 32,
+      "min_available_gib": 4,
+      "min_available_commit_gib": 2,
+      "max_gpu_fraction": 0.8,
+      "timeout_s": 3600.0,
+      "gpu_query_timeout_s": 8,
+      "max_missing_gpu_samples": 2,
+      "preflight_gpu_required": true
+    },
+    "initial": {
+      "available_gib": 20.834186553955078,
+      "available_commit_gib": 36.227909088134766,
+      "gpu_memory_fraction": 0.0,
+      "gpu_telemetry_consecutive_failures": 0,
+      "gpu_telemetry_error": null
+    },
+    "pid": 22280,
+    "exit_code": 0,
+    "status": "completed",
+    "result_json": "D:\\RAVEN-4060\\logs\\full-post-a01-frames\\report.json",
+    "diagnostic_status": "passed",
+    "peak_job_commit_gib": 2.959918975830078,
+    "elapsed_s": 133.05,
+    "gpu_telemetry_failures": 0,
+    "gpu_telemetry_last_error": null
+  },
+  "report": {
+    "contract_sha256": "02b4ffca99f0513e8be51037c0456674ab81528691fe410613999a785574a428",
+    "derivatives": {
+      "slope_rad": {
+        "max_abs_error": 0.0,
+        "outside_tolerance": 0,
+        "seam_outside_tolerance": 0,
+        "tolerance": 1e-05
+      },
+      "step_height_m": {
+        "max_abs_error": 0.0,
+        "outside_tolerance": 0,
+        "seam_outside_tolerance": 0,
+        "tolerance": 1e-05
+      }
+    },
+    "elapsed_s": 130.0460000000021,
+    "exports": {
+      "footprint": {
+        "nav2": {
+          "free_cells": 29275763,
+          "image_path": "D:\\RAVEN-4060\\logs\\full-post-a01-frames\\footprint\\footprint.unreviewed.pgm",
+          "image_sha256": "adbd3f856aee5a14d1b3fd0fe0b49e44f5e0495b2cf02c4e78e4796a61cf095e",
+          "occupied_cells": 2959741,
+          "status": "ok",
+          "unknown_cells": 0,
+          "yaml_path": "D:\\RAVEN-4060\\logs\\full-post-a01-frames\\footprint\\footprint.unreviewed.yaml",
+          "yaml_sha256": "114ec771d99033ec49a1e0b21b77cd8694b0cc034687bc938c0a601e1a6ec48d"
+        },
+        "npz_sha256": "68ae146fecb3a2470dd60c83b774c931b2e1fecbf343a8553db1b902d686eb60",
+        "validation": {
+          "checksum_sha256": "68ae146fecb3a2470dd60c83b774c931b2e1fecbf343a8553db1b902d686eb60",
+          "component_count": 260,
+          "frame": "map",
+          "resolution_m": 0.05,
+          "scene_id": "RetroNeighborhood",
+          "shape": [
+            4137,
+            7792
+          ],
+          "status": "ok",
+          "traversable_cells": 29275763
+        }
+      },
+      "reach": {
+        "nav2": {
+          "free_cells": 28880101,
+          "image_path": "D:\\RAVEN-4060\\logs\\full-post-a01-frames\\reach\\reach.unreviewed.pgm",
+          "image_sha256": "121385352a8a36d12f463eb1549be46ce3a014fdf3b6b4913bdbcb56ea88092b",
+          "occupied_cells": 3355403,
+          "status": "ok",
+          "unknown_cells": 0,
+          "yaml_path": "D:\\RAVEN-4060\\logs\\full-post-a01-frames\\reach\\reach.unreviewed.yaml",
+          "yaml_sha256": "c73f77fa839c3268c66fd9fb7755024ea85e1c3268939c202488638107da8965"
+        },
+        "npz_sha256": "b1dc10772e51b019aadbf0f7019e998cffb115c00dd4b07a998a8d987bcb2606",
+        "validation": {
+          "checksum_sha256": "b1dc10772e51b019aadbf0f7019e998cffb115c00dd4b07a998a8d987bcb2606",
+          "component_count": 63,
+          "frame": "map",
+          "resolution_m": 0.05,
+          "scene_id": "RetroNeighborhood",
+          "shape": [
+            4137,
+            7792
+          ],
+          "status": "ok",
+          "traversable_cells": 28880101
+        }
+      }
+    },
+    "files": {
+      "component-report.unreviewed.json": {
+        "bytes": 44305,
+        "sha256": "f9940d141e8180b4486d84a4ddb8fbd1ca5554c881ea7d86b4e078b6454f17ba"
+      },
+      "footprint/footprint.metadata.yaml": {
+        "bytes": 543,
+        "sha256": "e6a78941ae345628d19f76cadf27d7d82cb4ad1b238a087015f58906accf67e9"
+      },
+      "footprint/footprint.npz": {
+        "bytes": 5566916,
+        "sha256": "68ae146fecb3a2470dd60c83b774c931b2e1fecbf343a8553db1b902d686eb60"
+      },
+      "footprint/footprint.unreviewed.pgm": {
+        "bytes": 32235569,
+        "sha256": "adbd3f856aee5a14d1b3fd0fe0b49e44f5e0495b2cf02c4e78e4796a61cf095e"
+      },
+      "footprint/footprint.unreviewed.yaml": {
+        "bytes": 157,
+        "sha256": "dff732565549bec019933fc7d52061aa564ffded575e8cf0477e28219c9a8547"
+      },
+      "preview.npz": {
+        "bytes": 339057,
+        "sha256": "832a3f03933acc38e8facea235b685b4c39863b63120ac6ef1a5f4cb51217a1a"
+      },
+      "reach/reach.metadata.yaml": {
+        "bytes": 543,
+        "sha256": "e63eecad6e8e026272939f1c8cbee0c9f9e8dcecd8380d6bcd48505a5dfaa7f1"
+      },
+      "reach/reach.npz": {
+        "bytes": 5579346,
+        "sha256": "b1dc10772e51b019aadbf0f7019e998cffb115c00dd4b07a998a8d987bcb2606"
+      },
+      "reach/reach.unreviewed.pgm": {
+        "bytes": 32235569,
+        "sha256": "121385352a8a36d12f463eb1549be46ce3a014fdf3b6b4913bdbcb56ea88092b"
+      },
+      "reach/reach.unreviewed.yaml": {
+        "bytes": 153,
+        "sha256": "ab6a5008b38510b843a732c958ff6351aabe8dad01f1986927abab5fa1134824"
+      },
+      "selected/selected.unreviewed.pgm": {
+        "bytes": 32235569,
+        "sha256": "e066a67a5edbbd510a786faab50e01c4714fecfa30771e3c7add2f78d1d64094"
+      },
+      "selected/selected.unreviewed.yaml": {
+        "bytes": 156,
+        "sha256": "fe7637b6b49dbdeb70c879aff64bcc80ee69810a7cab907a7eb0d6d5bdad1614"
+      },
+      "terrain-metadata.json": {
+        "bytes": 481,
+        "sha256": "1a8622be43bd75437dd61b311e0fb8c6ba427f2dbd5108ffb0e290ff6a63baa7"
+      },
+      "terrain/ceiling_height.npy": {
+        "bytes": 128942144,
+        "sha256": "34cfbcbce48c3676ffc23011085f8a72556924dc91b7d6bc3b1203ddc1312aac"
+      },
+      "terrain/height.npy": {
+        "bytes": 128942144,
+        "sha256": "48648efe8fa4f114873ea9cab42e2fe898a144e866c536cf3bc12ca670d20a61"
+      },
+      "terrain/normal.npy": {
+        "bytes": 386826176,
+        "sha256": "0e3b2050c05d13dc38e150dfbb6300f58e717f45e396ce1d759fae8f15f2f902"
+      },
+      "terrain/obstacle_mask.npy": {
+        "bytes": 32235632,
+        "sha256": "c6f62dfd0b15173f4c0d3e2691aed0eefc4d6bca8b7587fa67e76c59cb753379"
+      },
+      "terrain/overhead_clearance_m.npy": {
+        "bytes": 128942144,
+        "sha256": "bb7b919e5f65dcd198798f8381bd1906e847fcfc3fd35b424850c61de8d12c59"
+      },
+      "terrain/slope_rad.npy": {
+        "bytes": 128942144,
+        "sha256": "d4d7e7e9605b9abd39a16bc142acc5e112156f3bd7cbcdbf0dd16e8bae889aa9"
+      },
+      "terrain/step_height_m.npy": {
+        "bytes": 128942144,
+        "sha256": "9ea255701ab48b29308d01fa3a8caa6035d9ebc3923bd133c655fe9bb6e1e681"
+      },
+      "terrain/support_mask.npy": {
+        "bytes": 32235632,
+        "sha256": "3d120508d3c750dd8356a8af610cce79387ca999952f56c4d323d9156ad6ba41"
+      }
+    },
+    "footprint_config": {
+      "blocked_cost": 1000000.0,
+      "footprint_length_m": 0.508,
+      "footprint_padding_m": null,
+      "footprint_report_sha256": null,
+      "footprint_source": "manual",
+      "footprint_width_m": 0.43,
+      "max_slope_rad": 0.2617993877991494,
+      "max_step_height_m": 0.05,
+      "min_overhead_clearance_m": 0.5,
+      "yaw_samples": 16
+    },
+    "footprint_summary": {
+      "blocked_cost": 1000000.0,
+      "component_count": 260,
+      "footprint_length_m": 0.508,
+      "footprint_source": "manual",
+      "footprint_width_m": 0.43,
+      "generator": "airground-jackal-footprint-sweep-v1",
+      "inflated_cells": 1434724,
+      "max_slope_rad": 0.2617993877991494,
+      "max_step_height_m": 0.05,
+      "min_overhead_clearance_m": 0.5,
+      "shape": [
+        4137,
+        7792
+      ],
+      "status": "ok",
+      "traversable_cells": 29275763,
+      "yaw_samples": 16
+    },
+    "formal_episode_count": 0,
+    "formal_gt_approved": false,
+    "full_diagnostic_map_generated": true,
+    "grid": {
+      "origin_xy_m": [
+        -168.55,
+        -130.9
+      ],
+      "resolution_m": 0.05,
+      "shape": [
+        4137,
+        7792
+      ],
+      "tile_cells": 256
+    },
+    "independent_real_window_comparison": [
+      {
+        "comparisons": {
+          "ceiling_height": {
+            "excluded_border_cells": 0,
+            "max_abs_error": 0.0,
+            "outside_tolerance": 0
+          },
+          "footprint": {
+            "excluded_border_cells": 12,
+            "outside_tolerance": 0
+          },
+          "height": {
+            "excluded_border_cells": 0,
+            "max_abs_error": 0.0,
+            "outside_tolerance": 0
+          },
+          "normal": {
+            "excluded_border_cells": 0,
+            "max_abs_error": 0.0,
+            "outside_tolerance": 0
+          },
+          "obstacle_mask": {
+            "excluded_border_cells": 0,
+            "max_abs_error": 0.0,
+            "outside_tolerance": 0
+          },
+          "overhead_clearance_m": {
+            "excluded_border_cells": 0,
+            "max_abs_error": 0.0,
+            "outside_tolerance": 0
+          },
+          "reach": {
+            "excluded_border_cells": 12,
+            "outside_tolerance": 0
+          },
+          "slope_rad": {
+            "excluded_border_cells": 1,
+            "max_abs_error": 0.0,
+            "outside_tolerance": 0
+          },
+          "step_height_m": {
+            "excluded_border_cells": 1,
+            "max_abs_error": 0.0,
+            "outside_tolerance": 0
+          },
+          "support_mask": {
+            "excluded_border_cells": 0,
+            "max_abs_error": 0.0,
+            "outside_tolerance": 0
+          }
+        },
+        "reference_npz_sha256": "9e98722248e63906380b0909efb459e884d7cb854d6114362731169939cc2b60",
+        "window": 0
+      },
+      {
+        "comparisons": {
+          "ceiling_height": {
+            "excluded_border_cells": 0,
+            "max_abs_error": 0.0,
+            "outside_tolerance": 0
+          },
+          "footprint": {
+            "excluded_border_cells": 12,
+            "outside_tolerance": 0
+          },
+          "height": {
+            "excluded_border_cells": 0,
+            "max_abs_error": 0.0,
+            "outside_tolerance": 0
+          },
+          "normal": {
+            "excluded_border_cells": 0,
+            "max_abs_error": 0.0,
+            "outside_tolerance": 0
+          },
+          "obstacle_mask": {
+            "excluded_border_cells": 0,
+            "max_abs_error": 0.0,
+            "outside_tolerance": 0
+          },
+          "overhead_clearance_m": {
+            "excluded_border_cells": 0,
+            "max_abs_error": 0.0,
+            "outside_tolerance": 0
+          },
+          "reach": {
+            "excluded_border_cells": 12,
+            "outside_tolerance": 0
+          },
+          "slope_rad": {
+            "excluded_border_cells": 1,
+            "max_abs_error": 0.0,
+            "outside_tolerance": 0
+          },
+          "step_height_m": {
+            "excluded_border_cells": 1,
+            "max_abs_error": 0.0,
+            "outside_tolerance": 0
+          },
+          "support_mask": {
+            "excluded_border_cells": 0,
+            "max_abs_error": 0.0,
+            "outside_tolerance": 0
+          }
+        },
+        "reference_npz_sha256": "5437b96b429574989f4a4ec52be9d0efa486094e8fd57094b563c49c8b04fb52",
+        "window": 1
+      }
+    ],
+    "input_dataset": "D:\\RAVEN-4060\\logs\\full-scene-map-20261018",
+    "limitations": [
+      "Uses actual PhysX data but postprocessing itself does not run robot dynamics.",
+      "No teacher map comparison or human target review; geometry candidates are not scoring eligible.",
+      "Reach labels use existing 8-connectivity; live navigation and corner-clearance validation remain pending.",
+      "Reference-window comparisons exclude local boundary influence; no full monolithic raycast reference.",
+      "z=0 support plane and existing collider approximations retained from sampled scene."
+    ],
+    "reach_summary": {
+      "clearance_margin_m": 0.1075,
+      "component_cell_counts": [
+        27551898,
+        72280,
+        69148,
+        1173,
+        9616,
+        67,
+        169,
+        162,
+        163428,
+        1,
+        130628,
+        23,
+        13,
+        19,
+        6,
+        3,
+        68,
+        50441,
+        1765,
+        4,
+        36,
+        1,
+        73287,
+        48197,
+        50566,
+        62433,
+        34,
+        6,
+        85,
+        49284,
+        2,
+        3,
+        3,
+        101,
+        1728,
+        3,
+        3,
+        45350,
+        86,
+        30,
+        27,
+        20,
+        1,
+        49,
+        1,
+        1,
+        453,
+        21,
+        47733,
+        73569,
+        65832,
+        64392,
+        69539,
+        49332,
+        47440,
+        2080,
+        17,
+        1852,
+        936,
+        9615,
+        9615,
+        9714,
+        45712
+      ],
+      "component_count": 63,
+      "corridor_width_m": 0.645,
+      "footprint_width_m": 0.43,
+      "min_clearance_m": 0.111803,
+      "passable_cells": 28880101,
+      "reach_rule": "corridor_1p5x_ugv_width"
+    },
+    "reference_comparison_passed": true,
+    "scene_sha256": "2a7141ce928c432f031f78a6b1c3798eaa932431d5a1735f8bad513694afce32",
+    "scope": "private_diagnostic_full_map_not_formal_gt",
+    "selected_component": {
+      "area_m2": 68879.745,
+      "bound_target_count": 31,
+      "cell_count": 27551898,
+      "component_id": 0,
+      "target_count": 31,
+      "target_ids": [
+        "RetroNeighborhood.billboard.0000",
+        "RetroNeighborhood.billboard.0001",
+        "RetroNeighborhood.billboard.0002",
+        "RetroNeighborhood.billboard.0003",
+        "RetroNeighborhood.blue_container.0000",
+        "RetroNeighborhood.blue_container.0001",
+        "RetroNeighborhood.bus_stop.0000",
+        "RetroNeighborhood.bus_stop.0001",
+        "RetroNeighborhood.bus_stop.0002",
+        "RetroNeighborhood.house.0000",
+        "RetroNeighborhood.house.0001",
+        "RetroNeighborhood.house.0002",
+        "RetroNeighborhood.house.0003",
+        "RetroNeighborhood.house.0004",
+        "RetroNeighborhood.house.0005",
+        "RetroNeighborhood.house.0006",
+        "RetroNeighborhood.house.0007",
+        "RetroNeighborhood.house.0008",
+        "RetroNeighborhood.house.0009",
+        "RetroNeighborhood.house.0010",
+        "RetroNeighborhood.house.0011",
+        "RetroNeighborhood.house.0012",
+        "RetroNeighborhood.house.0013",
+        "RetroNeighborhood.house.0014",
+        "RetroNeighborhood.house.0015",
+        "RetroNeighborhood.house.0016",
+        "RetroNeighborhood.house.0017",
+        "RetroNeighborhood.red_car.0000",
+        "RetroNeighborhood.red_container.0000",
+        "RetroNeighborhood.tunnel.0000",
+        "RetroNeighborhood.yellow_car.0000"
+      ]
+    },
+    "selected_nav2": {
+      "free_cells": 27551898,
+      "image_path": "D:\\RAVEN-4060\\logs\\full-post-a01-frames\\selected\\selected.unreviewed.pgm",
+      "image_sha256": "e066a67a5edbbd510a786faab50e01c4714fecfa30771e3c7add2f78d1d64094",
+      "occupied_cells": 4683606,
+      "status": "ok",
+      "unknown_cells": 0,
+      "yaml_path": "D:\\RAVEN-4060\\logs\\full-post-a01-frames\\selected\\selected.unreviewed.yaml",
+      "yaml_sha256": "cf429bf0b5178b17571ca9adccb50a9cd2dad85b77e35b7ea89658f433c0077a"
+    },
+    "source_sha256": {
+      "postprocess_terrain_tiles.py": "89db9ed79b4e8dd71a666847d423c9828a60d925c0258047b4d2e603568b6ebb",
+      "traversability.py": "2b63483138f1949bd7fb1fff880ec05f0ee8036ff2f47aa3d9a6e9b9c17218e4"
+    },
+    "status": "passed",
+    "stitch": {
+      "all_8_fields_disk_readback_equal": true,
+      "cells": 32235504,
+      "coverage_exactly_once": true,
+      "tiles": 527
+    },
+    "targets_sha256": "53c5930607ebd0a4bae94ff1587fd8f7d550828dcad93390a6d666679e302f6e",
+    "terrain_summary": {
+      "generator": "airground-isaac-raycast-terrain-grid-v1",
+      "height_max_m": 0.9999990463256836,
+      "height_min_m": -2.956390380859375e-05,
+      "obstacle_band_max_height_m": 1.0,
+      "obstacle_band_min_height_m": 0.05,
+      "obstacle_cells": 1398082,
+      "overhead_clearance_min_m": 0.010000050067901611,
+      "shape": [
+        4137,
+        7792
+      ],
+      "slope_max_rad": 1.5001721382141113,
+      "status": "ok",
+      "step_height_max_m": 0.9999990463256836,
+      "support_cells": 32235504,
+      "traversable_seed_cells": 30837422
+    }
+  },
+  "local_export_checks": {
+    "footprint": {
+      "pgm_orientation_and_all_cells_match": true,
+      "free_cells": 29275763
+    },
+    "reach": {
+      "pgm_orientation_and_all_cells_match": true,
+      "free_cells": 28880101
+    },
+    "selected": {
+      "pgm_orientation_and_all_cells_match": true,
+      "free_cells": 27551898
+    }
+  },
+  "tests": {
+    "stitch_checks_passed": 2,
+    "command": "python -m unittest discover -s tests -p test_terrain_tile_stitch.py -v",
+    "environments": [
+      "main PC bundled Python",
+      "RTX 4060 Isaac 4.5 Python"
+    ],
+    "scope": "disk assembly checks, separate from real PhysX data comparisons"
+  },
+  "transferred_non_terrain_files_hashes_verified": true,
+  "archive_sha256": "56352976dd690e1076b70ec3cc7d1773dbb6f39142b02122f65a68e4a45d82d7",
+  "original_terrain_location": "D:/RAVEN-4060/logs/full-post-a01-frames/terrain",
+  "postrun_cli_hardening": {
+    "change": "Refuse pre-existing output before exception handler to preserve old reports; numerical processing unchanged.",
+    "current_source_sha256": "b5fcdf9c407f5e7b00d141b5b2f5378a499b0caa9769ff55fb9396e33bb97e57",
+    "validation": "Local 3-test suite including pre-existing report preservation; runtime numerical source snapshot retained separately."
+  },
+  "formal_gt_approved": false,
+  "formal_episode_count": 0,
+  "visual_qa": {
+    "images": [
+      "full-map-overview.png",
+      "target-coverage.png"
+    ],
+    "result": "Directly inspected both plots; readable axes, distinct map categories and target numbers; close labels 1/2 and 3/4 separated and re-inspected.",
+    "browser_render": "Not performed; local file browser automation unavailable.",
+    "scope": "Overview is downsampled for display; checks operate on original full-resolution arrays."
+  },
+  "cleanup": {
+    "active_raven_processes": 0,
+    "removed_tasks": [
+      "RAVEN-FullMap-Postprocess-20261019",
+      "RAVEN-Scene1-FullMap-20261018"
+    ],
+    "observed_at": "2026-10-19T03:52:14.6764143+08:00",
+    "data_retained": true
+  }
+}

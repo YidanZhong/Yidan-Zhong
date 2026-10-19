@@ -1,0 +1,420 @@
+{
+  "task": "Local-Scene1-Reproduction / Jackal-ROS-Motion",
+  "date": "2026-10-18",
+  "passed": true,
+  "scope": "Real wheel motion over Windows/WSL ROS, no Nav2 or benchmark",
+  "robot_motion_verified": true,
+  "nav2_verified": false,
+  "scene1_reproduced": false,
+  "real_episode_count": 0,
+  "simulator": "Isaac Sim 4.5.0 native Windows",
+  "ros": "Humble / rmw_fastrtps_cpp / domain 42",
+  "hardware": "RTX 4060 Laptop 8 GiB / 32 GiB RAM / driver 577.02",
+  "scene_sha256": "2a7141ce928c432f031f78a6b1c3798eaa932431d5a1735f8bad513694afce32",
+  "robot_setup": {
+    "physics_profile": {
+      "meters_per_unit": 1.0,
+      "up_axis": "Z",
+      "gravity_magnitude": 9.81,
+      "physics_scene": "/World/PhysicsScene",
+      "physx_schema_available": true,
+      "physx_scene_attrs": {
+        "TimeStepsPerSecond": 120,
+        "SolverType": "TGS",
+        "BroadphaseType": "MBP",
+        "EnableCCD": true,
+        "EnableStabilization": true,
+        "EnableGPUDynamics": false
+      },
+      "ground_material_bindings": 545,
+      "obstacle_material_bindings": 3733,
+      "contact_offsets": 4278,
+      "rest_offsets": 4278,
+      "skipped": 2
+    },
+    "support_plane": {
+      "center_m": [
+        -24.0,
+        0.0,
+        0.0
+      ],
+      "collision_enabled": true,
+      "geometry": "plane",
+      "physics_geometry": "PxPlaneGeometry",
+      "surface_infinite": true,
+      "material_bound": true,
+      "material_path": "/World/PhysicsMaterials/airground_ground_contact",
+      "mode": "static_ground_support_plane",
+      "physx_collision_api_applied": true,
+      "physx_collision_attrs": {
+        "ContactOffset": 0.004,
+        "RestOffset": 0.0
+      },
+      "prim_path": "/World/AirGroundGroundSupportPlane",
+      "legacy_box_size_m": [
+        128.0,
+        128.0,
+        0.04
+      ],
+      "size_m": [
+        128.0,
+        128.0,
+        0.04
+      ],
+      "top_z_m": 0.0
+    },
+    "contact": {
+      "contact_offset_m": 0.004,
+      "rest_offset_m": 0.0,
+      "collider_count": 4,
+      "links": [
+        {
+          "link_path": "/World/ugv/front_left_wheel_link",
+          "colliders": [
+            {
+              "prim_path": "/World/ugv/front_left_wheel_link/collisions",
+              "ContactOffset": 0.004000000189989805,
+              "RestOffset": 0.0,
+              "status": "ok"
+            }
+          ],
+          "status": "ok"
+        },
+        {
+          "link_path": "/World/ugv/front_right_wheel_link",
+          "colliders": [
+            {
+              "prim_path": "/World/ugv/front_right_wheel_link/collisions",
+              "ContactOffset": 0.004000000189989805,
+              "RestOffset": 0.0,
+              "status": "ok"
+            }
+          ],
+          "status": "ok"
+        },
+        {
+          "link_path": "/World/ugv/rear_left_wheel_link",
+          "colliders": [
+            {
+              "prim_path": "/World/ugv/rear_left_wheel_link/collisions",
+              "ContactOffset": 0.004000000189989805,
+              "RestOffset": 0.0,
+              "status": "ok"
+            }
+          ],
+          "status": "ok"
+        },
+        {
+          "link_path": "/World/ugv/rear_right_wheel_link",
+          "colliders": [
+            {
+              "prim_path": "/World/ugv/rear_right_wheel_link/collisions",
+              "ContactOffset": 0.004000000189989805,
+              "RestOffset": 0.0,
+              "status": "ok"
+            }
+          ],
+          "status": "ok"
+        }
+      ],
+      "status": "ok"
+    },
+    "solver": {
+      "articulation_prim_path": "/World/ugv",
+      "requested": {
+        "solver_position_iteration_count": 16,
+        "solver_velocity_iteration_count": 4
+      },
+      "applied": {
+        "solver_position_iteration_count": 16,
+        "solver_velocity_iteration_count": 4
+      },
+      "status": "ok",
+      "has_articulation_api_before": true
+    },
+    "traction": {
+      "requested": {
+        "dynamic_friction": 0.6,
+        "friction_combine_mode": "min",
+        "max_torque_nm": 8.0,
+        "static_friction": 0.7
+      },
+      "materials": [
+        {
+          "path": "/World/ugv/PhysicsMaterials/wheels",
+          "applied": {
+            "static_friction": 0.699999988079071,
+            "dynamic_friction": 0.6000000238418579,
+            "restitution": 0.0,
+            "friction_combine_mode": "min"
+          },
+          "status": "ok"
+        },
+        {
+          "path": "/World/PhysicsMaterials/airground_ground_contact",
+          "applied": {
+            "static_friction": 1.0,
+            "dynamic_friction": 0.800000011920929,
+            "restitution": 0.0,
+            "friction_combine_mode": "min"
+          },
+          "status": "ok"
+        }
+      ],
+      "wheel_joints": [
+        {
+          "joint_path": "/World/ugv/front_left_wheel_joint",
+          "max_force_before": 8.0,
+          "max_force_after": 8.0,
+          "status": "ok"
+        },
+        {
+          "joint_path": "/World/ugv/front_right_wheel_joint",
+          "max_force_before": 8.0,
+          "max_force_after": 8.0,
+          "status": "ok"
+        },
+        {
+          "joint_path": "/World/ugv/rear_left_wheel_joint",
+          "max_force_before": 8.0,
+          "max_force_after": 8.0,
+          "status": "ok"
+        },
+        {
+          "joint_path": "/World/ugv/rear_right_wheel_joint",
+          "max_force_before": 8.0,
+          "max_force_after": 8.0,
+          "status": "ok"
+        }
+      ],
+      "status": "ok"
+    },
+    "asset_sha256": "654ea22bf42518e948cd82e43b09a5be5832652d42d8d583405bbcdc091dedad",
+    "spawn": [
+      -30.0,
+      -21.5,
+      0.45,
+      0.0
+    ],
+    "drive": {
+      "wheel_radius": 0.098,
+      "track_width": 0.37559,
+      "wheel_velocity_scale": 1.0,
+      "angular_velocity_scale": 4.0,
+      "max_angular_radps": 4.0,
+      "wheel_joint_names": [
+        "front_left_wheel_joint",
+        "front_right_wheel_joint",
+        "rear_left_wheel_joint",
+        "rear_right_wheel_joint"
+      ]
+    },
+    "drive_source_sha256": "226bee1201513abdf83a72bf329b7532652d6024d0cf60e2f2c740b1992e48ed",
+    "control": "set_joint_velocities on four wheel DOFs; no body pose writes during motion"
+  },
+  "execution": {
+    "scope": "diagnostic_only_not_benchmark",
+    "command": [
+      "cmd.exe",
+      "/d",
+      "/c",
+      "D:\\RAVEN-4060\\isaac45\\python.bat",
+      "D:\\RAVEN-4060\\setup\\probe-jackal-motion-a03.py",
+      "--output",
+      "D:\\RAVEN-4060\\logs\\jackal-motion-a03-frames",
+      "--graphics-api",
+      "vulkan",
+      "--defer-stage",
+      "--cpu-threads",
+      "16",
+      "--shader-concurrency",
+      "1",
+      "--gui",
+      "--disable-motion-bvh",
+      "--async-loads",
+      "--first-frame-timeout",
+      "480",
+      "--camera-size",
+      "960",
+      "600",
+      "--scene",
+      "D:\\RAVEN-4060\\source\\AirStack\\scenes\\RetroNeighborhood\\RetroNeighborhood_Export.usd",
+      "--ros2-seconds",
+      "120",
+      "--ros2-run-id",
+      "jackal-motion-a03-20261018",
+      "--jackal-usd",
+      "D:\\RAVEN-4060\\source\\AirStack\\simulation\\isaac-sim\\assets\\robots\\jackal_airground.usda",
+      "--air-stack-root",
+      "D:\\RAVEN-4060\\source\\AirStack",
+      "--jackal-spawn",
+      "-30",
+      "-21.5",
+      ".45",
+      "0"
+    ],
+    "limits": {
+      "job_memory_gib": 14.0,
+      "cpu_percent": 60,
+      "active_processes": 32,
+      "min_available_gib": 4,
+      "min_available_commit_gib": 2,
+      "max_gpu_fraction": 0.8,
+      "timeout_s": 720.0
+    },
+    "initial": {
+      "available_gib": 19.601173400878906,
+      "available_commit_gib": 34.17311096191406,
+      "gpu_memory_fraction": 0.0
+    },
+    "pid": 32728,
+    "exit_code": 0,
+    "status": "completed",
+    "result_json": "D:\\RAVEN-4060\\logs\\jackal-motion-a03-frames\\report.json",
+    "diagnostic_status": "passed",
+    "peak_job_commit_gib": 10.714885711669922,
+    "elapsed_s": 83.25
+  },
+  "metrics": {
+    "forward_distance_m": 0.9762344843330051,
+    "turn_angle_rad": 0.8606957151082841,
+    "max_stopped_speed_mps": 0.0027296998237442164,
+    "watchdog_stopped": true,
+    "elapsed_sim_s": 19.00000099092722,
+    "max_abs_roll_rad": 1.5716869512898643e-05
+  },
+  "checks": {
+    "odom_received": 357,
+    "tf_received": 357,
+    "physx_odom_tf_exact_matches": 357,
+    "clock_received": 357,
+    "clock_monotonic": true,
+    "clock_publishers": 1,
+    "static_map_to_odom": true,
+    "commands_received": 325,
+    "watchdog_interventions": 102,
+    "max_stopped_abs_yaw_rate_radps": 0.0029961157124489546,
+    "pose_time_monotonic": true
+  },
+  "resources": {
+    "min_available_gib": 13.746036529541016,
+    "min_commit_headroom_gib": 23.341609954833984,
+    "peak_gpu_gib": 3.3994140625
+  },
+  "previous_attempt": {
+    "id": "jackal-motion-a01",
+    "metrics": {
+      "forward_distance_m": 0.9770393372252256,
+      "turn_angle_rad": 0.9100403477634085,
+      "max_stopped_speed_mps": 0.002488367651356978,
+      "watchdog_stopped": true,
+      "elapsed_sim_s": 18.966667655855417,
+      "max_abs_roll_rad": 1.9422623375613964e-05
+    },
+    "result": "Failed unchanged: final throttled sample was 18.9667 s, below 19 s duration gate. Final sampling fixed and real run repeated; thresholds unchanged."
+  },
+  "aborted_attempt": {
+    "id": "jackal-motion-a02",
+    "execution": {
+      "scope": "diagnostic_only_not_benchmark",
+      "command": [
+        "cmd.exe",
+        "/d",
+        "/c",
+        "D:\\RAVEN-4060\\isaac45\\python.bat",
+        "D:\\RAVEN-4060\\setup\\probe-jackal-motion-a02.py",
+        "--output",
+        "D:\\RAVEN-4060\\logs\\jackal-motion-a02-frames",
+        "--graphics-api",
+        "vulkan",
+        "--defer-stage",
+        "--cpu-threads",
+        "16",
+        "--shader-concurrency",
+        "1",
+        "--gui",
+        "--disable-motion-bvh",
+        "--async-loads",
+        "--first-frame-timeout",
+        "480",
+        "--camera-size",
+        "960",
+        "600",
+        "--scene",
+        "D:\\RAVEN-4060\\source\\AirStack\\scenes\\RetroNeighborhood\\RetroNeighborhood_Export.usd",
+        "--ros2-seconds",
+        "120",
+        "--ros2-run-id",
+        "jackal-motion-a02-20261018",
+        "--jackal-usd",
+        "D:\\RAVEN-4060\\source\\AirStack\\simulation\\isaac-sim\\assets\\robots\\jackal_airground.usda",
+        "--air-stack-root",
+        "D:\\RAVEN-4060\\source\\AirStack",
+        "--jackal-spawn",
+        "-30",
+        "-21.5",
+        ".45",
+        "0"
+      ],
+      "limits": {
+        "job_memory_gib": 14.0,
+        "cpu_percent": 60,
+        "active_processes": 32,
+        "min_available_gib": 4,
+        "min_available_commit_gib": 2,
+        "max_gpu_fraction": 0.8,
+        "timeout_s": 720.0
+      },
+      "initial": {
+        "available_gib": 19.37173080444336,
+        "available_commit_gib": 33.94608688354492,
+        "gpu_memory_fraction": 0.0
+      },
+      "pid": 27084,
+      "status": "guard_or_launch_failed",
+      "error": "Command '['nvidia-smi', '--query-gpu=memory.used,memory.total', '--format=csv,noheader,nounits']' timed out after 8 seconds",
+      "peak_job_commit_gib": 9.307788848876953,
+      "elapsed_s": 55.66
+    },
+    "reason": "GPU telemetry nvidia-smi exceeded its 8-second deadline; guard stopped the process. Query recovered, same guards retained for retry."
+  },
+  "limitations": [
+    "Odometry and TF come from actual PhysX rigid-body state, not encoders or localization.",
+    "Map to odom is an explicit diagnostic identity. No Nav2 action was sent.",
+    "120 Hz CPU physics and benchmark support plane/traction; not the full benchmark runtime.",
+    "Screenshots use an external diagnostic camera; onboard sensors and obstacle cloud remain pending."
+  ],
+  "nav2_next_dependencies": [
+    "Publish obstacle PointCloud2 with its actual sensor TF.",
+    "Generate a diagnostic navigability map or obtain reviewed map for exact paper replication.",
+    "Integrate existing Nav2 launch, lifecycle and NavigateToPose; preserve simulation clock.",
+    "Teacher-reviewed GT/map/episode inputs required for comparable formal benchmark."
+  ],
+  "cleanup": {
+    "isolated_wsl_stopped": true,
+    "task_removed": true,
+    "processes": [],
+    "temporary_firewall_rules_removed": true,
+    "checked_at": "2026-10-18T19:39:18.8246569+08:00",
+    "ros_peer_absent": true,
+    "vpn_configuration_changed": false
+  },
+  "images": [
+    {
+      "file": "jackal-start.png",
+      "sha256": "1c108ffbfe2a9fe0dc69ccd72b1e8e1441297f18158203ce4f3e156b1c732160"
+    },
+    {
+      "file": "jackal-forward.png",
+      "sha256": "1c8da1e13c1b066a9b1fc120164266529797b123b37dfc4d27443a3bdce12112"
+    },
+    {
+      "file": "jackal-turn.png",
+      "sha256": "4bfac125ceca7de46a310f1ad680fc549a2951c70b0e2b8f49bd2901780bee41"
+    },
+    {
+      "file": "jackal-stopped.png",
+      "sha256": "4aa61e9f08c50164771c00e94a5774d0d1db97ec9004703814c468391eace2c3"
+    }
+  ]
+}

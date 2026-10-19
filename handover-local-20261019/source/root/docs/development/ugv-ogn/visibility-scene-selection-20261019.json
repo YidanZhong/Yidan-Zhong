@@ -1,0 +1,14 @@
+{
+  "scope": "CPU scene selection and provenance implementation; real S8 pending",
+  "commit": "250474bc",
+  "source_sha256": "a5cda990664c96c1c302e6371d1179d0a85427921cf7bdcb56c143241c43082b",
+  "checks_passed": 7,
+  "validation_command": "python -m pytest -q AirStack/simulation/isaac-sim/tests/test_visibility_scene_selection.py AirStack/simulation/isaac-sim/tests/test_asset_reports.py -k \"visibility_scene_selection or confirmation_visibility_raycast_runner\"",
+  "exit_code": 0,
+  "formal_accepted": false,
+  "protocol_parameters_changed": false,
+  "running_frozen_sources_changed": false,
+  "reference_projection": "explicit opt-in, source default prim to chosen mount; in-memory paths only",
+  "projection_evidence": "runs/additional_scene_preflight_20261019/reference-projection-check.json",
+  "runtime_execution": "not yet performed for this shared launcher tool"
+}

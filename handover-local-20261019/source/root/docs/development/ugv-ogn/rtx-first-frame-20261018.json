@@ -1,0 +1,867 @@
+{
+  "task": "Local-Scene1-Reproduction / RTX-First-Frame / Screenshots",
+  "date": "2026-10-18",
+  "scope": "Real native Isaac 4.5 diagnostics, not a benchmark acceptance",
+  "hardware": "Second PC RTX 4060 Laptop 8 GiB, 32 GiB RAM, Windows 11, NVIDIA 577.02",
+  "runs": [
+    {
+      "id": "cube-a09",
+      "execution": {
+        "scope": "diagnostic_only_not_benchmark",
+        "command": [
+          "cmd.exe",
+          "/d",
+          "/c",
+          "D:\\RAVEN-4060\\isaac45\\python.bat",
+          "D:\\RAVEN-4060\\setup\\probe_windows_scene_render.py",
+          "--output",
+          "D:\\RAVEN-4060\\logs\\cube-a09-frames",
+          "--graphics-api",
+          "vulkan",
+          "--defer-stage",
+          "--cpu-threads",
+          "16",
+          "--shader-concurrency",
+          "2"
+        ],
+        "limits": {
+          "job_memory_gib": 10.0,
+          "cpu_percent": 60,
+          "active_processes": 32,
+          "min_available_gib": 4,
+          "max_gpu_fraction": 0.8,
+          "timeout_s": 420.0
+        },
+        "initial": {
+          "available_gib": 20.138687133789062,
+          "available_commit_gib": 18.763473510742188,
+          "gpu_memory_fraction": 0.0
+        },
+        "pid": 46260,
+        "status": "guard_or_launch_failed",
+        "error": "Diagnostic wall-clock timeout",
+        "peak_job_commit_gib": 9.714500427246094,
+        "elapsed_s": 420.78
+      },
+      "report": null,
+      "last_progress": {
+        "scope": "render_and_physics_diagnostic_only",
+        "benchmark_accepted": false,
+        "scene": "diagnostic_cube",
+        "frames": [],
+        "graphics_api_requested": "vulkan",
+        "cpu_threads": 16,
+        "shader_concurrency": 2,
+        "defer_stage": true,
+        "gui": false,
+        "script_sha256": "c154a98106ffeba0a0f5cc94d61a4d0f49ff0c33c7a2762c1627544e424d5df6",
+        "vulkan_driver_filter": "nv-vk64.json",
+        "phase": "waiting_for_camera_frame",
+        "elapsed_s": 35.46800000000076,
+        "isaac_app_version": "4.5.0",
+        "stage_prims": 10,
+        "cube_initial_z": 1.5,
+        "warmup_step": 75,
+        "cube_final_z": 0.2499997913837433,
+        "physics_passed": true
+      },
+      "minimum_available_gib": 12.81075668334961,
+      "minimum_commit_headroom_gib": 8.717445373535156,
+      "maximum_gpu_memory_fraction": 0.04201270151441133,
+      "compiler_out_of_memory": false
+    },
+    {
+      "id": "cube-a10",
+      "execution": {
+        "scope": "diagnostic_only_not_benchmark",
+        "command": [
+          "cmd.exe",
+          "/d",
+          "/c",
+          "D:\\RAVEN-4060\\isaac45\\python.bat",
+          "D:\\RAVEN-4060\\setup\\probe_windows_scene_render.py",
+          "--output",
+          "D:\\RAVEN-4060\\logs\\cube-a10-frames",
+          "--graphics-api",
+          "vulkan",
+          "--defer-stage",
+          "--cpu-threads",
+          "16",
+          "--shader-concurrency",
+          "2",
+          "--gui",
+          "--first-frame-timeout",
+          "360"
+        ],
+        "limits": {
+          "job_memory_gib": 10.0,
+          "cpu_percent": 60,
+          "active_processes": 32,
+          "min_available_gib": 4,
+          "max_gpu_fraction": 0.8,
+          "timeout_s": 600.0
+        },
+        "initial": {
+          "available_gib": 20.464370727539062,
+          "available_commit_gib": 18.502887725830078,
+          "gpu_memory_fraction": 0.0
+        },
+        "pid": 32008,
+        "status": "guard_or_launch_failed",
+        "error": "Host memory reserve exhausted",
+        "peak_job_commit_gib": 10.000640869140625,
+        "elapsed_s": 38.83
+      },
+      "report": null,
+      "last_progress": {
+        "scope": "render_and_physics_diagnostic_only",
+        "benchmark_accepted": false,
+        "scene": "diagnostic_cube",
+        "frames": [],
+        "graphics_api_requested": "vulkan",
+        "cpu_threads": 16,
+        "shader_concurrency": 2,
+        "defer_stage": true,
+        "gui": true,
+        "renderer": "RayTracedLighting",
+        "sync_loads": true,
+        "script_sha256": "c51962ed158f76910e209a974a825fbfa5d44152de619a6f09c800e4c6fd39c8",
+        "vulkan_driver_filter": "nv-vk64.json",
+        "phase": "waiting_for_camera_frame",
+        "elapsed_s": 14.281000000000859,
+        "isaac_app_version": "4.5.0",
+        "stage_prims": 10,
+        "cube_initial_z": 1.5,
+        "warmup_step": 75,
+        "cube_final_z": 0.2499997913837433,
+        "physics_passed": true
+      },
+      "minimum_available_gib": 11.818984985351562,
+      "minimum_commit_headroom_gib": 0.6365852355957031,
+      "maximum_gpu_memory_fraction": 0.07364435759648266,
+      "compiler_out_of_memory": true
+    },
+    {
+      "id": "cube-a11",
+      "execution": {
+        "scope": "diagnostic_only_not_benchmark",
+        "command": [
+          "cmd.exe",
+          "/d",
+          "/c",
+          "D:\\RAVEN-4060\\isaac45\\python.bat",
+          "D:\\RAVEN-4060\\setup\\probe-cube-a11.py",
+          "--output",
+          "D:\\RAVEN-4060\\logs\\cube-a11-frames",
+          "--graphics-api",
+          "vulkan",
+          "--defer-stage",
+          "--cpu-threads",
+          "16",
+          "--shader-concurrency",
+          "1",
+          "--gui",
+          "--renderer",
+          "PathTracing",
+          "--async-loads",
+          "--first-frame-timeout",
+          "300"
+        ],
+        "limits": {
+          "job_memory_gib": 10.0,
+          "cpu_percent": 60,
+          "active_processes": 32,
+          "min_available_gib": 4,
+          "max_gpu_fraction": 0.8,
+          "timeout_s": 420.0
+        },
+        "initial": {
+          "available_gib": 20.571029663085938,
+          "available_commit_gib": 18.597332000732422,
+          "gpu_memory_fraction": 0.0
+        },
+        "pid": 50008,
+        "exit_code": 0,
+        "status": "guard_or_launch_failed",
+        "result_json": "D:\\RAVEN-4060\\logs\\cube-a11-frames\\report.json",
+        "error": "[Errno 2] No such file or directory: 'D:\\\\RAVEN-4060\\\\logs\\\\cube-a11-frames\\\\report.json'",
+        "peak_job_commit_gib": 10.045574188232422,
+        "elapsed_s": 99.95
+      },
+      "report": null,
+      "last_progress": {
+        "scope": "render_and_physics_diagnostic_only",
+        "benchmark_accepted": false,
+        "scene": "diagnostic_cube",
+        "frames": [],
+        "graphics_api_requested": "vulkan",
+        "cpu_threads": 16,
+        "shader_concurrency": 1,
+        "defer_stage": true,
+        "gui": true,
+        "renderer": "PathTracing",
+        "sync_loads": false,
+        "script_sha256": "21e809200b8ba5c81927c46532b9954c23f44c034160f7ce009dc65ebc61c38f",
+        "vulkan_driver_filter": "nv-vk64.json",
+        "phase": "waiting_for_camera_frame",
+        "elapsed_s": 16.656999999999243,
+        "isaac_app_version": "4.5.0",
+        "stage_prims": 10,
+        "cube_initial_z": 1.5,
+        "warmup_step": 75,
+        "cube_final_z": 0.2499997913837433,
+        "physics_passed": true
+      },
+      "minimum_available_gib": 11.242176055908203,
+      "minimum_commit_headroom_gib": 8.030792236328125,
+      "maximum_gpu_memory_fraction": 0.07364435759648266,
+      "compiler_out_of_memory": true
+    },
+    {
+      "id": "cube-a12",
+      "execution": {
+        "scope": "diagnostic_only_not_benchmark",
+        "command": [
+          "cmd.exe",
+          "/d",
+          "/c",
+          "D:\\RAVEN-4060\\isaac45\\python.bat",
+          "D:\\RAVEN-4060\\setup\\probe-cube-a12.py",
+          "--output",
+          "D:\\RAVEN-4060\\logs\\cube-a12-frames",
+          "--graphics-api",
+          "vulkan",
+          "--defer-stage",
+          "--cpu-threads",
+          "16",
+          "--shader-concurrency",
+          "1",
+          "--gui",
+          "--disable-motion-bvh",
+          "--async-loads",
+          "--first-frame-timeout",
+          "300"
+        ],
+        "limits": {
+          "job_memory_gib": 10.0,
+          "cpu_percent": 60,
+          "active_processes": 32,
+          "min_available_gib": 4,
+          "max_gpu_fraction": 0.8,
+          "timeout_s": 420.0
+        },
+        "initial": {
+          "available_gib": 20.513473510742188,
+          "available_commit_gib": 18.54813003540039,
+          "gpu_memory_fraction": 0.0
+        },
+        "pid": 16768,
+        "status": "guard_or_launch_failed",
+        "error": "Host memory reserve exhausted",
+        "peak_job_commit_gib": 10.00070571899414,
+        "elapsed_s": 76.73
+      },
+      "report": null,
+      "last_progress": {
+        "scope": "render_and_physics_diagnostic_only",
+        "benchmark_accepted": false,
+        "scene": "diagnostic_cube",
+        "frames": [],
+        "graphics_api_requested": "vulkan",
+        "cpu_threads": 16,
+        "shader_concurrency": 1,
+        "defer_stage": true,
+        "gui": true,
+        "renderer": "RayTracedLighting",
+        "sync_loads": false,
+        "disable_motion_bvh": true,
+        "script_sha256": "1e3d751de624d2f7e48eb596bbf07538ca9763f64587df72d1a0132901e171d0",
+        "vulkan_driver_filter": "nv-vk64.json",
+        "phase": "waiting_for_camera_frame",
+        "elapsed_s": 13.890000000001237,
+        "isaac_app_version": "4.5.0",
+        "stage_prims": 10,
+        "cube_initial_z": 1.5,
+        "warmup_step": 75,
+        "cube_final_z": 0.2499997913837433,
+        "physics_passed": true
+      },
+      "minimum_available_gib": 12.658550262451172,
+      "minimum_commit_headroom_gib": 0.5996742248535156,
+      "maximum_gpu_memory_fraction": 0.07169027845627748,
+      "compiler_out_of_memory": true
+    },
+    {
+      "id": "cube-a13",
+      "execution": {
+        "scope": "diagnostic_only_not_benchmark",
+        "command": [
+          "cmd.exe",
+          "/d",
+          "/c",
+          "D:\\RAVEN-4060\\isaac45\\python.bat",
+          "D:\\RAVEN-4060\\setup\\probe-cube-a13.py",
+          "--output",
+          "D:\\RAVEN-4060\\logs\\cube-a13-frames",
+          "--graphics-api",
+          "vulkan",
+          "--defer-stage",
+          "--cpu-threads",
+          "16",
+          "--shader-concurrency",
+          "1",
+          "--gui",
+          "--disable-motion-bvh",
+          "--async-loads",
+          "--first-frame-timeout",
+          "480"
+        ],
+        "limits": {
+          "job_memory_gib": 14.0,
+          "cpu_percent": 60,
+          "active_processes": 32,
+          "min_available_gib": 4,
+          "min_available_commit_gib": 2,
+          "max_gpu_fraction": 0.8,
+          "timeout_s": 600.0
+        },
+        "initial": {
+          "available_gib": 19.818340301513672,
+          "available_commit_gib": 34.10472106933594,
+          "gpu_memory_fraction": 0.0
+        },
+        "pid": 52060,
+        "exit_code": 0,
+        "status": "completed",
+        "result_json": "D:\\RAVEN-4060\\logs\\cube-a13-frames\\report.json",
+        "diagnostic_status": "passed",
+        "peak_job_commit_gib": 10.988670349121094,
+        "elapsed_s": 202.8
+      },
+      "report": {
+        "scope": "render_and_physics_diagnostic_only",
+        "benchmark_accepted": false,
+        "scene": "diagnostic_cube",
+        "frames": [
+          {
+            "file": "view-0.png",
+            "eye": [
+              3.0,
+              -3.0,
+              2.0
+            ],
+            "target": [
+              0.0,
+              0.0,
+              0.5
+            ],
+            "mean": 210.90003703703704,
+            "std": 15.013714656153756,
+            "sim_time_s": 2.2333334498107433
+          }
+        ],
+        "graphics_api_requested": "vulkan",
+        "cpu_threads": 16,
+        "shader_concurrency": 1,
+        "defer_stage": true,
+        "gui": true,
+        "renderer": "RayTracedLighting",
+        "sync_loads": false,
+        "disable_motion_bvh": true,
+        "script_sha256": "1e3d751de624d2f7e48eb596bbf07538ca9763f64587df72d1a0132901e171d0",
+        "vulkan_driver_filter": "nv-vk64.json",
+        "phase": "waiting_for_camera_frame",
+        "elapsed_s": 198.95300000000134,
+        "isaac_app_version": "4.5.0",
+        "stage_prims": 10,
+        "cube_initial_z": 1.5,
+        "warmup_step": 75,
+        "cube_final_z": 0.2499997615814209,
+        "physics_passed": true,
+        "status": "passed"
+      },
+      "last_progress": {
+        "scope": "render_and_physics_diagnostic_only",
+        "benchmark_accepted": false,
+        "scene": "diagnostic_cube",
+        "frames": [],
+        "graphics_api_requested": "vulkan",
+        "cpu_threads": 16,
+        "shader_concurrency": 1,
+        "defer_stage": true,
+        "gui": true,
+        "renderer": "RayTracedLighting",
+        "sync_loads": false,
+        "disable_motion_bvh": true,
+        "script_sha256": "1e3d751de624d2f7e48eb596bbf07538ca9763f64587df72d1a0132901e171d0",
+        "vulkan_driver_filter": "nv-vk64.json",
+        "phase": "waiting_for_camera_frame",
+        "elapsed_s": 19.17200000000048,
+        "isaac_app_version": "4.5.0",
+        "stage_prims": 10,
+        "cube_initial_z": 1.5,
+        "warmup_step": 75,
+        "cube_final_z": 0.2499997913837433,
+        "physics_passed": true
+      },
+      "minimum_available_gib": 11.511600494384766,
+      "minimum_commit_headroom_gib": 23.272342681884766,
+      "maximum_gpu_memory_fraction": 0.11883243771372741,
+      "compiler_out_of_memory": false
+    },
+    {
+      "id": "retro-render-a01",
+      "execution": {
+        "scope": "diagnostic_only_not_benchmark",
+        "command": [
+          "cmd.exe",
+          "/d",
+          "/c",
+          "D:\\RAVEN-4060\\isaac45\\python.bat",
+          "D:\\RAVEN-4060\\setup\\probe-retro-render-a01.py",
+          "--output",
+          "D:\\RAVEN-4060\\logs\\retro-render-a01-frames",
+          "--graphics-api",
+          "vulkan",
+          "--defer-stage",
+          "--cpu-threads",
+          "16",
+          "--shader-concurrency",
+          "1",
+          "--gui",
+          "--disable-motion-bvh",
+          "--async-loads",
+          "--first-frame-timeout",
+          "480",
+          "--scene",
+          "D:\\RAVEN-4060\\source\\AirStack\\scenes\\RetroNeighborhood\\RetroNeighborhood_Export.usd"
+        ],
+        "limits": {
+          "job_memory_gib": 14.0,
+          "cpu_percent": 60,
+          "active_processes": 32,
+          "min_available_gib": 4,
+          "min_available_commit_gib": 2,
+          "max_gpu_fraction": 0.8,
+          "timeout_s": 600.0
+        },
+        "initial": {
+          "available_gib": 20.318424224853516,
+          "available_commit_gib": 34.55526351928711,
+          "gpu_memory_fraction": 0.0
+        },
+        "pid": 48884,
+        "exit_code": 0,
+        "status": "completed",
+        "result_json": "D:\\RAVEN-4060\\logs\\retro-render-a01-frames\\report.json",
+        "diagnostic_status": "passed",
+        "peak_job_commit_gib": 10.781116485595703,
+        "elapsed_s": 177.2
+      },
+      "report": {
+        "scope": "render_and_physics_diagnostic_only",
+        "benchmark_accepted": false,
+        "scene": "D:\\RAVEN-4060\\source\\AirStack\\scenes\\RetroNeighborhood\\RetroNeighborhood_Export.usd",
+        "frames": [
+          {
+            "file": "view-0.png",
+            "eye": [
+              -33.0,
+              -21.5,
+              1.2
+            ],
+            "target": [
+              -20.0,
+              -21.5,
+              1.2
+            ],
+            "mean": 0.40452314814814816,
+            "std": 9.286858242840378,
+            "sim_time_s": 2.0833334419876337
+          },
+          {
+            "file": "view-1.png",
+            "eye": [
+              -10.0,
+              -40.0,
+              45.0
+            ],
+            "target": [
+              -10.0,
+              10.0,
+              0.0
+            ],
+            "mean": 168.06951851851852,
+            "std": 54.098323941566754,
+            "sim_time_s": 3.6666668578982353
+          }
+        ],
+        "graphics_api_requested": "vulkan",
+        "cpu_threads": 16,
+        "shader_concurrency": 1,
+        "defer_stage": true,
+        "gui": true,
+        "renderer": "RayTracedLighting",
+        "sync_loads": false,
+        "disable_motion_bvh": true,
+        "script_sha256": "1e3d751de624d2f7e48eb596bbf07538ca9763f64587df72d1a0132901e171d0",
+        "vulkan_driver_filter": "nv-vk64.json",
+        "phase": "render_warmup",
+        "elapsed_s": 172.26500000000124,
+        "isaac_app_version": "4.5.0",
+        "scene_sha256": "2a7141ce928c432f031f78a6b1c3798eaa932431d5a1735f8bad513694afce32",
+        "stage_prims": 27986,
+        "warmup_step": 75,
+        "status": "passed"
+      },
+      "last_progress": {
+        "scope": "render_and_physics_diagnostic_only",
+        "benchmark_accepted": false,
+        "scene": "D:\\RAVEN-4060\\source\\AirStack\\scenes\\RetroNeighborhood\\RetroNeighborhood_Export.usd",
+        "frames": [
+          {
+            "file": "view-0.png",
+            "eye": [
+              -33.0,
+              -21.5,
+              1.2
+            ],
+            "target": [
+              -20.0,
+              -21.5,
+              1.2
+            ],
+            "mean": 0.40452314814814816,
+            "std": 9.286858242840378,
+            "sim_time_s": 2.0833334419876337
+          }
+        ],
+        "graphics_api_requested": "vulkan",
+        "cpu_threads": 16,
+        "shader_concurrency": 1,
+        "defer_stage": true,
+        "gui": true,
+        "renderer": "RayTracedLighting",
+        "sync_loads": false,
+        "disable_motion_bvh": true,
+        "script_sha256": "1e3d751de624d2f7e48eb596bbf07538ca9763f64587df72d1a0132901e171d0",
+        "vulkan_driver_filter": "nv-vk64.json",
+        "phase": "render_warmup",
+        "elapsed_s": 171.875,
+        "isaac_app_version": "4.5.0",
+        "scene_sha256": "2a7141ce928c432f031f78a6b1c3798eaa932431d5a1735f8bad513694afce32",
+        "stage_prims": 27986,
+        "warmup_step": 75
+      },
+      "minimum_available_gib": 12.650836944580078,
+      "minimum_commit_headroom_gib": 23.560470581054688,
+      "maximum_gpu_memory_fraction": 0.38409868099658034,
+      "compiler_out_of_memory": false
+    },
+    {
+      "id": "retro-render-a02",
+      "execution": {
+        "scope": "diagnostic_only_not_benchmark",
+        "command": [
+          "cmd.exe",
+          "/d",
+          "/c",
+          "D:\\RAVEN-4060\\isaac45\\python.bat",
+          "D:\\RAVEN-4060\\setup\\probe-retro-render-a02.py",
+          "--output",
+          "D:\\RAVEN-4060\\logs\\retro-render-a02-frames",
+          "--graphics-api",
+          "vulkan",
+          "--defer-stage",
+          "--cpu-threads",
+          "16",
+          "--shader-concurrency",
+          "1",
+          "--gui",
+          "--disable-motion-bvh",
+          "--async-loads",
+          "--first-frame-timeout",
+          "480",
+          "--camera-size",
+          "960",
+          "600",
+          "--scene",
+          "D:\\RAVEN-4060\\source\\AirStack\\scenes\\RetroNeighborhood\\RetroNeighborhood_Export.usd"
+        ],
+        "limits": {
+          "job_memory_gib": 14.0,
+          "cpu_percent": 60,
+          "active_processes": 32,
+          "min_available_gib": 4,
+          "min_available_commit_gib": 2,
+          "max_gpu_fraction": 0.8,
+          "timeout_s": 600.0
+        },
+        "initial": {
+          "available_gib": 20.348819732666016,
+          "available_commit_gib": 34.61513900756836,
+          "gpu_memory_fraction": 0.0
+        },
+        "pid": 38484,
+        "exit_code": 0,
+        "status": "completed",
+        "result_json": "D:\\RAVEN-4060\\logs\\retro-render-a02-frames\\report.json",
+        "diagnostic_status": "passed",
+        "peak_job_commit_gib": 10.424373626708984,
+        "elapsed_s": 51.31
+      },
+      "report": {
+        "scope": "render_and_physics_diagnostic_only",
+        "benchmark_accepted": false,
+        "scene": "D:\\RAVEN-4060\\source\\AirStack\\scenes\\RetroNeighborhood\\RetroNeighborhood_Export.usd",
+        "frames": [
+          {
+            "file": "view-0.png",
+            "eye": [
+              -33.0,
+              -21.5,
+              1.2
+            ],
+            "target": [
+              -20.0,
+              -21.5,
+              1.2
+            ],
+            "mean": 172.27406655092594,
+            "std": 68.86964674969984,
+            "nonblack_fraction": 0.9723211805555556,
+            "rendering_frame": 195,
+            "sim_time_s": 3.0333334915339947
+          },
+          {
+            "file": "view-1.png",
+            "eye": [
+              -10.0,
+              -40.0,
+              45.0
+            ],
+            "target": [
+              -10.0,
+              10.0,
+              0.0
+            ],
+            "mean": 168.86163194444444,
+            "std": 55.78168682108203,
+            "nonblack_fraction": 0.9986788194444445,
+            "rendering_frame": 365,
+            "sim_time_s": 5.8666669726371765
+          }
+        ],
+        "graphics_api_requested": "vulkan",
+        "cpu_threads": 16,
+        "shader_concurrency": 1,
+        "defer_stage": true,
+        "gui": true,
+        "renderer": "RayTracedLighting",
+        "sync_loads": false,
+        "disable_motion_bvh": true,
+        "camera_size": [
+          960,
+          600
+        ],
+        "settle_frames": 60,
+        "minimum_nonblack_fraction": 0.05,
+        "script_sha256": "0a607bc909410f908d1343f9e50209ca39d0b12ceddef6a0b0c6c32fce1d039e",
+        "vulkan_driver_filter": "nv-vk64.json",
+        "phase": "frames_complete",
+        "elapsed_s": 48.45299999999952,
+        "isaac_app_version": "4.5.0",
+        "motion_bvh_effective": false,
+        "scene_sha256": "2a7141ce928c432f031f78a6b1c3798eaa932431d5a1735f8bad513694afce32",
+        "stage_prims": 27986,
+        "warmup_step": 75,
+        "status": "passed"
+      },
+      "last_progress": {
+        "scope": "render_and_physics_diagnostic_only",
+        "benchmark_accepted": false,
+        "scene": "D:\\RAVEN-4060\\source\\AirStack\\scenes\\RetroNeighborhood\\RetroNeighborhood_Export.usd",
+        "frames": [
+          {
+            "file": "view-0.png",
+            "eye": [
+              -33.0,
+              -21.5,
+              1.2
+            ],
+            "target": [
+              -20.0,
+              -21.5,
+              1.2
+            ],
+            "mean": 172.27406655092594,
+            "std": 68.86964674969984,
+            "nonblack_fraction": 0.9723211805555556,
+            "rendering_frame": 195,
+            "sim_time_s": 3.0333334915339947
+          },
+          {
+            "file": "view-1.png",
+            "eye": [
+              -10.0,
+              -40.0,
+              45.0
+            ],
+            "target": [
+              -10.0,
+              10.0,
+              0.0
+            ],
+            "mean": 168.86163194444444,
+            "std": 55.78168682108203,
+            "nonblack_fraction": 0.9986788194444445,
+            "rendering_frame": 365,
+            "sim_time_s": 5.8666669726371765
+          }
+        ],
+        "graphics_api_requested": "vulkan",
+        "cpu_threads": 16,
+        "shader_concurrency": 1,
+        "defer_stage": true,
+        "gui": true,
+        "renderer": "RayTracedLighting",
+        "sync_loads": false,
+        "disable_motion_bvh": true,
+        "camera_size": [
+          960,
+          600
+        ],
+        "settle_frames": 60,
+        "minimum_nonblack_fraction": 0.05,
+        "script_sha256": "0a607bc909410f908d1343f9e50209ca39d0b12ceddef6a0b0c6c32fce1d039e",
+        "vulkan_driver_filter": "nv-vk64.json",
+        "phase": "frames_complete",
+        "elapsed_s": 48.45299999999952,
+        "isaac_app_version": "4.5.0",
+        "motion_bvh_effective": false,
+        "scene_sha256": "2a7141ce928c432f031f78a6b1c3798eaa932431d5a1735f8bad513694afce32",
+        "stage_prims": 27986,
+        "warmup_step": 75,
+        "status": "passed"
+      },
+      "minimum_available_gib": 14.521095275878906,
+      "minimum_commit_headroom_gib": 23.798294067382812,
+      "maximum_gpu_memory_fraction": 0.39399120664386905,
+      "compiler_out_of_memory": false
+    }
+  ],
+  "pagefile_before": {
+    "captured_at": "2026-10-18T18:54:20.8781063+08:00",
+    "automatic_managed_pagefile": true,
+    "explicit_settings": [],
+    "active_pagefiles": [
+      {
+        "Name": "C:\\pagefile.sys",
+        "AllocatedBaseSize": 2048,
+        "CurrentUsage": 87,
+        "PeakUsage": 102
+      }
+    ],
+    "paging_files_registry": [
+      "?:\\pagefile.sys"
+    ],
+    "ssh_start_type": "Manual"
+  },
+  "pagefile_after": {
+    "verified_at": "2026-10-18T18:54:33.4908952+08:00",
+    "configured_pagefiles": [
+      {
+        "Name": "C:\\pagefile.sys",
+        "InitialSize": 0,
+        "MaximumSize": 0
+      },
+      {
+        "Name": "D:\\pagefile.sys",
+        "InitialSize": 16384,
+        "MaximumSize": 24576
+      }
+    ],
+    "active_pagefiles": [
+      {
+        "Name": "C:\\pagefile.sys",
+        "AllocatedBaseSize": 2048
+      },
+      {
+        "Name": "D:\\pagefile.sys",
+        "AllocatedBaseSize": 16384
+      }
+    ],
+    "ssh_start_type": "Automatic",
+    "restart_performed": false
+  },
+  "pagefile_authorization": "User explicitly approved applying the prepared configuration; no reboot performed by the agent.",
+  "pagefile_observation": "New 16 GiB D: pagefile became active immediately; total commit capacity rose from about 33.61 to 49.61 GiB.",
+  "formal_benchmark_guards_changed": false,
+  "diagnostic_limit": "Default 8 GiB; 10/14 GiB comparisons. All retain 4 GiB physical and 2 GiB commit reserve, GPU memory <=80%, CPU <=60%, wall-clock deadline.",
+  "scene1_reproduced": false,
+  "real_episode_count": 0,
+  "cleanup": {
+    "checked_at": "2026-10-18T19:07:25.4821907+08:00",
+    "processes": [],
+    "task_removed": true
+  },
+  "capture_methods": {
+    "sensor_png": "PIL saves the actual Camera.get_rgba buffer without image editing",
+    "ui_png": "omni.kit.renderer.capture captures the actual Isaac window swapchain",
+    "ui_camera_preview": "An in-app panel displays the same saved sensor PNG; not a claim that the default viewport renders correctly"
+  },
+  "visual_review": {
+    "cube-a13/view-0.png": "Actual red cube on ground, manually inspected",
+    "retro-render-a01/view-0.png": "Rejected: mostly black first buffer; original weak variance-only test reported passed",
+    "retro-render-a01/view-1.png": "Actual street/parking area visible; manually inspected",
+    "retro-render-a02/view-0.png": "Passed visual inspection: street, bus shelter, houses, trees and light poles",
+    "retro-render-a02/view-1.png": "Passed visual inspection: parking area, vehicles, houses, trees and street",
+    "retro-render-a02/ui-camera-preview-1.png": "Actual Isaac app capture; preview panel displays the saved RGB buffer and measured frame/time"
+  },
+  "sources": [
+    "https://learn.microsoft.com/en-us/troubleshoot/windows-client/performance/introduction-to-the-page-file",
+    "https://learn.microsoft.com/en-us/troubleshoot/windows-client/performance/slow-page-file-growth-memory-allocation-errors",
+    "https://docs.omniverse.nvidia.com/kit/docs/omni.kit.renderer.capture/106.0.0/omni.kit.renderer.capture/omni.kit.renderer.capture.IRendererCapture.html"
+  ],
+  "screenshots": [
+    {
+      "file": "screenshots/01-isaac-startup.png",
+      "sha256": "a5b8790429e70dac7a5db405b989650c56f7c0267073fd9aa329dd57ceca8712",
+      "bytes": 271233
+    },
+    {
+      "file": "screenshots/02-camera-waiting.png",
+      "sha256": "f323d20c125112dcbc2d10a61bc9d40fc765cb5543dd755066b105fb699d0436",
+      "bytes": 276396
+    },
+    {
+      "file": "screenshots/03-cube-rtx-rgb.png",
+      "sha256": "462fe2b095d45f5d9c6a374d7433e6b745873fbabec0695c379e4789f580f97c",
+      "bytes": 49506
+    }
+  ],
+  "teacher_screenshots": [
+    {
+      "file": "teacher-screenshots/01-scene1-street.png",
+      "sha256": "429ff296d3b51072c82cb4dafa66534502eb5da549aaa64db346f0ef02eab555"
+    },
+    {
+      "file": "teacher-screenshots/02-scene1-overview.png",
+      "sha256": "3c2f83171d57e2f2616a0b92267f38fe05520f6a6243b4d7e9f2c053db12cafe"
+    },
+    {
+      "file": "teacher-screenshots/03-isaac-street-window.png",
+      "sha256": "f196dbe7e3a38a0fc49abe4a593a8cef27483061a353e6ce1bbf3e9db717130b"
+    },
+    {
+      "file": "teacher-screenshots/04-isaac-overview-window.png",
+      "sha256": "b4a54399f0eac036f3c33137c3236067179317a64642da4c5f1e7b0e026da516"
+    },
+    {
+      "file": "teacher-screenshots/05-cube-validation.png",
+      "sha256": "462fe2b095d45f5d9c6a374d7433e6b745873fbabec0695c379e4789f580f97c"
+    }
+  ],
+  "cube_rgb_passed": true,
+  "retro_rgb_passed": true
+}

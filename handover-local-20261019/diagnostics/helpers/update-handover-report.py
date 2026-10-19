@@ -1,0 +1,12 @@
+from pathlib import Path
+import json,html
+root=Path(r'D:\xprogram/RAVEN-AirGround-github');run=root/'runs/autonomous_handover_20261019'
+s=json.loads((run/'progress.json').read_text(encoding='utf-8'));items=json.loads((run/'human-inputs.json').read_text(encoding='utf-8'))
+rows=''.join('<tr>'+''.join('<td>'+html.escape(str(i.get(k,'')))+'</td>' for k in ['scene','status','problem','request','owner','blocks','evidence'])+'</tr>' for i in items)
+page='''<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>自主交接任务进展</title><style>body{max-width:1400px;margin:32px auto;padding:24px;font:16px/1.7 system-ui,"Microsoft YaHei";background:#f4f6fa;color:#182538}section{background:white;padding:24px;margin:20px 0;border-radius:12px}td,th{border:1px solid #ddd;padding:10px;vertical-align:top}table{border-collapse:collapse;width:100%;font-size:14px}pre{white-space:pre-wrap;overflow-wrap:anywhere}</style><h1>自主交接任务进展</h1><p>本页为最后核查时间的快照，不代表打开页面时仍有进程运行。</p><section><h2>当前结果与运行记录</h2><pre>'''+html.escape(json.dumps(s,ensure_ascii=False,indent=2))+'''</pre><p><a href="../../IMPLEMENTATION_PLAN.md">唯一任务状态计划</a> · <a href="../full_map_nav2_20261019/teacher-report/查看进展.html">完整地图导航与截图</a> · <a href="progress.json">状态数据</a></p></section><section><h2>待人工或外部资料</h2><p>这些事项未获批准。未审核诊断会明确标记，不计作正式交付。</p><table><tr><th>场景</th><th>状态</th><th>问题</th><th>需要提供或确认</th><th>负责人</th><th>影响</th><th>证据路径（相对仓库）</th></tr>'''+rows+'''</table><p><a href="human-inputs.json">完整人工依赖记录</a></p></section></html>'''
+if s.get('reader_summary'):
+    summary='<section><h2>先看这里</h2><p>最近核查：'+html.escape(s['updated_at'])+'</p><ul>'+''.join('<li>'+html.escape(item)+'</li>' for item in s['reader_summary'])+'</ul><p><a href="../construction_adaptation_20261019/teacher-report/完整诊断图.html">ConstructionSite旧图与失效说明</a> · <a href="../additional_scene_preflight_20261019/查看碰撞诊断.html">FireAcademy碰撞数据图</a> · <a href="../nav2_dwb_stability_20261019/teacher-report/查看进展.html">场景一导航截图与三轮结果</a></p></section>'
+    page=page.replace('<section><h2>当前结果与运行记录</h2>',summary+'<section><h2>当前结果与运行记录</h2>',1)
+page=page.replace('<h2>先看这里</h2>', '<h2>先看这里</h2><p><a href="../construction_adaptation_20261019/teacher-review-a03/查看进展.html">ConstructionSite 12张真实RGB部分审核包</a> · <a href="../additional_scene_preflight_20261019/查看窗口验证.html">FireAcademy 49,152格窗口验证图</a> · <a href="../construction_adaptation_20261019/teacher-report/instance-collider-window-comparison.png">ConstructionSite漏碰撞修复前后对照</a></p>')
+(run/'查看进展.html').write_text(page,encoding='utf-8')
+print(s['updated_at'],s['phase'])

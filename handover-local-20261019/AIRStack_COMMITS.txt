@@ -1,0 +1,7 @@
+d3f829bbf9304d02f9a49d9d8ef177cf32838e4e Support explicit semantic aliases for cross-scene USD candidate export
+1862f4ffcbe383eae4c766e2f548a6e83529a0f2 Parameterize raycast scene identity and explicit asset input
+dca384411aa8c5e93e1f37da89a2127e19780aae Fix ConstructionSite terrain collider classification after PhysX audit
+e427fbf3ee574aad7e8f063c12180f017efda2b8 Validate scene selection before confirmation visibility raycasts
+10d18eba109eebf942fcbd3de4c1988a3b50e37d Reject missing target prim paths before visibility queries
+250474bcb0b027375c7ce59bef9f03691ca71602 Project target paths explicitly into validated reference mounts
+c01d33b17641dd502e1f714319f1ea318156b60e Add explicit static instance collider manifests

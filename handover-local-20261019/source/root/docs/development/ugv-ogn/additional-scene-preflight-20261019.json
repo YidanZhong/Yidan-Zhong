@@ -1,0 +1,58 @@
+{
+  "scope": "read-only offline USD 0.26.8 audit in isolated main-PC WSL; not Isaac 4.5 rendering/PhysX acceptance",
+  "updated_at": "2026-10-19T12:00:13.863082+08:00",
+  "scenes": {
+    "AbandonedFactory": {
+      "prims": 1643,
+      "source_scene_sha256": "c6d12e6ca061145daf7e95169446880ccfa8ce2661572a9a92d48f7e20539e16",
+      "coordinate_candidate_status": {
+        "unbound": 10,
+        "matches_export": 1
+      },
+      "unresolved_attributes": {
+        "info:unreal:sourceAsset": 348,
+        "info:mdl:sourceAsset": 1
+      },
+      "report": "runs/additional_scene_preflight_20261019/AbandonedFactory.json",
+      "report_sha256": "6528f94889e1aa8e6df31cff059a922ae264940323363806d2277a768f259079",
+      "process_exit_code": 2,
+      "real_rendering_verified": false,
+      "missing_runtime_asset": "SubUSDs/materials/Ground.mdl, /World/Environment/Looks/Ground/Shader.info:mdl:sourceAsset"
+    },
+    "FireAcademy": {
+      "prims": 198,
+      "source_scene_sha256": "242dafc6f6315d1de9ac1f6023f1c931f11410aa27dde8345d2a45808e8db252",
+      "coordinate_candidate_status": {
+        "unbound": 13
+      },
+      "unresolved_attributes": {
+        "info:mdl:sourceAsset": 50
+      },
+      "report": "runs/additional_scene_preflight_20261019/FireAcademy.json",
+      "report_sha256": "f92570ff42505b0af05ac1c87925acfe6812f6441b4debc6b13d4033bc652a24",
+      "process_exit_code": 2,
+      "real_rendering_verified": false,
+      "runtime_material_check": "OmniPBR.mdl exists in installed Isaac 4.5 kit/mdl/core/Base (15,591 bytes); offline pxr-only resolution does not include MDL search paths. Actual material render still pending.",
+      "review_preparation": "13 unbound original annotations, 26 camera views prepared. No merged mesh was assigned to an individual target.",
+      "transfer": {
+        "scene_id": "FireAcademy",
+        "files_verified": 377,
+        "destination": "D:\\RAVEN-4060\\assets\\handover-scenes-20261019",
+        "archive_sha256": "7e2ef2a9e797e61fd62574b26874bbf9aab8b589a8f832b529b1ea8740542b13",
+        "passed": true
+      },
+      "face_diagnostic": {
+        "report": "runs/fireacademy_adaptation_20261019/face-candidates-a02/report.json",
+        "sha256": "b174c82b9e5ebdbafd4b9cc8dcf0efba0f8bef5c39dc98f5f874ee1ad4c9fb5b",
+        "geometry_root": "/World/stage",
+        "main_mesh_faces": 3966071,
+        "annotations_with_geometric_candidates": 13,
+        "unit_tests": "2 geometry boundary/rotation checks passed",
+        "process_exit_code": 0,
+        "earlier_attempt": "First audit included default environment helpers; retained separately. a02 explicitly restricts scene geometry root.",
+        "human_ownership_approved": false
+      }
+    }
+  },
+  "formal_accepted": false
+}

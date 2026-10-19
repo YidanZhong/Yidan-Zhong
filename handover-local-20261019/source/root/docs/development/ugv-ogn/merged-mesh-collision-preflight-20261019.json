@@ -1,0 +1,154 @@
+{
+  "scope": "offline preparation only, not actual PhysX/semantic approval",
+  "formal_accepted": false,
+  "scenes": {
+    "FireAcademy": {
+      "large_complex_candidates": 1,
+      "risk_file": "runs\\additional_scene_preflight_20261019\\FireAcademy-collision-risk.json",
+      "risk_sha256": "c56a8049733490fbff57a83ce41e86b918fc5badd358f6b1804e1118118b51c0",
+      "baseline_file": "runs\\additional_scene_preflight_20261019\\FireAcademy-source-ray-baseline.json",
+      "baseline_sha256": "e476570a38acc151cab141adeae7a5a60141a1fafd1b4517bc6c9c098442150f",
+      "scene_sha256": "242dafc6f6315d1de9ac1f6023f1c931f11410aa27dde8345d2a45808e8db252",
+      "points": [
+        {
+          "xy_m": [
+            -30.475,
+            -4.825
+          ],
+          "source_hits": [
+            {
+              "prim": "/World/stage/Ds/Ds_001",
+              "z_m": [
+                0.8720466,
+                3.4758083,
+                3.5219974,
+                4.748055,
+                4.9677028
+              ],
+              "triangle_intersection_count": 5
+            },
+            {
+              "prim": "/World/stage/Cylinder",
+              "z_m": [
+                -3.5299999,
+                -2.5299999
+              ],
+              "triangle_intersection_count": 2
+            }
+          ]
+        },
+        {
+          "xy_m": [
+            -40.475,
+            10.175
+          ],
+          "source_hits": [
+            {
+              "prim": "/World/stage/Ds/Ds_001",
+              "z_m": [
+                1.4510109
+              ],
+              "triangle_intersection_count": 1
+            },
+            {
+              "prim": "/World/stage/Cylinder",
+              "z_m": [
+                -3.5299999,
+                -2.5299999
+              ],
+              "triangle_intersection_count": 2
+            }
+          ]
+        },
+        {
+          "xy_m": [
+            0.025,
+            0.025
+          ],
+          "source_hits": [
+            {
+              "prim": "/World/stage/Ds/Ds_001",
+              "z_m": [
+                -0.0999822
+              ],
+              "triangle_intersection_count": 1
+            },
+            {
+              "prim": "/World/stage/Cylinder",
+              "z_m": [
+                -3.5299999,
+                -2.5299999
+              ],
+              "triangle_intersection_count": 4
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Prototype library excluded; actual instance placement not inferred",
+        "Polygon fan triangulation; no full-scene equality claim",
+        "Ray jobs prepared but not run; target manifests unchanged"
+      ]
+    },
+    "AbandonedFactory": {
+      "large_complex_candidates": 16,
+      "risk_file": "runs\\additional_scene_preflight_20261019\\AbandonedFactory-collision-risk.json",
+      "risk_sha256": "331ca2aeba706fb4f7c9a4068fa56d51b10883c9c97436c0892ff420d576f602",
+      "baseline_file": "runs\\additional_scene_preflight_20261019\\AbandonedFactory-source-ray-baseline.json",
+      "baseline_sha256": "ac3784fcb907487015662241d3a17dfb528e68a1de77d23bfa158ceb9c1a502d",
+      "scene_sha256": "c6d12e6ca061145daf7e95169446880ccfa8ce2661572a9a92d48f7e20539e16",
+      "points": [
+        {
+          "xy_m": [
+            30.025,
+            -82.025
+          ],
+          "source_hits": [
+            {
+              "prim": "/World/stage/AbandonedFactory/MergedMeshes/merged_38",
+              "z_m": [
+                0.5380991
+              ],
+              "triangle_intersection_count": 1
+            }
+          ]
+        },
+        {
+          "xy_m": [
+            20.025,
+            -67.025
+          ],
+          "source_hits": [
+            {
+              "prim": "/World/stage/AbandonedFactory/MergedMeshes/merged_38",
+              "z_m": [
+                0.5380991
+              ],
+              "triangle_intersection_count": 1
+            }
+          ]
+        },
+        {
+          "xy_m": [
+            0.025,
+            0.025
+          ],
+          "source_hits": [
+            {
+              "prim": "/World/stage/AbandonedFactory/MergedMeshes/merged_38",
+              "z_m": [
+                0.5380991
+              ],
+              "triangle_intersection_count": 1
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Prototype library excluded; actual instance placement not inferred",
+        "Polygon fan triangulation; no full-scene equality claim",
+        "Ray jobs prepared but not run; target manifests unchanged"
+      ]
+    }
+  }
+}

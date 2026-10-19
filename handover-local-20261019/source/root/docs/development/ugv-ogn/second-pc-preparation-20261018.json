@@ -1,0 +1,89 @@
+{
+  "checked_on": "2026-10-18",
+  "task": "P0-UGV-OGN-Benchmark / Local-Scene1-Reproduction / Second-PC-Preparation",
+  "authorization": "User authorized operating their second computer through the current computer and autonomous local reproduction preparation.",
+  "connection": {
+    "ssh_host_key_verified": true,
+    "dedicated_ed25519_key_login": "passed",
+    "network_probe": "TCP 22 became reachable after adding a WLAN firewall allow rule scoped to the initiating computer IPv4 address, applicable to all network profiles",
+    "credentials_in_artifact": false
+  },
+  "hardware": {
+    "cpu": "Intel Core Ultra 9 185H",
+    "physical_cores": 16,
+    "logical_processors": 22,
+    "ram_visible_kib": 33150328,
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "vram_mib": 8188,
+    "windows_gpu_driver": "577.02",
+    "os": "Windows 11 Home China 25H2",
+    "windows_build": "26200.9711",
+    "disk_d_free_bytes_before_setup": 424972623872,
+    "hypervisor_present": true
+  },
+  "isolated_environment": {
+    "windows_workspace_on_second_pc": "D:\\RAVEN-4060",
+    "wsl_distribution": "RAVEN-Ubuntu-22.04",
+    "wsl_storage_on_second_pc": "D:\\RAVEN-4060\\wsl",
+    "existing_ubuntu_ros_workspace_modified": false,
+    "global_wsl_memory_configuration_modified": false,
+    "observed_wsl_memory": "approximately 15 GiB usable under the default approximately 16 GiB cap",
+    "linux_workspace": "/home/raven/work/RAVEN-AirGround",
+    "python_environment": "/home/raven/.venvs/raven-scene1",
+    "python": "3.10.12",
+    "docker_installed": false,
+    "rootfs_bytes": 596485170,
+    "rootfs_sha256": "c648d3995a77fb404c0df51f16223c854028ac1c6a0a24b191ef1d6c684fecd8",
+    "source_snapshot_bytes": 357560888,
+    "source_snapshot_sha256": "118b3a85da1b670d097fb8e045326f53a312f0b1e05b879680979c521ebe46a1",
+    "source_snapshot_type": "Working files including local changes and recursive submodule files, plus RetroNeighborhood and manifest asset cache; no Git database or SSH credentials. Not a clean Git clone.",
+    "source_root_head": "0ddd5d9441e7d502df23450e4b1d2eacd4a8d084",
+    "source_airstack_head": "d3f829bbf9304d02f9a49d9d8ef177cf32838e4e",
+    "dependency_install": "Initial slow network pip download was terminated; installation completed from previously downloaded Linux wheels with PIP_NO_INDEX=1. Wheel ZIP CRC checks passed."
+  },
+  "checks": {
+    "pip_check": "passed",
+    "airground_doctor": "passed; benchmark_core_tools only",
+    "assets_check_4_5": "passed; 4 bundles, 26 files, 24529863 bytes",
+    "scene_static_audit": "exit 0; USD readable, 27986 prims, 4280 meshes, 4278 collision APIs; not an Isaac rendering or physics test",
+    "scene_sha256": "2a7141ce928c432f031f78a6b1c3798eaa932431d5a1735f8bad513694afce32",
+    "wsl_nvidia_smi": "passed; RTX 4060 visible",
+    "wsl_vulkaninfo_summary": "failed: vkCreateInstance returned ERROR_INCOMPATIBLE_DRIVER; current WSL environment cannot initialize required graphics path"
+  },
+  "windows_native_compatibility_checker": {
+    "version_verified_in_app_manifest": "4.5.0",
+    "url": "https://download.isaacsim.omniverse.nvidia.com/isaac-sim-comp-check-4.5.0-windows-x86_64.zip",
+    "download_bytes": 258609461,
+    "download_sha256": "bb241a4119ed60cd7fecabcd7e7a6373898147b500ee3690516187f6edb382e3",
+    "zip_crc_check": "passed",
+    "command": [
+      "D:\\RAVEN-4060\\isaac-check-4.5\\kit\\kit.exe",
+      "D:\\RAVEN-4060\\isaac-check-4.5\\apps\\omni.isaac.sim.compatibility_check.kit",
+      "--no-window",
+      "--/app/quitAfter=100"
+    ],
+    "exit_code": 0,
+    "seconds": 27.35,
+    "graphics_api": "D3D12",
+    "active_gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "system_check_result": "PASSED",
+    "app_ready": true,
+    "limitations": [
+      "No display detected in SSH session; headless checker exited normally.",
+      "Memory and VRAM meet checker minimums only; more is recommended.",
+      "Checker startup is not a complete Isaac Sim installation, RTX scene rendering, PhysX, ROS, Nav2 or benchmark acceptance."
+    ]
+  },
+  "remaining_blockers": [
+    "Full Isaac Sim 4.5 Windows installation and real RetroNeighborhood rendering/VRAM measurement remain pending.",
+    "Repository orchestration assumes Linux/container runtime; Windows Isaac with Linux ROS needs explicit integration and real validation.",
+    "Existing benchmark memory guard does not fit a 32 GiB host; it has not been disabled or relaxed.",
+    "Teacher-reviewed target/reach data, 0.05 m map package and paper protocol episodes are still absent for exact reproduction."
+  ],
+  "full_scene1_simulation_run": false,
+  "real_episode_count": 0,
+  "resource_guards_changed": false,
+  "simulator_version_migration_performed": false,
+  "logs": "runs/second_pc_preparation_20261018/logs/",
+  "remote_logs": "D:\\RAVEN-4060\\logs"
+}

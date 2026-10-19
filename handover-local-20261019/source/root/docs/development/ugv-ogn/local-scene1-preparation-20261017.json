@@ -1,0 +1,198 @@
+{
+  "checked_on": "2026-10-17",
+  "task": "P0-UGV-OGN-Benchmark / Local-Scene1-Reproduction",
+  "authorization": "Current user explicitly requested local preparation and reproduction; no teacher server access.",
+  "source_root_commit": "0ddd5d9441e7d502df23450e4b1d2eacd4a8d084",
+  "environment": "/home/raven/.venvs/raven-scene1",
+  "hardware": {
+    "checked_on": "2026-10-17",
+    "cpu": "AMD Ryzen 9 8945HX with Radeon Graphics        ",
+    "logical_processors": 32,
+    "ram_bytes": 33605316608,
+    "available_ram_kib": 16744148,
+    "os": "Microsoft Windows 11 家庭版 中文版",
+    "gpu": {
+      "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+      "driver_version": "577.05",
+      "memory.total [MiB]": "8151"
+    },
+    "disk_d_free_bytes": 543560007680,
+    "wsl_memory_cap_gib": 24,
+    "wsl_distribution": "RAVEN-Ubuntu-22.04",
+    "docker_version": "29.8.1",
+    "docker_gpu_probe": "passed with existing CUDA 12.9.1 base image",
+    "isaac_4_5_render_started": false,
+    "runtime_blockers": [
+      "RTX 50-series architecture unsupported by Isaac Sim 4.5 renderer per NVIDIA support",
+      "WSL 24 GiB is below default 26 GiB container cap and cannot meet the current 24 GiB host-reserve rule",
+      "Existing multitask evidence reports 14.9-16.1 GB VRAM; local GPU has 8151 MiB"
+    ],
+    "source": "https://forums.developer.nvidia.com/t/isaac-sim-4-5-not-working-on-windows-11-via-wsl2/366463/3"
+  },
+  "completed": {
+    "core_doctor": "passed (core tools only)",
+    "pip_check": "passed",
+    "assets_bundles": 4,
+    "assets_files": 26,
+    "assets_bytes": 24529863,
+    "scene_sha256": "2a7141ce928c432f031f78a6b1c3798eaa932431d5a1735f8bad513694afce32",
+    "scene_matches_documented_repaired_sha256": true,
+    "vehicle_texture_references": {
+      "references": 59,
+      "missing": 0,
+      "malformed": 0
+    },
+    "static_scene_audit": "passed; no Isaac rendering performed",
+    "target_candidates": 3728,
+    "target_candidates_reviewed": false,
+    "offline_tests": "66 passed in 4.37s"
+  },
+  "packaged_gt": {
+    "instances": 165,
+    "verified": 0,
+    "reachability": {
+      "unknown": 165
+    },
+    "confirmation_regions": 0
+  },
+  "missing_teacher_inputs_for_same_experiment": [
+    "runs/p1_05_targets/p1_05_red_car_binding_20260930/reach_recalibrated/",
+    "runs/p1_03_traversability/p1_03_single_gpu_0p05_full_20260930_r2_native/package/",
+    "runs/p1_09_episode/paper_protocol_20261005/"
+  ],
+  "teacher_runtime_helpers_for_multitask_lane": [
+    "launch1.sh",
+    "gpd73.sh",
+    "s7z4_env.sh",
+    "p9f_env.sh",
+    "their required configuration dependencies"
+  ],
+  "full_simulation_run": false,
+  "full_reproduction_status": "Blocked by local Isaac 4.5 / RTX 50-series compatibility, current memory policy, and missing reviewed experiment inputs.",
+  "simulator_migration_performed": false,
+  "resource_guards_changed": false,
+  "logs": "runs/local_scene1_preparation_20261017/",
+  "steps": [
+    {
+      "step": "doctor",
+      "command": [
+        "/home/raven/.venvs/raven-scene1/bin/airground",
+        "doctor"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.12,
+      "log": "/mnt/d/xprogram/RAVEN-AirGround-github/runs/local_scene1_preparation_20261017/doctor.log"
+    },
+    {
+      "step": "assets_manifest",
+      "command": [
+        "/home/raven/.venvs/raven-scene1/bin/airground",
+        "assets",
+        "manifest",
+        "--simulator-version",
+        "4.5.0"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.67,
+      "log": "/mnt/d/xprogram/RAVEN-AirGround-github/runs/local_scene1_preparation_20261017/assets_manifest.log"
+    },
+    {
+      "step": "assets_fetch",
+      "command": [
+        "/home/raven/.venvs/raven-scene1/bin/airground",
+        "assets",
+        "fetch",
+        "--simulator-version",
+        "4.5.0",
+        "--cache",
+        "assets/cache"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 60.0,
+      "log": "/mnt/d/xprogram/RAVEN-AirGround-github/runs/local_scene1_preparation_20261017/assets_fetch.log"
+    },
+    {
+      "step": "assets_check",
+      "command": [
+        "/home/raven/.venvs/raven-scene1/bin/airground",
+        "assets",
+        "check",
+        "--simulator-version",
+        "4.5.0",
+        "--cache",
+        "assets/cache"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.42,
+      "log": "/mnt/d/xprogram/RAVEN-AirGround-github/runs/local_scene1_preparation_20261017/assets_check.log"
+    },
+    {
+      "step": "vehicle_texture_repair",
+      "command": [
+        "/home/raven/.venvs/raven-scene1/bin/python",
+        "scripts/fix_vehicle_textures.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.12,
+      "log": "/mnt/d/xprogram/RAVEN-AirGround-github/runs/local_scene1_preparation_20261017/vehicle_texture_repair.log"
+    },
+    {
+      "step": "scene_audit",
+      "command": [
+        "/home/raven/.venvs/raven-scene1/bin/python",
+        "AirStack/simulation/isaac-sim/utils/scene_audit.py",
+        "AirStack/scenes/RetroNeighborhood/RetroNeighborhood_Export.usd"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.32,
+      "log": "/mnt/d/xprogram/RAVEN-AirGround-github/runs/local_scene1_preparation_20261017/scene_audit.log"
+    },
+    {
+      "step": "target_candidates",
+      "command": [
+        "/home/raven/.venvs/raven-scene1/bin/python",
+        "AirStack/simulation/isaac-sim/tools/export_target_prim_candidates.py",
+        "--stage",
+        "AirStack/scenes/RetroNeighborhood/RetroNeighborhood_Export.usd",
+        "--output",
+        "/mnt/d/xprogram/RAVEN-AirGround-github/runs/local_scene1_preparation_20261017/target_candidates.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.13,
+      "log": "/mnt/d/xprogram/RAVEN-AirGround-github/runs/local_scene1_preparation_20261017/target_candidates.log"
+    },
+    {
+      "step": "offline_tests",
+      "command": [
+        "/home/raven/.venvs/raven-scene1/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_assets.py",
+        "tests/test_task_catalog.py",
+        "tests/test_ground_truth.py",
+        "tests/test_ugv_progress.py",
+        "AirStack/simulation/isaac-sim/tests/test_scene_audit.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 4.67,
+      "log": "/mnt/d/xprogram/RAVEN-AirGround-github/runs/local_scene1_preparation_20261017/offline_tests.log"
+    },
+    {
+      "step": "pip_check",
+      "command": [
+        "/home/raven/.venvs/raven-scene1/bin/python",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.37,
+      "log": "/mnt/d/xprogram/RAVEN-AirGround-github/runs/local_scene1_preparation_20261017/pip_check.log"
+    }
+  ],
+  "external_sources": [
+    "https://forums.developer.nvidia.com/t/isaac-sim-4-5-not-working-on-windows-11-via-wsl2/366463/3",
+    "https://docs.isaacsim.omniverse.nvidia.com/5.1.0/installation/requirements.html"
+  ]
+}

@@ -1,0 +1,441 @@
+{
+  "checked_on": "2026-10-18",
+  "task": "Local-Scene1-Reproduction / Second-PC-Runtime / Windows-Render-Diagnostic",
+  "hardware_reference": "second-pc-preparation-20261018.json",
+  "scope": "Bounded native Windows diagnostics on the second PC; not a benchmark run",
+  "installation": {
+    "version": "4.5.0-rc.36+release.19112.f59b3005.gl",
+    "url": "https://download.isaacsim.omniverse.nvidia.com/isaac-sim-standalone-4.5.0-windows-x86_64.zip",
+    "bytes": 7013544567,
+    "sha256": "29171fe52efa1923162c215d42907f7f1363dfcff2b4e25a12428ab6cbd08fc8",
+    "archive_entries": 96318,
+    "uncompressed_bytes": 13453026932,
+    "crc": "All extracted or resumed members passed",
+    "remote_directory": "D:\\RAVEN-4060\\isaac45",
+    "native_source_directory": "D:\\RAVEN-4060\\source"
+  },
+  "linux_ros": {
+    "distribution": "RAVEN-Ubuntu-22.04",
+    "ros": "Humble",
+    "ros_base_package": "0.10.0-1jammy.20260915.225919",
+    "rmw_fastrtps_package": "6.2.10-1jammy.20260907.210327",
+    "talker_listener": "passed; real Hello World messages received, isolated domain 42 and localhost",
+    "nav2_packages": "installed; package prefix checks passed; not a navigation run",
+    "nav2_bringup_package": "1.1.20-1jammy.20260916.005516",
+    "navigation2_package": "1.1.20-1jammy.20260916.003813",
+    "windows_linux_dds": "not_yet_verified"
+  },
+  "diagnostic_protection": {
+    "default_process_tree_job_commit_gib": 8,
+    "isolated_comparison_job_commit_gib": 10,
+    "comparison_preflight": "At least 14 GiB available physical memory and 12 GiB commit headroom; no RAVEN WSL or package installation running",
+    "cpu_percent": 60,
+    "active_processes": 32,
+    "min_available_host_gib": 4,
+    "min_available_commit_gib": 2,
+    "max_gpu_memory_fraction": 0.8,
+    "tests": [
+      "Normal bounded child exits successfully",
+      "Allocation exceeding a 0.125 GiB test cap fails with MemoryError",
+      "Sleeping child terminated at the diagnostic deadline",
+      "Exit 0 with a missing required JSON result is rejected",
+      "A fresh status=passed result with exit 0 is accepted",
+      "A child reporting failure before hanging is terminated promptly"
+    ],
+    "formal_benchmark_guards_changed": false
+  },
+  "attempts": [
+    {
+      "id": "cube-a01",
+      "graphics": "Vulkan, default elevated SSH session",
+      "result": "failed; duplicate Intel GPU ICD entries prevented GPU creation; stopped intentionally",
+      "caveat": "Batch exit 0 after forced termination was not success. No result or image exists. The wrapper now optionally requires a fresh status=passed JSON report."
+    },
+    {
+      "id": "cube-a02",
+      "graphics": "D3D12",
+      "result": "app ready; no image; terminated by 600-second timeout",
+      "peak_job_commit_gib": 7.148822784423828
+    },
+    {
+      "id": "cube-a03",
+      "graphics": "Vulkan with VK_LOADER_DRIVERS_SELECT=nv-vk64.json under a limited interactive user token",
+      "result": "app ready; ray-tracing pipeline creation failed during shader compilation; host commit reserve guard stopped process tree",
+      "elapsed_s": 208.2,
+      "peak_job_commit_gib": 8.020851135253906,
+      "last_available_host_gib": 8.707584381103516,
+      "last_available_commit_gib": 1.0436897277832031,
+      "last_gpu_memory_fraction": 0.03590620420127015,
+      "confounder": "Nav2 package download was running in WSL; repeat separately with fewer shader compiler workers before concluding a hardware limit."
+    },
+    {
+      "id": "cube-a04",
+      "graphics": "Vulkan, limited user, NVIDIA-only filter",
+      "cpu_threads": 4,
+      "shader_concurrency": 1,
+      "raven_wsl": "stopped after Nav2 installation",
+      "result": "Windows access violation while SimulationApp waited for the viewport; commit reserve guard stopped the attempt; no frame produced",
+      "peak_job_commit_gib": 8.000934600830078,
+      "last_available_host_gib": 13.141529083251953,
+      "last_available_commit_gib": 1.451934814453125,
+      "elapsed_s": 211.44,
+      "interpretation": "The diagnostic job cap was reached while physical memory remained available. This alone does not prove the hardware cannot run Isaac."
+    },
+    {
+      "id": "cube-a05",
+      "graphics": "Vulkan, limited user, NVIDIA-only filter",
+      "job_commit_limit_gib": 10,
+      "cpu_threads": 4,
+      "shader_concurrency": 1,
+      "raven_wsl": "stopped",
+      "result": "Timed out after 15 minutes during the default viewport / RTX initialization; no image or physics acceptance",
+      "peak_job_commit_gib": 9.488086700439453,
+      "elapsed_s": 900.55,
+      "interpretation": "The larger isolated diagnostic budget did not resolve initialization within the time limit. It is not valid to attribute this result simply to VRAM capacity or missing scene assets."
+    },
+    {
+      "id": "cube-a06",
+      "execution": {
+        "scope": "diagnostic_only_not_benchmark",
+        "command": [
+          "cmd.exe",
+          "/d",
+          "/c",
+          "D:\\RAVEN-4060\\isaac45\\python.bat",
+          "D:\\RAVEN-4060\\setup\\probe_windows_scene_render.py",
+          "--output",
+          "D:\\RAVEN-4060\\logs\\cube-frames-a06",
+          "--graphics-api",
+          "vulkan",
+          "--defer-stage",
+          "--cpu-threads",
+          "8",
+          "--shader-concurrency",
+          "2"
+        ],
+        "limits": {
+          "job_memory_gib": 10.0,
+          "cpu_percent": 60,
+          "active_processes": 32,
+          "min_available_gib": 4,
+          "max_gpu_fraction": 0.8,
+          "timeout_s": 600.0
+        },
+        "initial": {
+          "available_gib": 20.293319702148438,
+          "available_commit_gib": 18.675045013427734,
+          "gpu_memory_fraction": 0.0
+        },
+        "pid": 48652,
+        "exit_code": 0,
+        "status": "failed",
+        "result_json": "D:\\RAVEN-4060\\logs\\cube-frames-a06\\report.json",
+        "diagnostic_status": "failed",
+        "peak_job_commit_gib": 8.64864730834961,
+        "elapsed_s": 180.16
+      },
+      "diagnostic_result": {
+        "scope": "render_and_physics_diagnostic_only",
+        "benchmark_accepted": false,
+        "scene": "diagnostic_cube",
+        "frames": [],
+        "graphics_api_requested": "vulkan",
+        "cpu_threads": 8,
+        "shader_concurrency": 2,
+        "defer_stage": true,
+        "script_sha256": "ce89b014fe3e706ef385f217b244437b9b65aafaa33e070f224abb79b1618708",
+        "vulkan_driver_filter": "nv-vk64.json",
+        "phase": "physics_reset",
+        "elapsed_s": 30.061999999999898,
+        "isaac_app_version": "4.5.0",
+        "stage_prims": 10,
+        "cube_initial_z": 1.5,
+        "status": "failed",
+        "error": "Invalid camera output shape: (0,)"
+      },
+      "interpretation": "The early 90-step camera check was insufficient; this prompted an explicit first-frame wait and separate physics evidence. Not conclusive hardware evidence."
+    },
+    {
+      "id": "cube-a07",
+      "execution": {
+        "scope": "diagnostic_only_not_benchmark",
+        "command": [
+          "cmd.exe",
+          "/d",
+          "/c",
+          "D:\\RAVEN-4060\\isaac45\\python.bat",
+          "D:\\RAVEN-4060\\setup\\probe_windows_scene_render.py",
+          "--output",
+          "D:\\RAVEN-4060\\logs\\cube-frames-a07",
+          "--graphics-api",
+          "vulkan",
+          "--defer-stage",
+          "--cpu-threads",
+          "8",
+          "--shader-concurrency",
+          "2"
+        ],
+        "limits": {
+          "job_memory_gib": 10.0,
+          "cpu_percent": 60,
+          "active_processes": 32,
+          "min_available_gib": 4,
+          "max_gpu_fraction": 0.8,
+          "timeout_s": 600.0
+        },
+        "initial": {
+          "available_gib": 20.17371368408203,
+          "available_commit_gib": 18.64444351196289,
+          "gpu_memory_fraction": 0.0
+        },
+        "pid": 34108,
+        "status": "guard_or_launch_failed",
+        "error": "Diagnostic reported failure: External first-frame deadline exceeded; no image returned within 240 seconds after physics check",
+        "peak_job_commit_gib": 8.687183380126953,
+        "elapsed_s": 371.34
+      },
+      "diagnostic_result": {
+        "scope": "render_and_physics_diagnostic_only",
+        "benchmark_accepted": false,
+        "scene": "diagnostic_cube",
+        "frames": [],
+        "graphics_api_requested": "vulkan",
+        "cpu_threads": 8,
+        "shader_concurrency": 2,
+        "defer_stage": true,
+        "script_sha256": "584edd5646b88703774a599dd7825cb9aeffb927f8f22d6eb5b5f47c53120638",
+        "vulkan_driver_filter": "nv-vk64.json",
+        "phase": "waiting_for_camera_frame",
+        "elapsed_s": 370.04699999999866,
+        "isaac_app_version": "4.5.0",
+        "stage_prims": 10,
+        "cube_initial_z": 1.5,
+        "cube_final_z": 0.2499997913837433,
+        "physics_passed": true,
+        "status": "failed",
+        "error": "External first-frame deadline exceeded; no image returned within 240 seconds after physics check",
+        "reported_by": "external_supervisor"
+      }
+    },
+    {
+      "id": "cube-a08",
+      "execution": {
+        "scope": "diagnostic_only_not_benchmark",
+        "command": [
+          "cmd.exe",
+          "/d",
+          "/c",
+          "D:\\RAVEN-4060\\isaac45\\python.bat",
+          "D:\\RAVEN-4060\\setup\\probe_windows_scene_render.py",
+          "--output",
+          "D:\\RAVEN-4060\\logs\\cube-frames-a08",
+          "--graphics-api",
+          "d3d12",
+          "--defer-stage",
+          "--cpu-threads",
+          "8",
+          "--shader-concurrency",
+          "2",
+          "--first-frame-timeout",
+          "120"
+        ],
+        "limits": {
+          "job_memory_gib": 10.0,
+          "cpu_percent": 60,
+          "active_processes": 32,
+          "min_available_gib": 4,
+          "max_gpu_fraction": 0.8,
+          "timeout_s": 180.0
+        },
+        "initial": {
+          "available_gib": 20.258148193359375,
+          "available_commit_gib": 18.603939056396484,
+          "gpu_memory_fraction": 0.0
+        },
+        "pid": 42584,
+        "status": "guard_or_launch_failed",
+        "error": "Diagnostic wall-clock timeout",
+        "peak_job_commit_gib": 3.9700965881347656,
+        "elapsed_s": 180.45
+      },
+      "last_progress": {
+        "scope": "render_and_physics_diagnostic_only",
+        "benchmark_accepted": false,
+        "scene": "diagnostic_cube",
+        "frames": [],
+        "graphics_api_requested": "d3d12",
+        "cpu_threads": 8,
+        "shader_concurrency": 2,
+        "defer_stage": true,
+        "script_sha256": "299d0f27c07801bb649c40fb4c9dd1ab6cec236da345a91d7017795284c7a271",
+        "vulkan_driver_filter": "nv-vk64.json",
+        "phase": "starting_application",
+        "elapsed_s": 0.0
+      },
+      "interpretation": "D3D12 comparison timed out during application initialization. No camera acceptance was reached; this does not demonstrate a VRAM capacity limit."
+    }
+  ],
+  "vulkan_filter_probe": "passed under limited user token; vkCreateInstance=0 and only NVIDIA GeForce RTX 4060 Laptop GPU enumerated. Elevated SSH ignored the filter.",
+  "diagnostic_scripts": [
+    "scripts/run_windows_probe.py",
+    "scripts/probe_windows_scene_render.py"
+  ],
+  "artifacts": "runs/second_pc_runtime_20261018/",
+  "real_retro_rgb_verified": false,
+  "scene1_reproduced": false,
+  "real_episode_count": 0,
+  "teacher_inputs_still_missing": [
+    "runs/p1_05_targets/p1_05_red_car_binding_20260930/reach_recalibrated/",
+    "runs/p1_03_traversability/p1_03_single_gpu_0p05_full_20260930_r2_native/package/",
+    "runs/p1_09_episode/paper_protocol_20261005/"
+  ],
+  "sources": [
+    "https://vulkan.lunarg.com/doc/view/1.4.328.1/windows/LoaderDriverInterface.html",
+    "https://docs.isaacsim.omniverse.nvidia.com/latest/reference_material/sim_performance_optimization_handbook.html"
+  ],
+  "empty_physics_verified": true,
+  "real_retro_physics_verified": true,
+  "retro_physics_diagnostic": {
+    "scope": "physics_scene_query_diagnostic_only",
+    "benchmark_accepted": false,
+    "scene": "D:\\RAVEN-4060\\source\\AirStack\\scenes\\RetroNeighborhood\\RetroNeighborhood_Export.usd",
+    "frames": [],
+    "graphics_api_requested": "vulkan",
+    "cpu_threads": 8,
+    "shader_concurrency": 2,
+    "defer_stage": true,
+    "script_sha256": "299d0f27c07801bb649c40fb4c9dd1ab6cec236da345a91d7017795284c7a271",
+    "vulkan_driver_filter": "nv-vk64.json",
+    "phase": "physics_queries_complete",
+    "elapsed_s": 47.28100000000086,
+    "isaac_app_version": "4.5.0",
+    "scene_sha256": "2a7141ce928c432f031f78a6b1c3798eaa932431d5a1735f8bad513694afce32",
+    "stage_prims": 27986,
+    "physx_rays": [
+      {
+        "origin": [
+          -33.0,
+          -21.5,
+          8.0
+        ],
+        "hit": true,
+        "distance": 8.19126033782959,
+        "position": [
+          -33.000003814697266,
+          -21.5,
+          -0.19126008450984955
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "collision": "/World/stage/Neighborhood/Road/SM_Road_2/SM_Road_01/Section0"
+      },
+      {
+        "origin": [
+          -20.0,
+          -21.5,
+          8.0
+        ],
+        "hit": true,
+        "distance": 8.191259384155273,
+        "position": [
+          -20.0,
+          -21.5,
+          -0.19126008450984955
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "collision": "/World/stage/Neighborhood/Road/SM_Road_02/SM_Road_02/Section1"
+      }
+    ],
+    "sim_time_s": 1.5333334133028984,
+    "rendering_verified": false,
+    "physics_passed": true,
+    "status": "passed"
+  },
+  "retro_physics_execution": {
+    "scope": "diagnostic_only_not_benchmark",
+    "command": [
+      "cmd.exe",
+      "/d",
+      "/c",
+      "D:\\RAVEN-4060\\isaac45\\python.bat",
+      "D:\\RAVEN-4060\\setup\\probe_windows_scene_render.py",
+      "--output",
+      "D:\\RAVEN-4060\\logs\\retro-physics-result-a01",
+      "--graphics-api",
+      "vulkan",
+      "--defer-stage",
+      "--cpu-threads",
+      "8",
+      "--shader-concurrency",
+      "2",
+      "--physics-only",
+      "--scene",
+      "D:\\RAVEN-4060\\source\\AirStack\\scenes\\RetroNeighborhood\\RetroNeighborhood_Export.usd",
+      "--ray-origin",
+      "-33",
+      "-21.5",
+      "8",
+      "--ray-origin",
+      "-20",
+      "-21.5",
+      "8"
+    ],
+    "limits": {
+      "job_memory_gib": 10.0,
+      "cpu_percent": 60,
+      "active_processes": 32,
+      "min_available_gib": 4,
+      "max_gpu_fraction": 0.8,
+      "timeout_s": 300.0
+    },
+    "initial": {
+      "available_gib": 20.383419036865234,
+      "available_commit_gib": 18.678573608398438,
+      "gpu_memory_fraction": 0.0
+    },
+    "pid": 36416,
+    "exit_code": 0,
+    "status": "completed",
+    "result_json": "D:\\RAVEN-4060\\logs\\retro-physics-result-a01\\report.json",
+    "diagnostic_status": "passed",
+    "peak_job_commit_gib": 5.845855712890625,
+    "elapsed_s": 93.86
+  },
+  "raw_scene_query_limitations": "Two spot-check rays only; raw road height is about -0.19126 m. The benchmark z=0 support plane was not added. These samples are not a 0.05 m traversability map or reviewed GT.",
+  "gpu_driver_or_vulkan_registry_configuration_modified": false,
+  "remaining_blockers": [
+    "RTX camera first-frame initialization remains unresolved under the tested configurations; no validated RGB image exists.",
+    "Windows Isaac to Linux ROS clock/sensor/action communication has not been tested.",
+    "Formal benchmark resource guards remain unchanged; a suitable runtime profile has not been validated.",
+    "Teacher-reviewed target/reach, 0.05 m map, paper episodes and launch configuration remain missing for exact reproduction."
+  ],
+  "cleanup": {
+    "verified_at": "2026-10-18T18:20:24+08:00",
+    "remote_native_isaac_processes": 0,
+    "temporary_probe_tasks_remaining": 0,
+    "tasks_checked": [
+      "RAVEN-Render-Probe-20261018",
+      "RAVEN-Vulkan-Probe-20261018"
+    ],
+    "verification": "Read-only SSH queries of Win32_Process and Get-ScheduledTask"
+  },
+  "native_log_archive": {
+    "path": "runs/second_pc_runtime_20261018/kit-runtime-logs-20261018.zip",
+    "sha256": "c103d16c472e19b90b70e86ce7ad814ca4239d09db42e438e626a69ae6b39f5b",
+    "entries": 20,
+    "crc_verified": true
+  },
+  "diagnostic_script_sha256": {
+    "scripts/run_windows_probe.py": "39c199b382dd4c9222371d50287ddb96edb21d85f1fe1ecb7628c267a9194ce8",
+    "scripts/probe_windows_scene_render.py": "299d0f27c07801bb649c40fb4c9dd1ab6cec236da345a91d7017795284c7a271"
+  },
+  "historical_record": "Snapshot before the later successful RTX first-frame work; original measurements and verdicts are preserved.",
+  "superseded_by": "rtx-first-frame-20261018.json"
+}
